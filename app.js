@@ -107,8 +107,8 @@ app.get('/css/simple-sidebar.css', function (request, response) {
         }
         this.res.send(data);
     }.bind({ req: request, res: response }));
-});*/
-/*app.get('/vendor/jquery/jquery.min.js', function (request, response) {
+});
+app.get('/vendor/jquery/jquery.min.js', function (request, response) {
     console.log('GET /vendor/jquery/jquery.min.js');
     var fs = require('fs');
     request.header("Content-Type", 'text/javascript');
