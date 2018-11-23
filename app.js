@@ -51,7 +51,7 @@ app.get('/logs', function (request, response) {
 });
 var useremail = 0;
 
-app.get('/pages/index', function (request, response) {
+app.get('/index', function (request, response) {
     console.log('GET /index');
     request.header("Content-Type", 'text/html');
     var fs = require('fs');
