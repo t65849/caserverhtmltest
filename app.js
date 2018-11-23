@@ -84,11 +84,11 @@ app.get('/images/tstiball.png', function (request, response) {
     }.bind({ req: request, res: response }));
 });
 
-app.get('/index', function (request, response) {
-    console.log('GET /index');
+app.get('/vendor/bootstrap/css/bootstrap.css', function (request, response) {
+    console.log('GET /css/bootstrap.css');
     var fs = require('fs');
-    request.header("Content-Type", 'text/html');
-    fs.readFile(__dirname + '/pages/index.html', 'utf8', function (err, data) {
+    request.header("Content-Type", 'text/css');
+    fs.readFile(__dirname + '/vendor/bootstrap/css/bootstrap.css', function (err, data) {
         if (err) {
             this.res.send(err);
         }
