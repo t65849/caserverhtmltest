@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+		<!--  -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Bootstrap Flat Registration Form Template</title>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+        <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/assets/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="/assets/css/form-elements.css">
+        <link rel="stylesheet" href="/assets/css/style.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <!-- Favicon and touch icons -->
+        <link rel="shortcut icon" href="assets/ico/favicon.png">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="/assets/ico/apple-touch-icon-57-precomposed.png">
+		<style>
+		body{
+			margin:0px;
+			height: 100%;
+			background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Starsinthesky.jpg/1280px-Starsinthesky.jpg");
+			/*background-image: url("http://linehack2018.azurewebsites.net/img/1.jpg");*/
+			margin-left: auto;
+			margin-right: auto;
+			background-size: cover;
+		}
+		</style>
+
+    </head>
+
+    <body onload="fixw()">
+
+		<!-- Top menu -->
+		<nav class="navbar navbar-inverse navbar-no-bg" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navbar-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="index.html">Bootstrap Flat Registration Form Template</a>
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="top-navbar-1">
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<span class="li-text">
+								Put some text or
+							</span> 
+							<a href="#"><strong>links</strong></a> 
+							<span class="li-text">
+								here, or some icons: 
+							</span> 
+							<span class="li-social">
+								<a href="#"><i class="fa fa-facebook"></i></a> 
+								<a href="#"><i class="fa fa-twitter"></i></a> 
+								<a href="#"><i class="fa fa-envelope"></i></a> 
+								<a href="#"><i class="fa fa-skype"></i></a>
+							</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+        <!-- Top content -->
+        <!--<div class="top-content">-->
+        	
+            <!--<div class="inner-bg">-->
+                <div class="container">
+                    <!--<div class="row">
+                        <div class="col-sm-8 col-sm-offset-2 text">
+                            <h1><strong>Bootstrap</strong> Flat Registration Form</h1>
+                            <div class="description">
+                            	<p>
+	                            	This is a free responsive flat registration form made with Bootstrap. 
+	                            	Download it on <a href="http://azmind.com"><strong>AZMIND</strong></a>, customize and use it as you like!
+                            	</p>
+                            </div>
+                        </div>
+                    </div>-->
+                    <div class="row">
+                    	<!--<div class="col-sm-6 book">
+                    		<img src="assets/img/ebook.png" alt="">
+                    	</div>-->
+                        <div class="col-sm-5 form-box" id="classbox">
+                        	<div class="form-top" style="margin-bottom: -25px">
+                        		<div class="form-top-left">
+                        			<h3>點名畫面</h3>
+									<p>點2下成員照片即可完成點名</p>
+                        		</div>
+                        		<!--<div class="form-top-right">
+                        			<i class="fa fa-pencil"></i>
+                        		</div>-->
+                            </div>
+                            <div class="form-bottom">
+								
+			                    <!--<form role="form" action="" method="post" class="registration-form">-->
+									<table id="membersdata" border="2px" #ffffff solid;></table>
+			                        <button type="submit" class="btn" onclick="finishact()">結束</button>
+			                    <!--</form>-->
+		                    </div>
+                        </div>
+                    </div>
+                </div>
+            <!--</div>-->
+            
+        <!--</div>-->
+
+
+		<!-- Javascript -->
+        <script src="/assets/js/jquery-1.11.1.min.js"></script>
+        <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="/assets/js/jquery.backstretch.min.js"></script>
+        <script src="/assets/js/retina-1.1.0.min.js"></script>
+        <!--<script src="/assets/js/scripts.js"></script>-->
+
+		<script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
+    	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+        
+        <!--[if lt IE 10]>
+            <script src="assets/js/placeholder.js"></script>
+        <![endif]-->
+		<script>
+		
+			$(document).ready(function(){
+				
+			});
+			function fixw(){
+				var wid = screen.width;
+				if(wid>=760){
+					$('#classbox').css('width', '750px');
+				}
+				
+				getprofile();
+				
+			};
+			function getprofile(){
+				liff.init(function () {
+                	liff.getProfile().then(function (profile) {
+                    	var userId = JSON.stringify(profile.userId);
+						/*var data = {
+							"userId" : userId
+						}
+                    	$.post('/api/guest', data, function () {
+							//
+                    	});*/
+						$.ajax({
+                    		url: '/api/guest',
+                    		type: 'POST',
+                    		data: { userId:  userId },
+		                    success: function (ret) {
+								$('tr').remove();
+								$('td').remove();
+								for(var idx =0; idx<ret.length; idx++){
+									$('#membersdata')
+					 				.append(
+						 				$('<tr>')
+						  					.append(
+							  					$('<td>').append(
+								  					$('<img>').attr('src',ret[idx].image)
+								  					.dblclick(function () {
+									  					alert('已完成點名');
+									  					$(this).attr('src','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHPPEcQg7pgHlUIvgp5EliVbwZsd3eFA5ru5t6gaCvrX06v0PPrg') //圖片變黑URL
+
+								  					})
+							  					)
+						  					)
+										)
+									.append(
+										$('<tr>').append(
+											$('<td>').append(
+												$('<p style="font-size:27px;">'+ret[idx].name+'</p>')
+										)
+									)
+								)
+							} //end for
+                    		}
+                		});
+					setTimeout('fixw()',5000);
+                	}).catch(function (error) {
+                    	window.alert("Error getting profile: " + error);
+                	});
+            	}, function (err) { console.log("error: " + err); })
+			};
+			function finishact(){
+				liff.init(function () {
+                	liff.getProfile().then(function (profile) {
+                    	var userId = JSON.stringify(profile.userId);
+						var data = {
+							"userId" : userId
+						}
+                    	$.post('/api/finish', data, function () {
+							liff.closeWindow();
+                    	});
+                	}).catch(function (error) {
+                    	window.alert("Error getting profile: " + error);
+                	});
+            	}, function (err) { console.log("error: " + err); })
+			};
+		</script>
+    </body>
+
+</html>

@@ -3,7 +3,11 @@
 		{
 			"type": "console",
 			"layout": { "type": "basic" },
-			"category": "bot"
+			"category": [
+				"bot",
+				"line_message",
+				"line_LIFF"
+			]
 		}
 	]
 }
