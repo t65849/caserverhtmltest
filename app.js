@@ -97,6 +97,17 @@ app.get('/vendor/bootstrap/css/bootstrap.css', function (request, response) {
         this.res.send(data);
     }.bind({ req: request, res: response }));
 });
+app.get('/css/simple-sidebar.css', function (request, response) {
+    console.log('GET /css/bootstrap.css');
+    var fs = require('fs');
+    request.header("Content-Type", 'text/css');
+    fs.readFile(__dirname + '/css/simple-sidebar.css', function (err, data) {
+        if (err) {
+            this.res.send(err);
+        }
+        this.res.send(data);
+    }.bind({ req: request, res: response }));
+});
 
 var http = require('http');
 var server = http.Server(app);	// create express server
