@@ -87,7 +87,7 @@ app.get('/images/tstiball.png', function (request, response) {
 });
 
 app.get('/vendor/bootstrap/css/bootstrap.css', function (request, response) {
-    console.log('GET /css/bootstrap.css');
+    console.log('GET /vendor/bootstrap/css/bootstrap.css');
     var fs = require('fs');
     request.header("Content-Type", 'text/css');
     fs.readFile(__dirname + '/vendor/bootstrap/css/bootstrap.css', function (err, data) {
@@ -98,7 +98,7 @@ app.get('/vendor/bootstrap/css/bootstrap.css', function (request, response) {
     }.bind({ req: request, res: response }));
 });
 app.get('/css/simple-sidebar.css', function (request, response) {
-    console.log('GET /css/bootstrap.css');
+    console.log('GET /css/simple-sidebar.css');
     var fs = require('fs');
     request.header("Content-Type", 'text/css');
     fs.readFile(__dirname + '/css/simple-sidebar.css', function (err, data) {
@@ -109,7 +109,7 @@ app.get('/css/simple-sidebar.css', function (request, response) {
     }.bind({ req: request, res: response }));
 });
 app.get('/vendor/jquery/jquery.min.js', function (request, response) {
-    console.log('GET /css/bootstrap.css');
+    console.log('GET /vendor/jquery/jquery.min.js');
     var fs = require('fs');
     request.header("Content-Type", 'text/javascript');
     fs.readFile(__dirname + '/vendor/jquery/jquery.min.js', function (err, data) {
@@ -132,7 +132,7 @@ app.get('/vendor/bootstrap/js/bootstrap.bundle.min.js', function (request, respo
 });
 
 app.get('/scripts/jquery/jquery-2.1.0.min.js', function (request, response) {
-    console.log('GET /vendor/bootstrap/js/bootstrap.bundle.min.js');
+    console.log('GET /scripts/jquery/jquery-2.1.0.min.js');
     var fs = require('fs');
     request.header("Content-Type", 'text/javascript');
     fs.readFile(__dirname + '/scripts/jquery/jquery-2.1.0.min.js', function (err, data) {
