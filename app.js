@@ -108,7 +108,7 @@ app.get('/css/simple-sidebar.css', function (request, response) {
         this.res.send(data);
     }.bind({ req: request, res: response }));
 });*/
-app.get('/vendor/jquery/jquery.min.js', function (request, response) {
+/*app.get('/vendor/jquery/jquery.min.js', function (request, response) {
     console.log('GET /vendor/jquery/jquery.min.js');
     var fs = require('fs');
     request.header("Content-Type", 'text/javascript');
@@ -141,7 +141,7 @@ app.get('/scripts/jquery/jquery-2.1.0.min.js', function (request, response) {
         }
         this.res.send(data);
     }.bind({ req: request, res: response }));
-});
+});*/
 
 var http = require('http');
 var server = http.Server(app);	// create express server
