@@ -24,6 +24,8 @@ app.all('*', function (req, res, next) {
     res.header('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type');
     next();
 });
+// 讀取組態表
+var fs = require('fs');
 
 var config = require('fs').readFileSync(__dirname + '/config.json');
 config = JSON.parse(config); //字串轉物件
