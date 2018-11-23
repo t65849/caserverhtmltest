@@ -85,7 +85,7 @@ app.get('/images/tstiball.png', function (request, response) {
         this.res.send(data);
     }.bind({ req: request, res: response }));
 });
-
+/*
 app.get('/vendor/bootstrap/css/bootstrap.css', function (request, response) {
     console.log('GET /vendor/bootstrap/css/bootstrap.css');
     var fs = require('fs');
@@ -107,7 +107,7 @@ app.get('/css/simple-sidebar.css', function (request, response) {
         }
         this.res.send(data);
     }.bind({ req: request, res: response }));
-});
+});*/
 app.get('/vendor/jquery/jquery.min.js', function (request, response) {
     console.log('GET /vendor/jquery/jquery.min.js');
     var fs = require('fs');
