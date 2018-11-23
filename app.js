@@ -51,11 +51,11 @@ app.get('/logs', function (request, response) {
 });
 var useremail = 0;
 
-app.get('/index', function (request, response) {
+app.get('/pages/index', function (request, response) {
     console.log('GET /index');
     request.header("Content-Type", 'text/html');
     var fs = require('fs');
-    fs.readFile(__dirname + '/index.html', 'utf8', function (err, data) {
+    fs.readFile(__dirname + '/pages/index.html', 'utf8', function (err, data) {
         if (err) {
             this.res.send(err);
         }
