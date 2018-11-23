@@ -108,11 +108,11 @@ app.get('/css/simple-sidebar.css', function (request, response) {
         this.res.send(data);
     }.bind({ req: request, res: response }));
 });
-app.get('/vendor/bootstrap/js/bootstrap.bundle.min.js', function (request, response) {
+app.get('/vendor/jquery/jquery.min.js', function (request, response) {
     console.log('GET /css/bootstrap.css');
     var fs = require('fs');
     request.header("Content-Type", 'text/javascript');
-    fs.readFile(__dirname + '/vendor/bootstrap/js/bootstrap.bundle.min.js', function (err, data) {
+    fs.readFile(__dirname + '/vendor/jquery/jquery.min.js', function (err, data) {
         if (err) {
             this.res.send(err);
         }
