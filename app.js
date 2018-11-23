@@ -131,6 +131,18 @@ app.get('/vendor/bootstrap/js/bootstrap.bundle.min.js', function (request, respo
     }.bind({ req: request, res: response }));
 });
 
+app.get('/scripts/jquery/jquery-2.1.0.min.js', function (request, response) {
+    console.log('GET /vendor/bootstrap/js/bootstrap.bundle.min.js');
+    var fs = require('fs');
+    request.header("Content-Type", 'text/javascript');
+    fs.readFile(__dirname + '/scripts/jquery/jquery-2.1.0.min.js', function (err, data) {
+        if (err) {
+            this.res.send(err);
+        }
+        this.res.send(data);
+    }.bind({ req: request, res: response }));
+});
+
 var http = require('http');
 var server = http.Server(app);	// create express server
 var options = {
