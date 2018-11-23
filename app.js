@@ -108,6 +108,28 @@ app.get('/css/simple-sidebar.css', function (request, response) {
         this.res.send(data);
     }.bind({ req: request, res: response }));
 });
+app.get('/vendor/bootstrap/js/bootstrap.bundle.min.js', function (request, response) {
+    console.log('GET /css/bootstrap.css');
+    var fs = require('fs');
+    request.header("Content-Type", 'text/javascript');
+    fs.readFile(__dirname + '/vendor/bootstrap/js/bootstrap.bundle.min.js', function (err, data) {
+        if (err) {
+            this.res.send(err);
+        }
+        this.res.send(data);
+    }.bind({ req: request, res: response }));
+});
+app.get('/vendor/bootstrap/js/bootstrap.bundle.min.js', function (request, response) {
+    console.log('GET /vendor/bootstrap/js/bootstrap.bundle.min.js');
+    var fs = require('fs');
+    request.header("Content-Type", 'text/javascript');
+    fs.readFile(__dirname + '/vendor/bootstrap/js/bootstrap.bundle.min.js', function (err, data) {
+        if (err) {
+            this.res.send(err);
+        }
+        this.res.send(data);
+    }.bind({ req: request, res: response }));
+});
 
 var http = require('http');
 var server = http.Server(app);	// create express server
