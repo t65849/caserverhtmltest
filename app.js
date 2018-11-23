@@ -190,11 +190,11 @@ app.post('/messages', function (request, response) {
     }
 });
 
-app.get('/pnp', function (request, response) {
-    console.log('GET /mylifftest');
+app.get('/index', function (request, response) {
+    console.log('GET /index');
     request.header("Content-Type", 'text/html');
     var fs = require('fs');
-    fs.readFile(__dirname + '/pnp.html', 'utf8', function (err, data) {
+    fs.readFile(__dirname + '/index.html', 'utf8', function (err, data) {
         if (err) {
             this.res.send(err);
         }
