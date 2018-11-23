@@ -1,0 +1,101 @@
+<html>
+
+<head>
+    <title>LINE user </title>
+    <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <style>
+        body{
+			margin:0px;
+			height: 100%;
+            width: 80%;
+			background-image: url("/images/Starsinthesky.jpg");
+			margin-left: auto;
+			margin-right: auto;
+			background-size: cover;
+			opacity:0.8;
+		}
+        h1{
+            color: #FFFF00;
+            font-size: 75px
+        }
+        p{
+            color: #FFEE11;
+            font-size: 45px;
+			font-weight: bold;
+        }
+    </style>
+</head>
+<body onload="fixw()">
+    <div id="browserwidth">
+        <div>
+            <h1>user畫面</h1>
+        </div>
+        <div>
+            <table id="membersdata" border="2px" #ffffff solid;></table>
+            <!--border="2px"-->
+        </div>
+    </div>
+
+    <script>
+       function fixw(){
+			var wid = screen.width;
+			if(wid>=760){
+				//$('#browserwidth').css('width', '750px');
+            }
+			getprofile();
+        };
+        function getprofile(){
+				liff.init(function () {
+                	liff.getProfile().then(function (profile) {
+                        var userId = JSON.stringify(profile.userId);
+                        var displayName = JSON.stringify(profile.displayName);
+                        var pictureUrl = JSON.stringify(profile.pictureUrl);
+                        var statusMessage = JSON.stringify(profile.statusMessage);
+                        pictureUrl = pictureUrl.replace('"','').replace('"','') //去除圖片url 旁的左右雙引號
+							$('#membersdata')
+					 			.append(
+						 			$('<tr>')
+						  				.append(
+							  				$('<td>').append(
+								  				$('<img id="lineimg">').attr("src",pictureUrl)
+							  				)
+						  				)
+								)
+								.append(
+									$('<tr>').append(
+										$('<td>').append(
+											$('<p>Name'+displayName+'</p>')
+										)
+									)
+                                )
+                                .append(
+									$('<tr>').append(
+										$('<td>').append(
+											$('<p>userId'+userId+'</p>')
+										)
+									)
+                                )
+                                .append(
+									$('<tr>').append(
+										$('<td>').append(
+											$('<p>status'+statusMessage+'</p>')
+										)
+									)
+                                )
+                                .append(
+									$('<tr>').append(
+										$('<td>').append(
+											//$('<p>pic'+pictureUrl+'</p>')
+										)
+									)
+								)		
+                	}).catch(function (error) {
+                    	window.alert("Error getting profile: " + error);
+                	});
+            	}, function (err) { console.log("error: " + err); })
+			};
+    </script>
+</body>
+
+</html>

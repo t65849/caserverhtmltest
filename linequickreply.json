@@ -1,0 +1,29 @@
+{ 
+    "items": [
+        {
+            "type": "action", 
+            "imageUrl": "https://pic.pimg.tw/luck653/1382213665-4204725802.jpg",
+            "action": {
+                "type": "message",
+                "label": "查看大同同樂會主頁",
+                "text": "大同寶寶，我想查看大同同樂會主頁"
+            }
+        },
+        {
+            "type": "action",
+            "imageUrl": "https://pic.pimg.tw/luck653/1382213665-4204725802.jpg",
+            "action": {
+                "type": "message",
+                "label": "推薦大同同樂會給好友",
+                "text": "大同寶寶，我想推薦大同同樂會給好友"
+            }
+        },
+        {
+            "type": "action", 
+            "action": {
+                "type": "location",
+                "label": "尋找附近門市"
+            }
+        }
+    ]
+}

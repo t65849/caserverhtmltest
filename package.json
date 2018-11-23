@@ -1,0 +1,19 @@
+{
+  "name": "line-web-login",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google/maps": "^0.5.4",
+    "body-parser": "latest",
+    "express": "latest",
+    "log4js": "^1.1.1",
+    "log4js-extend": "^0.1.2",
+    "sha256": "^0.2.0"
+  }
+}

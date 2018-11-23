@@ -1,0 +1,38 @@
+{ 
+    "items": [
+        {
+            "type": "action", 
+            "imageUrl": "https://pgw.udn.com.tw/gw/photo.php?u=https://uc.udn.com.tw/photo/2017/07/05/99/3719993.jpg&x=0&y=0&sw=0&sh=0&sl=W&fw=400",
+            "action": {
+                "type": "message",
+                "label": "加入LINE個人服務",
+                "text": "大同寶寶，我想要加入LINE個人服務!"
+            }
+        },
+        {
+            "type": "action",
+            "imageUrl": "https://pic.pimg.tw/luck653/1382213665-4204725802.jpg",
+            "action": {
+                "type": "message",
+                "label": "查看大同同樂會主頁",
+                "text": "大同寶寶，我想查看大同同樂會主頁"
+            }
+        },
+        {
+            "type": "action",
+            "imageUrl": "https://pic.pimg.tw/luck653/1382213665-4204725802.jpg",
+            "action": {
+                "type": "message",
+                "label": "推薦大同同樂會給好友",
+                "text": "大同寶寶，我想推薦大同同樂會給好友"
+            }
+        },
+        {
+            "type": "action", 
+            "action": {
+                "type": "location",
+                "label": "尋找附近門市"
+            }
+        }
+    ]
+}

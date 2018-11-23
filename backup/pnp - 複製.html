@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"></meta>
+    <title>大世科PNP發送系統</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <p>手機號碼+886
+        <input id="phonenumber" value="906777715"></input>
+    </p>
+    <form>選擇類型
+        <select id="texttype" class="type" name="typemessages">
+            <option id="text" value="text">Text訊息</option>
+            <!--<option id="flex" value="flex">Flex訊息</option>-->
+        </select>
+    </form>
+    <p>傳送文字<input id="messages" type="text" value="傳送的文字訊息"></input>
+    </p>
+    <button type="button" onclick="phonenumberpush()">送出</button><br/>
+<!--<textarea id="textarea" rows="30" cols="100"></textarea>-->
+</body>
+<script type="text/javascript">
+    /*$(document).ready(function(){
+        $('#textmessage').click(function(){
+            $('#textarea').val(JSON.stringify(textpnp));
+        });
+    });*/
+    $(document).ready(function () {
+        $('#texttype').change(function () {
+            if ($(this).val() == 'text') {
+                //alert($(this).val());
+            } else if ($(this).val() == 'flex') {
+                //alert($(this).val());
+            }
+        });
+    });
+    function phonenumberpush() {
+        var password = 'tstiisacompany';
+        var phonenumber = $('#phonenumber').val();
+        var messages = $('#messages').val();
+        var data = {
+            password: password,
+            phonenumber: phonenumber,
+            messages: messages
+        }
+        $.post('/sendphonenumber', data, function () {
+            //
+        });
+    };
+</script>
+
+</html>

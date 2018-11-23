@@ -1,0 +1,747 @@
+{
+  "type": "carousel",
+  "contents": [
+    {
+      "type": "bubble",
+      "hero": {
+        "type": "image",
+        "size": "full",
+        "aspectRatio": "20:13",
+        "aspectMode": "cover",
+        "url": "https://www.etungo.com.tw/files/TC_PSpec/PS_Pic/PF-6374.jpg"
+      },
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "text",
+            "text": "友情牌 101公升紫外線不銹鋼烘碗機(四層) (PF-6374)",
+            "wrap": true,
+            "weight": "bold",
+            "size": "xl"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "spacing": "sm",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "baseline",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "促銷商品",
+                    "weight": "bold",
+                    "margin": "sm",
+                    "flex": 0
+                  },
+                  {
+                    "type": "text",
+                    "text": "2018/7/1~2018/7/31",
+                    "size": "sm",
+                    "align": "end",
+                    "color": "#aaaaaa"
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "baseline",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "促銷價",
+                    "weight": "bold",
+                    "margin": "sm",
+                    "flex": 0
+                  },
+                  {
+                    "type": "text",
+                    "text": "4,392元",
+                    "size": "sm",
+                    "align": "end",
+                    "color": "#aaaaaa"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": ".一體成型主體機身",
+                "wrap": true,
+                "color": "#aaaaaa",
+                "size": "xxs"
+              },
+              {
+                "type": "text",
+                "text": "․鏡面玻璃門提升殺菌力",
+                "wrap": true,
+                "color": "#aaaaaa",
+                "size": "xxs"
+              },
+              {
+                "type": "text",
+                "text": "․防蟑防爆裝置",
+                "wrap": true,
+                "color": "#aaaaaa",
+                "size": "xxs"
+              },
+              {
+                "type": "text",
+                "text": ".飛利浦原裝16W燈管",
+                "wrap": true,
+                "color": "#aaaaaa",
+                "size": "xxs"
+              },
+              {
+                "type": "text",
+                "text": "․買就送14吋立扇一台(KA-1457)",
+                "wrap": true,
+                "color": "#aaaaaa",
+                "size": "xxs"
+              }
+            ]
+          }
+        ]
+      },
+      "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "spacer",
+            "size": "xxl"
+          },
+          {
+            "type": "button",
+            "style": "primary",
+            "color": "#905c44",
+            "action": {
+              "type": "uri",
+              "label": "點擊查看",
+              "uri": "https://www.etungo.com.tw/inside/377/723/739/67608.html?kw=LINE&utm_medium=Click&utm_campaign=20180720_KA-1457"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "bubble",
+      "hero": {
+        "type": "image",
+        "size": "full",
+        "aspectRatio": "20:13",
+        "aspectMode": "cover",
+        "url": "https://www.etungo.com.tw/files/TC_PSpec/PS_Pic/JL-090PDs.jpg"
+      },
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "text",
+            "text": "家適帝 旗艦款 可填充漱口水-牙齒保健全銅高壓沖牙機(贈壁掛噴頭收納盒) (JL-090PD)",
+            "wrap": true,
+            "weight": "bold",
+            "size": "xl"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "spacing": "sm",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "baseline",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "促銷商品",
+                    "weight": "bold",
+                    "margin": "sm",
+                    "flex": 0
+                  },
+                  {
+                    "type": "text",
+                    "text": "2018/7/1~2018/7/31",
+                    "size": "sm",
+                    "align": "end",
+                    "color": "#aaaaaa"
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "baseline",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "促銷價",
+                    "weight": "bold",
+                    "margin": "sm",
+                    "flex": 0
+                  },
+                  {
+                    "type": "text",
+                    "text": "599元",
+                    "size": "sm",
+                    "align": "end",
+                    "color": "#aaaaaa"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": ".好安裝，免用電，高壓直沖，沖力強",
+                "wrap": true,
+                "color": "#aaaaaa",
+                "size": "xxs"
+              },
+              {
+                "type": "text",
+                "text": "․強勁沖力，深入口腔各個死角，全面清潔",
+                "wrap": true,
+                "color": "#aaaaaa",
+                "size": "xxs"
+              },
+              {
+                "type": "text",
+                "text": "․業界首創填充漱口水，搭配漱口水清潔更徹底、口腔更健康",
+                "wrap": true,
+                "color": "#aaaaaa",
+                "size": "xxs"
+              },
+              {
+                "type": "text",
+                "text": ".0.6mm舒服水柱，清潔力強卻不刺激，適合小孩、敏感性牙齒",
+                "wrap": true,
+                "color": "#aaaaaa",
+                "size": "xxs"
+              },
+              {
+                "type": "text",
+                "text": "․100cm 軟管，小朋友也能安心操作",
+                "wrap": true,
+                "color": "#aaaaaa",
+                "size": "xxs"
+              }
+            ]
+          }
+        ]
+      },
+      "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "spacer",
+            "size": "xxl"
+          },
+          {
+            "type": "button",
+            "style": "primary",
+            "color": "#905c44",
+            "action": {
+              "type": "uri",
+              "label": "點擊查看",
+              "uri": "https://www.etungo.com.tw/inside/377/724/742/66110.html?kw=LINE&utm_medium=Click&utm_campaign=20180720_JL-090PD"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "bubble",
+      "hero": {
+        "type": "image",
+        "size": "full",
+        "aspectRatio": "20:13",
+        "aspectMode": "cover",
+        "url": "https://www.etungo.com.tw/files/TC_PSpec/PS_Pic/LMG008s.jpg"
+      },
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "text",
+            "text": "夏日美食季特惠 LMG長野 DASHIANG 316不鏽鋼內鍋/調理鍋/提鍋(16+19+22cm)3件式*1組 (LMG008)",
+            "wrap": true,
+            "weight": "bold",
+            "size": "xl"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "spacing": "sm",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "baseline",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "促銷商品",
+                    "weight": "bold",
+                    "margin": "sm",
+                    "flex": 0
+                  },
+                  {
+                    "type": "text",
+                    "text": "2018/7/1~2018/7/31",
+                    "size": "sm",
+                    "align": "end",
+                    "color": "#aaaaaa"
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "baseline",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "促銷價",
+                    "weight": "bold",
+                    "margin": "sm",
+                    "flex": 0
+                  },
+                  {
+                    "type": "text",
+                    "text": "1,580元",
+                    "size": "sm",
+                    "align": "end",
+                    "color": "#aaaaaa"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": ".食用級316不鏽鋼製成",
+                "wrap": true,
+                "color": "#aaaaaa",
+                "size": "xxs"
+              },
+              {
+                "type": "text",
+                "text": "․尺寸由小至大，收納不佔空間，家用露營都方便",
+                "wrap": true,
+                "color": "#aaaaaa",
+                "size": "xxs"
+              },
+              {
+                "type": "text",
+                "text": "․採用高級不銹鋼一體成型，無死角好清洗",
+                "wrap": true,
+                "color": "#aaaaaa",
+                "size": "xxs"
+              },
+              {
+                "type": "text",
+                "text": ".適用於電爐、瓦斯爐、電磁爐、卡式爐",
+                "wrap": true,
+                "color": "#aaaaaa",
+                "size": "xxs"
+              },
+              {
+                "type": "text",
+                "text": "․可當電鍋內鍋，亦可當調理鍋,湯鍋,油炸鍋",
+                "wrap": true,
+                "color": "#aaaaaa",
+                "size": "xxs"
+              }
+            ]
+          }
+        ]
+      },
+      "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "spacer",
+            "size": "xxl"
+          },
+          {
+            "type": "button",
+            "style": "primary",
+            "color": "#905c44",
+            "action": {
+              "type": "uri",
+              "label": "點擊查看",
+              "uri": "https://www.etungo.com.tw/inside/414/756/763/63877.html?kw=LINE&utm_medium=Click&utm_campaign=20180720_LMG008"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "bubble",
+      "hero": {
+        "type": "image",
+        "size": "full",
+        "aspectRatio": "20:13",
+        "aspectMode": "cover",
+        "url": "https://www.etungo.com.tw/files/TC_PSpec/PS_Pic/ECO1L-GN.jpg"
+      },
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "text",
+            "text": "七月夏日涼爽特惠 綠恩家 澳洲SodaSparkle 舒打健康氣泡水機-國民簡約款-清新綠(含小鋼瓶5入)(ECO1L-GN)",
+            "wrap": true,
+            "weight": "bold",
+            "size": "xl"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "spacing": "sm",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "baseline",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "促銷商品",
+                    "weight": "bold",
+                    "margin": "sm",
+                    "flex": 0
+                  },
+                  {
+                    "type": "text",
+                    "text": "2018/7/1~2018/7/31",
+                    "size": "sm",
+                    "align": "end",
+                    "color": "#aaaaaa"
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "baseline",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "促銷價",
+                    "weight": "bold",
+                    "margin": "sm",
+                    "flex": 0
+                  },
+                  {
+                    "type": "text",
+                    "text": "1,780元",
+                    "size": "sm",
+                    "align": "end",
+                    "color": "#aaaaaa"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": ".輕輕一轉即可完成，快速方便",
+                "wrap": true,
+                "color": "#aaaaaa",
+                "size": "xxs"
+              },
+              {
+                "type": "text",
+                "text": "․製作一公升氣泡水平均只要20元，節省成本",
+                "wrap": true,
+                "color": "#aaaaaa",
+                "size": "xxs"
+              },
+              {
+                "type": "text",
+                "text": "․強烈氣泡口感，可自由搭配各類果汁糖漿調味",
+                "wrap": true,
+                "color": "#aaaaaa",
+                "size": "xxs"
+              }
+            ]
+          }
+        ]
+      },
+      "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "spacer",
+            "size": "xxl"
+          },
+          {
+            "type": "button",
+            "style": "primary",
+            "color": "#905c44",
+            "action": {
+              "type": "uri",
+              "label": "點擊查看",
+              "uri": "https://www.etungo.com.tw/inside/377/723/738/64287.html?kw=LINE&utm_medium=Click&utm_campaign=20180717_ECO1L-GN"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "bubble",
+      "hero": {
+        "type": "image",
+        "size": "full",
+        "aspectRatio": "20:13",
+        "aspectMode": "cover",
+        "url": "https://www.etungo.com.tw/files/TC_PSpec/PS_Pic/TM-516.jpg"
+      },
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "text",
+            "text": "DaHe 麵糰大師不鏽鋼攪拌棒多功能手持攪拌機 (TM-516)",
+            "wrap": true,
+            "weight": "bold",
+            "size": "xl"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "spacing": "sm",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "baseline",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "促銷商品",
+                    "weight": "bold",
+                    "margin": "sm",
+                    "flex": 0
+                  },
+                  {
+                    "type": "text",
+                    "text": "2018/7/1~2018/7/31",
+                    "size": "sm",
+                    "align": "end",
+                    "color": "#aaaaaa"
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "baseline",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "促銷價",
+                    "weight": "bold",
+                    "margin": "sm",
+                    "flex": 0
+                  },
+                  {
+                    "type": "text",
+                    "text": "780元",
+                    "size": "sm",
+                    "align": "end",
+                    "color": "#aaaaaa"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": ".不鏽鋼攪拌棒",
+                "wrap": true,
+                "color": "#aaaaaa",
+                "size": "xxs"
+              },
+              {
+                "type": "text",
+                "text": "․五段式變速開關設計，可依需求設定轉速和馬力",
+                "wrap": true,
+                "color": "#aaaaaa",
+                "size": "xxs"
+              },
+              {
+                "type": "text",
+                "text": "․附兩組打蛋/攪拌專用攪拌棒(罩形攪拌棒/蛇形攪揉棒)",
+                "wrap": true,
+                "color": "#aaaaaa",
+                "size": "xxs"
+              },
+              {
+                "type": "text",
+                "text": "․馬達過熱自動斷電保護裝置",
+                "wrap": true,
+                "color": "#aaaaaa",
+                "size": "xxs"
+              },
+              {
+                "type": "text",
+                "text": "․TURBO瞬間加速快轉功能",
+                "wrap": true,
+                "color": "#aaaaaa",
+                "size": "xxs"
+              }
+            ]
+          }
+        ]
+      },
+      "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "spacer",
+            "size": "xxl"
+          },
+          {
+            "type": "button",
+            "style": "primary",
+            "color": "#905c44",
+            "action": {
+              "type": "uri",
+              "label": "點擊查看",
+              "uri": "https://www.etungo.com.tw/inside/377/723/735/25309.html?kw=LINE&utm_medium=Click&utm_campaign=20180717_TM516"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "bubble",
+      "hero": {
+        "type": "image",
+        "size": "full",
+        "aspectRatio": "20:13",
+        "aspectMode": "cover",
+        "url": "https://www.etungo.com.tw/files/TC_PSpec/PS_Pic/CLT-25As.jpg"
+      },
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "text",
+            "text": "ZANWA晶華 冷熱兩用電子行動冰箱/冷藏箱/保溫箱/孵蛋機 (CLT-25A)",
+            "wrap": true,
+            "weight": "bold",
+            "size": "xl"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "spacing": "sm",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "baseline",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "促銷商品",
+                    "weight": "bold",
+                    "margin": "sm",
+                    "flex": 0
+                  },
+                  {
+                    "type": "text",
+                    "text": "2018/7/1~2018/7/31",
+                    "size": "sm",
+                    "align": "end",
+                    "color": "#aaaaaa"
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "baseline",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "促銷價",
+                    "weight": "bold",
+                    "margin": "sm",
+                    "flex": 0
+                  },
+                  {
+                    "type": "text",
+                    "text": "3,503元",
+                    "size": "sm",
+                    "align": "end",
+                    "color": "#aaaaaa"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": ".25公升大容量",
+                "wrap": true,
+                "color": "#aaaaaa",
+                "size": "xxs"
+              },
+              {
+                "type": "text",
+                "text": "․箱內配置照明燈",
+                "wrap": true,
+                "color": "#aaaaaa",
+                "size": "xxs"
+              },
+              {
+                "type": "text",
+                "text": "․家用/車用皆可",
+                "wrap": true,
+                "color": "#aaaaaa",
+                "size": "xxs"
+              },
+              {
+                "type": "text",
+                "text": "․保冷/保溫，冷熱兩用",
+                "wrap": true,
+                "color": "#aaaaaa",
+                "size": "xxs"
+              },
+              {
+                "type": "text",
+                "text": "․附有溫度控制鍵及LED顯示屏幕",
+                "wrap": true,
+                "color": "#aaaaaa",
+                "size": "xxs"
+              }
+            ]
+          }
+        ]
+      },
+      "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "spacer",
+            "size": "xxl"
+          },
+          {
+            "type": "button",
+            "style": "primary",
+            "color": "#905c44",
+            "action": {
+              "type": "uri",
+              "label": "點擊查看",
+              "uri": "https://www.etungo.com.tw/inside/377/722/727/48351.html?kw=LINE&utm_medium=Click&utm_campaign=20180720_CLT-25A"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

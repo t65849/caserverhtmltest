@@ -1,0 +1,82 @@
+<html>
+
+<head>
+    <title>大同3C測試頁面</title>
+    <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
+    <style>
+        body{
+            margin: 0px;
+        }
+        button{
+            width: 600px;
+            height: 200px;
+            font-size: 50px;
+        }
+    </style>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+</head>
+<script type="text/javascript">
+    /*window.onload = function (e) {
+        liff.init(function () {
+            console.log('success');*/
+            /*liff.getProfile().then(function (profile) {
+
+            }).catch(function (error) {
+                window.alert("Error getting profile: " + error);
+            });*/
+           /* window.location="https://www.etungo.com.tw/inside/377/722/728/60127.html";
+        }, function (err) {
+            console.log('error');
+            console.log(err);
+        });
+    };*/
+
+    /*function windowonload() {
+        liff.init(function(){
+            console.log('success');
+        }, function(){
+            console.log('error');
+        });
+    };*/
+    function initializeApp(data) {
+        console.log('initializeApp');
+        console.log(data);
+    };
+
+    function getuserprofile() {
+        /*liff.openWindow({
+            url: 'https://www.etungo.com.tw/inside/377/722/728/60127.html',
+            external: true
+        });*/
+        liff.init(function () {
+            console.log('success');
+            liff.getProfile().then(function (profile) {
+                window.alert('userId: '+JSON.stringify(profile));
+                var userId = JSON.stringify(profile.userId);
+                var data={
+                    userId : userId
+                }
+                $.post('/getlineuserid', data, function(){
+                    
+                });
+            }).catch(function (error) {
+                window.alert("Error getting profile: " + error);
+            });
+            //window.location="https://www.etungo.com.tw/inside/377/722/728/60127.html";
+        }, function (err) {
+            console.log('error');
+            console.log(err);
+        });
+    };
+</script>
+
+<body onclick = "getuserprofile()">
+    <!--<h1>TATUNG大同 15KG定頻洗衣機 (TAW-A150L)</h1>
+    <img src="https://www.etungo.com.tw/files/TC_PSpec/PS_Pic/TAW-A150Ls.jpg" alt="TATUNG大同 15KG定頻洗衣機 (TAW-A150L)" width="700"
+        height="700"><br/>
+    <a href="https://www.etungo.com.tw/inside/377/722/728/60127.html">TATUNG大同 15KG定頻洗衣機 (TAW-A150L)</a><br/>
+    <button  onclick="openurl()">詳細資訊</button>-->
+    <button>顯示LINE的userId</button>
+</body>
+
+</html>
