@@ -51,6 +51,7 @@ app.get('/logs', function (request, response) {
 });
 var useremail = 0;
 
+app.use(express.static('pages')); //導入pages資料夾裡的東西
 app.get('/index', function (request, response) {
     console.log('GET /index');
     request.header("Content-Type", 'text/html');
