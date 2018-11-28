@@ -76,7 +76,7 @@ app.get('/login', function (request, response) {
         this.res.send(data);
     }.bind({ req: request, res: response }));
     console.log('-----------------------------------------------------------------------------------------');
-    console.log(JSON.stringify(response));
+    console.log(JSON.stringify(request));
 });
 
 app.get('/images/tatungba.jpg', function (request, response) {
