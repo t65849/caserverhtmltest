@@ -74,9 +74,10 @@ app.get('/login', function (request, response) {
         }
         //data = data+'<script type="text/javascript"> var textpnp =  ' + textpnp + ' ;</script>';
         this.res.send(data);
+        console.log('-----------------------------------------------------------------------------------------');
+        console.log(JSON.stringify(res))
     }.bind({ req: request, res: response }));
-    console.log('-----------------------------------------------------------------------------------------');
-    console.log(JSON.stringify(request));
+    
 });
 
 app.get('/images/tatungba.jpg', function (request, response) {
