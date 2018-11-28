@@ -64,6 +64,18 @@ app.get('/index', function (request, response) {
         this.res.send(data);
     }.bind({ req: request, res: response }));
 });
+app.get('/login', function (request, response) {
+    console.log('GET /index');
+    request.header("Content-Type", 'text/html');
+    var fs = require('fs');
+    fs.readFile(__dirname + '/pages/login.html', 'utf8', function (err, data) {
+        if (err) {
+            this.res.send(err);
+        }
+        //data = data+'<script type="text/javascript"> var textpnp =  ' + textpnp + ' ;</script>';
+        this.res.send(data);
+    }.bind({ req: request, res: response }));
+});
 
 app.get('/images/tatungba.jpg', function (request, response) {
     var picture = request.params.picture;
