@@ -75,7 +75,7 @@ app.get('/login', function (request, response) {
         //data = data+'<script type="text/javascript"> var textpnp =  ' + textpnp + ' ;</script>';
         this.res.send(data);
         console.log('-----------------------------------------------------------------------------------------');
-        console.log(JSON.stringify(req))
+        //console.log(JSON.stringify(req))
     }.bind({ req: request, res: response }));
     
 });
