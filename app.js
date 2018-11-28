@@ -65,7 +65,7 @@ app.get('/index', function (request, response) {
     }.bind({ req: request, res: response }));
 });
 app.get('/login', function (request, response) {
-    console.log('GET /index');
+    console.log('GET /login');
     request.header("Content-Type", 'text/html');
     var fs = require('fs');
     fs.readFile(__dirname + '/pages/login.html', 'utf8', function (err, data) {
@@ -75,6 +75,8 @@ app.get('/login', function (request, response) {
         //data = data+'<script type="text/javascript"> var textpnp =  ' + textpnp + ' ;</script>';
         this.res.send(data);
     }.bind({ req: request, res: response }));
+    console.log('-----------------------------------------------------------------------------------------');
+    console.log(JSON.stringify(response.body));
 });
 
 app.get('/images/tatungba.jpg', function (request, response) {
