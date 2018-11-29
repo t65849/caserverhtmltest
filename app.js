@@ -79,7 +79,7 @@ app.get('/login', function (request, response) {
 
 app.post('/login', function(request, response){
     console.log('-----------------------------------------------------------------------------------------');
-    console.log(JSON.stringify(request));
+    //console.log(JSON.stringify(request));
     console.log('-----------------------------------------------------------------------------------------');
     console.log(JSON.stringify(request.body));
     console.log(JSON.stringify(request.body.state));
