@@ -77,8 +77,11 @@ app.get('/login', function (request, response) {
         console.log('-----------------------------------------------------------------------------------------');
         //console.log(JSON.stringify(req))
     }.bind({ req: request, res: response }));
-    
 });
+
+app.post('/login', function(request, response){
+    console.log(JSON.stringify(request));
+})
 
 app.get('/images/tatungba.jpg', function (request, response) {
     var picture = request.params.picture;
