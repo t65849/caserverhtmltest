@@ -85,6 +85,7 @@ app.post('/login', function(request, response){
     console.log(JSON.stringify(request.body.state));
     console.log(JSON.stringify(response.body));
     console.log(JSON.stringify(response.body.state));
+    response.send('');
 })
 
 app.get('/images/tatungba.jpg', function (request, response) {
