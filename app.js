@@ -74,16 +74,16 @@ app.get('/login', function (request, response) {
         }
         //data = data+'<script type="text/javascript"> var textpnp =  ' + textpnp + ' ;</script>';
         this.res.send(data);
-        //console.log('-----------------------------------------------------------------------------------------');
-        //console.log(JSON.stringify(req))
     }.bind({ req: request, res: response }));
 });
 
 app.post('/login', function(request, response){
     console.log('-----------------------------------------------------------------------------------------');
+    console.log(JSON.stringify(request));
+    console.log('-----------------------------------------------------------------------------------------');
     console.log(JSON.stringify(request.body));
     console.log(JSON.stringify(request.body.state));
-    response.send('');
+    response.send(JSON.stringify(request.body));
 })
 
 app.get('/images/tatungba.jpg', function (request, response) {
