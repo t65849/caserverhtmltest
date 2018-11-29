@@ -79,7 +79,7 @@ app.get('/login', function (request, response) {
     }.bind({ req: request, res: response }));
 });
 
-app.post('/login', function(request, response){
+app.post('/', function(request, response){
     console.log(JSON.stringify(request));
 })
 
