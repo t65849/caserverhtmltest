@@ -52,11 +52,11 @@ app.get('/logs', function (request, response) {
 var useremail = 0;
 
 app.use(express.static('pages')); //導入pages資料夾裡的東西
-app.get('/index', function (request, response) {
+app.get('/indexpage', function (request, response) {
     console.log('GET /index');
     request.header("Content-Type", 'text/html');
     var fs = require('fs');
-    fs.readFile(__dirname + '/pages/index.html', 'utf8', function (err, data) {
+    fs.readFile(__dirname + '/pages/indexpage.html', 'utf8', function (err, data) {
         if (err) {
             this.res.send(err);
         }
