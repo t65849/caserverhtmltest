@@ -83,6 +83,8 @@ app.post('/', function(request, response){
     console.log('-----------------------------------------------------------------------------------------');
     console.log(JSON.stringify(request.body));
     console.log(JSON.stringify(request.body.state));
+    console.log(JSON.stringify(response.body));
+    console.log(JSON.stringify(response.body.state));
 })
 
 app.get('/images/tatungba.jpg', function (request, response) {
