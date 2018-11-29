@@ -80,7 +80,7 @@ app.get('/login', function (request, response) {
 });
 
 app.post('/', function(request, response){
-    console.log(JSON.stringify(request));
+    console.log(JSON.stringify(request.body));
 })
 
 app.get('/images/tatungba.jpg', function (request, response) {
