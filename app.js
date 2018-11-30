@@ -78,6 +78,7 @@ app.get('/login', function (request, response) {
 });
 
 app.post('/login', function(request, response){
+    console.log('POST /login');
     console.log('-----------------------------------------------------------------------------------------');
     //console.log(JSON.stringify(request));
     console.log('-----------------------------------------------------------------------------------------');
@@ -101,6 +102,16 @@ app.get('/images/tstiball.png', function (request, response) {
     var picture = request.params.picture;
     request.header("Content-Type", 'image/jpeg');
     fs.readFile(__dirname + '/images/tstiball.png', function (err, data) {
+        if (err) {
+            this.res.send(err);
+        }
+        this.res.send(data);
+    }.bind({ req: request, res: response }));
+});
+app.get('/images/nightlight.jpg', function (request, response) {
+    var picture = request.params.picture;
+    request.header("Content-Type", 'image/jpeg');
+    fs.readFile(__dirname + '/images/nightlight.jpg', function (err, data) {
         if (err) {
             this.res.send(err);
         }
