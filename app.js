@@ -152,6 +152,7 @@ app.get('/images/tstiball.png', function (request, response) {
         this.res.send(data);
     }.bind({ req: request, res: response }));
 });
+
 app.get('/images/nightlight.jpg', function (request, response) {
     var picture = request.params.picture;
     request.header("Content-Type", 'image/jpeg');
@@ -162,6 +163,7 @@ app.get('/images/nightlight.jpg', function (request, response) {
         this.res.send(data);
     }.bind({ req: request, res: response }));
 });
+
 /*
 app.get('/vendor/bootstrap/css/bootstrap.css', function (request, response) {
     console.log('GET /vendor/bootstrap/css/bootstrap.css');
