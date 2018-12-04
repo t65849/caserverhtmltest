@@ -85,7 +85,8 @@ app.post('/login', function(req, res){
     }
     var state = req.body.state;
     if (state == '12345') {
-        var id_token = req.body.id_token;
+        console.log(JSON.stringify(req.body));
+        /*var id_token = req.body.id_token;
         console.log(id_token);
         var jwt = require('jwt-simple');
         var token = jwt.decode(id_token, '', true);
@@ -126,9 +127,10 @@ app.post('/login', function(req, res){
                 method: 'GET'
             }, function (err, res, body) {
                 console.info(body);
-                response.send(JSON.stringify(body));
+                
             });
-        });
+        });*/
+        response.send(JSON.stringify(body));
     }
 })
 
