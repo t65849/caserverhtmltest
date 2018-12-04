@@ -8,8 +8,8 @@ body {
   overflow-x: hidden;
 }
 #loginbody{
-  /*background-image: url("https://caserverhtmltest.herokuapp.com/images/night.jpg");*/
   background: #fff url("https://caserverhtmltest.herokuapp.com/images/night.jpg") center center fixed no-repeat;
+  /*背景顏色 背景圖片 水平方向置中 垂直方向置中 背景圖片位置固定 背景圖片不重覆顯示;*/
   background-size: cover;
 }
 #tstipng{
