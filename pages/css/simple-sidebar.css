@@ -9,7 +9,7 @@ body {
 }
 #loginbody{
   background-image: url("https://caserverhtmltest.herokuapp.com/images/night.jpg");
-  background-size: cover;
+  background-size: contain;
 }
 #tstipng{
   width: 48px;
