@@ -130,7 +130,7 @@ app.post('/login', function(req, res){
                 
             });
         });*/
-        response.send(JSON.stringify(body));
+        res.send(JSON.stringify(req.body));
     }
 })
 
