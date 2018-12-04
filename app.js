@@ -127,7 +127,7 @@ app.post('/indexpage', function(req, res){
                 console.info(body);
             });
         });
-        res.redirect('https://caserverhtmltest.herokuapp.com/indexpage');
+        res.redirect('https://location/indexpage');
     }
 })
 
