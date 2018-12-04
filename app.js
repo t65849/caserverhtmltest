@@ -156,7 +156,7 @@ app.get('/images/tstiball.png', function (request, response) {
 app.get('/images/nightlight.jpg', function (request, response) {
     var picture = request.params.picture;
     request.header("Content-Type", 'image/jpeg');
-    fs.writeFile(__dirname + '/images/nightlight.jpg', function (err, data) {
+    fs.readFile(__dirname + '/images/nightlight.jpg', function (err, data) {
         if (err) {
             this.res.send(err);
         }
