@@ -13,13 +13,10 @@ body {
   height: 48px;
 }
 #logindiv{
-  border: #000000;
-  border-width: 2px;
-  width: 270px;
-  height: 200px;
+  border: 1px solid #000000;
+  width: 370px;
+  height: 270px;
   margin: auto;
-  margin-top: auto;
-  margin-bottom: auto;
 }
 .fontmsjh{
   font-family: 'Microsoft JhengHei', monospace;
