@@ -20,6 +20,8 @@ body {
   width: 510px;
   height: 270px;
   position: absolute;
+  top: 50%;
+  left: 50%;
 }
 .fontmsjh{
   font-family: 'Microsoft JhengHei', monospace;
