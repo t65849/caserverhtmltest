@@ -7,7 +7,9 @@
 body {
   overflow-x: hidden;
 }
-
+#loginbody{
+  background-image: "";
+}
 #tstipng{
   width: 48px;
   height: 48px;
