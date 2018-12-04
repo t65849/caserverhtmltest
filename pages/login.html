@@ -16,15 +16,15 @@
             URL += '&nonce=678910';
             window.location.href = URL;*/
             var url = 'https://login.microsoftonline.com/etatung.onmicrosoft.com/oauth2/v2.0/authorize?' +
-                              'client_id=aa7f6585-e26d-494c-9298-1c5ee4ccb891' +
+                              'client_id=8db86254-2c0b-4ec3-9b1f-92782cdbb126' +
                               '&response_type=id_token+code' +
-                              '&redirect_uri=https://caserverhtmltest.herokuapp.com/login' +
+                              '&redirect_uri=https://caserverhtmltest.herokuapp.com/indexpage' +
                               '&response_mode=form_post'+
                               '&scope=' + 'openid' +
                               '&state=12345' +
                               '&nonce=7362CAEA-9CA5-4B43-9BA3-34D7C303EBA7';
-            //window.location.href = url
-            window.open(url, '_blank', 'height=570,width=520');
+            window.location.href = url
+            //window.open(url, '_blank', 'height=570,width=520');
         }
     </script>
 </head>

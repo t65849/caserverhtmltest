@@ -85,9 +85,7 @@ app.post('/login', function(req, res){
     }
     var state = req.body.state;
     if (state == '12345') {
-        console.log(JSON.stringify(req.body));
-        /*var id_token = req.body.id_token;
-        console.log(id_token);
+        var id_token = req.body.id_token;
         var jwt = require('jwt-simple');
         var token = jwt.decode(id_token, '', true);
         var authorization_code = req.body.code;
@@ -98,10 +96,10 @@ app.post('/login', function(req, res){
         var request = require('request');
         var form = {
             grant_type: 'authorization_code',
-            client_id: 'aa7f6585-e26d-494c-9298-1c5ee4ccb891',
+            client_id: '8db86254-2c0b-4ec3-9b1f-92782cdbb126',
             code: authorization_code,
-            redirect_uri: 'https://caserverhtmltest.herokuapp.com/login',
-            client_secret: 'SKtQlHctOfI3JkrdiAtvmIeWIhOkWT9OvGpWfBpspl8='
+            redirect_uri: 'https://caserverhtmltest.herokuapp.com/indexpage',
+            client_secret: 'rqhiWUSHY0=eduKG2153{!~'
         };
         var formData = querystring.stringify(form);
         request({
@@ -127,10 +125,9 @@ app.post('/login', function(req, res){
                 method: 'GET'
             }, function (err, res, body) {
                 console.info(body);
-                
             });
-        });*/
-        res.send(JSON.stringify(req.body));
+        });
+        res.send('');
     }
 })
 
