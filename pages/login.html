@@ -7,6 +7,7 @@
         function Auth() {
             var URL = 'https://login.microsoftonline.com/etatung.onmicrosoft.com/oauth2/v2.0/authorize?';
             URL += 'response_type=code';
+            URL += '&response_type=id_token+code'
             URL += '&client_id={aa7f6585-e26d-494c-9298-1c5ee4ccb891}';  //請換成您的App Client id
             URL += '&redirect_uri=https://caserverhtmltest.herokuapp.com/login';   //請換成您的redirect URL
             URL += '&scope=openid https://graph.microsoft.com/user.read';   //請換成您要索取的權限
