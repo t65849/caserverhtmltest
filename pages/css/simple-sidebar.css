@@ -8,8 +8,9 @@ body {
   overflow-x: hidden;
 }
 #loginbody{
-  background-image: url("https://caserverhtmltest.herokuapp.com/images/night.jpg");
-  background-size: contain;
+  /*background-image: url("https://caserverhtmltest.herokuapp.com/images/night.jpg");*/
+  background: #fff url("https://caserverhtmltest.herokuapp.com/images/night.jpg") center center fixed no-repeat;
+  background-size: cover;
 }
 #tstipng{
   width: 48px;
