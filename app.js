@@ -131,7 +131,7 @@ app.post('/indexpage', function(req, res){
     }
 })
 
-app.get('/images/tatungba.jpg', function (request, response) {
+/*app.get('/images/tatungba.jpg', function (request, response) {
     var picture = request.params.picture;
     request.header("Content-Type", 'image/jpeg');
     fs.readFile(__dirname + '/images/tatungba.jpg', function (err, data) {
@@ -151,7 +151,7 @@ app.get('/images/tstiball.png', function (request, response) {
         }
         this.res.send(data);
     }.bind({ req: request, res: response }));
-});
+});*/
 
 app.get('/images/nightlight.jpg', function (request, response) {
     var picture = request.params.picture;
