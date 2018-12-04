@@ -153,10 +153,10 @@ app.get('/images/tstiball.png', function (request, response) {
     }.bind({ req: request, res: response }));
 });*/
 
-app.get('/images/nightlight.jpg', function (request, response) {
+app.get('/images/night.jpg', function (request, response) {
     var picture = request.params.picture;
     request.header("Content-Type", 'image/jpeg');
-    fs.readFile(__dirname + '/images/nightlight.jpg', function (err, data) {
+    fs.readFile(__dirname + '/images/night.jpg', function (err, data) {
         if (err) {
             this.res.send(err);
         }
