@@ -12,6 +12,11 @@ body {
   width: 48px;
   height: 48px;
 }
+#logindiv{
+  width: 270px;
+  height: 200px;
+  margin: auto;
+}
 .fontmsjh{
   font-family: 'Microsoft JhengHei', monospace;
 }
