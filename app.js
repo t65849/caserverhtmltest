@@ -127,7 +127,8 @@ app.post('/indexpage', function(req, res){
                 console.info(body);
             });
         });
-        //res.send('');
+        res.writeHead({Location: '/indexpage'});
+        res.end();
     }
 })
 
