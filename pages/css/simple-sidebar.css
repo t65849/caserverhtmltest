@@ -19,7 +19,7 @@ body {
   border-radius: 0.5rem;
   width: 510px;
   height: 270px;
-  margin: auto;
+  position: absolute;
 }
 .fontmsjh{
   font-family: 'Microsoft JhengHei', monospace;
