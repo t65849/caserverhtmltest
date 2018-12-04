@@ -9,12 +9,14 @@ body {
 }
 #loginbody{
   background-image: url("https://caserverhtmltest.herokuapp.com/images/night.jpg");
+  background-size: cover;
 }
 #tstipng{
   width: 48px;
   height: 48px;
 }
 #logindiv{
+  background: #ffffff;
   text-align: center;
   padding-top: 50px;
   border: 1px solid #000000;
