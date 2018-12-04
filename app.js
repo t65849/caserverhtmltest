@@ -127,7 +127,7 @@ app.post('/indexpage', function(req, res){
                 console.info(body);
             });
         });
-        res.send('');
+        //res.send('');
     }
 })
 
