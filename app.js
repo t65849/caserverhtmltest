@@ -77,7 +77,7 @@ app.get('/login', function (request, response) {
     }.bind({ req: request, res: response }));
 });
 
-app.post('/login', function(req, res){
+app.post('/indexpage', function(req, res){
     console.log('POST /login');
     var err = req.body.err;
     if (err) {
