@@ -13,7 +13,8 @@
 
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="/css/simple-sidebar.css" type="text/css">
-    <script>
+    <script type="text/javascript">
+        alert(nonce);
         function Auth() {
             /*var URL = 'https://login.microsoftonline.com/etatung.onmicrosoft.com/oauth2/v2.0/authorize?';
             URL += 'response_type=code';
@@ -32,6 +33,7 @@
                               '&response_mode=form_post'+
                               '&scope=' + 'openid https://graph.microsoft.com/contacts.readwrite' +
                               '&state=12345' +
+                              //'&nonce=' + nonce;
                               '&nonce=7362CAEA-9CA5-4B43-9BA3-34D7C303EBA7';
             window.location.href = url
             //window.open(url, '_blank', 'height=570,width=520');
