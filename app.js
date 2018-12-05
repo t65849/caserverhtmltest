@@ -50,7 +50,7 @@ app.get('/logs', function (request, response) {
     stream.pipe(response);
 });
 var useremail = 0;
-
+var userdata;
 app.use(express.static('pages')); //導入pages資料夾裡的東西
 app.get('/indexpage', function (request, response) {
     console.log('GET /index');
