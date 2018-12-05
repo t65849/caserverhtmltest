@@ -67,13 +67,13 @@ app.get('/indexpage', function (request, response) {
 app.get('/login', function (request, response) {
     console.log('GET /login');
     request.header("Content-Type", 'text/html');
-    var nonce = new Date().getTime();
+    //var nonce = new Date().getTime();
     var fs = require('fs');
     fs.readFile(__dirname + '/pages/login.html', 'utf8', function (err, data) {
         if (err) {
             this.res.send(err);
         }
-        data = data+'<script type="text/javascript"> var nonce =  ' + nonce + ' ;</script>';
+        data = data+'<script type="text/javascript"> var nonce =  ' + new Date().getTime() + ' ;</script>';
         this.res.send(data);
     }.bind({ req: request, res: response }));
 });
