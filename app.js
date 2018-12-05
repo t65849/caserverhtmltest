@@ -73,7 +73,7 @@ app.get('/login', function (request, response) {
         if (err) {
             this.res.send(err);
         }
-        data = data+'<script type="text/javascript"> var nonce =  ' + new Date().getTime() + ' ;</script>';
+        data = data+'<script type="text/javascript"> var nonce =  "testalert" ;</script>';
         this.res.send(data);
     }.bind({ req: request, res: response }));
 });
