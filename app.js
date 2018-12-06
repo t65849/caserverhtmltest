@@ -131,10 +131,11 @@ app.post('/indexpage', function(req, res){
                 console.info(body);
             });
         });
-        //res.redirect('https://caserverhtmltest.herokuapp.com/indexpage');
-        res.redirect('https://www.google.com.tw');
+        res.redirect('https://caserverhtmltest.herokuapp.com/indexpage');
     }
 })
+
+
 
 app.get('/images/tatungba.jpg', function (request, response) {
     var picture = request.params.picture;
