@@ -13,7 +13,10 @@
 
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="/css/simple-sidebar.css" type="text/css">
-    <script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            alert(nonce);
+        })
 
         function Auth() {
             /*var URL = 'https://login.microsoftonline.com/etatung.onmicrosoft.com/oauth2/v2.0/authorize?';
@@ -46,8 +49,5 @@
         <h5>請點選下方登入繼續 </h5>
         <button onclick="Auth();" class="btn caserverbtn">登入</button>
     </div>
-    <script type="text/javascript">
-        alert(nonce);
-    </script>
 </body>
 </html>
