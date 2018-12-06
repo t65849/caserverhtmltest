@@ -70,7 +70,7 @@ app.get('/login', function (request, response) {
     var nonce = "";
     nonce = new Date().getTime();
     var fs = require('fs');
-    fs.readFile(__dirname + '/pages/login.html', 'utf8', function (err, data) {
+    fs.seadFile(__dirname + '/pages/login.html', 'utf8', function (err, data) {
         if (err) {
             this.res.send(err);
         }
