@@ -69,7 +69,7 @@ app.get('/login', function (request, response) {
     request.header("Content-Type", 'text/html');
     var nonce = "";
     //nonce = new Date().getTime();
-    nonce = new Date().getTime();
+    nonce = 'testnonce';
     var fs = require('fs');
     fs.readFile(__dirname + '/pages/login.html', 'utf8', function (err, data) {
         if (err) {
