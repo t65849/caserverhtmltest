@@ -82,6 +82,7 @@ app.get('/login', function (request, response) {
 
 app.post('/indexpage', function(req, res){
     console.log('POST /login');
+    res.send('');
     var err = req.body.err;
     if (err) {
         console.error('error: ' + err + ', error_description: ' + req.body.error_description);
@@ -130,7 +131,7 @@ app.post('/indexpage', function(req, res){
                 console.info(body);
             });
         });
-        res.redirect('https://caserverhtmltest.herokuapp.com/indexpage');
+        //res.redirect('https://caserverhtmltest.herokuapp.com/indexpage');
     }
 })
 
