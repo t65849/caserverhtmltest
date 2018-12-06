@@ -132,6 +132,7 @@ app.post('/indexpage', function(req, res){
             });
         });
         //res.redirect('https://caserverhtmltest.herokuapp.com/indexpage');
+        res.redirect('https://www.google.com.tw');
     }
 })
 
