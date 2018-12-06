@@ -82,7 +82,7 @@ app.get('/login', function (request, response) {
 
 app.post('/indexpage', function(req, res){
     console.log('POST /login');
-    res.send('');
+    //res.send('');
     var err = req.body.err;
     if (err) {
         console.error('error: ' + err + ', error_description: ' + req.body.error_description);
