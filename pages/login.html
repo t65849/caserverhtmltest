@@ -17,8 +17,20 @@
     <script type="text/javascript" src="/scripts/jquery/jquery-2.1.0.min.js"></script> 
     <script type="text/javascript">
         $(document).ready(function(){
-            alert(nonce);
-        })
+            $("#login").click(function(){
+                var url = 'https://login.microsoftonline.com/etatung.onmicrosoft.com/oauth2/v2.0/authorize?' +
+                              'client_id=8db86254-2c0b-4ec3-9b1f-92782cdbb126' +
+                              '&response_type=id_token+code' +
+                              '&redirect_uri=https://caserverhtmltest.herokuapp.com/indexpage' +
+                              '&response_mode=form_post'+
+                              '&scope=' + 'openid https://graph.microsoft.com/contacts.readwrite' +
+                              '&state=12345' +
+                              '&nonce=' + nonce;
+                alert(nonce);
+                              //'&nonce=7362CAEA-9CA5-4B43-9BA3-34D7C303EBA7';
+                window.location.href = url;
+            });
+        });
 
         function Auth() {
             /*var URL = 'https://login.microsoftonline.com/etatung.onmicrosoft.com/oauth2/v2.0/authorize?';
@@ -49,7 +61,7 @@
     <div id="logindiv">
         <h1>歡迎蒞臨大同世界科技</h1>
         <h5>請點選下方登入繼續 </h5>
-        <button onclick="Auth();" class="btn caserverbtn">登入</button>
+        <button id="login" class="btn caserverbtn">登入</button>
     </div>
 </body>
 </html>
