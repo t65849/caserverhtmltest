@@ -52,12 +52,14 @@ app.get('/logs', function (request, response) {
 
 app.use(express.static('pages')); //導入pages資料夾裡的東西
 app.get('/indexpage', function (request, response) {
+    var id_token = request.query.id_token;
     var url = require('url');
     var querystring = require('querystring');
     console.log('GET /indexpage');
     var urlstring = url.parse(request.url);
     var urlqueryquery = urlstring.query;
-    console.log('-----------------------------------------------------------------------------------------------'+JSON.stringify(urlqueryquery));
+    console.log(id_token);
+    //console.log('-----------------------------------------------------------------------------------------------'+JSON.stringify(urlqueryquery));
     console.log(JSON.stringify(urlstring));
     //console.log(querystring.stringify(urlquery));
     request.header("Content-Type", 'text/html');
