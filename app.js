@@ -85,8 +85,9 @@ app.get('/indexpage', function (request, response) {
               uri: 'https://login.microsoftonline.com/etatung.onmicrosoft.com/oauth2/v2.0/token',
               body: formData,
               method: 'POST'
-        }, function (err, res, body) {
-            console.log(body);
+        }, function (err, res, bodytext) {
+            console.log('``````````````````````````````````````````````````````````````````````````````````````````````````');
+            console.log(bodytext);
         });
 
     }
