@@ -89,8 +89,9 @@ app.get('/indexpage', function (request, response) {
         }, function (err, res, body) {
             //取得token資訊
             var token = JSON.parse(body);
-            console.log(token);
+            console.log('##########################################################################');
             var access_token = token.access_token;
+            console.log(access_token);
             var reqst = require('request');
             reqst({
                 headers: {
@@ -101,7 +102,7 @@ app.get('/indexpage', function (request, response) {
                   uri: 'https://graph.microsoft.com/v1.0/me/',
                   method: 'GET'
             }, function (err, res, body) {
-                console.log('##########################################################################');
+                
                 var userdata = JSON.parse(body);
                 var businessPhones = userdata.businessPhones;
                 var displayName = userdata.displayName;
