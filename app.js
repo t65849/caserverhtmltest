@@ -57,8 +57,10 @@ app.get('/indexpage', function (request, response) {
     var querystring = require('querystring');
     console.log('GET /indexpage');
     var urlstring = url.parse(request.url);
-    //var urlquery = JSON.parse(request.query);
-    console.log(JSON.stringify(request.query));
+    var urlquery = url.parse(request.url.query);
+    var urlqueryquery = url.parse(request.url).query;
+    console.log('++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++'+JSON.stringify(urlquery));
+    console.log('-----------------------------------------------------------------------------------------------'+JSON.stringify(urlqueryquery));
     console.log(JSON.stringify(urlstring));
     //console.log(querystring.stringify(urlquery));
     request.header("Content-Type", 'text/html');
