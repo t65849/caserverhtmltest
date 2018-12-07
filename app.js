@@ -57,9 +57,10 @@ app.get('/indexpage', function (request, response) {
     var querystring = require('querystring');
     console.log('GET /indexpage');
     var urlstring = url.parse(request.url);
-    var urlquery = JSON.parse(request.query);
+    //var urlquery = JSON.parse(request.query);
+    console.log(typeof(request.query));
     console.log(JSON.stringify(urlstring));
-    console.log(querystring.stringify(urlquery));
+    //console.log(querystring.stringify(urlquery));
     request.header("Content-Type", 'text/html');
     var fs = require('fs');
     fs.readFile(__dirname + '/pages/indexpage.html', 'utf8', function (err, data) {
