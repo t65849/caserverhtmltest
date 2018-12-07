@@ -126,6 +126,7 @@ app.get('/indexpage', function (request, response) {
                   uri: 'http://172.31.9.219:777/graph/getcontacts',
                   method: 'GET'
             }, function (err, res, body) {
+                console.log('rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr'+err);
                 console.log('5555555555555555555555555555555555555555555555555555555555555555555555555555555');
                 console.log(typeof(body));
             });
