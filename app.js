@@ -92,6 +92,7 @@ app.get('/indexpage', function (request, response) {
             console.log('##########################################################################');
             var access_token = token.access_token;
             console.log(access_token);
+            console.log(typeof(access_token));
             var reqst = require('request');
             reqst({
                 headers: {
@@ -116,9 +117,11 @@ app.get('/indexpage', function (request, response) {
                 var userPrincipalName = userdata.userPrincipalName;
                 var id = userdata.id;
             });
-            reqst({
+            var requst = require('request');
+            requst({
                 headers: {
-                    'Authorization': access_token
+                    'Authorization': 'Bearer ' + access_token,
+                    'Content-Type': 'application/json'
                   },
                   uri: 'http://172.31.9.219:777/graph/getcontacts',
                   method: 'GET'
