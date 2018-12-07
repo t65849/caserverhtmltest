@@ -76,23 +76,19 @@ app.get('/indexpage', function (request, response) {
             client_secret: 'rqhiWUSHY0=eduKG2153{!~'
         };
         var formData = querystring.stringify(form);
-        $.ajax({
-            "url": 'https://login.microsoftonline.com/etatung.onmicrosoft.com/oauth2/v2.0/token',
-            "headers": {
+        var req = require('request');
+        req({
+            headers: {
                 'Content-Length': formData.length,
                 'Content-Type': 'application/x-www-form-urlencoded'
               },
-              data: formData,
-              "method": "POST",
-              success: function (ret){
-                  var alertstring = data;
-                  console.log(data);
-                  console.log(JSON.stringify(ret));
-              },error: function (ret){
-                var alertstring = data;
-                console.log(data);
-              }
+              uri: 'https://login.microsoftonline.com/etatung.onmicrosoft.com/oauth2/v2.0/token',
+              body: formData,
+              method: 'POST'
+        }, function (err, res, body) {
+            console.log(body);
         });
+
     }
     fs.readFile(__dirname + '/pages/indexpage.html', 'utf8', function (err, data) {
         if (err) {
