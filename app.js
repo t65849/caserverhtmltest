@@ -55,7 +55,7 @@ app.use(express.static('pages')); //導入pages資料夾裡的東西
 app.get('/indexpage', function (request, response) {
     var url = require('url');
     console.log('GET /indexpage');
-    var urlstring = url.parse(string);
+    var urlstring = url.parse(request.url);
     console.log(JSON.stringify(urlstring))
     request.header("Content-Type", 'text/html');
     var fs = require('fs');
