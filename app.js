@@ -78,6 +78,7 @@ app.get('/indexpage', function (request, response) {
         var formData = querystring.stringify(form);
         var req = require('request');
         req({
+            //利用authorization_code，向login.microsof取得token
             headers: {
                 'Content-Length': formData.length,
                 'Content-Type': 'application/x-www-form-urlencoded'
@@ -85,9 +86,24 @@ app.get('/indexpage', function (request, response) {
               uri: 'https://login.microsoftonline.com/etatung.onmicrosoft.com/oauth2/v2.0/token',
               body: formData,
               method: 'POST'
-        }, function (err, res, bodytext) {
-            console.log('``````````````````````````````````````````````````````````````````````````````````````````````````');
-            console.log(bodytext);
+        }, function (err, res, body) {
+            //取得token資訊
+            var token = JSON.parse(body);
+            console.log(token);
+            var access_token = token.access_token;
+            var reqst = require('request');
+            reqst({
+                headers: {
+                    'Authorization': 'Bearer ' + access_token,
+                    'Content-Type': 'application/json',
+                    'Content-Length': 0
+                  },
+                  uri: 'https://graph.microsoft.com/v1.0/me/',
+                  method: 'GET'
+            }, function (err, res, body) {
+                console.log('##########################################################################');
+                console.info(body);
+            });
         });
 
     }
