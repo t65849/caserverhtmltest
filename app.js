@@ -102,7 +102,28 @@ app.get('/indexpage', function (request, response) {
                   method: 'GET'
             }, function (err, res, body) {
                 console.log('##########################################################################');
-                console.info(body);
+                var userdata = JSON.parse(body);
+                var businessPhones = userdata.businessPhones;
+                var displayName = userdata.displayName;
+                var givenName = userdata.givenName;
+                var jobTitle = userdata.jobTitle;
+                var mail = userdata.mail;
+                var mobilePhone = userdata.mobilePhone;
+                var officeLocation = userdata.officeLocation;
+                var preferredLanguage = userdata.preferredLanguage;
+                var surname = userdata.surname;
+                var userPrincipalName = userdata.userPrincipalName;
+                var id = userdata.id;
+            });
+            reqst({
+                headers: {
+                    'Authorization': access_token
+                  },
+                  uri: 'http://172.31.9.219:777/graph/getcontacts',
+                  method: 'GET'
+            }, function (err, res, body) {
+                console.log('5555555555555555555555555555555555555555555555555555555555555555555555555555555');
+                console.log(typeof(body));
             });
         });
 
