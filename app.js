@@ -52,10 +52,12 @@ app.get('/logs', function (request, response) {
 
 app.use(express.static('pages')); //導入pages資料夾裡的東西
 app.get('/indexpage', function (request, response) {
-    var code = request.query.code;
     var url = require('url');
     var querystring = require('querystring');
     console.log('GET /indexpage');
+    var code = request.query.code;
+    var state = request.query.state;
+    var session_state = request.query.session_state;
     var urlstring = url.parse(request.url);
     var urlqueryquery = urlstring.query;
     console.log(code);
@@ -64,6 +66,9 @@ app.get('/indexpage', function (request, response) {
     //console.log(querystring.stringify(urlquery));
     request.header("Content-Type", 'text/html');
     var fs = require('fs');
+    if(state == '12345'){
+        
+    }
     fs.readFile(__dirname + '/pages/indexpage.html', 'utf8', function (err, data) {
         if (err) {
             this.res.send(err);
