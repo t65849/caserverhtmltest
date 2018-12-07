@@ -49,15 +49,14 @@ app.get('/logs', function (request, response) {
     var stream = require('fs').createReadStream('logs/messaging.log');
     stream.pipe(response);
 });
-var useremail = 0;
-var userdata;
+
 app.use(express.static('pages')); //導入pages資料夾裡的東西
 app.get('/indexpage', function (request, response) {
     var url = require('url');
     var querystring = require('querystring');
     console.log('GET /indexpage');
     var urlstring = url.parse(request.url);
-    var urlqueryquery = url.parse(request.url).query;
+    var urlqueryquery = urlstring.query;
     console.log('-----------------------------------------------------------------------------------------------'+JSON.stringify(urlqueryquery));
     console.log(JSON.stringify(urlstring));
     //console.log(querystring.stringify(urlquery));
