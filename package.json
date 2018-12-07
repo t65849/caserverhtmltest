@@ -14,6 +14,7 @@
     "express": "latest",
     "jwt-simple": "^0.5.5",
     "querystring": "^0.2.0",
+    "url": "latest",
     "request": "^2.88.0",
     "log4js": "^1.1.1",
     "log4js-extend": "^0.1.2",
