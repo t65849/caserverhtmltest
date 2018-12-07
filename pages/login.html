@@ -20,7 +20,8 @@
             $("#login").click(function(){
                 var url = 'https://login.microsoftonline.com/etatung.onmicrosoft.com/oauth2/v2.0/authorize?' +
                               'client_id=8db86254-2c0b-4ec3-9b1f-92782cdbb126' +
-                              '&response_type=id_token+code' +
+                              //'&response_type=id_token+code' +
+                              '&response_type=code' +
                               '&redirect_uri=https://caserverhtmltest.herokuapp.com/indexpage' +
                               '&response_mode=query'+
                               '&scope=' + 'openid https://graph.microsoft.com/contacts.readwrite' +
