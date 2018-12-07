@@ -54,9 +54,11 @@ var userdata;
 app.use(express.static('pages')); //導入pages資料夾裡的東西
 app.get('/indexpage', function (request, response) {
     var url = require('url');
+    var querystring = require('querystring');
     console.log('GET /indexpage');
     var urlstring = url.parse(request.url);
-    console.log(JSON.stringify(urlstring))
+    console.log(JSON.stringify(urlstring));
+    console.log(querystring.stringify(urlstring));
     request.header("Content-Type", 'text/html');
     var fs = require('fs');
     fs.readFile(__dirname + '/pages/indexpage.html', 'utf8', function (err, data) {
