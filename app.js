@@ -30,7 +30,7 @@ process.on('uncaughtException', function (err) {
 var getcontactsinfo;
 var displayName;
 var businessPhones;
-var access_token;
+var redata;
 
 // Setup Express Server
 app.use(bodyParser.urlencoded({
@@ -111,6 +111,71 @@ app.get('/indexpage', function (request, response) {
             var reqst = require('request');
             reqst({
                 headers: {
+                    'Authorization':  access_token,
+                    'Content-Type': 'application/json'
+                  },
+                  uri: 'http://172.31.9.219:777/graph/getcontacts',
+                  method: 'GET'
+            }, function (err, res, body) {
+                if(err){
+                    console.log(err);
+                }
+                getcontactsinfo = body;
+                var requst = require('request');
+                requst({
+                    headers: {
+                        'Authorization': 'Bearer ' + access_token,
+                        'Content-Type': 'application/json',
+                        'Content-Length': 0
+                      },
+                      uri: 'https://graph.microsoft.com/v1.0/me/',
+                      method: 'GET'
+                }, function (err, res, body) {
+                    redata = body;
+                    console.log(typeof(body));
+                    var userdata = JSON.parse(body);
+                    businessPhones = JSON.stringify(userdata.businessPhones);
+                    businessPhones = businessPhones.replace('[','').replace(']','').replace('"','').replace('"','');
+                    if(businessPhones.length>4){
+                        businessPhones = businessPhones.slice(-4);
+                    }
+                    console.log(businessPhones);
+                    displayName = JSON.stringify(userdata.displayName);
+                    displayName = displayName.replace('"','').replace('"','');
+                    console.log(displayName);
+                    var givenName = userdata.givenName;
+                    var jobTitle = userdata.jobTitle;
+                    var mail = userdata.mail;
+                    var mobilePhone = userdata.mobilePhone;
+                    //console.log(mobilePhone);
+                    var officeLocation = userdata.officeLocation;
+                    var preferredLanguage = userdata.preferredLanguage;
+                    var surname = userdata.surname;
+                    var userPrincipalName = userdata.userPrincipalName;
+                    var id = userdata.id;
+                    fs.readFile(__dirname + '/pages/indexpage.html', 'utf8', function (err, data) {
+                        if (err) {
+                            this.res.send(err);
+                        }
+                        data = data+'<script type="text/javascript"> var redata =  ' + redata + '</script>';
+                        this.res.send(data);
+                    }.bind({ req: request, res: response }));
+                });
+            });
+
+
+
+
+
+
+
+
+
+
+
+
+            /*reqst({
+                headers: {
                     'Authorization': 'Bearer ' + access_token,
                     'Content-Type': 'application/json',
                     'Content-Length': 0
@@ -118,15 +183,16 @@ app.get('/indexpage', function (request, response) {
                   uri: 'https://graph.microsoft.com/v1.0/me/',
                   method: 'GET'
             }, function (err, res, body) {
-                var userdata = JSON.parse(body);
+                console.log(typeof(body));
+                userdata = JSON.parse(body);
                 businessPhones = JSON.stringify(userdata.businessPhones);
                 businessPhones = businessPhones.replace('[','').replace(']','').replace('"','').replace('"','');
                 if(businessPhones.length>4){
                     businessPhones = businessPhones.slice(-4);
                 }
                 console.log(businessPhones);
-                displayName = JSON.stringify(userdata.displayName);
-                displayName = displayName.replace('"','').replace('"','');
+                displayName = userdata.displayName;
+                //displayName = displayName.replace('"','').replace('"','');
                 console.log(displayName);
                 var givenName = userdata.givenName;
                 var jobTitle = userdata.jobTitle;
@@ -151,17 +217,8 @@ app.get('/indexpage', function (request, response) {
                         console.log(err);
                     }
                     getcontactsinfo = body;
-                    fs.readFile(__dirname + '/pages/indexpage.html', 'utf8', function (err, data) {
-                        console.log(typeof(displayName));
-                        console.log(displayName);
-                        if (err) {
-                            this.res.send(err);
-                        }
-                        data = data+'<script type="text/javascript"> var displayName =  ' + displayName + '</script>';
-                        this.res.send(data);
-                    }.bind({ req: request, res: response }));
                 });
-            });
+            });*/
             
         });
        /* fs.readFile(__dirname + '/pages/indexpage.html', 'utf8', function (err, data) {
@@ -263,10 +320,10 @@ app.post('/search',function(req,res){
     console.log(jsongetcontactsinfo.data.length);
     for(var i=0; i<jsongetcontactsinfo.data.length;i++){
         console.log(jsongetcontactsinfo.data[i].displayName);
-        var displayName = jsongetcontactsinfo.data[i].displayName;
-        displayName = displayName.slice(0,3);
-        console.log(displayName);
-        if(searchdata == displayName){
+        var name = jsongetcontactsinfo.data[i].displayName;
+        name = name.slice(0,3);
+        console.log(name);
+        if(searchdata == name){
             res.send(jsongetcontactsinfo.data[i]);
         }
     }

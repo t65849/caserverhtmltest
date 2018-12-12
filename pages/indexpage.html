@@ -58,6 +58,7 @@
         <!-- /#sidebar-wrapper -->
         <div id="pagetop">
                 <p id="loginname"></p>
+                <p id="pagelogout" style="margin-top: -15px">登出</p>
         </div>
         <!-- Page Content -->
         <div id="page-content-wrapper">
@@ -113,8 +114,17 @@
     <!-- Menu Toggle Script -->
     <script>
         $(document).ready(function(){
-            $('#loginname').text('您好 ');
-            alert(displayName);
+            var displayName = JSON.stringify(redata.displayName);
+            displayName = displayName.replace('"','').replace('"','');
+            var businessPhones = JSON.stringify(redata.businessPhones);
+            businessPhones = businessPhones.replace('[','').replace(']','').replace('"','').replace('"','');
+            if(businessPhones == null){
+                businessPhones = "無分機";
+            }
+            if(businessPhones.length > 4){
+                businessPhones = businessPhones.slice(-4);
+            }
+            $('#loginname').text('您好 '+displayName+'，您的分機: '+businessPhones);
         });
         function keysearch(){
             /*var keysearch = $('#searchdata').val();
@@ -150,6 +160,11 @@
                 var callnumber = $(this).val();
             })
         })
+        $(document).ready(function(){
+            $('#pagelogout').click(function(){
+                alert('尚未完成');
+            });
+        });
     </script>
 
 </body>

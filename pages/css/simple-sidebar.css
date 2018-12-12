@@ -18,6 +18,8 @@ body {
   height: 48px;
 }
 #pagetop{
+  -webkit-user-select: none;   /* for Chrome */
+  -moz-user-select: none;  /* for Firefox */ 
   height: 50px;
   width: 100%;
   background-color: #000000;
@@ -54,6 +56,7 @@ body {
   height: 337px;
 }
 .caserverbtn{
+  width: 300px;
   background-color: #28a745;
   color: #ffffff;
   font-size: 21px;
