@@ -56,7 +56,9 @@
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->
-
+        <div id="pagetop">
+                <p id="loginname"></p>
+        </div>
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container">
@@ -64,31 +66,31 @@
                     <div style="width:800px">
                         <h1>歡迎蒞臨大同世界科技</h1>
                         <h5>請說出您要找的人名: </h5>
-                        <h5>請輸入您要找的人名: <input class="form-control"><button id="getcontacts" type="submit" class="btn searchbtn">搜尋</button></h5>
+                        <h5>請輸入您要找的人名: <input id="searchdata" class="form-control" onkeypress="keysearch()"><button id="getcontacts" type="submit" class="btn searchbtn" onclick="search()">搜尋</button></h5>
                     </div>
                 </div>
             </div>
             <div class="container">
                 <div class="row">
-                <table class="table table-bordered tableresize" style="display:none">
+                <table id="userdata" class="table table-bordered tableresize" style="display:none">
                     <tr>
                         <td class="tdresize"><img src="https://caserverhtmltest.herokuapp.com/images/tatungba.jpg" class="rounded-circle img-fluid d-block employeespic"></td>
                         <td>
                             <table class="table table-bordered">
                                 <tr>
-                                    <td><h3>大同寶寶</h3></td>
+                                    <td><h3 id="username"></h3></td>
                                 </tr>
                                 <tr>
-                                    <td><h3>創新研發處創新研發課</h3></td>
+                                    <td><h3 id="userdepart"></h3></td>
                                 </tr>
                                 <tr>
-                                    <td><button id="tstimakecall" type="submit" class="btn caserverbtn" value="5741">撥打桌上電話</button>
+                                    <td><button id="tstimakecall" type="submit" class="btn caserverbtn" value="">撥打桌上電話</button>
                                             <button id="tstiendcall" type="submit" class="btn caserverbtn" value="" style="display:none">掛斷桌上電話</button>
                                             <p id="showtext"></p>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><button type="submit" class="btn caserverbtn">撥打行動電話</button></td>
+                                    <td><button id="tstimakephonecall" type="submit" class="btn caserverbtn">撥打行動電話</button></td>
                                 </tr>
                             </table>
                         </td>
@@ -110,7 +112,44 @@
 
     <!-- Menu Toggle Script -->
     <script>
-        //
+        $(document).ready(function(){
+            $('#loginname').text('您好 ');
+            alert(displayName);
+        });
+        function keysearch(){
+            /*var keysearch = $('#searchdata').val();
+            var data = {
+                keysearch: keysearch
+            }
+            $.post('/keysearch', data, function(resdata){
+                alert(resdata);
+            })*/
+        }
+        function search(){
+            var searchdata = $('#searchdata').val();
+            var data = {
+                searchdata: searchdata
+            }
+            $.post('/search', data, function(resdata){
+                if(resdata === 'wrong'){
+                    alert('查無資料');
+                    $('#userdata').hide();
+                } else {
+                    $('#userdata').show();
+                    $('#username').text('姓名:'+resdata.displayName);
+                    $('#userdepart').text('單位:'+resdata.department);
+                    $('#tstimakecall').text('撥打桌上電話'+(resdata.businessPhones));
+                    $('#tstimakecall').val(resdata.businessPhones);
+                    $('#tstimakephonecall').text('撥打行動電話'+(resdata.mobilePhone));
+                    $('#tstimakephonecall').val(resdata.mobilePhone);
+                }
+            })
+        };
+        $(document).ready(function(){
+            $('#tstimakecall').click(function(){
+                var callnumber = $(this).val();
+            })
+        })
     </script>
 
 </body>

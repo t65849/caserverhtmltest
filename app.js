@@ -13,6 +13,25 @@ var app = express();
 var bodyParser = require('body-parser');
 var hashtable = require(__dirname + '/hashtable.js');
 
+var http = require('http');
+var server = http.Server(app);	// create express server
+var options = {
+    pingTimeout: 60000,
+    pingInterval: 3000
+};
+var listener = server.listen(process.env.port || process.env.PORT || 3870, function () {
+    logger.info('Server listening to ' + listener.address().port);
+});
+
+process.on('uncaughtException', function (err) {
+    logger.error('uncaughtException occurred: ' + (err.stack ? err.stack : err));
+});
+
+var getcontactsinfo;
+var displayName;
+var businessPhones;
+var access_token;
+
 // Setup Express Server
 app.use(bodyParser.urlencoded({
     extended: true
@@ -60,9 +79,7 @@ app.get('/indexpage', function (request, response) {
     var urlstring = url.parse(request.url);
     var urlqueryquery = urlstring.query;
     console.log(code);
-    console.log('-----------------------------------------------------------------------------------------------'+JSON.stringify(urlqueryquery));
     console.log(JSON.stringify(urlstring));
-    //console.log(querystring.stringify(urlquery));
     request.header("Content-Type", 'text/html');
     var fs = require('fs');
     if(state == '12345'){
@@ -72,7 +89,7 @@ app.get('/indexpage', function (request, response) {
             grant_type: 'authorization_code',
             client_id: '8db86254-2c0b-4ec3-9b1f-92782cdbb126',
             code: authorization_code,
-            redirect_uri: 'https://caserverhtmltest.herokuapp.com/indexpage',
+            redirect_uri: 'http://localhost:3870/indexpage',
             client_secret: 'rqhiWUSHY0=eduKG2153{!~'
         };
         var formData = querystring.stringify(form);
@@ -89,12 +106,10 @@ app.get('/indexpage', function (request, response) {
         }, function (err, res, body) {
             //取得token資訊
             var token = JSON.parse(body);
-            console.log('##########################################################################');
-            var access_token = token.access_token;
+            access_token = token.access_token;
             console.log(access_token);
-            console.log(typeof(access_token));
             var reqst = require('request');
-            /*reqst({
+            reqst({
                 headers: {
                     'Authorization': 'Bearer ' + access_token,
                     'Content-Type': 'application/json',
@@ -103,43 +118,64 @@ app.get('/indexpage', function (request, response) {
                   uri: 'https://graph.microsoft.com/v1.0/me/',
                   method: 'GET'
             }, function (err, res, body) {
-                
                 var userdata = JSON.parse(body);
-                var businessPhones = userdata.businessPhones;
-                var displayName = userdata.displayName;
+                businessPhones = JSON.stringify(userdata.businessPhones);
+                businessPhones = businessPhones.replace('[','').replace(']','').replace('"','').replace('"','');
+                if(businessPhones.length>4){
+                    businessPhones = businessPhones.slice(-4);
+                }
+                console.log(businessPhones);
+                displayName = JSON.stringify(userdata.displayName);
+                displayName = displayName.replace('"','').replace('"','');
+                console.log(displayName);
                 var givenName = userdata.givenName;
                 var jobTitle = userdata.jobTitle;
                 var mail = userdata.mail;
                 var mobilePhone = userdata.mobilePhone;
+                //console.log(mobilePhone);
                 var officeLocation = userdata.officeLocation;
                 var preferredLanguage = userdata.preferredLanguage;
                 var surname = userdata.surname;
                 var userPrincipalName = userdata.userPrincipalName;
                 var id = userdata.id;
-                var reqst = require('request');
-            });*/
-            reqst({
-                headers: {
-                    'Authorization':  access_token,
-                    'Content-Type': 'application/json'
-                  },
-                  uri: 'http://172.31.9.219:777/graph/getcontacts',
-                  method: 'GET'
-            }, function (err, res, body) {
-                console.log('rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr'+err);
-                console.log('5555555555555555555555555555555555555555555555555555555555555555555555555555555');
-                console.log(typeof(body));
+                var requst = require('request');
+                requst({
+                    headers: {
+                        'Authorization':  access_token,
+                        'Content-Type': 'application/json'
+                      },
+                      uri: 'http://172.31.9.219:777/graph/getcontacts',
+                      method: 'GET'
+                }, function (err, res, body) {
+                    if(err){
+                        console.log(err);
+                    }
+                    getcontactsinfo = body;
+                    fs.readFile(__dirname + '/pages/indexpage.html', 'utf8', function (err, data) {
+                        console.log(typeof(displayName));
+                        console.log(displayName);
+                        if (err) {
+                            this.res.send(err);
+                        }
+                        data = data+'<script type="text/javascript"> var displayName =  ' + displayName + '</script>';
+                        this.res.send(data);
+                    }.bind({ req: request, res: response }));
+                });
             });
+            
         });
-
+       /* fs.readFile(__dirname + '/pages/indexpage.html', 'utf8', function (err, data) {
+            if (err) {
+                this.res.send(err);
+            }
+            //data = data+'<script type="text/javascript"> var displayName =  ' + displayName + '</script>';
+            this.res.send(data);
+        }.bind({ req: request, res: response }));*/
+    } else{
+        console.log('indexpage to login');
+        response.redirect('/login');
     }
-    fs.readFile(__dirname + '/pages/indexpage.html', 'utf8', function (err, data) {
-        if (err) {
-            this.res.send(err);
-        }
-        //data = data+'<script type="text/javascript"> var textpnp =  ' + textpnp + ' ;</script>';
-        this.res.send(data);
-    }.bind({ req: request, res: response }));
+    
 });
 app.get('/login', function (request, response) {
     console.log('GET /login');
@@ -156,6 +192,13 @@ app.get('/login', function (request, response) {
         this.res.send(data);
     }.bind({ req: request, res: response }));
 });
+
+/*app.post('/keysearch',function(req,res){
+    console.log('POST /keysearch');
+    var keysearchdata = req.body.keysearchdata;
+    var jsongetcontactsinfo = JSON.parse(getcontactsinfo);
+
+})*/
 
 app.post('/indexpage', function(req, res){
     console.log('POST /login');
@@ -212,7 +255,23 @@ app.post('/indexpage', function(req, res){
     }
 })
 
-
+app.post('/search',function(req,res){
+    console.log('POST /search');
+    var searchdata = req.body.searchdata;
+    console.log(searchdata);
+    var jsongetcontactsinfo = JSON.parse(getcontactsinfo);
+    console.log(jsongetcontactsinfo.data.length);
+    for(var i=0; i<jsongetcontactsinfo.data.length;i++){
+        console.log(jsongetcontactsinfo.data[i].displayName);
+        var displayName = jsongetcontactsinfo.data[i].displayName;
+        displayName = displayName.slice(0,3);
+        console.log(displayName);
+        if(searchdata == displayName){
+            res.send(jsongetcontactsinfo.data[i]);
+        }
+    }
+    res.send('wrong');
+})
 
 app.get('/images/tatungba.jpg', function (request, response) {
     var picture = request.params.picture;
@@ -305,16 +364,4 @@ app.get('/scripts/jquery/jquery-2.1.0.min.js', function (request, response) {
     }.bind({ req: request, res: response }));
 });*/
 
-var http = require('http');
-var server = http.Server(app);	// create express server
-var options = {
-    pingTimeout: 60000,
-    pingInterval: 3000
-};
-var listener = server.listen(process.env.port || process.env.PORT || 3978, function () {
-    logger.info('Server listening to ' + listener.address().port);
-});
 
-process.on('uncaughtException', function (err) {
-    logger.error('uncaughtException occurred: ' + (err.stack ? err.stack : err));
-});

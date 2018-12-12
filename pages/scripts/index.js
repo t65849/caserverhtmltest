@@ -1,9 +1,0 @@
-/*$(document).ready(function(){
-    $('#getcontacts').click(function(){
-        alert('getcontacts');
-    })
-});*/
-alert('test');
-$(document).ready(function(){
-    alert('test2');
-});

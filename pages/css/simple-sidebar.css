@@ -5,6 +5,7 @@
  */
 
 body {
+  margin: 0px;
   overflow-x: hidden;
 }
 #loginbody{
@@ -15,6 +16,13 @@ body {
 #tstipng{
   width: 48px;
   height: 48px;
+}
+#pagetop{
+  height: 50px;
+  width: 100%;
+  background-color: #000000;
+  text-align: right;
+  color: #ffffff;
 }
 #logindiv{
   background: #ffffff;
