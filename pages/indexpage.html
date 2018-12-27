@@ -129,9 +129,9 @@
         var destinationid = '';
         var secondcount = 0;
         $(document).ready(function () {
-            var displayName = JSON.stringify(redata.displayName);
+            var displayName = JSON.stringify(mydata.displayName);
             displayName = displayName.replace('"', '').replace('"', '');
-            var businessPhones = JSON.stringify(redata.businessPhones);
+            var businessPhones = JSON.stringify(mydata.businessPhones);
             businessPhones = businessPhones.replace('[', '').replace(']', '').replace('"', '').replace('"', '');
             if (businessPhones == null) {
                 businessPhones = "無分機";
@@ -323,9 +323,11 @@ $(document).ready(function () {
                     alert('查無資料');
                     $('#userdata').hide();
                 } else {
+                    resdata = JSON.parse(resdata);
                     $('#userdata').show();
                     $('#username').text('姓名:' + resdata.displayName);
-                    $('#userdepart').text('單位:' + resdata.department);
+                    //$('#userdepart').text('單位:' + resdata.department);
+                    $('#userdepart').text('信箱:' + resdata.mail);
                     $('#tstimakecall').text('撥打桌上電話' + (resdata.businessPhones));
                     $('#tstimakecall').val(resdata.businessPhones);
                     $('#tstimakephonecall').text('撥打行動電話' + (resdata.mobilePhone));

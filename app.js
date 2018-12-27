@@ -27,10 +27,10 @@ process.on('uncaughtException', function (err) {
     logger.error('uncaughtException occurred: ' + (err.stack ? err.stack : err));
 });
 
-var getcontactsinfo;
+var getusers;
 var displayName;
 var businessPhones;
-var redata;
+var mydata;
 
 // Setup Express Server
 app.use(bodyParser.urlencoded({
@@ -78,8 +78,8 @@ app.get('/indexpage', function (request, response) {
     var session_state = request.query.session_state;
     var urlstring = url.parse(request.url);
     var urlqueryquery = urlstring.query;
-    console.log(code);
-    console.log(JSON.stringify(urlstring));
+    //console.log(code);
+    //console.log(JSON.stringify(urlstring));
     request.header("Content-Type", 'text/html');
     var fs = require('fs');
     if(state == '12345'){
@@ -107,20 +107,27 @@ app.get('/indexpage', function (request, response) {
             //取得token資訊
             var token = JSON.parse(body);
             access_token = token.access_token;
-            console.log(access_token);
+            //console.log('***********************************************************');
+            //console.log('access_token');
+            //console.log(access_token);
             var reqst = require('request');
             reqst({
                 headers: {
                     'Authorization':  access_token,
                     'Content-Type': 'application/json'
                   },
-                  uri: 'http://172.31.9.219:777/graph/getcontacts',
+                  //uri: 'http://172.31.9.219:777/graph/getcontacts',
+                  uri: 'http://172.31.9.219:777/graph/getusers', //取得所有人資訊
                   method: 'GET'
             }, function (err, res, body) {
                 if(err){
                     console.log(err);
                 }
-                getcontactsinfo = body;
+                console.log('&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&');
+                getusers = body;
+                console.log(typeof(getusers));
+                console.log(getusers);
+                console.log('----------------------------------------------------------');
                 var requst = require('request');
                 requst({
                     headers: {
@@ -131,9 +138,8 @@ app.get('/indexpage', function (request, response) {
                       uri: 'https://graph.microsoft.com/v1.0/me/',
                       method: 'GET'
                 }, function (err, res, body) {
-                    redata = body;
-                    console.log(typeof(body));
-                    var userdata = JSON.parse(body);
+                    mydata = body;
+                    /*var userdata = JSON.parse(body);
                     businessPhones = JSON.stringify(userdata.businessPhones);
                     businessPhones = businessPhones.replace('[','').replace(']','').replace('"','').replace('"','');
                     if(businessPhones.length>4){
@@ -141,9 +147,9 @@ app.get('/indexpage', function (request, response) {
                     }
                     console.log(businessPhones);
                     displayName = JSON.stringify(userdata.displayName);
-                    displayName = displayName.replace('"','').replace('"','');
-                    console.log(displayName);
-                    var givenName = userdata.givenName;
+                    displayName = displayName.replace('"','').replace('"','');*/
+                    //console.log(displayName);
+                    /*var givenName = userdata.givenName;
                     var jobTitle = userdata.jobTitle;
                     var mail = userdata.mail;
                     var mobilePhone = userdata.mobilePhone;
@@ -152,12 +158,12 @@ app.get('/indexpage', function (request, response) {
                     var preferredLanguage = userdata.preferredLanguage;
                     var surname = userdata.surname;
                     var userPrincipalName = userdata.userPrincipalName;
-                    var id = userdata.id;
+                    var id = userdata.id;*/
                     fs.readFile(__dirname + '/pages/indexpage.html', 'utf8', function (err, data) {
                         if (err) {
                             this.res.send(err);
                         }
-                        data = data+'<script type="text/javascript"> var redata =  ' + redata + '</script>';
+                        data = data+'<script type="text/javascript"> var mydata =  ' + mydata + '</script>';
                         this.res.send(data);
                     }.bind({ req: request, res: response }));
                 });
@@ -316,18 +322,38 @@ app.post('/search',function(req,res){
     console.log('POST /search');
     var searchdata = req.body.searchdata;
     console.log(searchdata);
-    var jsongetcontactsinfo = JSON.parse(getcontactsinfo);
-    console.log(jsongetcontactsinfo.data.length);
-    for(var i=0; i<jsongetcontactsinfo.data.length;i++){
-        console.log(jsongetcontactsinfo.data[i].displayName);
-        var name = jsongetcontactsinfo.data[i].displayName;
+    var jsongetusers = JSON.parse(getusers);
+    var resdata = '';
+    console.log('55555555555555555555555555555555555555555555555555555555555555555');
+    console.log(jsongetusers.data.value.length);
+    for(var i=0; i<jsongetusers.data.value.length;i++){
+        //console.log(jsongetusers.data.value[i].displayName);
+        var datacount = 0;
+        var name = jsongetusers.data.value[i].displayName;
         name = name.slice(0,3);
-        console.log(name);
+        //console.log(name);
         if(searchdata == name){
-            res.send(jsongetcontactsinfo.data[i]);
+            var jsonstrf = JSON.stringify(jsongetusers.data.value[i]);
+            //resdata += ','+jsonstrf;
+            switch(datacount){
+                case 0: //第一筆資料
+                    resdata += jsonstrf;
+                    datacount++;
+                    break;
+                default:
+                    resdata += ','+jsonstrf;
+                    datacount++;
+                    break;
+            }
         }
     }
-    res.send('wrong');
+    if(resdata != null){
+        console.log('!=null');
+        res.send(resdata);
+    } else {
+        res.send('wrong');
+    }
+    //res.send('wrong');
 })
 
 app.get('/images/tatungba.jpg', function (request, response) {
