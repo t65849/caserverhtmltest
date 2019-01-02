@@ -548,6 +548,8 @@ pre code {
 
 .container {
   width: 100%;
+  /*overflow-x: auto;
+  display: inline-block;*/
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;

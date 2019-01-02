@@ -326,15 +326,14 @@ app.post('/search',function(req,res){
     var resdata = '';
     console.log('55555555555555555555555555555555555555555555555555555555555555555');
     console.log(jsongetusers.data.value.length);
+    var datacount = 0;
     for(var i=0; i<jsongetusers.data.value.length;i++){
         //console.log(jsongetusers.data.value[i].displayName);
-        var datacount = 0;
         var name = jsongetusers.data.value[i].displayName;
         name = name.slice(0,3);
         //console.log(name);
         if(searchdata == name){
             var jsonstrf = JSON.stringify(jsongetusers.data.value[i]);
-            //resdata += ','+jsonstrf;
             switch(datacount){
                 case 0: //第一筆資料
                     resdata += jsonstrf;
@@ -347,13 +346,15 @@ app.post('/search',function(req,res){
             }
         }
     }
-    if(resdata != null){
-        console.log('!=null');
-        res.send(resdata);
+    if(resdata != ''){
+        console.log(datacount);
+            console.log('!=null');
+            resdata = '['+resdata+']';
+            console.log(resdata);
+            res.send(resdata);
     } else {
         res.send('wrong');
     }
-    //res.send('wrong');
 })
 
 app.get('/images/tatungba.jpg', function (request, response) {

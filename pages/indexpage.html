@@ -72,12 +72,13 @@
                     </div>
                 </div>
             </div>
-            <div class="container">
+            <!--<div class="container">
                 <div class="row">
-                    <table id="userdata" class="table table-bordered tableresize" style="display:none">
+                    <table id="userdata" class="table table-bordered tableresize">
                         <tr>
                             <td class="tdresize"><img src="https://caserverhtmltest.herokuapp.com/images/tatungba.jpg"
-                                    class="rounded-circle img-fluid d-block employeespic"></td>
+                                    class="rounded-circle img-fluid d-block employeespic">
+                            </td>
                             <td>
                                 <table class="table table-bordered">
                                     <tr>
@@ -95,7 +96,8 @@
                                             <button id="holdcall" type="submit" class="btn caserverbtn" value="" style="display:none">保留電話</button>
                                             <button id="retrievecall" type="submit" class="btn caserverbtn" value=""
                                                 style="display:none">接回電話</button>
-                                            <button id="tstiendcall" type="submit" class="btn caserverbtn" value="" style="display:none">掛斷電話</button>
+                                            <button id="tstiendcall" type="submit" class="btn caserverbtn" value=""
+                                                style="display:none">掛斷電話</button>
                                             <p id="showtext"></p>
                                         </td>
                                     </tr>
@@ -107,12 +109,101 @@
                         </tr>
                     </table>
                 </div>
-            </div>
+
+            </div>-->
         </div>
         <!-- /#page-content-wrapper -->
 
     </div>
     <!-- /#wrapper -->
+    <!--<div style="width:12000px;height:200px;background-color:blue;margin-left: 500px;overflow: scroll;">
+
+    </div>-->
+    <div style="overflow-x:auto;margin-left: 270px">
+        <div id="divrow" class="row" style="height:430px; width: 330px;"><!--width:15720px;-->
+            <!--background-color:blue;-->
+            <table class="table table-bordered tableresize" style="margin-left:30px;">
+                <tr id="appendforuser">
+                    <!-- <td>
+                        <table class="table table-bordered">
+                            <tr>
+                                <td class="tdresize">
+                                    <img src="https://caserverhtmltest.herokuapp.com/images/tatungba.jpg" class="rounded-circle img-fluid d-block employeespic">
+                                </td>
+                                <td>
+                                    <table class="table table-bordered">
+                                        <tr>
+                                            <td>
+                                                <h3 id="username"></h3>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <h3 id="userdepart"></h3>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><button id="tstimakecall" type="submit" class="btn caserverbtn" value="">撥打桌上電話</button>
+                                                <button id="holdcall" type="submit" class="btn caserverbtn" value=""
+                                                    style="display:none">保留電話</button>
+                                                <button id="retrievecall" type="submit" class="btn caserverbtn" value=""
+                                                    style="display:none">接回電話</button>
+                                                <button id="tstiendcall" type="submit" class="btn caserverbtn" value=""
+                                                    style="display:none">掛斷電話</button>
+                                                <p id="showtext"></p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><button id="tstimakephonecall" type="submit" class="btn caserverbtn">撥打行動電話</button></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td>
+                        <table class="table table-bordered">
+                            <tr>
+                                <td class="tdresize">
+                                    <img src="https://caserverhtmltest.herokuapp.com/images/tatungba.jpg" class="rounded-circle img-fluid d-block employeespic">
+                                </td>
+                                <td>
+                                    <table class="table table-bordered">
+                                        <tr>
+                                            <td>
+                                                <h3 id="username"></h3>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <h3 id="userdepart"></h3>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><button id="tstimakecall" type="submit" class="btn caserverbtn" value="">撥打桌上電話</button>
+                                                <button id="holdcall" type="submit" class="btn caserverbtn" value=""
+                                                    style="display:none">保留電話</button>
+                                                <button id="retrievecall" type="submit" class="btn caserverbtn" value=""
+                                                    style="display:none">接回電話</button>
+                                                <button id="tstiendcall" type="submit" class="btn caserverbtn" value=""
+                                                    style="display:none">掛斷電話</button>
+                                                <p id="showtext"></p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><button id="tstimakephonecall" type="submit" class="btn caserverbtn">撥打行動電話</button></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>-->
+
+                </tr>
+
+            </table>
+        </div>
+    </div>
 
     <!-- Bootstrap core JavaScript -->
     <script src="/vendor/jquery/jquery.min.js"></script>
@@ -141,7 +232,7 @@
             }
             $('#loginname').text('您好 ' + displayName + '，您的分機: ' + businessPhones);
             stationid = businessPhones;
-            $('#tstimakecall').click(function () { //撥出電話
+            $('.camakecall').click(function () { //撥出電話
                 var destinationid = $(this).val();
                 if (destinationid == null) {
                     //do
@@ -201,7 +292,7 @@
                 }
             }) //end makecall
 
-            $('#holdcall').click(function () { //保留電話
+            $('.caholdcall').click(function () { //保留電話
                 $.ajax({
                     "async": true,
                     "crossDomain": true,
@@ -230,7 +321,7 @@
                 });
             });
 
-            $('#retrievecall').click(function () { //接回電話
+            $('.caretrievecall').click(function () { //接回電話
                 $.ajax({
                     "async": true,
                     "crossDomain": true,
@@ -261,7 +352,7 @@
             });
 
 
-            $('#tstiendcall').click(function () { //結束電話
+            $('.caendcalll').click(function () { //結束電話
                 $.ajax({
                     "async": true,
                     "crossDomain": true,
@@ -292,17 +383,9 @@
 
         });
 
-$(document).ready(function () {
-    
-});
+        $(document).ready(function () {
 
-
-
-
-
-
-
-
+        });
 
         function keysearch() {
             /*var keysearch = $('#searchdata').val();
@@ -321,17 +404,58 @@ $(document).ready(function () {
             $.post('/search', data, function (resdata) {
                 if (resdata === 'wrong') {
                     alert('查無資料');
-                    $('#userdata').hide();
+                    $('#appendforuser').empty(); //清空appendforuser裡面所有node
+                    $('#divrow').width(330);
                 } else {
+                    $('#appendforuser').empty(); //清空appendforuser裡面所有node
+                    console.log(resdata);
                     resdata = JSON.parse(resdata);
-                    $('#userdata').show();
-                    $('#username').text('姓名:' + resdata.displayName);
-                    //$('#userdepart').text('單位:' + resdata.department);
-                    $('#userdepart').text('信箱:' + resdata.mail);
-                    $('#tstimakecall').text('撥打桌上電話' + (resdata.businessPhones));
-                    $('#tstimakecall').val(resdata.businessPhones);
-                    $('#tstimakephonecall').text('撥打行動電話' + (resdata.mobilePhone));
-                    $('#tstimakephonecall').val(resdata.mobilePhone);
+                    var datalength = resdata.length;
+                    $('#divrow').width(785*datalength);
+                    $('.tableresize').width(755*datalength);
+                    for(var i = 0; i < datalength; i++){
+                        $('#appendforuser').append(
+                            '<td id="newdata">'+
+                                '<table class="table table-bordered">'+
+                                    '<tr>'+
+                                        '<td class="tdresize">'+
+                                                '<img src="/images/tatungba.jpg" class="rounded-circle img-fluid d-block employeespic">'+
+                                        '</td>'+
+                                        '<td>'+
+                                            '<table class="table table-bordered">'+
+                                                '<tr>'+
+                                                    '<td><h3 id="username' +i+ '"><h3>'+
+                                                    '</td>'+
+                                                '</tr>'+
+                                                '<tr>'+
+                                                    '<td><h3 id="userdepart' +i+ '"></h3>'+
+                                                    '</td>'+
+                                                '</tr>'+
+                                                '<tr>'+
+                                                    '<td><button id="tstimakecall' +i+ '" type="submit" class="btn caserverbtn camakecall" value="">撥打桌上電話</button>'+
+                                                    '<button id="holdcall' +i+ '" type="submit" class="btn caserverbtn caholdcall" value="" style="display:none">保留電話</button>'+
+                                                    '<button id="retrievecall' +i+ '" type="submit" class="btn caserverbtn caretrievecall" value="" style="display:none">接回電話</button>'+
+                                                    '<button id="tstiendcall' +i+ '" type="submit" class="btn caserverbtn caendcall" value="" style="display:none">掛斷電話</button>'+
+                                                    '<p id="showtext"></p>'+
+                                                    '</td>'+
+                                                '</tr>'+
+                                                '<tr>'+
+                                                    ' <td><button id="tstimakephonecall' +i+ '" type="submit" class="btn caserverbtn">撥打行動電話</button></td>'+
+                                                '</tr>'+
+                                            '</table>'+
+                                        '</td>'+
+                                    '</tr>'+
+                                '</table>'+
+                            '</td>'
+                        );
+                        $('#username'+i).text('姓名:' + resdata[i].displayName);
+                        //$('#userdepart').text('單位:' + resdata.department);
+                        $('#userdepart'+i).text('信箱:' + resdata[i].mail);
+                        $('#tstimakecall'+i).text('撥打桌上電話' + (resdata[i].businessPhones));
+                        $('#tstimakecall'+i).val(resdata[i].businessPhones);
+                        $('#tstimakephonecall'+i).text('撥打行動電話' + (resdata[i].mobilePhone));
+                        $('#tstimakephonecall'+i).val(resdata[i].mobilePhone);
+                    }
                 }
             })
         };
@@ -367,98 +491,98 @@ $(document).ready(function () {
 
         function checkStatus() {
             console.log("checkStatus >......");
-                $.ajax({
-                    "async": true,
-                    "crossDomain": true,
-                    //"url": caserverurl + '/status/' + name + '?stationid=' + stationid,
-                    "url": 'https://tstiticctcstest.herokuapp.com/phone' + '/status/' + name + '?stationid=' + stationid,
-                    "method": "GET",
-                    headers: {
-                        'x-access-token': Mytoken,
-                        "cache-control": "no-cache"
-                    },
-                    success: function (reg) {
-                        if (reg.success === false) {
-                            if (reg.message === 'Can not find station status: ' + stationid) {
-                                while (secondcount < 1) {
-                                    secondcount++;
-                                    setTimeout(function () {
-                                        return checkStatus()
-                                    }, 1000);
-                                    $('#showtext').text("");
-                                } //end while
-                            } else {
-                                if (secondcount < 1) {
-                                    secondcount++;
-                                    $('#showtext').text("檢查連線中...");
-                                    //setTimeout(checkStatus,1000);
-                                    setTimeout(function () {
-                                        return checkStatus()
-                                    }, 200);
-                                } else {
-                                    $('#showtext').text("連線失敗!......");
-                                }
-                            }
-                        } else {
-                            var callstatus = reg.status.status;
-                            callid = reg.status.callid;
-                            switch (callstatus) {
-                                case "oncallconnect": //通話中
-                                    $('#makecall').hide();
-                                    $('#tstimakecall').hide();
-                                    $('#holdcall').show();
-                                    $('#retrievecall').hide();
-                                    $('#endcall').show();
-                                    $('#tstiendcall').show();
-                                    $('#showtext').text("通話中~");
-                                    setTimeout(checkStatus, 1000);
-                                    break;
-                                case "oncallcreate": //撥號中
-                                    $('#endcall').show();
-                                    $('#tstiendcall').show();
-                                    $('#makecall').hide();
-                                    $('#tstimakecall').hide();
-                                    $('#showtext').text("撥號中...");
-                                    setTimeout(checkStatus, 1000);
-                                    break;
-                                case "oncallend": //結束
-                                    $('#makecall').show();
-                                    $('#tstimakecall').show();
-                                    $('#holdcall').hide();
-                                    $('#retrievecall').hide();
-                                    $('#endcall').hide();
-                                    $('#tstiendcall').hide();
-                                    $('#showtext').text("");
-                                    break;
-                                case "oncallhold": //保留中
-                                    $('#retrievecall').show();
-                                    $('#holdcall').hide();
-                                    $('#tstiendcall').show();
-                                    $('#showtext').text("保留中...");
-                                    setTimeout(checkStatus, 1000);
-                                    break;
-                                case "oncallring": //響鈴中
-                                    //do
-                                    break;
-                                default:
-                                //do
-                            }
-                        }
-                    },
-                    error: function (reg) {
-                        if (name == '' || stationid == '' || caserverurl == '') {
-                            //$('#showtext').text("請檢查撥號話機和使用者帳號!");
+            $.ajax({
+                "async": true,
+                "crossDomain": true,
+                //"url": caserverurl + '/status/' + name + '?stationid=' + stationid,
+                "url": 'https://tstiticctcstest.herokuapp.com/phone' + '/status/' + name + '?stationid=' + stationid,
+                "method": "GET",
+                headers: {
+                    'x-access-token': Mytoken,
+                    "cache-control": "no-cache"
+                },
+                success: function (reg) {
+                    if (reg.success === false) {
+                        if (reg.message === 'Can not find station status: ' + stationid) {
+                            while (secondcount < 1) {
+                                secondcount++;
+                                setTimeout(function () {
+                                    return checkStatus()
+                                }, 1000);
+                                $('#showtext').text("");
+                            } //end while
                         } else {
                             if (secondcount < 1) {
                                 secondcount++;
-                                //$('#showtext').text("連線錯誤!..........");
+                                $('#showtext').text("檢查連線中...");
+                                //setTimeout(checkStatus,1000);
                                 setTimeout(function () {
                                     return checkStatus()
                                 }, 200);
+                            } else {
+                                $('#showtext').text("連線失敗!......");
                             }
                         }
+                    } else {
+                        var callstatus = reg.status.status;
+                        callid = reg.status.callid;
+                        switch (callstatus) {
+                            case "oncallconnect": //通話中
+                                $('#makecall').hide();
+                                $('#tstimakecall').hide();
+                                $('#holdcall').show();
+                                $('#retrievecall').hide();
+                                $('#endcall').show();
+                                $('#tstiendcall').show();
+                                $('#showtext').text("通話中~");
+                                setTimeout(checkStatus, 1000);
+                                break;
+                            case "oncallcreate": //撥號中
+                                $('#endcall').show();
+                                $('#tstiendcall').show();
+                                $('#makecall').hide();
+                                $('#tstimakecall').hide();
+                                $('#showtext').text("撥號中...");
+                                setTimeout(checkStatus, 1000);
+                                break;
+                            case "oncallend": //結束
+                                $('#makecall').show();
+                                $('#tstimakecall').show();
+                                $('#holdcall').hide();
+                                $('#retrievecall').hide();
+                                $('#endcall').hide();
+                                $('#tstiendcall').hide();
+                                $('#showtext').text("");
+                                break;
+                            case "oncallhold": //保留中
+                                $('#retrievecall').show();
+                                $('#holdcall').hide();
+                                $('#tstiendcall').show();
+                                $('#showtext').text("保留中...");
+                                setTimeout(checkStatus, 1000);
+                                break;
+                            case "oncallring": //響鈴中
+                                //do
+                                break;
+                            default:
+                            //do
+                        }
                     }
-                });
+                },
+                error: function (reg) {
+                    if (name == '' || stationid == '' || caserverurl == '') {
+                        //$('#showtext').text("請檢查撥號話機和使用者帳號!");
+                    } else {
+                        if (secondcount < 1) {
+                            secondcount++;
+                            //$('#showtext').text("連線錯誤!..........");
+                            setTimeout(function () {
+                                return checkStatus()
+                            }, 200);
+                        }
+                    }
+                }
+            });
 
         };
         $(document).ready(function () {

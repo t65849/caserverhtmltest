@@ -97,6 +97,7 @@ body {
 }
 
 #page-content-wrapper {
+  /*display:inline-block;*/
   width: 100%;
   position: absolute;
   padding: 15px;
