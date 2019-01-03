@@ -107,9 +107,9 @@ app.get('/indexpage', function (request, response) {
             //取得token資訊
             var token = JSON.parse(body);
             access_token = token.access_token;
-            //console.log('***********************************************************');
-            //console.log('access_token');
-            //console.log(access_token);
+            console.log('***********************************************************');
+            console.log('access_token');
+            console.log(access_token);
             var reqst = require('request');
             reqst({
                 headers: {
@@ -327,7 +327,34 @@ app.post('/search',function(req,res){
     console.log('55555555555555555555555555555555555555555555555555555555555555555');
     console.log(jsongetusers.data.value.length);
     var datacount = 0;
-    for(var i=0; i<jsongetusers.data.value.length;i++){
+    if(searchdata === ''){
+        resdata = JSON.stringify(jsongetusers.data.value);
+
+    } else {
+        for(var i=0; i<jsongetusers.data.value.length;i++){
+            //console.log(jsongetusers.data.value[i].displayName);
+            var name = jsongetusers.data.value[i].displayName;
+            name = name.slice(0,3);
+            //console.log(name);
+            if(searchdata == name){
+                var jsonstrf = JSON.stringify(jsongetusers.data.value[i]);
+                switch(datacount){
+                    case 0: //第一筆資料
+                        resdata += jsonstrf;
+                        datacount++;
+                        break;
+                    default:
+                        resdata += ','+jsonstrf;
+                        datacount++;
+                        break;
+                }
+            }
+        }
+        if(datacount>0){
+            resdata = '['+resdata+']'; //最外面的 [ ]
+        }
+    }
+    /*for(var i=0; i<jsongetusers.data.value.length;i++){
         //console.log(jsongetusers.data.value[i].displayName);
         var name = jsongetusers.data.value[i].displayName;
         name = name.slice(0,3);
@@ -345,13 +372,14 @@ app.post('/search',function(req,res){
                     break;
             }
         }
-    }
+    }*/
+    
     if(resdata != ''){
         console.log(datacount);
-            console.log('!=null');
-            resdata = '['+resdata+']';
-            console.log(resdata);
-            res.send(resdata);
+        console.log('!=null');
+        //resdata = '['+resdata+']';
+        console.log(resdata);
+        res.send(resdata);
     } else {
         res.send('wrong');
     }
