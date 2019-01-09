@@ -125,8 +125,17 @@ app.get('/indexpage', function (request, response) {
                 }
                 console.log('&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&');
                 getusers = body;
-                console.log(typeof(getusers));
-                console.log(getusers);
+                var jsonparuser = JSON.parse(getusers);
+                //console.log(typeof(getusers));
+                //console.log(getusers);
+                var nextlink = jsonparuser.data["@odata.nextLink"];
+                console.log(JSON.stringify(jsonparuser.data["@odata.context"]));
+                console.log(JSON.stringify(jsonparuser.data["@odata.nextLink"]));
+                /*while(nextlink != undefined){
+                    function getnextdata(){
+                        
+                    }
+                }*/
                 console.log('----------------------------------------------------------');
                 var requst = require('request');
                 requst({

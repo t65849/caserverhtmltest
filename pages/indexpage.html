@@ -260,12 +260,7 @@
                     $('#appendforuser').empty(); //清空appendforuser裡面所有node
                     resdata = JSON.parse(resdata);
                     var datalength = resdata.length;
-
                     resdata[0].businessPhones = 4952;
-                    if(datalength>1){
-                        resdata[1].businessPhones = 4934;
-                    }
-
                     console.log(resdata);
                     $('#divrow').width(775*datalength);
                     $('.tableresize').width(773*datalength);
@@ -355,9 +350,12 @@
                                     }
                             },
                             error: function (reg) {
+                                console.log('----------------------------------------------------------------------------------------------------');
+                                console.log(JSON.stringify(reg));
+                                console.log('----------------------------------------------------------------------------------------------------');
                                 if (secondcount < 1) {
                                     secondcount++;
-                                    $('#showtext').text("連線失敗...");
+                                    $('#showtext').text("撥號連線失敗...");
                                     setTimeout(function () {
                                         return checkStatus(destinationid)
                                     }, 200);
