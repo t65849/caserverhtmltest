@@ -31,6 +31,7 @@ var getusers;
 var displayName;
 var businessPhones;
 var mydata;
+var jsongetusers;
 
 // Setup Express Server
 app.use(bodyParser.urlencoded({
@@ -82,7 +83,7 @@ app.get('/indexpage', function (request, response) {
     //console.log(JSON.stringify(urlstring));
     request.header("Content-Type", 'text/html');
     var fs = require('fs');
-    if(state == '12345'){
+    if (state == '12345') {
         var authorization_code = code;
         // 取得 access_token
         var form = {
@@ -99,43 +100,87 @@ app.get('/indexpage', function (request, response) {
             headers: {
                 'Content-Length': formData.length,
                 'Content-Type': 'application/x-www-form-urlencoded'
-              },
-              uri: 'https://login.microsoftonline.com/etatung.onmicrosoft.com/oauth2/v2.0/token',
-              body: formData,
-              method: 'POST'
+            },
+            uri: 'https://login.microsoftonline.com/etatung.onmicrosoft.com/oauth2/v2.0/token',
+            body: formData,
+            method: 'POST'
         }, function (err, res, body) {
             //取得token資訊
             var token = JSON.parse(body);
             access_token = token.access_token;
             console.log('***********************************************************');
             console.log('access_token');
-            console.log(access_token);
+            //console.log(access_token);
             var reqst = require('request');
             reqst({
                 headers: {
-                    'Authorization':  access_token,
+                    'Authorization': access_token,
                     'Content-Type': 'application/json'
-                  },
-                  //uri: 'http://172.31.9.219:777/graph/getcontacts',
-                  uri: 'http://172.31.9.219:777/graph/getusers', //取得所有人資訊
-                  method: 'GET'
+                },
+                //uri: 'http://172.31.9.219:777/graph/getcontacts',
+                uri: 'http://172.31.9.219:777/graph/getusers', //取得所有人資訊
+                method: 'GET'
             }, function (err, res, body) {
-                if(err){
+                if (err) {
                     console.log(err);
                 }
                 console.log('&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&');
                 getusers = body;
                 var jsonparuser = JSON.parse(getusers);
-                //console.log(typeof(getusers));
-                //console.log(getusers);
+                getusers = JSON.stringify(jsonparuser.data.value);
                 var nextlink = jsonparuser.data["@odata.nextLink"];
-                console.log(JSON.stringify(jsonparuser.data["@odata.context"]));
-                console.log(JSON.stringify(jsonparuser.data["@odata.nextLink"]));
-                /*while(nextlink != undefined){
-                    function getnextdata(){
-                        
-                    }
-                }*/
+                var checknextlink = nextlink.indexOf("=");
+                var skiptoken = nextlink.substring(checknextlink + 1);
+                if (nextlink != undefined) { //如果有nextlink的話
+                    getnextdata(skiptoken);
+                }
+                function getnextdata(skiptoken) {
+                    var req = require('request');
+                    req({
+                        headers: {
+                            'Authorization': access_token,
+                            'Content-Type': 'application/json'
+                        },
+                        //uri: 'http://172.31.9.219:777/graph/getcontacts',
+                        uri: 'http://172.31.9.219:777/graph/getusers?skiptoken=' + skiptoken, //取得所有人資訊
+                        method: 'GET'
+                    }, function (err, res, body) {
+                        if (err) {
+                            console.log(err);
+                        }
+                        // (/.$/ 是忽略字串前面所有，忽略直到最後面的字串，指定最後一個)
+                        getusers = getusers.replace(/.$/, '');//把陣列最後面的 ] 拿掉
+                        var getdata = JSON.parse(body);
+                        var moredata = JSON.stringify(getdata.data.value);
+                        moredata = moredata.replace('[', '');
+                        getusers = getusers + ',' + moredata;
+                        var nextlink = getdata.data["@odata.nextLink"];
+                        if (nextlink != undefined) { //如果有nextlink的話
+                            var checknextlink = nextlink.indexOf("=");
+                            var skiptoken = nextlink.substring(checknextlink + 1);
+                            //console.log(skiptoken);
+                            getnextdata(skiptoken);
+                        } else {
+                            jsongetusers = JSON.parse(getusers);
+                            for(var i=0; i<jsongetusers.length; i++){
+                                var name = jsongetusers[i].displayName;
+                                name = name.slice(0, 3);
+                                var req = require('request');
+                                req({
+                                    headers: {
+                                        'Content-Type': 'text/html'
+                                    },
+                                    uri: 'https://char.iis.sinica.edu.tw/API/pinyin_SQL.aspx',
+                                    qs: {str: name, choose: '4'},
+                                    method: 'GET'
+                                }, function (err, res, body) {
+                                    romaname = body;
+                                    jsongetusers[this.i].romaname = romaname;
+                                }.bind({i:i})); 
+                            } //end for loop
+                        }
+                    });
+                }
                 console.log('----------------------------------------------------------');
                 var requst = require('request');
                 requst({
@@ -143,11 +188,12 @@ app.get('/indexpage', function (request, response) {
                         'Authorization': 'Bearer ' + access_token,
                         'Content-Type': 'application/json',
                         'Content-Length': 0
-                      },
-                      uri: 'https://graph.microsoft.com/v1.0/me/',
-                      method: 'GET'
+                    },
+                    uri: 'https://graph.microsoft.com/v1.0/me/',
+                    method: 'GET'
                 }, function (err, res, body) {
                     mydata = body;
+                    console.log(body);
                     /*var userdata = JSON.parse(body);
                     businessPhones = JSON.stringify(userdata.businessPhones);
                     businessPhones = businessPhones.replace('[','').replace(']','').replace('"','').replace('"','');
@@ -172,7 +218,7 @@ app.get('/indexpage', function (request, response) {
                         if (err) {
                             this.res.send(err);
                         }
-                        data = data+'<script type="text/javascript"> var mydata =  ' + mydata + '</script>';
+                        data = data + '<script type="text/javascript"> var mydata =  ' + mydata + '</script>';
                         this.res.send(data);
                     }.bind({ req: request, res: response }));
                 });
@@ -234,20 +280,20 @@ app.get('/indexpage', function (request, response) {
                     getcontactsinfo = body;
                 });
             });*/
-            
+
         });
-       /* fs.readFile(__dirname + '/pages/indexpage.html', 'utf8', function (err, data) {
-            if (err) {
-                this.res.send(err);
-            }
-            //data = data+'<script type="text/javascript"> var displayName =  ' + displayName + '</script>';
-            this.res.send(data);
-        }.bind({ req: request, res: response }));*/
-    } else{
+        /* fs.readFile(__dirname + '/pages/indexpage.html', 'utf8', function (err, data) {
+             if (err) {
+                 this.res.send(err);
+             }
+             //data = data+'<script type="text/javascript"> var displayName =  ' + displayName + '</script>';
+             this.res.send(data);
+         }.bind({ req: request, res: response }));*/
+    } else {
         console.log('indexpage to login');
         response.redirect('/login');
     }
-    
+
 });
 app.get('/login', function (request, response) {
     console.log('GET /login');
@@ -260,7 +306,7 @@ app.get('/login', function (request, response) {
         if (err) {
             this.res.send(err);
         }
-        data = data+'<script type="text/javascript"> var nonce = " ' + nonce + ' ";</script>';
+        data = data + '<script type="text/javascript"> var nonce = " ' + nonce + ' ";</script>';
         this.res.send(data);
     }.bind({ req: request, res: response }));
 });
@@ -272,7 +318,7 @@ app.get('/login', function (request, response) {
 
 })*/
 
-app.post('/indexpage', function(req, res){
+app.post('/indexpage', function (req, res) {
     console.log('POST /login');
     //res.send('');
     var err = req.body.err;
@@ -300,8 +346,8 @@ app.post('/indexpage', function(req, res){
         var formData = querystring.stringify(form);
         request({
             headers: {
-              'Content-Length': formData.length,
-              'Content-Type': 'application/x-www-form-urlencoded'
+                'Content-Length': formData.length,
+                'Content-Type': 'application/x-www-form-urlencoded'
             },
             uri: 'https://login.microsoftonline.com/etatung.onmicrosoft.com/oauth2/v2.0/token',
             body: formData,
@@ -313,9 +359,9 @@ app.post('/indexpage', function(req, res){
             var request = require('request');
             request({
                 headers: {
-                  'Authorization': 'Bearer ' + access_token,
-                  'Content-Type': 'application/json',
-                  'Content-Length': 0
+                    'Authorization': 'Bearer ' + access_token,
+                    'Content-Type': 'application/json',
+                    'Content-Length': 0
                 },
                 uri: 'https://graph.microsoft.com/v1.0/me/',
                 method: 'GET'
@@ -327,72 +373,109 @@ app.post('/indexpage', function(req, res){
     }
 })
 
-app.post('/search',function(req,res){
+app.post('/search', function (req, res) {
     console.log('POST /search');
     var searchdata = req.body.searchdata;
     console.log(searchdata);
-    var jsongetusers = JSON.parse(getusers);
+    var newromaname = '';
+    var romaforname = '';
     var resdata = '';
-    console.log('55555555555555555555555555555555555555555555555555555555555555555');
-    console.log(jsongetusers.data.value.length);
+    console.log(jsongetusers.length);
     var datacount = 0;
-    if(searchdata === ''){
-        resdata = JSON.stringify(jsongetusers.data.value);
-
+    if (searchdata === '') {
+        resdata = JSON.stringify(jsongetusers);
     } else {
-        for(var i=0; i<jsongetusers.data.value.length;i++){
-            //console.log(jsongetusers.data.value[i].displayName);
-            var name = jsongetusers.data.value[i].displayName;
-            name = name.slice(0,3);
-            //console.log(name);
-            if(searchdata == name){
-                var jsonstrf = JSON.stringify(jsongetusers.data.value[i]);
-                switch(datacount){
-                    case 0: //第一筆資料
-                        resdata += jsonstrf;
-                        datacount++;
-                        break;
-                    default:
-                        resdata += ','+jsonstrf;
-                        datacount++;
-                        break;
+        //---------取得使用者輸入文字的羅馬拼音------------
+        var req = require('request');
+        req({
+            headers: {
+                'Content-Type': 'text/html'
+            },
+            uri: 'https://char.iis.sinica.edu.tw/API/pinyin_SQL.aspx',
+            qs: {str: searchdata, choose: '4'},
+            method: 'GET'
+        }, function (err, res, body) {
+            newromaname = body;
+            for (var i = 0; i < jsongetusers.length; i++) {
+                romaforname = jsongetusers[i].romaname;
+                //console.log(name);
+                if(newromaname == romaforname){
+                    var finddata = JSON.stringify(jsongetusers[i]);
+                    switch (datacount) {
+                        case 0: //第一筆資料
+                            resdata += finddata;
+                            datacount++;
+                            break;
+                        default:
+                            resdata += ',' + finddata;
+                            datacount++;
+                            break;
+                    }
+                }
+            } //end for loop
+            if (datacount > 0) {
+                resdata = '[' + resdata + ']'; //最外面的 [ ]
+            }
+            console.log(resdata);
+            if (resdata != '') {
+                console.log(datacount);
+                console.log('!=null');
+                //console.log(resdata);
+                this.res.send(resdata);
+            } else {
+                this.res.send('wrong');
+            }
+        }.bind({res:res}));
+    } //end else
+    
+})
+/*
+function CharHttpRequest(path, callback) {
+    logger.debug('CharHttpRequest: ' + path);
+    var options = {
+        host: 'char.iis.sinica.edu.tw',
+        port: 80,
+        path: path,
+        headers: { 'Content-Type': 'text/html' },
+        method: 'GET'
+    };
+    var req = http.request(options, function (res) {
+        logger.debug('STATUS: ' + res.statusCode);
+        logger.debug('HEADERS: ' + JSON.stringify(res.headers));
+        res.setEncoding('utf8');
+        res.body = '';
+        res.on('data', function (chunk) {
+            logger.debug('BODY: ' + chunk);
+            res.body = res.body + chunk;
+        });
+        res.on('end', function () {
+            logger.debug('REQUEST END');
+            try {
+                var result = res.body;
+                if (typeof (callback) === 'function') {
+                    callback({ success: true, result: result });
+                }
+            } catch (e) {
+                if (typeof (callback) === 'function') {
+                    callback({ success: false, result: { code: 'NoBody' } });
                 }
             }
+        }.bind({ callback: this.callback }));
+    }.bind({ callback: callback }));
+    req.on('error', function (e) {
+        logger.error(e);
+        if (typeof (callback) === 'function') {
+            callback({ success: false, result: e });
         }
-        if(datacount>0){
-            resdata = '['+resdata+']'; //最外面的 [ ]
-        }
-    }
-    /*for(var i=0; i<jsongetusers.data.value.length;i++){
-        //console.log(jsongetusers.data.value[i].displayName);
-        var name = jsongetusers.data.value[i].displayName;
-        name = name.slice(0,3);
-        //console.log(name);
-        if(searchdata == name){
-            var jsonstrf = JSON.stringify(jsongetusers.data.value[i]);
-            switch(datacount){
-                case 0: //第一筆資料
-                    resdata += jsonstrf;
-                    datacount++;
-                    break;
-                default:
-                    resdata += ','+jsonstrf;
-                    datacount++;
-                    break;
-            }
-        }
-    }*/
-    
-    if(resdata != ''){
-        console.log(datacount);
-        console.log('!=null');
-        //resdata = '['+resdata+']';
-        console.log(resdata);
-        res.send(resdata);
-    } else {
-        res.send('wrong');
-    }
-})
+    }.bind({ callback: callback }));
+    req.end();
+}*/
+//}.bind({ employee: employee }));
+
+
+
+
+
 
 app.get('/images/tatungba.jpg', function (request, response) {
     var picture = request.params.picture;

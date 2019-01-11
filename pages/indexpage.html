@@ -260,10 +260,10 @@
                     $('#appendforuser').empty(); //清空appendforuser裡面所有node
                     resdata = JSON.parse(resdata);
                     var datalength = resdata.length;
-                    resdata[0].businessPhones = 4952;
+                    //resdata[0].businessPhones = 4952;
                     console.log(resdata);
                     $('#divrow').width(775*datalength);
-                    $('.tableresize').width(773*datalength);
+                    $('.tableresize').width(775*datalength);
                     for(var i = 0; i < datalength; i++){
                         $('#appendforuser').append(
                             '<td id="newdata">'+
@@ -284,8 +284,8 @@
                                                 '</tr>'+
                                                 '<tr>'+
                                                     '<td><button id="camakecall'+resdata[i].businessPhones+'" type="submit" class="btn caserverbtn" onclick="camakecall('+resdata[i].businessPhones+')">撥打桌上電話'+resdata[i].businessPhones+'</button>'+//4952 == resdata[i].businessPhones
-                                                    '<button id="caholdcall'+resdata[i].businessPhones+'" type="submit" class="btn caserverbtn" onclick="caholdcall('+4952+')" style="display:none">保留電話</button>'+
-                                                    '<button id="caretrievecall'+resdata[i].businessPhones+'" type="submit" class="btn caserverbtn" onclick="caretrievecall('+4952+')" style="display:none">接回電話</button>'+
+                                                    '<button id="caholdcall'+resdata[i].businessPhones+'" type="submit" class="btn caserverbtn" onclick="caholdcall('+resdata[i].businessPhones+')" style="display:none">保留電話</button>'+
+                                                    '<button id="caretrievecall'+resdata[i].businessPhones+'" type="submit" class="btn caserverbtn" onclick="caretrievecall('+resdata[i].businessPhones+')" style="display:none">接回電話</button>'+
                                                     '<button id="caendcall'+resdata[i].businessPhones+'" type="submit" class="btn caserverbtn caendcall" onclick="caendcall('+resdata[i].businessPhones+')" style="display:none">掛斷電話</button>'+
                                                     '<p id="showtext"></p>'+
                                                     '</td>'+
