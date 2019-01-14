@@ -384,6 +384,7 @@ app.post('/search', function (req, res) {
     var datacount = 0;
     if (searchdata === '') {
         resdata = JSON.stringify(jsongetusers);
+        res.send(resdata);
     } else {
         //---------取得使用者輸入文字的羅馬拼音------------
         var req = require('request');
@@ -420,7 +421,7 @@ app.post('/search', function (req, res) {
             if (resdata != '') {
                 console.log(datacount);
                 console.log('!=null');
-                //console.log(resdata);
+                console.log(resdata);
                 this.res.send(resdata);
             } else {
                 this.res.send('wrong');

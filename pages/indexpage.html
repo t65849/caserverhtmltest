@@ -36,10 +36,10 @@
                 <li>
                     <a target="_blank" rel="noopener noreferrer" href="https://www.etungo.com.tw/">大同e同購</a>
                 </li>
-                <!--
                 <li>
-                    <a href="#">Overview</a>
+                    <a target="_blank" rel="noopener noreferrer" href="https://www.etatung.com/">大同世界科技</a>
                 </li>
+                <!--
                 <li>
                     <a href="#">Events</a>
                 </li>
@@ -66,7 +66,7 @@
                 <div class="row">
                     <div style="width:800px">
                         <h1>歡迎蒞臨大同世界科技</h1>
-                        <h5>請說出您要找的人名: </h5>
+                        <h5>請說出您要找的人名: <input id="voiceSearch" type="button" value="語音查詢"/></h5>
                         <h5>請輸入您要找的人名: <input id="searchdata" class="form-control" onkeypress="keysearch()"><button id="getcontacts"
                                 type="submit" class="btn searchbtn" onclick="search()">搜尋</button></h5>
                     </div>
@@ -234,7 +234,34 @@
             stationid = businessPhones;
 
         });
+        //voiceSearch
+        $(document).ready(function () {
+            $('#voiceSearch').click(function(){
+                var recognition = new webkitSpeechRecognition();
+                recognition.continuous = true;
+                recognition.interimResults = true;
 
+                recognition.onstart = function () { console.log('recognition onstart'); }
+                recognition.onresult = function (event) {
+                console.log('recognition onresult');
+                var interim_transcript = '';
+                var final_transcript = '';
+
+                    for (var i = event.resultIndex; i < event.results.length; ++i) {
+                        if (event.results[i].isFinal) {
+                            final_transcript += event.results[i][0].transcript;
+                        } else {
+                        }
+                    }
+                    var text = '';
+                    if (final_transcript != '') {
+                        text += final_transcript;
+                        console.log('---------------------------------------------------------');
+                        console.log(text);
+                    }
+                }
+            });
+        });
         
 
         function keysearch() {
@@ -305,6 +332,31 @@
             })
         };
 
+        function voiceSearch(){
+            var recognition = new webkitSpeechRecognition();
+            recognition.continuous = true;
+                recognition.interimResults = true;
+
+                recognition.onstart = function () { console.log('recognition onstart'); }
+                recognition.onresult = function (event) {
+                    console.log('recognition onresult');
+                    var interim_transcript = '';
+                    var final_transcript = '';
+
+                    for (var i = event.resultIndex; i < event.results.length; ++i) {
+                        if (event.results[i].isFinal) {
+                            final_transcript += event.results[i][0].transcript;
+                        } else {
+                        }
+                    }
+                    var text = '';
+                    if (final_transcript != '') {
+                        text += final_transcript;
+                        
+                    }
+                }
+        };
+
         function camakecall(businessPhones){ //撥出電話
             var destinationid = businessPhones;
             if (destinationid == null) {
@@ -324,6 +376,7 @@
                                 'accept': 'application/json',
                                 'x-access-token': Mytoken,
                                 'Content-Type': 'application/json',
+                                'Access-Control-Allow-Origin': "*",
                                 "cache-control": "no-cache"
                             },
                             "processData": false,
@@ -500,6 +553,7 @@
                 "method": "GET",
                 headers: {
                     'x-access-token': Mytoken,
+                    'Access-Control-Allow-Origin': "*",
                     "cache-control": "no-cache"
                 },
                 success: function (reg) {
