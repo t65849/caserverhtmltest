@@ -66,7 +66,16 @@
                 <div class="row">
                     <div style="width:800px">
                         <h1>歡迎蒞臨大同世界科技</h1>
-                        <h5>請說出您要找的人名: <input id="voiceSearch" type="button" value="語音查詢" /></h5>
+                        <table>
+                            <tr>
+                                <td>
+                                    <h5>請說出您要找的人名: <input id="voiceSearch" type="button" value="語音查詢" /></h5>
+                                </td>
+                                <td>
+                                    <div id="speechStatue"></div>
+                                </td>
+                            </tr>
+                        </table>
                         <h5>請輸入您要找的人名: <input id="searchdata" class="form-control" onkeypress="keysearch()"><button id="getcontacts"
                                 type="submit" class="btn searchbtn" onclick="search()">搜尋</button></h5>
                     </div>
@@ -237,11 +246,12 @@
         });
         //voiceSearch
         $(document).ready(function () {
+            $("#speechStatue").html("點擊\"語音查詢\"開始識別語音...");
             $('#voiceSearch').click(function () {
-
                 if (!('webkitSpeechRecognition' in window)) {
                     alert("這個瀏覽器不支援google語音")
                 } else {
+                    var myTranscript = '';
                     var recognition = new webkitSpeechRecognition();
                     recognition.continuous = true;
                     //如果設定為 true，表示除非我們停止辨識，不然就會一直持續的辨識語音轉換為文字，如果設定為 false，在辨識一段話完成之後就會結束辨識
@@ -250,45 +260,33 @@
                     recognition.lang = "cmn-Hant-TW";
                     recognition.onstart = function () {
                         console.log('開始辨識...');
+                        $("#speechStatue").html("開始識別語音...");
                     };
                     recognition.onend = function () {
                         console.log('停止辨識!');
+                        $("#speechStatue").html("停止識別語音...");
+                        if (myTranscript == '') {
+                            $("#speechStatue").html("沒有識別到語音...");
+                        } else {
+                            document.getElementById("getcontacts").click();
+                        }
+                        setTimeout(function () {
+                            $("#speechStatue").html("點擊\"語音查詢\"開始識別語音...");
+                        }, 3000);
+                    };
+                    recognition.start();
+                    recognition.onresult = function (event) {
+                        console.log(event)
+                        var i = event.resultIndex;
+                        var j = event.results[i].length - 1;
+                        //show.innerHTML = event.results[i][j].transcript;
+                        $("#searchdata").val(event.results[i][j].transcript);
+                        myTranscript = event.results[i][j].transcript;
+                        setTimeout(function () {
+                            recognition.stop();
+                        }, 3000);
                     };
                 }
-                var recognition = new webkitSpeechRecognition();
-                recognition.continuous = true;
-                recognition.interimResults = true;
-
-                recognition.onstart = function () {
-                    console.log('recognition onstart');
-                }
-                recognition.onend = function () {
-                    console.log('停止辨識!');
-                    document.getElementById("getcontacts").click();
-                };
-                recognition.start();
-                recognition.onresult = function (event) {
-                    console.log(event)
-                    /*var interim_transcript = '';
-                    for (var i = event.resultIndex; i < event.results.length; i++) {
-                        if (event.results[i].final) {
-                            //final_transcript += event.results[i][0].transcript;
-                        }
-                        else {
-                            interim_transcript += event.results[i][0].transcript;
-                        }
-                    }*/
-                    var i = event.resultIndex;
-                    var j = event.results[i].length - 1;
-                    //show.innerHTML = event.results[i][j].transcript;
-                    $("#searchdata").val(event.results[i][j].transcript);
-                    setTimeout(function(){
-                        recognition.stop();
-                    },3000);
-                    //recognition.stop();
-                    //$("#getcontacts")
-                };
-
             });
         });
 
