@@ -66,7 +66,7 @@
                 <div class="row">
                     <div style="width:800px">
                         <h1>歡迎蒞臨大同世界科技</h1>
-                        <h5>請說出您要找的人名: <input id="voiceSearch" type="button" value="語音查詢"/></h5>
+                        <h5>請說出您要找的人名: <input id="voiceSearch" type="button" value="語音查詢" /></h5>
                         <h5>請輸入您要找的人名: <input id="searchdata" class="form-control" onkeypress="keysearch()"><button id="getcontacts"
                                 type="submit" class="btn searchbtn" onclick="search()">搜尋</button></h5>
                     </div>
@@ -120,7 +120,8 @@
 
     </div>-->
     <div style="overflow-x:auto;margin-left: 270px">
-        <div id="divrow" class="row" style="height:456px; width: 330px;"><!--width:15720px;-->
+        <div id="divrow" class="row" style="height:456px; width: 330px;">
+            <!--width:15720px;-->
             <!--background-color:blue;-->
             <table class="table table-bordered tableresize" style="margin-left:30px;">
                 <tr id="appendforuser">
@@ -236,33 +237,61 @@
         });
         //voiceSearch
         $(document).ready(function () {
-            $('#voiceSearch').click(function(){
+            $('#voiceSearch').click(function () {
+
+                if (!('webkitSpeechRecognition' in window)) {
+                    alert("這個瀏覽器不支援google語音")
+                } else {
+                    var recognition = new webkitSpeechRecognition();
+                    recognition.continuous = true;
+                    //如果設定為 true，表示除非我們停止辨識，不然就會一直持續的辨識語音轉換為文字，如果設定為 false，在辨識一段話完成之後就會結束辨識
+                    recognition.interimResults = true;
+                    //如果設定為 true，表示在我們講話的當下就會即時辨識，不然就會在一段話結束之後，才會開始辨識。
+                    recognition.lang = "cmn-Hant-TW";
+                    recognition.onstart = function () {
+                        console.log('開始辨識...');
+                    };
+                    recognition.onend = function () {
+                        console.log('停止辨識!');
+                    };
+                }
                 var recognition = new webkitSpeechRecognition();
                 recognition.continuous = true;
                 recognition.interimResults = true;
 
-                recognition.onstart = function () { console.log('recognition onstart'); }
-                recognition.onresult = function (event) {
-                console.log('recognition onresult');
-                var interim_transcript = '';
-                var final_transcript = '';
-
-                    for (var i = event.resultIndex; i < event.results.length; ++i) {
-                        if (event.results[i].isFinal) {
-                            final_transcript += event.results[i][0].transcript;
-                        } else {
-                        }
-                    }
-                    var text = '';
-                    if (final_transcript != '') {
-                        text += final_transcript;
-                        console.log('---------------------------------------------------------');
-                        console.log(text);
-                    }
+                recognition.onstart = function () {
+                    console.log('recognition onstart');
                 }
+                recognition.onend = function () {
+                    console.log('停止辨識!');
+                    document.getElementById("getcontacts").click();
+                };
+                recognition.start();
+                recognition.onresult = function (event) {
+                    console.log(event)
+                    /*var interim_transcript = '';
+                    for (var i = event.resultIndex; i < event.results.length; i++) {
+                        if (event.results[i].final) {
+                            //final_transcript += event.results[i][0].transcript;
+                        }
+                        else {
+                            interim_transcript += event.results[i][0].transcript;
+                        }
+                    }*/
+                    var i = event.resultIndex;
+                    var j = event.results[i].length - 1;
+                    //show.innerHTML = event.results[i][j].transcript;
+                    $("#searchdata").val(event.results[i][j].transcript);
+                    setTimeout(function(){
+                        recognition.stop();
+                    },3000);
+                    //recognition.stop();
+                    //$("#getcontacts")
+                };
+
             });
         });
-        
+
 
         function keysearch() {
             /*var keysearch = $('#searchdata').val();
@@ -273,6 +302,7 @@
                 alert(resdata);
             })*/
         }
+
         function search() {
             var searchdata = $('#searchdata').val();
             var data = {
@@ -289,41 +319,50 @@
                     var datalength = resdata.length;
                     //resdata[0].businessPhones = 4952;
                     console.log(resdata);
-                    $('#divrow').width(775*datalength);
-                    $('.tableresize').width(775*datalength);
-                    for(var i = 0; i < datalength; i++){
+                    $('#divrow').width(775 * datalength);
+                    $('.tableresize').width(775 * datalength);
+                    for (var i = 0; i < datalength; i++) {
                         $('#appendforuser').append(
-                            '<td id="newdata">'+
-                                '<table class="table table-bordered">'+
-                                    '<tr>'+
-                                        '<td class="tdresize">'+
-                                                '<img src="/images/tatungba.jpg" class="rounded-circle img-fluid d-block employeespic">'+
-                                        '</td>'+
-                                        '<td>'+
-                                            '<table class="table table-bordered">'+
-                                                '<tr>'+
-                                                    '<td><h3>姓名:' +resdata[i].displayName+ '<h3>'+
-                                                    '</td>'+
-                                                '</tr>'+
-                                                '<tr>'+
-                                                    '<td><h3>信箱:'+resdata[i].mail+'</h3>'+
-                                                    '</td>'+
-                                                '</tr>'+
-                                                '<tr>'+
-                                                    '<td><button id="camakecall'+resdata[i].businessPhones+'" type="submit" class="btn caserverbtn" onclick="camakecall('+resdata[i].businessPhones+')">撥打桌上電話'+resdata[i].businessPhones+'</button>'+//4952 == resdata[i].businessPhones
-                                                    '<button id="caholdcall'+resdata[i].businessPhones+'" type="submit" class="btn caserverbtn" onclick="caholdcall('+resdata[i].businessPhones+')" style="display:none">保留電話</button>'+
-                                                    '<button id="caretrievecall'+resdata[i].businessPhones+'" type="submit" class="btn caserverbtn" onclick="caretrievecall('+resdata[i].businessPhones+')" style="display:none">接回電話</button>'+
-                                                    '<button id="caendcall'+resdata[i].businessPhones+'" type="submit" class="btn caserverbtn caendcall" onclick="caendcall('+resdata[i].businessPhones+')" style="display:none">掛斷電話</button>'+
-                                                    '<p id="showtext"></p>'+
-                                                    '</td>'+
-                                                '</tr>'+
-                                                '<tr>'+
-                                                    ' <td><button type="submit" class="btn caserverbtn">撥打行動電話'+resdata[i].mobilePhone+'</button></td>'+
-                                                '</tr>'+
-                                            '</table>'+
-                                        '</td>'+
-                                    '</tr>'+
-                                '</table>'+
+                            '<td id="newdata">' +
+                            '<table class="table table-bordered">' +
+                            '<tr>' +
+                            '<td class="tdresize">' +
+                            '<img src="/images/tatungba.jpg" class="rounded-circle img-fluid d-block employeespic">' +
+                            '</td>' +
+                            '<td>' +
+                            '<table class="table table-bordered">' +
+                            '<tr>' +
+                            '<td><h3>姓名:' + resdata[i].displayName + '<h3>' +
+                            '</td>' +
+                            '</tr>' +
+                            '<tr>' +
+                            '<td><h3>信箱:' + resdata[i].mail + '</h3>' +
+                            '</td>' +
+                            '</tr>' +
+                            '<tr>' +
+                            '<td><button id="camakecall' + resdata[i].businessPhones +
+                            '" type="submit" class="btn caserverbtn" onclick="camakecall(' + resdata[i].businessPhones +
+                            ')">撥打桌上電話' + resdata[i].businessPhones + '</button>' + //4952 == resdata[i].businessPhones
+                            '<button id="caholdcall' + resdata[i].businessPhones +
+                            '" type="submit" class="btn caserverbtn" onclick="caholdcall(' + resdata[i].businessPhones +
+                            ')" style="display:none">保留電話</button>' +
+                            '<button id="caretrievecall' + resdata[i].businessPhones +
+                            '" type="submit" class="btn caserverbtn" onclick="caretrievecall(' + resdata[i]
+                            .businessPhones + ')" style="display:none">接回電話</button>' +
+                            '<button id="caendcall' + resdata[i].businessPhones +
+                            '" type="submit" class="btn caserverbtn caendcall" onclick="caendcall(' +
+                            resdata[i].businessPhones + ')" style="display:none">掛斷電話</button>' +
+                            '<p id="showtext"></p>' +
+                            '</td>' +
+                            '</tr>' +
+                            '<tr>' +
+                            ' <td><button type="submit" class="btn caserverbtn">撥打行動電話' + resdata[i].mobilePhone +
+                            '</button></td>' +
+                            '</tr>' +
+                            '</table>' +
+                            '</td>' +
+                            '</tr>' +
+                            '</table>' +
                             '</td>'
                         );
                         //$('#userdepart').text('單位:' + resdata.department);
@@ -332,35 +371,36 @@
             })
         };
 
-        function voiceSearch(){
+        function voiceSearch() {
             var recognition = new webkitSpeechRecognition();
             recognition.continuous = true;
-                recognition.interimResults = true;
+            recognition.interimResults = true;
 
-                recognition.onstart = function () { console.log('recognition onstart'); }
-                recognition.onresult = function (event) {
-                    console.log('recognition onresult');
-                    var interim_transcript = '';
-                    var final_transcript = '';
+            recognition.onstart = function () {
+                console.log('recognition onstart');
+            }
+            recognition.onresult = function (event) {
+                console.log('recognition onresult');
+                var interim_transcript = '';
+                var final_transcript = '';
 
-                    for (var i = event.resultIndex; i < event.results.length; ++i) {
-                        if (event.results[i].isFinal) {
-                            final_transcript += event.results[i][0].transcript;
-                        } else {
-                        }
-                    }
-                    var text = '';
-                    if (final_transcript != '') {
-                        text += final_transcript;
-                        
-                    }
+                for (var i = event.resultIndex; i < event.results.length; ++i) {
+                    if (event.results[i].isFinal) {
+                        final_transcript += event.results[i][0].transcript;
+                    } else {}
                 }
+                var text = '';
+                if (final_transcript != '') {
+                    text += final_transcript;
+
+                }
+            }
         };
 
-        function camakecall(businessPhones){ //撥出電話
+        function camakecall(businessPhones) { //撥出電話
             var destinationid = businessPhones;
             if (destinationid == null) {
-                    //do
+                //do
             } else {
                 //getToken(name, password, function (reg) {
                 getToken(name, '654321', function (reg) {
@@ -389,23 +429,27 @@
                                 checkStatus(destinationid);
                                 if (reg.success === false) {
                                     $('#showtext').text("撥號失敗");
-                                        setTimeout(function () {
-                                            return checkStatus(destinationid)
-                                        }, 1000);
-                                    } else {
-                                        $('#showtext').text("正在撥號請等候...");
-                                        //延遲一秒function checkStatus()，因為直接跑會出現結束通話狀態，延遲一秒後才會出現撥號中
-                                        setTimeout(function () {
-                                            return checkStatus(destinationid)
-                                        }, 1000);
-                                        callid = reg.callid;
-                                        return callid;
-                                    }
+                                    setTimeout(function () {
+                                        return checkStatus(destinationid)
+                                    }, 1000);
+                                } else {
+                                    $('#showtext').text("正在撥號請等候...");
+                                    //延遲一秒function checkStatus()，因為直接跑會出現結束通話狀態，延遲一秒後才會出現撥號中
+                                    setTimeout(function () {
+                                        return checkStatus(destinationid)
+                                    }, 1000);
+                                    callid = reg.callid;
+                                    return callid;
+                                }
                             },
                             error: function (reg) {
-                                console.log('----------------------------------------------------------------------------------------------------');
+                                console.log(
+                                    '----------------------------------------------------------------------------------------------------'
+                                );
                                 console.log(JSON.stringify(reg));
-                                console.log('----------------------------------------------------------------------------------------------------');
+                                console.log(
+                                    '----------------------------------------------------------------------------------------------------'
+                                );
                                 if (secondcount < 1) {
                                     secondcount++;
                                     $('#showtext').text("撥號連線失敗...");
@@ -424,94 +468,97 @@
             //$('#caendcall'+businessPhones).show();
             //$('#camakecall'+businessPhones).hide();
         };
-        function caholdcall(businessPhones){ //保留電話
+
+        function caholdcall(businessPhones) { //保留電話
             $.ajax({
-                    "async": true,
-                    "crossDomain": true,
-                    "url": 'https://tstiticctcstest.herokuapp.com/phone' + '/holdcall',
-                    "method": "POST",
-                    headers: {
-                        'accept': 'application/json',
-                        'x-access-token': Mytoken,
-                        'Content-Type': 'application/json',
-                        "cache-control": "no-cache"
-                    },
-                    "processData": false,
-                    "data": JSON.stringify({
-                        "stationid": stationid,
-                        "callid": callid,
-                        "name": name
-                    }),
-                    success: function (reg) {
-                        if (reg.success === false) {
-                            $('#showtext').text("保留失敗");
-                            $('#caholdcall'+businessPhones).show();
-                        } else {
-                            setTimeout(function () {
-                                return checkStatus(businessPhones)
-                            }, 1000);
-                        }
+                "async": true,
+                "crossDomain": true,
+                "url": 'https://tstiticctcstest.herokuapp.com/phone' + '/holdcall',
+                "method": "POST",
+                headers: {
+                    'accept': 'application/json',
+                    'x-access-token': Mytoken,
+                    'Content-Type': 'application/json',
+                    "cache-control": "no-cache"
+                },
+                "processData": false,
+                "data": JSON.stringify({
+                    "stationid": stationid,
+                    "callid": callid,
+                    "name": name
+                }),
+                success: function (reg) {
+                    if (reg.success === false) {
+                        $('#showtext').text("保留失敗");
+                        $('#caholdcall' + businessPhones).show();
+                    } else {
+                        setTimeout(function () {
+                            return checkStatus(businessPhones)
+                        }, 1000);
                     }
-                });
+                }
+            });
         };
-        function caretrievecall(businessPhones){ //接回電話
+
+        function caretrievecall(businessPhones) { //接回電話
             $.ajax({
-                    "async": true,
-                    "crossDomain": true,
-                    "url": 'https://tstiticctcstest.herokuapp.com/phone' + '/retrievecall',
-                    "method": "POST",
-                    headers: {
-                        'accept': 'application/json',
-                        'x-access-token': Mytoken,
-                        'Content-Type': 'application/json',
-                        "cache-control": "no-cache"
-                    },
-                    "processData": false,
-                    "data": JSON.stringify({
-                        "stationid": stationid,
-                        "callid": callid,
-                        "name": name
-                    }),
-                    success: function (reg) {
-                        if (reg.success === false) {
-                            $('#showtext').text("接回失敗");
-                            $('#caretrievecall'+businessPhones).show();
-                            $('#caendcall'+businessPhones).show();
-                        } else {
-                            setTimeout(function () {
-                                return checkStatus(businessPhones)
-                            }, 1000);
-                        }
+                "async": true,
+                "crossDomain": true,
+                "url": 'https://tstiticctcstest.herokuapp.com/phone' + '/retrievecall',
+                "method": "POST",
+                headers: {
+                    'accept': 'application/json',
+                    'x-access-token': Mytoken,
+                    'Content-Type': 'application/json',
+                    "cache-control": "no-cache"
+                },
+                "processData": false,
+                "data": JSON.stringify({
+                    "stationid": stationid,
+                    "callid": callid,
+                    "name": name
+                }),
+                success: function (reg) {
+                    if (reg.success === false) {
+                        $('#showtext').text("接回失敗");
+                        $('#caretrievecall' + businessPhones).show();
+                        $('#caendcall' + businessPhones).show();
+                    } else {
+                        setTimeout(function () {
+                            return checkStatus(businessPhones)
+                        }, 1000);
                     }
-                });
+                }
+            });
         };
-        function caendcall(businessPhones){ //結束電話
+
+        function caendcall(businessPhones) { //結束電話
             $.ajax({
-                    "async": true,
-                    "crossDomain": true,
-                    "url": 'https://tstiticctcstest.herokuapp.com/phone' + '/endcall',
-                    "method": "POST",
-                    headers: {
-                        'accept': 'application/json',
-                        'x-access-token': Mytoken,
-                        'Content-Type': 'application/json',
-                        "cache-control": "no-cache"
-                    },
-                    "processData": false,
-                    "data": JSON.stringify({
-                        "stationid": stationid,
-                        "callid": callid,
-                        "name": name
-                    }),
-                    success: function (reg) {
-                        if (reg.success === false) {
-                            $('#showtext').text("掛斷失敗");
-                            $('#endcall').show();
-                        } else {
-                            checkStatus(businessPhones);
-                        }
+                "async": true,
+                "crossDomain": true,
+                "url": 'https://tstiticctcstest.herokuapp.com/phone' + '/endcall',
+                "method": "POST",
+                headers: {
+                    'accept': 'application/json',
+                    'x-access-token': Mytoken,
+                    'Content-Type': 'application/json',
+                    "cache-control": "no-cache"
+                },
+                "processData": false,
+                "data": JSON.stringify({
+                    "stationid": stationid,
+                    "callid": callid,
+                    "name": name
+                }),
+                success: function (reg) {
+                    if (reg.success === false) {
+                        $('#showtext').text("掛斷失敗");
+                        $('#endcall').show();
+                    } else {
+                        checkStatus(businessPhones);
                     }
-                });  //end post ajax
+                }
+            }); //end post ajax
         };
 
         function getToken(name, password, callback) {
@@ -549,7 +596,8 @@
                 "async": true,
                 "crossDomain": true,
                 //"url": caserverurl + '/status/' + name + '?stationid=' + stationid,
-                "url": 'https://tstiticctcstest.herokuapp.com/phone' + '/status/' + name + '?stationid=' + stationid,
+                "url": 'https://tstiticctcstest.herokuapp.com/phone' + '/status/' + name + '?stationid=' +
+                    stationid,
                 "method": "GET",
                 headers: {
                     'x-access-token': Mytoken,
@@ -583,35 +631,35 @@
                         callid = reg.status.callid;
                         switch (callstatus) {
                             case "oncallconnect": //通話中
-                                $('#camakecall'+number_id).hide();
-                                $('#caholdcall'+number_id).show();
-                                $('#caretrievecall'+number_id).hide();
-                                $('#caendcall'+number_id).show();
+                                $('#camakecall' + number_id).hide();
+                                $('#caholdcall' + number_id).show();
+                                $('#caretrievecall' + number_id).hide();
+                                $('#caendcall' + number_id).show();
                                 $('#showtext').text("通話中~");
                                 setTimeout(function () {
                                     return checkStatus(number_id)
                                 }, 1000);
                                 break;
                             case "oncallcreate": //撥號中
-                                $('#camakecall'+number_id).hide();
-                                $('#caendcall'+number_id).show();
+                                $('#camakecall' + number_id).hide();
+                                $('#caendcall' + number_id).show();
                                 $('#showtext').text("撥號中...");
                                 setTimeout(function () {
                                     return checkStatus(number_id)
                                 }, 1000);
                                 break;
                             case "oncallend": //結束
-                                $('#camakecall'+number_id).show();
-                                $('#caholdcall'+number_id).hide();
-                                $('#caretrievecall'+number_id).hide();
-                                $('#caendcall'+number_id).hide();
+                                $('#camakecall' + number_id).show();
+                                $('#caholdcall' + number_id).hide();
+                                $('#caretrievecall' + number_id).hide();
+                                $('#caendcall' + number_id).hide();
                                 $('#showtext').text("");
                                 break;
                             case "oncallhold": //保留中
-                                $('#camakecall'+number_id).hide();
-                                $('#caendcall'+number_id).show();
-                                $('#caretrievecall'+number_id).show();
-                                $('#caholdcall'+number_id).hide();
+                                $('#camakecall' + number_id).hide();
+                                $('#caendcall' + number_id).show();
+                                $('#caretrievecall' + number_id).show();
+                                $('#caholdcall' + number_id).hide();
                                 $('#showtext').text("保留中...");
                                 setTimeout(function () {
                                     return checkStatus(number_id)
@@ -621,7 +669,7 @@
                                 //do
                                 break;
                             default:
-                            //do
+                                //do
                         }
                     }
                 },
@@ -633,7 +681,7 @@
                             secondcount++;
                             //$('#showtext').text("連線錯誤!..........");
                             setTimeout(function () {
-                                    return checkStatus(number_id)
+                                return checkStatus(number_id)
                             }, 1000);
                         }
                     }
