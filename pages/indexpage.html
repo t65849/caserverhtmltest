@@ -25,7 +25,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <div id="sidebar-wrapper">
+        <!--<div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
                     <img id="tstipng" src="https://caserverhtmltest.herokuapp.com/images/tstiball.png">
@@ -39,7 +39,6 @@
                 <li>
                     <a target="_blank" rel="noopener noreferrer" href="https://www.etatung.com/">大同世界科技</a>
                 </li>
-                <!--
                 <li>
                     <a href="#">Events</a>
                 </li>
@@ -52,13 +51,12 @@
                 <li>
                     <a href="#">Contact</a>
                 </li>
-                -->
             </ul>
-        </div>
+        </div>-->
         <!-- /#sidebar-wrapper -->
         <div id="pagetop">
             <p id="loginname"></p>
-            <p id="pagelogout" style="margin-top: -15px">登出</p>
+            <!--<p id="pagelogout" style="margin-top: -15px">登出</p>-->  <!--登出按鈕-->
         </div>
         <!-- Page Content -->
         <div id="page-content-wrapper">
@@ -76,50 +74,11 @@
                                 </td>
                             </tr>
                         </table>
-                        <h5>請輸入您要找的人名: <input id="searchdata" class="form-control" onkeypress="keysearch()"><button id="getcontacts"
+                        <h5>或輸入您要找的人名: <input id="searchdata" class="form-control" onkeypress="keysearch()"><button id="getcontacts"
                                 type="submit" class="btn searchbtn" onclick="search()">搜尋</button></h5>
                     </div>
                 </div>
             </div>
-            <!--<div class="container">
-                <div class="row">
-                    <table id="userdata" class="table table-bordered tableresize">
-                        <tr>
-                            <td class="tdresize"><img src="https://caserverhtmltest.herokuapp.com/images/tatungba.jpg"
-                                    class="rounded-circle img-fluid d-block employeespic">
-                            </td>
-                            <td>
-                                <table class="table table-bordered">
-                                    <tr>
-                                        <td>
-                                            <h3 id="username"></h3>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <h3 id="userdepart"></h3>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><button id="tstimakecall" type="submit" class="btn caserverbtn" value="">撥打桌上電話</button>
-                                            <button id="holdcall" type="submit" class="btn caserverbtn" value="" style="display:none">保留電話</button>
-                                            <button id="retrievecall" type="submit" class="btn caserverbtn" value=""
-                                                style="display:none">接回電話</button>
-                                            <button id="tstiendcall" type="submit" class="btn caserverbtn" value=""
-                                                style="display:none">掛斷電話</button>
-                                            <p id="showtext"></p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><button id="tstimakephonecall" type="submit" class="btn caserverbtn">撥打行動電話</button></td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-
-            </div>-->
         </div>
         <!-- /#page-content-wrapper -->
 
@@ -128,89 +87,13 @@
     <!--<div style="width:12000px;height:200px;background-color:blue;margin-left: 500px;overflow: scroll;">
 
     </div>-->
-    <div style="overflow-x:auto;margin-left: 270px">
-        <div id="divrow" class="row" style="height:456px; width: 330px;">
+    <div style="overflow-x:auto;margin-left: 80px">
+        <div id="divrow" class="row" style="height:455px; width: 330px;">
             <!--width:15720px;-->
             <!--background-color:blue;-->
             <table class="table table-bordered tableresize" style="margin-left:30px;">
                 <tr id="appendforuser">
-                    <!-- <td>
-                        <table class="table table-bordered">
-                            <tr>
-                                <td class="tdresize">
-                                    <img src="https://caserverhtmltest.herokuapp.com/images/tatungba.jpg" class="rounded-circle img-fluid d-block employeespic">
-                                </td>
-                                <td>
-                                    <table class="table table-bordered">
-                                        <tr>
-                                            <td>
-                                                <h3 id="username"></h3>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h3 id="userdepart"></h3>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><button id="tstimakecall" type="submit" class="btn caserverbtn" value="">撥打桌上電話</button>
-                                                <button id="holdcall" type="submit" class="btn caserverbtn" value=""
-                                                    style="display:none">保留電話</button>
-                                                <button id="retrievecall" type="submit" class="btn caserverbtn" value=""
-                                                    style="display:none">接回電話</button>
-                                                <button id="tstiendcall" type="submit" class="btn caserverbtn" value=""
-                                                    style="display:none">掛斷電話</button>
-                                                <p id="showtext"></p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><button id="tstimakephonecall" type="submit" class="btn caserverbtn">撥打行動電話</button></td>
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                    <td>
-                        <table class="table table-bordered">
-                            <tr>
-                                <td class="tdresize">
-                                    <img src="https://caserverhtmltest.herokuapp.com/images/tatungba.jpg" class="rounded-circle img-fluid d-block employeespic">
-                                </td>
-                                <td>
-                                    <table class="table table-bordered">
-                                        <tr>
-                                            <td>
-                                                <h3 id="username"></h3>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h3 id="userdepart"></h3>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><button id="tstimakecall" type="submit" class="btn caserverbtn" value="">撥打桌上電話</button>
-                                                <button id="holdcall" type="submit" class="btn caserverbtn" value=""
-                                                    style="display:none">保留電話</button>
-                                                <button id="retrievecall" type="submit" class="btn caserverbtn" value=""
-                                                    style="display:none">接回電話</button>
-                                                <button id="tstiendcall" type="submit" class="btn caserverbtn" value=""
-                                                    style="display:none">掛斷電話</button>
-                                                <p id="showtext"></p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><button id="tstimakephonecall" type="submit" class="btn caserverbtn">撥打行動電話</button></td>
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>-->
-
                 </tr>
-
             </table>
         </div>
     </div>
@@ -234,6 +117,7 @@
             displayName = displayName.replace('"', '').replace('"', '');
             var businessPhones = JSON.stringify(mydata.businessPhones);
             businessPhones = businessPhones.replace('[', '').replace(']', '').replace('"', '').replace('"', '');
+            businessPhones = "6303";
             if (businessPhones == null) {
                 businessPhones = "無分機";
             }
@@ -290,17 +174,6 @@
             });
         });
 
-
-        function keysearch() {
-            /*var keysearch = $('#searchdata').val();
-            var data = {
-                keysearch: keysearch
-            }
-            $.post('/keysearch', data, function(resdata){
-                alert(resdata);
-            })*/
-        }
-
         function search() {
             var searchdata = $('#searchdata').val();
             var data = {
@@ -350,7 +223,7 @@
                             '<button id="caendcall' + resdata[i].businessPhones +
                             '" type="submit" class="btn caserverbtn caendcall" onclick="caendcall(' +
                             resdata[i].businessPhones + ')" style="display:none">掛斷電話</button>' +
-                            '<p id="showtext"></p>' +
+                            '<p id="showtext'+resdata[i].businessPhones+'"></p>' +
                             '</td>' +
                             '</tr>' +
                             '<tr>' +
@@ -400,7 +273,7 @@
             if (destinationid == null) {
                 //do
             } else {
-                //getToken(name, password, function (reg) {
+                //getToken(name, password, function (reg) 
                 getToken(name, '654321', function (reg) {
                     if (reg.success) {
                         Mytoken = reg.token;
@@ -426,12 +299,12 @@
                             success: function (reg) {
                                 checkStatus(destinationid);
                                 if (reg.success === false) {
-                                    $('#showtext').text("撥號失敗");
+                                    $('#showtext'+showtext).text("撥號失敗");
                                     setTimeout(function () {
                                         return checkStatus(destinationid)
                                     }, 1000);
                                 } else {
-                                    $('#showtext').text("正在撥號請等候...");
+                                    $('#showtext'+showtext).text("正在撥號請等候...");
                                     //延遲一秒function checkStatus()，因為直接跑會出現結束通話狀態，延遲一秒後才會出現撥號中
                                     setTimeout(function () {
                                         return checkStatus(destinationid)
@@ -441,16 +314,12 @@
                                 }
                             },
                             error: function (reg) {
-                                console.log(
-                                    '----------------------------------------------------------------------------------------------------'
-                                );
+                                console.log('----------------------------------------------------------------------------------------------------');
                                 console.log(JSON.stringify(reg));
-                                console.log(
-                                    '----------------------------------------------------------------------------------------------------'
-                                );
+                                console.log('----------------------------------------------------------------------------------------------------');
                                 if (secondcount < 1) {
                                     secondcount++;
-                                    $('#showtext').text("撥號連線失敗...");
+                                    $('#showtext'+showtext).text("撥號連線失敗...");
                                     setTimeout(function () {
                                         return checkStatus(destinationid)
                                     }, 200);
@@ -463,8 +332,6 @@
                     }
                 })
             }
-            //$('#caendcall'+businessPhones).show();
-            //$('#camakecall'+businessPhones).hide();
         };
 
         function caholdcall(businessPhones) { //保留電話
@@ -550,7 +417,7 @@
                 }),
                 success: function (reg) {
                     if (reg.success === false) {
-                        $('#showtext').text("掛斷失敗");
+                        $('#showtext'+showtext).text("掛斷失敗");
                         $('#endcall').show();
                     } else {
                         checkStatus(businessPhones);
@@ -610,18 +477,18 @@
                                 setTimeout(function () {
                                     return checkStatus(number_id)
                                 }, 1000);
-                                $('#showtext').text("");
+                                $('#showtext'+showtext).text("");
                             } //end while
                         } else {
                             if (secondcount < 1) {
                                 secondcount++;
-                                $('#showtext').text("檢查連線中...");
+                                $('#showtext'+showtext).text("檢查連線中...");
                                 //setTimeout(checkStatus,1000);
                                 setTimeout(function () {
                                     return checkStatus(number_id)
                                 }, 1000);
                             } else {
-                                $('#showtext').text("連線失敗!......");
+                                $('#showtext'+showtext).text("連線失敗!......");
                             }
                         }
                     } else {
@@ -633,7 +500,7 @@
                                 $('#caholdcall' + number_id).show();
                                 $('#caretrievecall' + number_id).hide();
                                 $('#caendcall' + number_id).show();
-                                $('#showtext').text("通話中~");
+                                //$('#showtext'+showtext).text("通話中~");
                                 setTimeout(function () {
                                     return checkStatus(number_id)
                                 }, 1000);
@@ -641,7 +508,7 @@
                             case "oncallcreate": //撥號中
                                 $('#camakecall' + number_id).hide();
                                 $('#caendcall' + number_id).show();
-                                $('#showtext').text("撥號中...");
+                                //$('#showtext'+showtext).text("撥號中...");
                                 setTimeout(function () {
                                     return checkStatus(number_id)
                                 }, 1000);
@@ -651,14 +518,14 @@
                                 $('#caholdcall' + number_id).hide();
                                 $('#caretrievecall' + number_id).hide();
                                 $('#caendcall' + number_id).hide();
-                                $('#showtext').text("");
+                                $('#showtext'+showtext).text("");
                                 break;
                             case "oncallhold": //保留中
                                 $('#camakecall' + number_id).hide();
                                 $('#caendcall' + number_id).show();
                                 $('#caretrievecall' + number_id).show();
                                 $('#caholdcall' + number_id).hide();
-                                $('#showtext').text("保留中...");
+                                //$('#showtext'+showtext).text("保留中...");
                                 setTimeout(function () {
                                     return checkStatus(number_id)
                                 }, 1000);

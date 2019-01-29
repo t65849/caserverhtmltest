@@ -9,7 +9,7 @@ body {
   overflow-x: hidden;
 }
 #loginbody{
-  background: #fff url("https://caserverhtmltest.herokuapp.com/images/night.jpg") center center fixed no-repeat;
+  background: #fff url("/images/night.jpg") center center fixed no-repeat;
   /*背景顏色 背景圖片 水平方向置中 垂直方向置中 背景圖片位置固定 背景圖片不重覆顯示;*/
   background-size: cover;
 }
@@ -20,7 +20,7 @@ body {
 #pagetop{
   -webkit-user-select: none;   /* for Chrome */
   -moz-user-select: none;  /* for Firefox */ 
-  height: 50px;
+  height: 30px;
   width: 100%;
   background-color: #000000;
   text-align: right;
@@ -158,7 +158,7 @@ body {
 
 @media(min-width:768px) {
   #wrapper {
-    padding-left: 250px; /*0*/
+    padding-left: 0px; /*250*/
   }
   #wrapper.toggled {
     padding-left: 250px;
@@ -172,8 +172,8 @@ body {
   #page-content-wrapper {
     position: relative;
     margin-right: 0;
-    /*padding: 20px;
-    position: relative;*/
+    padding: 20px;
+    position: relative;
   }
   #wrapper.toggled #page-content-wrapper {
     position: relative;

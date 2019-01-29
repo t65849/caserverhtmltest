@@ -194,26 +194,6 @@ app.get('/indexpage', function (request, response) {
                 }, function (err, res, body) {
                     mydata = body;
                     console.log(body);
-                    /*var userdata = JSON.parse(body);
-                    businessPhones = JSON.stringify(userdata.businessPhones);
-                    businessPhones = businessPhones.replace('[','').replace(']','').replace('"','').replace('"','');
-                    if(businessPhones.length>4){
-                        businessPhones = businessPhones.slice(-4);
-                    }
-                    console.log(businessPhones);
-                    displayName = JSON.stringify(userdata.displayName);
-                    displayName = displayName.replace('"','').replace('"','');*/
-                    //console.log(displayName);
-                    /*var givenName = userdata.givenName;
-                    var jobTitle = userdata.jobTitle;
-                    var mail = userdata.mail;
-                    var mobilePhone = userdata.mobilePhone;
-                    //console.log(mobilePhone);
-                    var officeLocation = userdata.officeLocation;
-                    var preferredLanguage = userdata.preferredLanguage;
-                    var surname = userdata.surname;
-                    var userPrincipalName = userdata.userPrincipalName;
-                    var id = userdata.id;*/
                     fs.readFile(__dirname + '/pages/indexpage.html', 'utf8', function (err, data) {
                         if (err) {
                             this.res.send(err);
@@ -223,72 +203,7 @@ app.get('/indexpage', function (request, response) {
                     }.bind({ req: request, res: response }));
                 });
             });
-
-
-
-
-
-
-
-
-
-
-
-
-            /*reqst({
-                headers: {
-                    'Authorization': 'Bearer ' + access_token,
-                    'Content-Type': 'application/json',
-                    'Content-Length': 0
-                  },
-                  uri: 'https://graph.microsoft.com/v1.0/me/',
-                  method: 'GET'
-            }, function (err, res, body) {
-                console.log(typeof(body));
-                userdata = JSON.parse(body);
-                businessPhones = JSON.stringify(userdata.businessPhones);
-                businessPhones = businessPhones.replace('[','').replace(']','').replace('"','').replace('"','');
-                if(businessPhones.length>4){
-                    businessPhones = businessPhones.slice(-4);
-                }
-                console.log(businessPhones);
-                displayName = userdata.displayName;
-                //displayName = displayName.replace('"','').replace('"','');
-                console.log(displayName);
-                var givenName = userdata.givenName;
-                var jobTitle = userdata.jobTitle;
-                var mail = userdata.mail;
-                var mobilePhone = userdata.mobilePhone;
-                //console.log(mobilePhone);
-                var officeLocation = userdata.officeLocation;
-                var preferredLanguage = userdata.preferredLanguage;
-                var surname = userdata.surname;
-                var userPrincipalName = userdata.userPrincipalName;
-                var id = userdata.id;
-                var requst = require('request');
-                requst({
-                    headers: {
-                        'Authorization':  access_token,
-                        'Content-Type': 'application/json'
-                      },
-                      uri: 'http://172.31.9.219:777/graph/getcontacts',
-                      method: 'GET'
-                }, function (err, res, body) {
-                    if(err){
-                        console.log(err);
-                    }
-                    getcontactsinfo = body;
-                });
-            });*/
-
         });
-        /* fs.readFile(__dirname + '/pages/indexpage.html', 'utf8', function (err, data) {
-             if (err) {
-                 this.res.send(err);
-             }
-             //data = data+'<script type="text/javascript"> var displayName =  ' + displayName + '</script>';
-             this.res.send(data);
-         }.bind({ req: request, res: response }));*/
     } else {
         console.log('indexpage to login');
         response.redirect('/login');
@@ -310,13 +225,6 @@ app.get('/login', function (request, response) {
         this.res.send(data);
     }.bind({ req: request, res: response }));
 });
-
-/*app.post('/keysearch',function(req,res){
-    console.log('POST /keysearch');
-    var keysearchdata = req.body.keysearchdata;
-    var jsongetcontactsinfo = JSON.parse(getcontactsinfo);
-
-})*/
 
 app.post('/indexpage', function (req, res) {
     console.log('POST /login');
@@ -430,53 +338,6 @@ app.post('/search', function (req, res) {
     } //end else
     
 })
-/*
-function CharHttpRequest(path, callback) {
-    logger.debug('CharHttpRequest: ' + path);
-    var options = {
-        host: 'char.iis.sinica.edu.tw',
-        port: 80,
-        path: path,
-        headers: { 'Content-Type': 'text/html' },
-        method: 'GET'
-    };
-    var req = http.request(options, function (res) {
-        logger.debug('STATUS: ' + res.statusCode);
-        logger.debug('HEADERS: ' + JSON.stringify(res.headers));
-        res.setEncoding('utf8');
-        res.body = '';
-        res.on('data', function (chunk) {
-            logger.debug('BODY: ' + chunk);
-            res.body = res.body + chunk;
-        });
-        res.on('end', function () {
-            logger.debug('REQUEST END');
-            try {
-                var result = res.body;
-                if (typeof (callback) === 'function') {
-                    callback({ success: true, result: result });
-                }
-            } catch (e) {
-                if (typeof (callback) === 'function') {
-                    callback({ success: false, result: { code: 'NoBody' } });
-                }
-            }
-        }.bind({ callback: this.callback }));
-    }.bind({ callback: callback }));
-    req.on('error', function (e) {
-        logger.error(e);
-        if (typeof (callback) === 'function') {
-            callback({ success: false, result: e });
-        }
-    }.bind({ callback: callback }));
-    req.end();
-}*/
-//}.bind({ employee: employee }));
-
-
-
-
-
 
 app.get('/images/tatungba.jpg', function (request, response) {
     var picture = request.params.picture;
