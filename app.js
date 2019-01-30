@@ -179,7 +179,12 @@ app.get('/indexpage', function (request, response) {
                                     method: 'GET'
                                 }, function (err, res, body) {
                                     romaname = body;
-                                    jsongetusers[this.i].romaname = romaname.substring(70);
+                                    try{
+                                        jsongetusers[this.i].romaname = romaname.substring(70);
+                                    }
+                                    catch{
+
+                                    }                     
                                 }.bind({
                                     i: i
                                 }));
