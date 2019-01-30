@@ -372,6 +372,17 @@ app.get('/images/night.jpg', function (request, response) {
     }.bind({ req: request, res: response }));
 });
 
+app.get('/images/flower.jpg', function (request, response) {
+    var picture = request.params.picture;
+    request.header("Content-Type", 'image/jpeg');
+    fs.readFile(__dirname + '/images/flower.jpg', function (err, data) {
+        if (err) {
+            this.res.send(err);
+        }
+        this.res.send(data);
+    }.bind({ req: request, res: response }));
+});
+
 /*
 app.get('/vendor/bootstrap/css/bootstrap.css', function (request, response) {
     console.log('GET /vendor/bootstrap/css/bootstrap.css');
