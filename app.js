@@ -14,7 +14,7 @@ var bodyParser = require('body-parser');
 var hashtable = require(__dirname + '/hashtable.js');
 
 var http = require('http');
-var server = http.Server(app);	// create express server
+var server = http.Server(app); // create express server
 var options = {
     pingTimeout: 60000,
     pingInterval: 3000
@@ -134,6 +134,7 @@ app.get('/indexpage', function (request, response) {
                 if (nextlink != undefined) { //如果有nextlink的話
                     getnextdata(skiptoken);
                 }
+
                 function getnextdata(skiptoken) {
                     var req = require('request');
                     req({
@@ -149,7 +150,7 @@ app.get('/indexpage', function (request, response) {
                             console.log(err);
                         }
                         // (/.$/ 是忽略字串前面所有，忽略直到最後面的字串，指定最後一個)
-                        getusers = getusers.replace(/.$/, '');//把陣列最後面的 ] 拿掉
+                        getusers = getusers.replace(/.$/, ''); //把陣列最後面的 ] 拿掉
                         var getdata = JSON.parse(body);
                         var moredata = JSON.stringify(getdata.data.value);
                         moredata = moredata.replace('[', '');
@@ -162,7 +163,7 @@ app.get('/indexpage', function (request, response) {
                             getnextdata(skiptoken);
                         } else {
                             jsongetusers = JSON.parse(getusers);
-                            for(var i=0; i<jsongetusers.length; i++){
+                            for (var i = 0; i < jsongetusers.length; i++) {
                                 var name = jsongetusers[i].displayName;
                                 name = name.slice(0, 3);
                                 var req = require('request');
@@ -171,13 +172,21 @@ app.get('/indexpage', function (request, response) {
                                         'Content-Type': 'text/html'
                                     },
                                     uri: 'https://char.iis.sinica.edu.tw/API/pinyin_SQL.aspx',
-                                    qs: {str: name, choose: '4'},
+                                    qs: {
+                                        str: name,
+                                        choose: '4'
+                                    },
                                     method: 'GET'
                                 }, function (err, res, body) {
                                     romaname = body;
-                                    jsongetusers[this.i].romaname = romaname;
-                                }.bind({i:i})); 
-                            } //end for loop
+                                    jsongetusers[this.i].romaname = romaname.substring(70);
+                                }.bind({
+                                    i: i
+                                }));
+                            }
+                            //end for loop
+                            console.log("TO romaname success")
+
                         }
                     });
                 }
@@ -200,7 +209,10 @@ app.get('/indexpage', function (request, response) {
                         }
                         data = data + '<script type="text/javascript"> var mydata =  ' + mydata + '</script>';
                         this.res.send(data);
-                    }.bind({ req: request, res: response }));
+                    }.bind({
+                        req: request,
+                        res: response
+                    }));
                 });
             });
         });
@@ -223,7 +235,10 @@ app.get('/login', function (request, response) {
         }
         data = data + '<script type="text/javascript"> var nonce = " ' + nonce + ' ";</script>';
         this.res.send(data);
-    }.bind({ req: request, res: response }));
+    }.bind({
+        req: request,
+        res: response
+    }));
 });
 
 app.post('/indexpage', function (req, res) {
@@ -296,36 +311,65 @@ app.post('/search', function (req, res) {
     } else {
         //---------取得使用者輸入文字的羅馬拼音------------
         var req = require('request');
+        var isEnglish = checkVal(searchdata);
+        console.log(isEnglish)
         req({
             headers: {
                 'Content-Type': 'text/html'
             },
             uri: 'https://char.iis.sinica.edu.tw/API/pinyin_SQL.aspx',
-            qs: {str: searchdata, choose: '4'},
+            qs: {
+                str: searchdata,
+                choose: '4'
+            },
             method: 'GET'
         }, function (err, res, body) {
-            newromaname = body;
-            for (var i = 0; i < jsongetusers.length; i++) {
-                romaforname = jsongetusers[i].romaname;
-                //console.log(name);
-                if(newromaname == romaforname){
-                    var finddata = JSON.stringify(jsongetusers[i]);
-                    switch (datacount) {
-                        case 0: //第一筆資料
-                            resdata += finddata;
-                            datacount++;
-                            break;
-                        default:
-                            resdata += ',' + finddata;
-                            datacount++;
-                            break;
+            newromaname = body.substring(70);
+            console.log(newromaname.toLowerCase());
+            if (isEnglish) {
+                for (var i in jsongetusers) {
+                    if (jsongetusers[i].userPrincipalName.split("@")[0].toLowerCase().indexOf(newromaname.toLowerCase()) != -1) {
+                        var finddata = JSON.stringify(jsongetusers[i]);
+                        switch (datacount) {
+                            case 0: //第一筆資料
+                                resdata += finddata;
+                                datacount++;
+                                break;
+                            default:
+                                resdata += ',' + finddata;
+                                datacount++;
+                                break;
+                        }
                     }
                 }
-            } //end for loop
+            } else {
+                var levenshtein = require('js-levenshtein');
+                for (var i = 0; i < jsongetusers.length; i++) {
+                    romaforname = jsongetusers[i].romaname;
+                    //console.log(name);
+                    //console.log(newromaname + " ," + romaforname)
+                    //console.log(JSON.stringify(jsongetusers[0], null, 2))
+                    if (newromaname != null && romaforname != null)
+                        if (levenshtein(newromaname, romaforname) < 3) {
+                            var finddata = JSON.stringify(jsongetusers[i]);
+                            switch (datacount) {
+                                case 0: //第一筆資料
+                                    resdata += finddata;
+                                    datacount++;
+                                    break;
+                                default:
+                                    resdata += ',' + finddata;
+                                    datacount++;
+                                    break;
+                            }
+                        }
+                }
+            }
+            //end for loop
             if (datacount > 0) {
                 resdata = '[' + resdata + ']'; //最外面的 [ ]
             }
-            console.log(resdata);
+            //console.log(resdata);
             if (resdata != '') {
                 console.log(datacount);
                 console.log('!=null');
@@ -334,11 +378,18 @@ app.post('/search', function (req, res) {
             } else {
                 this.res.send('wrong');
             }
-        }.bind({res:res}));
+        }.bind({
+            res: res
+        }));
     } //end else
-    
+    function checkVal(str) {
+        var regExp = /^[\d|a-zA-Z]+$/;
+        if (regExp.test(str))
+            return true;
+        else
+            return false;
+    }
 })
-
 app.get('/images/tatungba.jpg', function (request, response) {
     var picture = request.params.picture;
     request.header("Content-Type", 'image/jpeg');
@@ -347,7 +398,10 @@ app.get('/images/tatungba.jpg', function (request, response) {
             this.res.send(err);
         }
         this.res.send(data);
-    }.bind({ req: request, res: response }));
+    }.bind({
+        req: request,
+        res: response
+    }));
 });
 
 app.get('/images/tstiball.png', function (request, response) {
@@ -358,7 +412,10 @@ app.get('/images/tstiball.png', function (request, response) {
             this.res.send(err);
         }
         this.res.send(data);
-    }.bind({ req: request, res: response }));
+    }.bind({
+        req: request,
+        res: response
+    }));
 });
 
 app.get('/images/night.jpg', function (request, response) {
@@ -369,7 +426,10 @@ app.get('/images/night.jpg', function (request, response) {
             this.res.send(err);
         }
         this.res.send(data);
-    }.bind({ req: request, res: response }));
+    }.bind({
+        req: request,
+        res: response
+    }));
 });
 
 /*
@@ -429,5 +489,3 @@ app.get('/scripts/jquery/jquery-2.1.0.min.js', function (request, response) {
         this.res.send(data);
     }.bind({ req: request, res: response }));
 });*/
-
-
