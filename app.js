@@ -188,10 +188,10 @@ app.get('/indexpage', function (request, response) {
                                 }.bind({
                                     i: i
                                 }));
+                                if (this.i == jsongetusers.length - 1)
+                                        console.log("TO romaname success")
                             }
                             //end for loop
-                            console.log("TO romaname success")
-
                         }
                     });
                 }
@@ -351,11 +351,11 @@ app.post('/search', function (req, res) {
                 var levenshtein = require('js-levenshtein');
                 for (var i = 0; i < jsongetusers.length; i++) {
                     romaforname = jsongetusers[i].romaname;
-                    //console.log(name);
-                    //console.log(newromaname + " ," + romaforname)
-                    //console.log(JSON.stringify(jsongetusers[0], null, 2))
                     if (newromaname != null && romaforname != null)
-                        if (levenshtein(newromaname, romaforname) < 3) {
+                        if (levenshtein(newromaname, romaforname) / romaforname.length <= 0.2 || romaforname.indexOf(newromaname) != -1) {
+                            console.log("未切: " + newromaname + ", " + romaforname)
+                            console.log("數量: " + levenshtein(newromaname, romaforname))
+                            console.log("分數: " + levenshtein(newromaname, romaforname) / romaforname.length)
                             var finddata = JSON.stringify(jsongetusers[i]);
                             switch (datacount) {
                                 case 0: //第一筆資料
