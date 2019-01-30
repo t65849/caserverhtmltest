@@ -182,7 +182,7 @@ app.get('/indexpage', function (request, response) {
                                     try{
                                         jsongetusers[this.i].romaname = romaname.substring(70);
                                     }
-                                    catch{
+                                    catch(e){
 
                                     }                     
                                 }.bind({
@@ -352,7 +352,7 @@ app.post('/search', function (req, res) {
                 for (var i = 0; i < jsongetusers.length; i++) {
                     romaforname = jsongetusers[i].romaname;
                     if (newromaname != null && romaforname != null)
-                        if (levenshtein(newromaname, romaforname) / romaforname.length <= 0.2 || romaforname.indexOf(newromaname) != -1) {
+                        if (levenshtein(newromaname, romaforname) / romaforname.length <= 0.18 || romaforname.indexOf(newromaname) != -1) {
                             console.log("未切: " + newromaname + ", " + romaforname)
                             console.log("數量: " + levenshtein(newromaname, romaforname))
                             console.log("分數: " + levenshtein(newromaname, romaforname) / romaforname.length)
