@@ -85,8 +85,8 @@
     <!--<div style="width:12000px;height:200px;background-color:blue;margin-left: 500px;overflow: scroll;">
 
     </div>-->
-    <div style="overflow-x:auto;margin-left: 120px">
-        <div id="divrow" class="row" style="height:395px; width: 330px;">
+    <div style="overflow-x:auto;margin-left: 120px; margin-top: -10px;">
+        <div id="divrow" class="row" style="height:385px; width: 330px; overflow-y:hidden;">
             <!--width:15720px;-->
             <!--background-color:blue;-->
             <table class="table table-bordered tableresize" style="margin-left:30px;">
@@ -184,6 +184,7 @@
                     $('#divrow').width(330);
                 } else {
                     $('#appendforuser').empty(); //清空appendforuser裡面所有node
+                    $('#divrow').width(330);
                     resdata = JSON.parse(resdata);
                     var datalength = resdata.length;
                     //resdata[0].businessPhones = 4952;
