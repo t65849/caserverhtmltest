@@ -1521,6 +1521,8 @@ pre code {
   max-width: 100%;
   margin-bottom: 1rem;
   background-color: transparent;
+  -webkit-user-select: none;   /* for Chrome */
+  -moz-user-select: none;  /* for Firefox */ 
 }
 
 .table th,

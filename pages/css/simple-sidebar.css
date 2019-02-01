@@ -17,7 +17,8 @@ body {
   background: #fff url("/images/flower.jpg") center center fixed no-repeat;
   /*背景顏色 背景圖片 水平方向置中 垂直方向置中 背景圖片位置固定 背景圖片不重覆顯示;*/
   background-size: cover;
-  height: 100%;
+  height: 90%;
+  overflow-y: hidden;
 }
 #tstipng{
   width: 48px;
@@ -62,6 +63,20 @@ body {
   height: 337px;
 }
 .caserverbtn{
+  width: 215px;
+  height: 120px;
+  background-color: #28a745;
+  color: #ffffff;
+  font-size: 25px;
+}
+.caserverbtnred{
+  width: 215px;
+  height: 120px;
+  background-color: red;
+  color: #ffffff;
+  font-size: 25px;
+}
+.caserverbtn2{
   width: 300px;
   background-color: #28a745;
   color: #ffffff;

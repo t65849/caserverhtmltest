@@ -60,7 +60,7 @@
         <div id="page-content-wrapper">
             <div class="container">
                 <div class="row">
-                    <div style="width:100%;color:darkblue;">
+                    <div style="width:100%;color:#022178;">
                         <h1 style="font-weight:bold;font-size: 52px">歡迎蒞臨大同世界科技</h1>
                         <table style="margin-top:10px">
                             <tr>
@@ -85,7 +85,7 @@
     <!--<div style="width:12000px;height:200px;background-color:blue;margin-left: 500px;overflow: scroll;">
 
     </div>-->
-    <div style="overflow-x:auto;margin-left: 120px; margin-top: -10px;">
+    <div id="scrollx" style="overflow-x:auto;margin-left: 120px; margin-top: -25px;">
         <div id="divrow" class="row" style="height:385px; width: 330px; overflow-y:hidden;">
             <!--width:15720px;-->
             <!--background-color:blue;-->
@@ -148,6 +148,12 @@
                         console.log('停止辨識!');
                         $("#speechStatue").html("停止識別語音...");
                         if (myTranscript == '') {
+                            //---------------語音---------------
+                            var msg = new SpeechSynthesisUtterance();
+                            var voices = [];
+                            msg.text = "對不起，聲音有點小";
+                            speechSynthesis.speak(msg);
+                            //---------------語音---------------
                             $("#speechStatue").html("沒有識別到語音...");
                         } else {
                             document.getElementById("getcontacts").click();
@@ -179,18 +185,23 @@
             }
             $.post('/search', data, function (resdata) {
                 if (resdata === 'wrong') {
-                    alert('查無資料');
+                    //---------------語音---------------
+                    var msg = new SpeechSynthesisUtterance();
+                    var voices = [];
+                    msg.text = "請再說一次";
+                    speechSynthesis.speak(msg);
+                    //---------------語音---------------
                     $('#appendforuser').empty(); //清空appendforuser裡面所有node
                     $('#divrow').width(330);
                 } else {
                     $('#appendforuser').empty(); //清空appendforuser裡面所有node
-                    $('#divrow').width(330);
+                    $('#scrollx').scrollLeft("0"); //把scrollbar拉到最左邊
                     resdata = JSON.parse(resdata);
                     var datalength = resdata.length;
                     //resdata[0].businessPhones = 4952;
                     console.log(resdata);
-                    $('#divrow').width(775 * datalength);
-                    $('.tableresize').width(775 * datalength);
+                    $('#divrow').width(785 * datalength);
+                    $('.tableresize').width(785 * datalength);
                     for (var i = 0; i < datalength; i++) {
                         $('#appendforuser').append(
                             '<td id="newdata">' +
@@ -210,24 +221,14 @@
                             '</td>' +
                             '</tr>' +
                             '<tr>' +
-                            '<td><button id="camakecall' + resdata[i].businessPhones +
+                            '<td><span><button id="camakecall' + resdata[i].businessPhones +
                             '" type="submit" class="btn caserverbtn" onclick="camakecall(' + resdata[i].businessPhones +
-                            ')">撥打桌上電話' + resdata[i].businessPhones + '</button>' + //4952 == resdata[i].businessPhones
-                            '<button id="caholdcall' + resdata[i].businessPhones +
-                            '" type="submit" class="btn caserverbtn" onclick="caholdcall(' + resdata[i].businessPhones +
-                            ')" style="display:none">保留電話</button>' +
-                            '<button id="caretrievecall' + resdata[i].businessPhones +
-                            '" type="submit" class="btn caserverbtn" onclick="caretrievecall(' + resdata[i]
-                            .businessPhones + ')" style="display:none">接回電話</button>' +
+                            ')">桌上電話<br/>' + resdata[i].businessPhones + '</button>&nbsp;' + //4952 == resdata[i].businessPhones
                             '<button id="caendcall' + resdata[i].businessPhones +
-                            '" type="submit" class="btn caserverbtn caendcall" onclick="caendcall(' +
-                            resdata[i].businessPhones + ')" style="display:none">掛斷電話</button>' +
-                            '<p id="showtext'+resdata[i].businessPhones+'"></p>' +
-                            '</td>' +
-                            '</tr>' +
-                            '<tr>' +
-                            ' <td><button type="submit" class="btn caserverbtn">撥打行動電話' + resdata[i].mobilePhone +
-                            '</button></td>' +
+                            '" type="submit" class="btn caserverbtnred caendcall" onclick="caendcall(' +
+                            resdata[i].businessPhones + ')" style="display:none">掛斷電話</button>&nbsp;' +
+                            '<button type="submit" class="btn caserverbtn">行動電話<br/>' + resdata[i].mobilePhone +
+                            '</button></span></td>'+
                             '</tr>' +
                             '</table>' +
                             '</td>' +
@@ -298,12 +299,12 @@
                             success: function (reg) {
                                 checkStatus(destinationid);
                                 if (reg.success === false) {
-                                    $('#showtext'+showtext).text("撥號失敗");
+                                    //$('#showtext'+showtext).text("撥號失敗");
                                     setTimeout(function () {
                                         return checkStatus(destinationid)
                                     }, 1000);
                                 } else {
-                                    $('#showtext'+showtext).text("正在撥號請等候...");
+                                    //$('#showtext'+showtext).text("正在撥號請等候...");
                                     //延遲一秒function checkStatus()，因為直接跑會出現結束通話狀態，延遲一秒後才會出現撥號中
                                     setTimeout(function () {
                                         return checkStatus(destinationid)
@@ -318,7 +319,7 @@
                                 console.log('----------------------------------------------------------------------------------------------------');
                                 if (secondcount < 1) {
                                     secondcount++;
-                                    $('#showtext'+showtext).text("撥號連線失敗...");
+                                    //$('#showtext'+showtext).text("撥號連線失敗...");
                                     setTimeout(function () {
                                         return checkStatus(destinationid)
                                     }, 200);
@@ -353,7 +354,7 @@
                 }),
                 success: function (reg) {
                     if (reg.success === false) {
-                        $('#showtext').text("保留失敗");
+                        //$('#showtext').text("保留失敗");
                         $('#caholdcall' + businessPhones).show();
                     } else {
                         setTimeout(function () {
@@ -384,7 +385,7 @@
                 }),
                 success: function (reg) {
                     if (reg.success === false) {
-                        $('#showtext').text("接回失敗");
+                        //$('#showtext').text("接回失敗");
                         $('#caretrievecall' + businessPhones).show();
                         $('#caendcall' + businessPhones).show();
                     } else {
@@ -416,7 +417,7 @@
                 }),
                 success: function (reg) {
                     if (reg.success === false) {
-                        $('#showtext'+showtext).text("掛斷失敗");
+                        //$('#showtext'+showtext).text("掛斷失敗");
                         $('#endcall').show();
                     } else {
                         checkStatus(businessPhones);
@@ -476,18 +477,18 @@
                                 setTimeout(function () {
                                     return checkStatus(number_id)
                                 }, 1000);
-                                $('#showtext'+showtext).text("");
+                               // $('#showtext'+showtext).text("");
                             } //end while
                         } else {
                             if (secondcount < 1) {
                                 secondcount++;
-                                $('#showtext'+showtext).text("檢查連線中...");
+                                //$('#showtext'+showtext).text("檢查連線中...");
                                 //setTimeout(checkStatus,1000);
                                 setTimeout(function () {
                                     return checkStatus(number_id)
                                 }, 1000);
                             } else {
-                                $('#showtext'+showtext).text("連線失敗!......");
+                                //$('#showtext'+showtext).text("連線失敗!......");
                             }
                         }
                     } else {
