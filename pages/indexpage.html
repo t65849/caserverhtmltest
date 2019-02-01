@@ -20,7 +20,8 @@
 
 </head>
 
-<body id=indexbody><!--id=indexbody-->
+<body id=indexbody>
+    <!--id=indexbody-->
     <div id="wrapper">
         <!-- Sidebar -->
         <!--<div id="sidebar-wrapper">
@@ -54,7 +55,8 @@
         <!-- /#sidebar-wrapper -->
         <div id="pagetop">
             <p id="loginname"></p>
-            <!--<p id="pagelogout" style="margin-top: -15px">登出</p>-->  <!--登出按鈕-->
+            <!--<p id="pagelogout" style="margin-top: -15px">登出</p>-->
+            <!--登出按鈕-->
         </div>
         <!-- Page Content -->
         <div id="page-content-wrapper">
@@ -72,8 +74,10 @@
                                 </td>
                             </tr>
                         </table>
-                        <h4>或輸入您要找的人名: <input id="searchdata" class="form-control" onkeypress="keysearch()">&nbsp;<button id="getcontacts"
-                                type="submit"  onclick="search()" style="width:100px;">搜尋</button></h4><!--class="btn searchbtn"-->
+                        <h4>或輸入您要找的人名: <input id="searchdata" class="form-control">&nbsp;<button id="getcontacts" type="submit"
+                                onclick="search()" style="width:100px;">搜尋</button><!--<button id="getcontacts" type="submit"
+                                onclick="search()" style="width:100px;">搜尋</button>--></h4>
+                        <!--class="btn searchbtn"-->
                     </div>
                 </div>
             </div>
@@ -101,6 +105,7 @@
     <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script type="/text/javascript" src="/scripts/index.js"></script>
     <script type="text/javascript" src="/scripts/jquery/jquery-2.1.0.min.js"></script>
+    <script type="text/javascript" src="/scripts/jquery/jquery.mousewheel.min.js"></script>
 
     <!-- Menu Toggle Script -->
     <script>
@@ -110,6 +115,7 @@
         var name = 'andy';
         var destinationid = '';
         var secondcount = 0;
+        var myvoice = false;
         $(document).ready(function () {
             var displayName = JSON.stringify(mydata.displayName);
             displayName = displayName.replace('"', '').replace('"', '');
@@ -133,6 +139,7 @@
                 if (!('webkitSpeechRecognition' in window)) {
                     alert("這個瀏覽器不支援google語音")
                 } else {
+                    myvoice = true;
                     var myTranscript = '';
                     var recognition = new webkitSpeechRecognition();
                     recognition.continuous = true;
@@ -177,7 +184,11 @@
                 }
             });
         });
-
+        $("#searchdata").keydown(function (event) {
+            if (event.which == 13) {
+                search();
+            }
+        });
         function search() {
             var searchdata = $('#searchdata').val();
             var data = {
@@ -185,23 +196,43 @@
             }
             $.post('/search', data, function (resdata) {
                 if (resdata === 'wrong') {
-                    //---------------語音---------------
-                    var msg = new SpeechSynthesisUtterance();
-                    var voices = [];
-                    msg.text = "請再說一次";
-                    speechSynthesis.speak(msg);
-                    //---------------語音---------------
+                    if (myvoice == true) {
+                        //---------------語音---------------
+                        var msg = new SpeechSynthesisUtterance();
+                        var voices = [];
+                        msg.text = "請再說一次";
+                        speechSynthesis.speak(msg);
+                        //---------------語音---------------
+                        myvoice = false;
+                    } else {
+                        //---------------語音---------------
+                        var msg = new SpeechSynthesisUtterance();
+                        var voices = [];
+                        msg.text = "請再試一次";
+                        speechSynthesis.speak(msg);
+                        //---------------語音---------------
+                    }
                     $('#appendforuser').empty(); //清空appendforuser裡面所有node
                     $('#divrow').width(330);
                 } else {
                     $('#appendforuser').empty(); //清空appendforuser裡面所有node
-                    $('#scrollx').scrollLeft("0"); //把scrollbar拉到最左邊
+                    $('#scrollx').animate({
+                        scrollLeft: 0
+                    }, 200);
+                    //.scrollLeft("0"); //把scrollbar拉到最左邊 
+                    $("#scrollx").mousewheel(function (event, delta) {
+
+                        this.scrollLeft -= (delta * 55);
+
+                        event.preventDefault();
+
+                    });
                     resdata = JSON.parse(resdata);
                     var datalength = resdata.length;
                     //resdata[0].businessPhones = 4952;
                     console.log(resdata);
-                    $('#divrow').width(785 * datalength);
-                    $('.tableresize').width(785 * datalength);
+                    $('#divrow').width(905 * datalength);
+                    $('.tableresize').width(905 * datalength);
                     for (var i = 0; i < datalength; i++) {
                         $('#appendforuser').append(
                             '<td id="newdata">' +
@@ -228,7 +259,7 @@
                             '" type="submit" class="btn caserverbtnred caendcall" onclick="caendcall(' +
                             resdata[i].businessPhones + ')" style="display:none">掛斷電話</button>&nbsp;' +
                             '<button type="submit" class="btn caserverbtn">行動電話<br/>' + resdata[i].mobilePhone +
-                            '</button></span></td>'+
+                            '</button></span></td>' +
                             '</tr>' +
                             '</table>' +
                             '</td>' +
@@ -258,7 +289,7 @@
                 for (var i = event.resultIndex; i < event.results.length; ++i) {
                     if (event.results[i].isFinal) {
                         final_transcript += event.results[i][0].transcript;
-                    } else {}
+                    } else { }
                 }
                 var text = '';
                 if (final_transcript != '') {
@@ -477,7 +508,7 @@
                                 setTimeout(function () {
                                     return checkStatus(number_id)
                                 }, 1000);
-                               // $('#showtext'+showtext).text("");
+                                // $('#showtext'+showtext).text("");
                             } //end while
                         } else {
                             if (secondcount < 1) {
@@ -518,7 +549,7 @@
                                 $('#caholdcall' + number_id).hide();
                                 $('#caretrievecall' + number_id).hide();
                                 $('#caendcall' + number_id).hide();
-                                $('#showtext'+showtext).text("");
+                                $('#showtext' + showtext).text("");
                                 break;
                             case "oncallhold": //保留中
                                 $('#camakecall' + number_id).hide();
@@ -534,7 +565,7 @@
                                 //do
                                 break;
                             default:
-                                //do
+                            //do
                         }
                     }
                 },
