@@ -72,7 +72,7 @@ body {
 .caserverbtnred{
   width: 215px;
   height: 120px;
-  background-color: red;
+  background-color: #ff0000;
   color: #ffffff;
   font-size: 25px;
 }
