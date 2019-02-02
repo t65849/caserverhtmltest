@@ -44,23 +44,12 @@ app.all('*', function (req, res, next) {
     res.header('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type');
     next();
 });
-app.use(express.static('public'));
-app.use('/images', express.static(__dirname + '/images'));
-app.use('/pages', express.static(__dirname + '/pages'));
+
 // 讀取組態表
 var fs = require('fs');
 
 var config = require('fs').readFileSync(__dirname + '/config.json');
 config = JSON.parse(config); //字串轉物件
-
-var carous = require('fs').readFileSync(__dirname + '/carousel.json');
-carous = JSON.parse(carous); //字串轉物件
-
-
-var linequickreply = require('fs').readFileSync(__dirname + '/linequickreply.json');
-linequickreply = JSON.parse(linequickreply); //字串轉物件
-var quickreply = require('fs').readFileSync(__dirname + '/quickreply.json');
-quickreply = JSON.parse(quickreply); //字串轉物件
 
 app.get('/api', function (request, response) {
     response.send('API is running');
@@ -72,7 +61,10 @@ app.get('/logs', function (request, response) {
     stream.pipe(response);
 });
 
-app.use(express.static('pages')); //導入pages資料夾裡的東西
+app.use(express.static('public'));
+app.use('/images', express.static(__dirname + '/images'));
+app.use('/pages', express.static(__dirname + '/pages'));
+//app.use(express.static('pages')); //導入pages資料夾裡的東西
 app.get('/indexpage', function (request, response) {
     var url = require('url');
     var querystring = require('querystring');
