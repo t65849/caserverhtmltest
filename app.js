@@ -44,6 +44,9 @@ app.all('*', function (req, res, next) {
     res.header('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type');
     next();
 });
+app.use(express.static('public'));
+app.use('/images', express.static(__dirname + '/images'));
+app.use('/pages', express.static(__dirname + '/pages'));
 // 讀取組態表
 var fs = require('fs');
 
@@ -245,61 +248,6 @@ app.get('/login', function (request, response) {
         res: response
     }));
 });
-
-app.post('/indexpage', function (req, res) {
-    console.log('POST /login');
-    //res.send('');
-    var err = req.body.err;
-    if (err) {
-        console.error('error: ' + err + ', error_description: ' + req.body.error_description);
-    }
-    var state = req.body.state;
-    if (state == '12345') {
-        var id_token = req.body.id_token;
-        var jwt = require('jwt-simple');
-        var token = jwt.decode(id_token, '', true);
-        var authorization_code = req.body.code;
-        console.dir(token);
-        console.dir(authorization_code);
-        // 取得 access_token
-        var querystring = require('querystring');
-        var request = require('request');
-        var form = {
-            grant_type: 'authorization_code',
-            client_id: '8db86254-2c0b-4ec3-9b1f-92782cdbb126',
-            code: authorization_code,
-            redirect_uri: 'https://caserverhtmltest.herokuapp.com/indexpage',
-            client_secret: 'rqhiWUSHY0=eduKG2153{!~'
-        };
-        var formData = querystring.stringify(form);
-        request({
-            headers: {
-                'Content-Length': formData.length,
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            uri: 'https://login.microsoftonline.com/etatung.onmicrosoft.com/oauth2/v2.0/token',
-            body: formData,
-            method: 'POST'
-        }, function (err, res, body) {
-            var token = JSON.parse(body);
-            console.dir(token);
-            var access_token = token.access_token;
-            var request = require('request');
-            request({
-                headers: {
-                    'Authorization': 'Bearer ' + access_token,
-                    'Content-Type': 'application/json',
-                    'Content-Length': 0
-                },
-                uri: 'https://graph.microsoft.com/v1.0/me/',
-                method: 'GET'
-            }, function (err, res, body) {
-                console.info(body);
-            });
-        });
-        res.redirect('/indexpage');
-    }
-})
 
 app.post('/search', function (req, res) {
     console.log('POST /search');
