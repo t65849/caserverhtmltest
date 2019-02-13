@@ -20,7 +20,7 @@
 
 </head>
 
-<body id=indexbody oncontextmenu="return false" onkeydown="if(event.keyCode==8 || event.keyCode==37) return false;">
+<body id=indexbody oncontextmenu="return false">
     <!--id=indexbody-->
     <div id="wrapper">
         <!-- Sidebar -->
@@ -191,6 +191,10 @@
         });
         function search() {
             var searchdata = $('#searchdata').val();
+            if(searchdata == 'eyny'){
+                searchdata = 'Annie';
+                $('#searchdata').val('Annie');
+            }
             var data = {
                 searchdata: searchdata
             }
