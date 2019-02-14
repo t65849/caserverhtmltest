@@ -159,8 +159,11 @@ app.get('/indexpage', function (request, response) {
                         } else {
                             jsongetusers = JSON.parse(getusers);
                             for (var i = 0; i < jsongetusers.length; i++) {
-                                var name = jsongetusers[i].displayName;
-                                name = name.slice(0, 3);
+                                var givenName = jsongetusers[i].givenName;
+                                var surname = jsongetusers[i].surname;
+                                var name = surname+givenName;
+                                //var name = jsongetusers[i].displayName;
+                                //name = name.slice(0, 3);
                                 var req = require('request');
                                 req({
                                     headers: {
@@ -173,16 +176,16 @@ app.get('/indexpage', function (request, response) {
                                     },
                                     method: 'GET'
                                 }, function (err, res, body) {
+                                    if(err){
+                                        console.log(err);
+                                    }
                                     romaname = body;
                                     try{
                                         jsongetusers[this.i].romaname = romaname.substring(70);
-                                    }
-                                    catch(e){
-
-                                    }                     
-                                }.bind({
-                                    i: i
-                                }));
+                                    }catch(e){
+                                        console.log(e);
+                                    }                 
+                                }.bind({ i: i }));
                                 if (this.i == jsongetusers.length - 1)
                                         console.log("TO romaname success")
                             }
@@ -190,7 +193,6 @@ app.get('/indexpage', function (request, response) {
                         }
                     });
                 }
-                console.log('----------------------------------------------------------');
                 var requst = require('request');
                 requst({
                     headers: {
@@ -242,6 +244,8 @@ app.get('/login', function (request, response) {
 });
 
 app.post('/search', function (req, res) {
+    var newroma = require('./newroma');
+    console.log(newroma.charnewroma);
     console.log('POST /search');
     var searchdata = req.body.searchdata;
     console.log(searchdata);
