@@ -272,7 +272,7 @@ app.post('/search', function (req, res) {
 
         if (isEnglish) {
             for (var i in jsongetusers) {
-                if (jsongetusers[i].userPrincipalName.split("@")[0].toLowerCase().indexOf(newromaname.toLowerCase()) != -1) {
+                if (jsongetusers[i].userPrincipalName.split("@")[0].toLowerCase().indexOf(searchdata.toLowerCase()) != -1) {
                     var finddata = JSON.stringify(jsongetusers[i]);
                     switch (datacount) {
                         case 0: //第一筆資料
