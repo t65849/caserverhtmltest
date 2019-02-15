@@ -12,13 +12,18 @@
     "@google/maps": "^0.5.4",
     "body-parser": "latest",
     "express": "latest",
+    "fs": "0.0.1-security",
+    "js-levenshtein": "latest",
     "jwt-simple": "^0.5.5",
-    "querystring": "^0.2.0",
-    "url": "latest",
-    "request": "^2.88.0",
     "log4js": "^1.1.1",
     "log4js-extend": "^0.1.2",
+    "node-gyp": "^3.8.0",
+    "nodejieba": "latest",
+    "pinyin": "latest",
+    "querystring": "^0.2.0",
+    "rebuild": "^0.1.2",
+    "request": "^2.88.0",
     "sha256": "^0.2.0",
-    "js-levenshtein": "latest"
+    "url": "latest"
   }
 }

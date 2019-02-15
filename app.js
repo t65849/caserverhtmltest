@@ -9,6 +9,7 @@ log4js.configure(__dirname + '/log4js.json');
 var logger = log4js.getLogger('bot');
 
 var express = require('express');
+var pinyin = require("pinyin");
 var app = express();
 var bodyParser = require('body-parser');
 var hashtable = require(__dirname + '/hashtable.js');
@@ -47,7 +48,6 @@ app.all('*', function (req, res, next) {
 
 // 讀取組態表
 var fs = require('fs');
-
 var config = require('fs').readFileSync(__dirname + '/config.json');
 config = JSON.parse(config); //字串轉物件
 
@@ -158,12 +158,17 @@ app.get('/indexpage', function (request, response) {
                             getnextdata(skiptoken);
                         } else {
                             jsongetusers = JSON.parse(getusers);
+                            
                             for (var i = 0; i < jsongetusers.length; i++) {
                                 var givenName = jsongetusers[i].givenName;
                                 var surname = jsongetusers[i].surname;
                                 var name = surname+givenName;
+
                                 //var name = jsongetusers[i].displayName;
                                 //name = name.slice(0, 3);
+                                jsongetusers[i].romaname = tranPinyin(name);
+                                
+                                /*
                                 var req = require('request');
                                 req({
                                     headers: {
@@ -185,10 +190,11 @@ app.get('/indexpage', function (request, response) {
                                     }catch(e){
                                         console.log(e);
                                     }                 
-                                }.bind({ i: i }));
+                                }.bind({ i: i }));*/
                                 if (this.i == jsongetusers.length - 1)
                                         console.log("TO romaname success")
                             }
+                            fs.writeFile('mytest.json',JSON.stringify(jsongetusers,null,2),function(){})
                             //end for loop
                         }
                     });
@@ -262,6 +268,62 @@ app.post('/search', function (req, res) {
         var req = require('request');
         var isEnglish = checkVal(searchdata);
         console.log(isEnglish)
+        
+
+        if (isEnglish) {
+            for (var i in jsongetusers) {
+                if (jsongetusers[i].userPrincipalName.split("@")[0].toLowerCase().indexOf(newromaname.toLowerCase()) != -1) {
+                    var finddata = JSON.stringify(jsongetusers[i]);
+                    switch (datacount) {
+                        case 0: //第一筆資料
+                            resdata += finddata;
+                            datacount++;
+                            break;
+                        default:
+                            resdata += ',' + finddata;
+                            datacount++;
+                            break;
+                    }
+                }
+            }
+        } else {
+            var levenshtein = require('js-levenshtein');
+            newromaname = tranPinyin(searchdata);
+            for (var i = 0; i < jsongetusers.length; i++) {
+                romaforname = jsongetusers[i].romaname;
+                if (newromaname != null && romaforname != null)
+                    if (1-(levenshtein(newromaname, romaforname) / romaforname.length) >= 0.82 || romaforname.indexOf(newromaname) != -1) {
+                        console.log("未切: " + newromaname + ", " + romaforname)
+                        console.log("數量: " + levenshtein(newromaname, romaforname))
+                        console.log("分數: " + (1-(levenshtein(newromaname, romaforname) / romaforname.length)))
+                        var finddata = JSON.stringify(jsongetusers[i]);
+                        switch (datacount) {
+                            case 0: //第一筆資料
+                                resdata += finddata;
+                                datacount++;
+                                break;
+                            default:
+                                resdata += ',' + finddata;
+                                datacount++;
+                                break;
+                        }
+                    }
+            }
+        }
+        //end for loop
+        if (datacount > 0) {
+            resdata = '[' + resdata + ']'; //最外面的 [ ]
+        }
+        //console.log(resdata);
+        if (resdata != '') {
+            console.log(datacount);
+            console.log('!=null');
+            console.log(resdata);
+            res.send(resdata);
+        } else {
+            res.send('wrong');
+        }
+        /*
         req({
             headers: {
                 'Content-Type': 'text/html'
@@ -329,7 +391,7 @@ app.post('/search', function (req, res) {
             }
         }.bind({
             res: res
-        }));
+        }));*/
     } //end else
     function checkVal(str) {
         var regExp = /^[\d|a-zA-Z]+$/;
@@ -339,6 +401,9 @@ app.post('/search', function (req, res) {
             return false;
     }
 })
+function tranPinyin(text){
+    return pinyin(text).join('');
+}
 app.get('/images/tatungba.jpg', function (request, response) {
     var picture = request.params.picture;
     request.header("Content-Type", 'image/jpeg');
@@ -449,3 +514,6 @@ app.get('/scripts/jquery/jquery-2.1.0.min.js', function (request, response) {
         this.res.send(data);
     }.bind({ req: request, res: response }));
 });*/
+
+   // [ [ 'zhōng' ], [ 'xīn' ] ]
+                        // [ [ 'zhōng', 'zhòng' ], [ 'xīn' ] ] 
