@@ -241,7 +241,8 @@
                         if(resdata[i].businessPhones.toString().indexOf('#') != -1){
                             resdata[i].businessPhones = resdata[i].businessPhones.toString().split('#')[1];
                             resdata[i].businessPhones = resdata[i].businessPhones.toString().replace(/[^0-9]/ig,"");
-			            }  
+			            }
+                        resdata[i].businessPhones = Number(resdata[i].businessPhones);
                         $('#appendforuser').append(
                             '<td id="newdata">' +
                             '<table class="table table-bordered">' +
@@ -260,8 +261,8 @@
                             '</td>' +
                             '</tr>' +
                             '<tr>' +
-                            '<td><span><button id="camakecall' + camakecall(resdata[i].businessPhones) +
-                            '" type="submit" class="btn caserverbtn" onclick="camakecall(' + camakecall(resdata[i].businessPhones) +
+                            '<td><span><button id="camakecall' + resdata[i].businessPhones +
+                            '" type="submit" class="btn caserverbtn" onclick="camakecall(' + resdata[i].businessPhones +
                             ')">桌上電話<br/>' + resdata[i].businessPhones + '</button>&nbsp;' + 
                             '<button id="caendcall' + resdata[i].businessPhones +
                             '" type="submit" class="btn caserverbtnred caendcall" onclick="caendcall(' +
@@ -564,7 +565,7 @@
                                 $('#caholdcall' + number_id).hide();
                                 $('#caretrievecall' + number_id).hide();
                                 $('#caendcall' + number_id).hide();
-                                $('#showtext' + showtext).text("");
+                                //$('#showtext' + showtext).text("");
                                 break;
                             case "oncallhold": //保留中
                                 $('#camakecall' + number_id).hide();
