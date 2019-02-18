@@ -359,11 +359,17 @@
                                     callid = reg.callid;
                                     return callid;
                                 }
+                            },complete: function (reg) { //超時
+                                if (secondcount < 1) {
+                                    secondcount++;
+                                    //$('#showtext'+showtext).text("撥號連線失敗...");
+                                    setTimeout(function () {
+                                        return checkStatus(destinationid)
+                                    }, 200);
+                                }
                             },
                             error: function (reg) {
-                                console.log('----------------------------------------------------------------------------------------------------');
                                 console.log(JSON.stringify(reg));
-                                console.log('----------------------------------------------------------------------------------------------------');
                                 if (secondcount < 1) {
                                     secondcount++;
                                     //$('#showtext'+showtext).text("撥號連線失敗...");
