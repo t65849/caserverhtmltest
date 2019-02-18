@@ -242,7 +242,6 @@
                             resdata[i].businessPhones = resdata[i].businessPhones.toString().split('#')[1];
                             resdata[i].businessPhones = resdata[i].businessPhones.toString().replace(/[^0-9]/ig,"");
 			            }
-                        resdata[i].businessPhones = Number(resdata[i].businessPhones);
                         $('#appendforuser').append(
                             '<td id="newdata">' +
                             '<table class="table table-bordered">' +
