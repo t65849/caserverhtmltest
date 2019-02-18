@@ -137,7 +137,7 @@
             $("#speechStatue").html("點擊\"語音查詢\"開始識別語音...");
             $('#voiceSearch').click(function () {
                 if (!('webkitSpeechRecognition' in window)) {
-                    alert("這個瀏覽器不支援google語音")
+                    alert("這個瀏覽器不支援google語音");
                 } else {
                     myvoice = true;
                     var myTranscript = '';
@@ -238,6 +238,10 @@
                     $('#divrow').width(905 * datalength);
                     $('.tableresize').width(905 * datalength);
                     for (var i = 0; i < datalength; i++) {
+                        if(resdata[i].businessPhones.toString().indexOf('#') != -1){
+                            resdata[i].businessPhones = resdata[i].businessPhones.toString().split('#')[1];
+                            resdata[i].businessPhones = resdata[i].businessPhones.toString().replace(/[^0-9]/ig,"");
+			            }  
                         $('#appendforuser').append(
                             '<td id="newdata">' +
                             '<table class="table table-bordered">' +
@@ -256,9 +260,9 @@
                             '</td>' +
                             '</tr>' +
                             '<tr>' +
-                            '<td><span><button id="camakecall' + resdata[i].businessPhones +
-                            '" type="submit" class="btn caserverbtn" onclick="camakecall(' + resdata[i].businessPhones +
-                            ')">桌上電話<br/>' + resdata[i].businessPhones + '</button>&nbsp;' + //4952 == resdata[i].businessPhones
+                            '<td><span><button id="camakecall' + camakecall(resdata[i].businessPhones) +
+                            '" type="submit" class="btn caserverbtn" onclick="camakecall(' + camakecall(resdata[i].businessPhones) +
+                            ')">桌上電話<br/>' + resdata[i].businessPhones + '</button>&nbsp;' + 
                             '<button id="caendcall' + resdata[i].businessPhones +
                             '" type="submit" class="btn caserverbtnred caendcall" onclick="caendcall(' +
                             resdata[i].businessPhones + ')" style="display:none">掛斷電話</button>&nbsp;' +
@@ -302,9 +306,16 @@
                 }
             }
         };
-
+        function changePhoneNumber(destinationid){
+            if(destinationid.toString().indexOf('#') != -1){
+				destinationid = destinationid.toString().split('#')[1];		
+			}  
+            return destinationid.toString().replace(/[^0-9]/ig,"");
+        }
+        
         function camakecall(businessPhones) { //撥出電話
-            var destinationid = businessPhones;
+			var destinationid = businessPhones;
+            console.log(destinationid)
             if (destinationid == null) {
                 //do
             } else {
