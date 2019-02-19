@@ -160,13 +160,30 @@ app.get('/indexpage', function (request, response) {
                             getnextdata(skiptoken);
                         } else {
                             jsongetusers = JSON.parse(getusers);
-
+                            /*fs.writeFile('pages/test.utf8', '', function (err) {
+                                if (err)
+                                    console.log(err);
+                                else
+                                    console.log('Write operation complete.');
+                            });*/
                             for (var i = 0; i < jsongetusers.length; i++) {
                                 var givenName = jsongetusers[i].givenName;
                                 var surname = jsongetusers[i].surname;
                                 //var jobTitle = jsongetusers[i].jobTitle;
                                 var name = surname + givenName;//+jobTitle
                                 jsongetusers[i].romaname = tranPinyin(name);
+                                /*fs.appendFile('pages/test.utf8', givenName+' '+20.27+"\r\n", function (err) {
+                                    if (err)
+                                        console.log(err);
+                                    else
+                                        console.log('Append operation complete.');
+                                });
+                                fs.appendFile('pages/test.utf8', name+' '+15.25+"\r\n", function (err) {
+                                    if (err)
+                                        console.log(err);
+                                    else
+                                        console.log('Append operation complete.');
+                                });*/
 
                                 /*
                                 var req = require('request');
@@ -253,9 +270,32 @@ app.post('/search', function (req, res) {
     console.log('POST /search');
     var searchdata = req.body.searchdata;
     console.log(searchdata);
-
+    var nodejieba = require("nodejieba");
+    nodejieba.load({
+        userDict: 'pages/searchforV.utf8',
+      });
+    var result = nodejieba.cut(searchdata);
+    var antherresult = nodejieba.tag(searchdata);
+    console.log(antherresult);
+    console.log(result);
+    var checkforsearch = false;
+    for(var i=0; i<antherresult.length; i++){
+        if(antherresult[i].tag>20 /*&& antherresult[antherresult.length-1].tag == 'eng'*/){
+            checkforsearch = true;
+            var searchWord = antherresult[antherresult.length-1].word;
+            if(searchWord.length<1){
+                searchWord = antherresult[antherresult.length-2].word + searchWord;
+            }
+            searchRomaname(searchWord);
+            return checkforsearch;
+        }
+    }
+    if(checkforsearch == false){
+        searchRomaname(searchdata);
+    }
+    
+    function searchRomaname(searchdata){
     var flag = false;
-
     for (var i in quickSearchData) {
         if (quickSearchData[i].index == searchdata) {
             //console.log(quickSearchData[i].answer);
@@ -322,8 +362,7 @@ app.post('/search', function (req, res) {
                                         break;
                                 }
                             }
-                    }
-                    else {
+                    }else {
                         if (newromaname != null && romaforname != null)
                             if (1 - (levenshtein(newromaname, romaforname) / romaforname.length) >= 0.82 || romaforname.indexOf(newromaname) != -1) {
                                 //console.log("未切: " + newromaname + ", " + romaforname)
@@ -344,8 +383,7 @@ app.post('/search', function (req, res) {
                     }
 
                 }
-            }
-            //end for loop
+            }//end for loop
             if (datacount > 0) {
                 resdata = '[' + resdata + ']'; //最外面的 [ ]
             }
@@ -364,7 +402,7 @@ app.post('/search', function (req, res) {
             }
         }
     }
-
+};
 
 
 
@@ -511,7 +549,7 @@ app.get('/images/flower.jpg', function (request, response) {
 function resetQuickSearchData(){
     console.log("清除快取");
     quickSearchData = [];
-    setTimeout(resetQuickSearchData,86400*7)
+    setTimeout(resetQuickSearchData,86400*7);
 }
 /*
 app.get('/vendor/bootstrap/css/bootstrap.css', function (request, response) {
