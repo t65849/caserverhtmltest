@@ -272,7 +272,7 @@ app.post('/search', function (req, res) {
     console.log(searchdata);
     var nodejieba = require("nodejieba");
     nodejieba.load({
-        userDict: 'pages/searchforV.utf8',
+        userDict: __dirname + '/pages/searchforV.utf8',
       });
     var result = nodejieba.cut(searchdata);
     var antherresult = nodejieba.tag(searchdata);
@@ -283,7 +283,7 @@ app.post('/search', function (req, res) {
         if(antherresult[i].tag>20 /*&& antherresult[antherresult.length-1].tag == 'eng'*/){
             checkforsearch = true;
             var searchWord = antherresult[antherresult.length-1].word;
-            if(searchWord.length<1){
+            if(searchWord.length == 1){
                 searchWord = antherresult[antherresult.length-2].word + searchWord;
             }
             searchRomaname(searchWord);
@@ -294,7 +294,7 @@ app.post('/search', function (req, res) {
         searchRomaname(searchdata);
     }
     
-    function searchRomaname(searchdata){
+function searchRomaname(searchdata){
     var flag = false;
     for (var i in quickSearchData) {
         if (quickSearchData[i].index == searchdata) {

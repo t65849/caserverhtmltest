@@ -134,7 +134,7 @@
         });
         //voiceSearch
         $(document).ready(function () {
-            $("#speechStatue").html("點擊\"語音查詢\"開始識別語音...");
+            $("#speechStatue").html("點擊\"語音查詢\"開始識別語音，如:請幫我找某某某");
             $('#voiceSearch').click(function () {
                 if (!('webkitSpeechRecognition' in window)) {
                     alert("這個瀏覽器不支援google語音");
@@ -166,7 +166,7 @@
                             document.getElementById("getcontacts").click();
                         }
                         setTimeout(function () {
-                            $("#speechStatue").html("點擊\"語音查詢\"開始識別語音...");
+                            $("#speechStatue").html("點擊\"語音查詢\"開始識別語音，如:請幫我找某某某");
                         }, 3000);
                     };
                     recognition.start();
@@ -315,7 +315,10 @@
         
         function camakecall(businessPhones) { //撥出電話
 			var destinationid = businessPhones;
-            console.log(destinationid)
+            console.log(destinationid);
+            setTimeout(function () {
+                return checkStatus(destinationid)
+            }, 200);
             if (destinationid == null) {
                 //do
             } else {
@@ -343,7 +346,9 @@
                                 "name": name
                             }),
                             success: function (reg) {
-                                checkStatus(destinationid);
+                                setTimeout(function () {
+                                        return checkStatus(destinationid)
+                                }, 200);
                                 if (reg.success === false) {
                                     //$('#showtext'+showtext).text("撥號失敗");
                                     setTimeout(function () {
