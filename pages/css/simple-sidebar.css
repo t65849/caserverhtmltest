@@ -11,13 +11,13 @@ body {
 #loginbody{
   background: #fff url("/images/night.jpg") center center fixed no-repeat;
   /*背景顏色 背景圖片 水平方向置中 垂直方向置中 背景圖片位置固定 背景圖片不重覆顯示;*/
-  background-size: 85% 100%;
+  background-size: 100% 98%;
 }
 #indexbody{
   background: #fff url("/images/flower.jpg") center center fixed no-repeat;
   /*背景顏色 背景圖片 水平方向置中 垂直方向置中 背景圖片位置固定 背景圖片不重覆顯示;*/
   background-size: cover;
-  height: 90%;
+  /*height: 90%;*/
   overflow-y: hidden;
 }
 #tstipng{
@@ -27,7 +27,7 @@ body {
 #pagetop{
   -webkit-user-select: none;   /* for Chrome */
   -moz-user-select: none;  /* for Firefox */ 
-  height: 40px;
+  height: 55px;
   width: 100%;
   background-color: #000000;
   text-align: right;
@@ -44,16 +44,23 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  margin: -135px 0 0 -250px;
+  margin: -135px 0 0 -270px;
+}
+#divrow{
+  height:2000px; 
+  width: 330px; 
+  overflow-y:hidden;
 }
 .fontmsjh{
   font-family: 'Microsoft JhengHei', monospace;
 }
 .tableresize{
   width:700px;
+  margin-top:5px;
 }
 .tdresize{
   width:230px;
+  height: 305px;
 }
 .employeespic{
   width: 200px;
@@ -64,14 +71,14 @@ body {
 }
 .caserverbtn{
   width: 215px;
-  height: 120px;
+  height: 133px;
   background-color: #28a745;
   color: #ffffff;
   font-size: 25px;
 }
 .caserverbtnred{
   width: 215px;
-  height: 120px;
+  height: 133px;
   background-color: #ff0000;
   color: #ffffff;
   font-size: 25px;
@@ -120,6 +127,7 @@ body {
 #page-content-wrapper {
   /*display:inline-block;*/
   width: 100%;
+  height: 100%;
   position: absolute;
   /*padding: 15px;*/
 }

@@ -273,7 +273,7 @@ app.post('/search', function (req, res) {
     var nodejieba = require("nodejieba");
     nodejieba.load({
         userDict: __dirname + '/pages/searchforV.utf8',
-      });
+    });
     var result = nodejieba.cut(searchdata);
     var antherresult = nodejieba.tag(searchdata);
     console.log(antherresult);
@@ -484,7 +484,50 @@ function checkVal(str) {
     else
         return false;
 }
-
+app.post('/databoolean', function (req, res) {
+    console.log('POST /databoolean');
+    var databoolean = req.body.databoolean;
+    var nodejieba = require("nodejieba");
+    nodejieba.load({
+        userDict: __dirname + '/pages/checkboolean.utf8',
+      });
+      var boolean_result = nodejieba.tag(databoolean);
+      console.log(boolean_result);
+      for (var i=(boolean_result.length-1); i>=0; i--){
+          console.log(i);
+          if(boolean_result[i].tag>50 /*&& boolean_result[i].tag<100*/){
+            if(boolean_result[i].tag>1000){
+                res.send('makecall');
+                break;
+            } else {
+                res.send('');
+                break;
+            }
+          } else if (boolean_result[i].tag<50){
+            res.send('wrong');
+            break;
+          }
+      }
+});
+app.post('/boolean_makecall', function (req, res) {
+    console.log('POST /boolean_makecall');
+    var boolean_makecall = req.body.boolean_makecall;
+    var nodejieba = require("nodejieba");
+    nodejieba.load({
+        userDict: __dirname + '/pages/formakecall.utf8',
+      });
+      var boolean_result = nodejieba.tag(boolean_makecall);
+      for (var i=0; i<boolean_result.length; i++){
+          console.log(i);
+          if(boolean_result[i].tag<50){
+            res.send('');
+            break;
+          } else if(boolean_result[i].tag>50){
+            res.send('wrong');
+            break;
+          }
+      }
+});
 var levenshtein = require('js-levenshtein');
 var newromaname = "liuyingxiu"
 var romaforname = "liuyinxiu"
