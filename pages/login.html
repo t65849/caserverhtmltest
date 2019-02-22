@@ -16,6 +16,11 @@
 
     <script type="text/javascript" src="pages/scripts/jquery/jquery-2.1.0.min.js"></script> 
     <script type="text/javascript">
+    $("#loginbody").keydown(function (event) {
+        if (event.which == 13) {
+            $('#login').trigger('click');
+        }
+    });
         $(document).ready(function(){
             $("#login").click(function(){
                 var url = 'https://login.microsoftonline.com/etatung.onmicrosoft.com/oauth2/v2.0/authorize?' +

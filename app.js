@@ -35,6 +35,7 @@ var displayName;
 var businessPhones;
 var mydata;
 var jsongetusers;
+var newsearch_data = "";
 
 // Setup Express Server
 app.use(bodyParser.urlencoded({
@@ -172,18 +173,6 @@ app.get('/indexpage', function (request, response) {
                                 //var jobTitle = jsongetusers[i].jobTitle;
                                 var name = surname + givenName;//+jobTitle
                                 jsongetusers[i].romaname = tranPinyin(name);
-                                /*fs.appendFile('pages/test.utf8', givenName+' '+20.27+"\r\n", function (err) {
-                                    if (err)
-                                        console.log(err);
-                                    else
-                                        console.log('Append operation complete.');
-                                });
-                                fs.appendFile('pages/test.utf8', name+' '+15.25+"\r\n", function (err) {
-                                    if (err)
-                                        console.log(err);
-                                    else
-                                        console.log('Append operation complete.');
-                                });*/
 
                                 /*
                                 var req = require('request');
@@ -276,11 +265,12 @@ app.post('/search', function (req, res) {
     });
     var result = nodejieba.cut(searchdata);
     var antherresult = nodejieba.tag(searchdata);
+    console.log('antherresult');
     console.log(antherresult);
     console.log(result);
     var checkforsearch = false;
     for(var i=0; i<antherresult.length; i++){
-        if(antherresult[i].tag>20 /*&& antherresult[antherresult.length-1].tag == 'eng'*/){
+        if(antherresult[i].tag>20){
             checkforsearch = true;
             var searchWord = antherresult[antherresult.length-1].word;
             if(searchWord.length == 1){
@@ -392,10 +382,11 @@ function searchRomaname(searchdata){
                 //console.log(datacount);
                 //console.log('!=null');
                 //console.log(resdata);
+                newsearch_data = resdata;
                 myAnswer.answer = resdata;
                 quickSearchData.push(myAnswer);
                 //fs.writeFile('quickSearch.json', JSON.stringify(quickSearchData, null, 2), function () {
-                    res.send(resdata);
+                res.send(resdata);
                // })
             } else {
                 res.send('wrong');
@@ -493,10 +484,15 @@ app.post('/databoolean', function (req, res) {
       });
       var boolean_result = nodejieba.tag(databoolean);
       console.log(boolean_result);
+      console.log(JSON.parse(newsearch_data));
       for (var i=(boolean_result.length-1); i>=0; i--){
-          console.log(i);
+          console.log(boolean_result[boolean_result.length-1].word);
+          //console.log(boolean_result[boolean_result.length-1].length);
           if(boolean_result[i].tag>50 /*&& boolean_result[i].tag<100*/){
-            if(boolean_result[i].tag>1000){
+            if(boolean_result[i].tag>2600){
+                res.send('bye');
+                break;
+            } else if (boolean_result[i].tag>1000){
                 res.send('makecall');
                 break;
             } else {
@@ -505,6 +501,9 @@ app.post('/databoolean', function (req, res) {
             }
           } else if (boolean_result[i].tag<50){
             res.send('wrong');
+            break;
+          } else {
+            res.send('unknown');
             break;
           }
       }
@@ -517,13 +516,13 @@ app.post('/boolean_makecall', function (req, res) {
         userDict: __dirname + '/pages/formakecall.utf8',
       });
       var boolean_result = nodejieba.tag(boolean_makecall);
+      console.log(boolean_result);
       for (var i=0; i<boolean_result.length; i++){
-          console.log(i);
-          if(boolean_result[i].tag<50){
-            res.send('');
-            break;
-          } else if(boolean_result[i].tag>50){
+          if(boolean_result[i].tag>50){
             res.send('wrong');
+            break;
+          } else {
+            res.send('');
             break;
           }
       }
