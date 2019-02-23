@@ -203,7 +203,7 @@
                         $("#speechStatue").html("沒有識別到語音...");
                         setTimeout(function () {
                             $('#voiceSearch').trigger('click');
-                        }, 2000);
+                        }, 2500);
                     }
                 } else {
                     document.getElementById("getcontacts").click();
@@ -263,11 +263,12 @@
                         speechSynthesis.speak(msg);
                         //---------------語音---------------
                         $("#speechStatue").html("沒有識別到語音...");
-                        setTimeout(getvoiceSecond, 2000);
+                        setTimeout(getvoiceSecond, 2500);
                     }
                 } else {
                     //document.getElementById("getcontacts").click();
                     //getvoiceSecond();
+                    nosound = 1;
                     var databoolean = $('#databoolean').val();
                     var data = {
                         databoolean: databoolean
@@ -284,7 +285,7 @@
                             $('#divrow').width(330);
                             setTimeout(function(){
                                 $('#voiceSearch').trigger('click');
-                            },2000)
+                            },2500)
                         } else if (resdata === 'makecall') {
                             //---------------語音---------------
                             var msg = new SpeechSynthesisUtterance();
@@ -297,7 +298,27 @@
                             camakecall(this_businessPhones);
                             $("#speechStatue").html("點擊\"語音查詢\"開始識別語音，如:請幫我找某某某");
                             document.getElementById("voiceSearch").disabled = false;
-                        } else if (resdata === 'unknown'){
+                        } else if (resdata == 'yes'){
+                            //---------------語音---------------
+                            var msg = new SpeechSynthesisUtterance();
+                            var voices = [];
+                            msg.text = "很高興能幫到您，需要撥電話嗎";
+                            speechSynthesis.speak(msg);
+                            //---------------語音---------------
+                            setTimeout(getvoiceThird, 3000);
+                        }else if(isNaN(resdata) == false){
+                            //---------------語音---------------
+                            var msg = new SpeechSynthesisUtterance();
+                            var voices = [];
+                            msg.text = "正在撥打中";
+                            speechSynthesis.speak(msg);
+                            //---------------語音---------------
+                            var resdata = JSON.stringify(resdata);
+                            resdata = resdata.replace('[', '').replace(']', '').replace('"', '').replace('"', '');
+                            camakecall(resdata);
+                            $("#speechStatue").html("點擊\"語音查詢\"開始識別語音，如:請幫我找某某某");
+                            document.getElementById("voiceSearch").disabled = false;
+                        }else if (resdata === 'unknown'){
                             //---------------語音---------------
                             var msg = new SpeechSynthesisUtterance();
                             var voices = [];
@@ -306,25 +327,11 @@
                             //---------------語音---------------
                             setTimeout(getvoiceSecond, 2000);
                         }else if(resdata === 'bye'){
-                            //---------------語音---------------
-                            var msg = new SpeechSynthesisUtterance();
-                            var voices = [];
-                            msg.text = "為您服務是我的榮幸";
-                            speechSynthesis.speak(msg);
-                            //---------------語音---------------
                             $("#speechStatue").html("點擊\"語音查詢\"開始識別語音，如:請幫我找某某某");
                             document.getElementById("voiceSearch").disabled = false;
                             $('#appendforuser').empty(); //清空appendforuser裡面所有node
                             $('#divrow').width(330);
                             $('#searchdata').val('');
-                        }else {
-                            //---------------語音---------------
-                            var msg = new SpeechSynthesisUtterance();
-                            var voices = [];
-                            msg.text = "很高興能幫到您，需要撥電話嗎";
-                            speechSynthesis.speak(msg);
-                            //---------------語音---------------
-                            setTimeout(getvoiceThird, 3000);
                         }
                     });
                 }
@@ -373,6 +380,7 @@
                     speechSynthesis.speak(msg);
                     //---------------語音---------------
                     $("#speechStatue").html("沒有識別到語音...");
+                    setTimeout(getvoiceThird, 2500);
                 } else {
                     //document.getElementById("getcontacts").click();
                     //getvoiceSecond();
@@ -382,12 +390,6 @@
                     }
                     $.post('/boolean_makecall', data, function (resdata) {
                         if (resdata === 'wrong') {
-                            //---------------語音---------------
-                            var msg = new SpeechSynthesisUtterance();
-                            var voices = [];
-                            msg.text = "已取消撥打";
-                            speechSynthesis.speak(msg);
-                            //---------------語音---------------
                             $("#speechStatue").html("點擊\"語音查詢\"開始識別語音，如:請幫我找某某某");
                             document.getElementById("voiceSearch").disabled = false;
                         } else {
@@ -443,7 +445,7 @@
                         //---------------語音---------------
                         setTimeout(function () {
                             $('#voiceSearch').trigger('click');
-                        }, 1000);
+                        }, 1500);
                     } else {
                         //---------------語音---------------
                         var msg = new SpeechSynthesisUtterance();
@@ -524,7 +526,7 @@
                         msg.text = "請問您是找" + surname + '嗎';
                         speechSynthesis.speak(msg);
                         //---------------語音---------------
-                        setTimeout(getvoiceSecond, 1000);//3
+                        setTimeout(getvoiceSecond, 2000);//3
                     } else {
                         //---------------語音---------------
                         var msg = new SpeechSynthesisUtterance();

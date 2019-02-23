@@ -481,28 +481,46 @@ app.post('/databoolean', function (req, res) {
     var nodejieba = require("nodejieba");
     nodejieba.load({
         userDict: __dirname + '/pages/checkboolean.utf8',
-      });
+    });
       var boolean_result = nodejieba.tag(databoolean);
       console.log(boolean_result);
-      console.log(JSON.parse(newsearch_data));
+      var search_data = JSON.parse(newsearch_data)
       for (var i=(boolean_result.length-1); i>=0; i--){
-          console.log(boolean_result[boolean_result.length-1].word);
+          console.log(boolean_result[i]);
           //console.log(boolean_result[boolean_result.length-1].length);
-          if(boolean_result[i].tag>50 /*&& boolean_result[i].tag<100*/){
+          if(boolean_result[i].tag>50){
             if(boolean_result[i].tag>2600){
+                console.log('--------->2600----------');
                 res.send('bye');
                 break;
             } else if (boolean_result[i].tag>1000){
-                res.send('makecall');
-                break;
+                console.log('--------->1000----------');
+                /*if(boolean_result[boolean_result.length-1].tag == 'x'){
+                    var this_word = boolean_result[boolean_result.length-1].word;
+                    var pinyin_name = tranPinyin(this_word);
+                    for(var i=0; i<search_data.length;i++){
+                        if(search_data[i].romaname == pinyin_name){
+                            res.send(search_data[i].businessPhones);
+                            break;
+                        } else {
+                            res.send('unknown');
+                            break;
+                        }
+                    }
+                } else {*/
+                    res.send('makecall');
+                    break;
+                //}
             } else {
-                res.send('');
+                console.log('---------+----------');
+                res.send('yes');
                 break;
             }
           } else if (boolean_result[i].tag<50){
             res.send('wrong');
             break;
-          } else {
+          } else if(i == 0) {
+            console.log('---------unknown----------');
             res.send('unknown');
             break;
           }
