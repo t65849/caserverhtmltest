@@ -273,6 +273,7 @@
                     var data = {
                         databoolean: databoolean
                     }
+                    console.log(databoolean);
                     $.post('/databoolean', data, function (resdata) {
                         if (resdata === 'wrong') {
                             //---------------語音---------------
@@ -487,7 +488,8 @@
                             '<table class="table table-bordered">' +
                             '<tr>' +
                             '<td class="tdresize">' +
-                            '<img src="/images/tatungba.jpg" class="rounded-circle img-fluid d-block employeespic">' +
+                            '<img src="/images/tatungba.jpg" class="rounded-circle img-fluid d-block employeespic"><br/>' +
+                            '<p>第'+(i+1)+'筆資料</p>'+
                             '</td>' +
                             '<td>' +
                             '<table class="table table-bordered">' +
@@ -523,18 +525,18 @@
                         //---------------語音---------------
                         var msg = new SpeechSynthesisUtterance();
                         var voices = [];
-                        msg.text = "請問您是找" + surname + '嗎';
+                        msg.text = "以下是搜尋結果，請問幫您撥電話嗎"/*"請問您是找" + surname + '嗎'*/;
                         speechSynthesis.speak(msg);
                         //---------------語音---------------
-                        setTimeout(getvoiceSecond, 2000);//3
+                        setTimeout(getvoiceSecond, 2500);//3
                     } else {
                         //---------------語音---------------
                         var msg = new SpeechSynthesisUtterance();
                         var voices = [];
-                        msg.text = "以下是搜尋結果"/*"請問您是找" + surname + '嗎，或者有找到您要的人嗎'*/;
+                        msg.text = "以下是搜尋結果，請問幫您撥電話嗎"/*"請問您是找" + surname + '嗎，或者有找到您要的人嗎'*/;
                         speechSynthesis.speak(msg);
                         //---------------語音---------------
-                        setTimeout(getvoiceSecond, 5000);//3
+                        setTimeout(getvoiceSecond, 5500);//3
                         console.log(typeof(findata));
                         console.log(findata);
                     }
