@@ -62,7 +62,7 @@
         <div id="page-content-wrapper">
             <div class="container">
                 <div class="row">
-                    <div style="width:102%;color:#022178;">
+                    <div style="width:100%;color:#022178;">
                         <h1 style="font-weight:bold;font-size: 52px">歡迎蒞臨大同世界科技</h1>
                         <table style="margin-top:10px">
                             <tr>
@@ -160,9 +160,9 @@
             myvoice = true;
             var myTranscript = '';
             var recognition = new webkitSpeechRecognition();
-            recognition.continuous = true;
+            recognition.continuous = false;
             //如果設定為 true，表示除非我們停止辨識，不然就會一直持續的辨識語音轉換為文字，如果設定為 false，在辨識一段話完成之後就會結束辨識
-            recognition.interimResults = true;
+            recognition.interimResults = false;
             //如果設定為 true，表示在我們講話的當下就會即時辨識，不然就會在一段話結束之後，才會開始辨識。
             recognition.lang = "cmn-Hant-TW";
             recognition.onstart = function () {
@@ -211,17 +211,17 @@
                 }
             };
             recognition.start();
-            setTimeout(function () {
+            /*setTimeout(function () {
                 recognition.stop();
-            }, 3000);
+            }, 3000);*/
         }
         function getvoiceSecond() { //3
             console.log('Second');
             var myTranscript = '';
             var recognition_forsecond = new webkitSpeechRecognition();
-            recognition_forsecond.continuous = true;
+            recognition_forsecond.continuous = false;
             //如果設定為 true，表示除非我們停止辨識，不然就會一直持續的辨識語音轉換為文字，如果設定為 false，在辨識一段話完成之後就會結束辨識
-            recognition_forsecond.interimResults = true;
+            recognition_forsecond.interimResults = false;
             //如果設定為 true，表示在我們講話的當下就會即時辨識，不然就會在一段話結束之後，才會開始辨識。
             recognition_forsecond.lang = "cmn-Hant-TW";
             recognition_forsecond.onstart = function () {
@@ -340,17 +340,17 @@
                 }, 3000);*/
             };
             recognition_forsecond.start();
-            setTimeout(function () {
+            /*setTimeout(function () {
                 recognition_forsecond.stop();
-            }, 5000);
+            }, 5000);*/
         };
         function getvoiceThird() { //4
             console.log('Third');
             var myTranscript = '';
             var recognition_forthird = new webkitSpeechRecognition();
-            recognition_forthird.continuous = true;
+            recognition_forthird.continuous = false;
             //如果設定為 true，表示除非我們停止辨識，不然就會一直持續的辨識語音轉換為文字，如果設定為 false，在辨識一段話完成之後就會結束辨識
-            recognition_forthird.interimResults = true;
+            recognition_forthird.interimResults = false;
             //如果設定為 true，表示在我們講話的當下就會即時辨識，不然就會在一段話結束之後，才會開始辨識。
             recognition_forthird.lang = "cmn-Hant-TW";
             recognition_forthird.onstart = function () {
@@ -412,9 +412,9 @@
                 }, 3000);*/
             };
             recognition_forthird.start();
-            setTimeout(function () {
+            /*setTimeout(function () {
                 recognition_forthird.stop();
-            }, 5000);
+            }, 5000);*/
         };
 
         function search() { //2
@@ -531,7 +531,7 @@
                         //---------------語音---------------
                         var msg = new SpeechSynthesisUtterance();
                         var voices = [];
-                        msg.text = "請問您是找" + surname + '嗎，或者有找到您要的人嗎';
+                        msg.text = "以下是搜尋結果"/*"請問您是找" + surname + '嗎，或者有找到您要的人嗎'*/;
                         speechSynthesis.speak(msg);
                         //---------------語音---------------
                         setTimeout(getvoiceSecond, 5000);//3
