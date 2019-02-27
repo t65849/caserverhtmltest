@@ -15,7 +15,7 @@ var pinyin = require("pinyin");
 var app = express();
 var bodyParser = require('body-parser');
 var hashtable = require(__dirname + '/hashtable.js');
-
+var Jieba = require('node-jieba');
 var http = require('http');
 var server = http.Server(app); // create express server
 var options = {
@@ -29,13 +29,17 @@ var listener = server.listen(process.env.port || process.env.PORT || 3870, funct
 process.on('uncaughtException', function (err) {
     logger.error('uncaughtException occurred: ' + (err.stack ? err.stack : err));
 });
-
+var analyzer = Jieba({//==
+    debug: false
+});
+analyzer.dict(__dirname+'dict.txt', function (err) {//==
+    if (err) console.log(err)
+});
 var getusers;
 var displayName;
 var businessPhones;
 var mydata;
 var jsongetusers;
-var newsearch_data = "";
 
 // Setup Express Server
 app.use(bodyParser.urlencoded({
@@ -161,17 +165,12 @@ app.get('/indexpage', function (request, response) {
                             getnextdata(skiptoken);
                         } else {
                             jsongetusers = JSON.parse(getusers);
-                            /*fs.writeFile('pages/test.utf8', '', function (err) {
-                                if (err)
-                                    console.log(err);
-                                else
-                                    console.log('Write operation complete.');
-                            });*/
+
                             for (var i = 0; i < jsongetusers.length; i++) {
                                 var givenName = jsongetusers[i].givenName;
                                 var surname = jsongetusers[i].surname;
                                 //var jobTitle = jsongetusers[i].jobTitle;
-                                var name = surname + givenName;//+jobTitle
+                                var name = surname + givenName; //+jobTitle
                                 jsongetusers[i].romaname = tranPinyin(name);
 
                                 /*
@@ -199,9 +198,11 @@ app.get('/indexpage', function (request, response) {
                                 }.bind({ i: i }));*/
                                 if (this.i == jsongetusers.length - 1)
                                     console.log("TO romaname success")
-                            }//end for loop
+                            } //end for loop
 
-                            //fs.writeFile('mytest.json', JSON.stringify(jsongetusers, null, 2), function () { })
+                            fs.writeFile('mytest.json', JSON.stringify(jsongetusers, null, 2), function () {
+                                console.log("OK")
+                            })
                         }
                     });
                 }
@@ -259,32 +260,6 @@ app.post('/search', function (req, res) {
     console.log('POST /search');
     var searchdata = req.body.searchdata;
     console.log(searchdata);
-    var nodejieba = require("nodejieba");
-    nodejieba.load({
-        userDict: __dirname + '/pages/searchforV.utf8',
-    });
-    var result = nodejieba.cut(searchdata);
-    var antherresult = nodejieba.tag(searchdata);
-    console.log('antherresult');
-    console.log(antherresult);
-    console.log(result);
-    var checkforsearch = false;
-    for(var i=0; i<antherresult.length; i++){
-        if(antherresult[i].tag>20){
-            checkforsearch = true;
-            var searchWord = antherresult[antherresult.length-1].word;
-            if(searchWord.length == 1){
-                searchWord = antherresult[antherresult.length-2].word + searchWord;
-            }
-            searchRomaname(searchWord);
-            return checkforsearch;
-        }
-    }
-    if(checkforsearch == false){
-        searchRomaname(searchdata);
-    }
-    
-function searchRomaname(searchdata){
     var flag = false;
     for (var i in quickSearchData) {
         if (quickSearchData[i].index == searchdata) {
@@ -305,169 +280,318 @@ function searchRomaname(searchdata){
         } else {
             //---------取得使用者輸入文字的羅馬拼音------------
             var req = require('request');
-            var isEnglish = checkVal(searchdata);
-            console.log(isEnglish)
-            var myAnswer = {
-                index: "",
-                answer: ""
-            }
-            myAnswer.index = searchdata;
-            if (isEnglish) {
-                for (var i in jsongetusers) {
-                    if (jsongetusers[i].userPrincipalName.split("@")[0].toLowerCase().indexOf(searchdata.toLowerCase()) != -1) {
-                        var finddata = JSON.stringify(jsongetusers[i]);
-                        switch (datacount) {
-                            case 0: //第一筆資料
-                                resdata += finddata;
-                                datacount++;
-                                break;
-                            default:
-                                resdata += ',' + finddata;
-                                datacount++;
-                                break;
+            analyzer.pseg(searchdata, {
+                mode: Jieba.mode.SEARCH,
+                HMM: true
+            }, function (err, result) {
+                if (err) console.log(err)
+                else {
+                    console.log(JSON.stringify(result))
+                    for (var i in result) {
+                        if (result[i][1] == "nr") {
+                            var myAnswer = {
+                                index: "",
+                                answer: ""
+                            }
+                            myAnswer.index = result[i][0];
+                            var levenshtein = require('js-levenshtein');
+                            newromaname = tranPinyin(result[i][0]);
+                            console.log(newromaname);
+                            for (var j = 0; j < jsongetusers.length; j++) {
+                                romaforname = jsongetusers[j].romaname;
+                                if (romaforname.split(' ').length >= 2) {
+                                    if (newromaname != null && romaforname != null)
+                                        if (1 - (levenshtein(newromaname, romaforname.split(' ')[0]) / romaforname.split(' ')[0].length) >= 0.82 || romaforname.indexOf(newromaname) != -1) {
+                                            console.log("未切: " + newromaname + ", " + romaforname)
+                                            //console.log("數量: " + levenshtein(newromaname, romaforname))
+                                            console.log("分數: " + Number(1 - (levenshtein(newromaname, romaforname.split(' ')[0]) / romaforname.length)))
+                                            var finddata = JSON.stringify(jsongetusers[j]);
+                                            switch (datacount) {
+                                                case 0: //第一筆資料
+                                                    resdata += finddata;
+                                                    datacount++;
+                                                    break;
+                                                default:
+                                                    resdata += ',' + finddata;
+                                                    datacount++;
+                                                    break;
+                                            }
+                                        }
+                                } else {
+                                    if (newromaname != null && romaforname != null)
+                                        if (1 - (levenshtein(newromaname, romaforname) / romaforname.split(' ')[0].length) >= 0.82 || romaforname.indexOf(newromaname) != -1) {
+                                            console.log("未切: " + newromaname + ", " + romaforname)
+                                            //console.log("數量: " + levenshtein(newromaname, romaforname))
+                                            console.log("分數: " + Number(1 - (levenshtein(newromaname, romaforname.split(' ')[0]) / romaforname.length)))
+                                            var finddata = JSON.stringify(jsongetusers[j]);
+                                            switch (datacount) {
+                                                case 0: //第一筆資料
+                                                    resdata += finddata;
+                                                    datacount++;
+                                                    break;
+                                                default:
+                                                    resdata += ',' + finddata;
+                                                    datacount++;
+                                                    break;
+                                            }
+                                        }
+                                }
+                            }
+
+                        } else if (result[i][1] == "eng") {
+                            var myAnswer = {
+                                index: "",
+                                answer: ""
+                            }
+                            myAnswer.index = result[i][0];
+                            for (var j in jsongetusers) {
+                                if (jsongetusers[j].userPrincipalName.split("@")[0].toLowerCase().indexOf(searchdata.toLowerCase()) != -1) {
+                                    var finddata = JSON.stringify(jsongetusers[i]);
+                                    switch (datacount) {
+                                        case 0: //第一筆資料
+                                            resdata += finddata;
+                                            datacount++;
+                                            break;
+                                        default:
+                                            resdata += ',' + finddata;
+                                            datacount++;
+                                            break;
+                                    }
+                                }
+                            }
+                        }else if (result[i][0] == "不" || result[i][0] == "不是" || result[i][0] == "不要" || result[i][0] == "取消" || result[i][0] == "不用" || result[i][0] == "不需要" || result[i][0] == "拜拜" || result[i][0] == "掰掰") {
+                            res.send('cancel');
+                            return;
                         }
                     }
                 }
-            } else {
-                var levenshtein = require('js-levenshtein');
-                newromaname = tranPinyin(searchdata);
-                console.log(newromaname);
-                for (var i = 0; i < jsongetusers.length; i++) {
-                    romaforname = jsongetusers[i].romaname;
-                    if (romaforname.split(' ').length >= 2) {
-                        if (newromaname != null && romaforname != null)
-                            if (1 - (levenshtein(newromaname, romaforname.split(' ')[0]) / romaforname.length) >= 0.82 || romaforname.indexOf(newromaname) != -1) {
-                                //console.log("未切: " + newromaname + ", " + romaforname)
-                                //console.log("數量: " + levenshtein(newromaname, romaforname))
-                                //console.log("分數: " + (1 - (levenshtein(newromaname, romaforname) / romaforname.length)))
-                                var finddata = JSON.stringify(jsongetusers[i]);
-                                switch (datacount) {
-                                    case 0: //第一筆資料
-                                        resdata += finddata;
-                                        datacount++;
-                                        break;
-                                    default:
-                                        resdata += ',' + finddata;
-                                        datacount++;
-                                        break;
-                                }
-                            }
-                    }else {
-                        if (newromaname != null && romaforname != null)
-                            if (1 - (levenshtein(newromaname, romaforname) / romaforname.length) >= 0.82 || romaforname.indexOf(newromaname) != -1) {
-                                //console.log("未切: " + newromaname + ", " + romaforname)
-                                //console.log("數量: " + levenshtein(newromaname, romaforname))
-                                //console.log("分數: " + (1 - (levenshtein(newromaname, romaforname) / romaforname.length)))
-                                var finddata = JSON.stringify(jsongetusers[i]);
-                                switch (datacount) {
-                                    case 0: //第一筆資料
-                                        resdata += finddata;
-                                        datacount++;
-                                        break;
-                                    default:
-                                        resdata += ',' + finddata;
-                                        datacount++;
-                                        break;
-                                }
-                            }
-                    }
-
+                if (datacount > 0) {
+                    resdata = '[' + resdata + ']'; //最外面的 [ ]
                 }
-            }//end for loop
+                //console.log(resdata);
+                if (resdata != '') {
+                    //console.log(datacount);
+                    //console.log('!=null');
+                    //console.log(resdata);
+                    myAnswer.answer = resdata;
+                    quickSearchData.push(myAnswer);
+                    fs.writeFile('quickSearch.json', JSON.stringify(quickSearchData, null, 2), function () {
+                        res.send(resdata);
+                    })
+                } else {
+                    res.send('wrong');
+                }
+            }.bind({
+                datacount: datacount
+            }));
+            /*
+            var isEnglish = checkVal(searchdata);
+            console.log(isEnglish)
+            */
+        }
+    }
+})
+
+app.post('/databoolean', function (req, res) {
+    var resdata = '';
+    console.log('POST /databoolean');
+    var databoolean = req.body.databoolean;
+    /*var nodejieba = require("nodejieba");
+    nodejieba.load({
+        userDict: __dirname + '/pages/checkboolean.utf8',
+    });
+    var boolean_result = nodejieba.tag(databoolean);
+    console.log(boolean_result);*/
+    var req = require('request');
+    analyzer.pseg(databoolean, {
+        mode: Jieba.mode.SEARCH,
+        HMM: true
+    }, function (err, result) {
+        if (err) console.log(err)
+        else {
+            console.log(JSON.stringify(result));
+            var datacount = 0;
+            for (var i = (result.length-1); i>=0; i--) {
+                if (result[i][1] == "nr") {
+                    var myAnswer = {
+                        index: "",
+                        answer: ""
+                    }
+                    myAnswer.index = result[i][0];
+                    var levenshtein = require('js-levenshtein');
+                    newromaname = tranPinyin(result[i][0]);
+                    console.log(newromaname);
+                    for (var j = 0; j < jsongetusers.length; j++) {
+                        romaforname = jsongetusers[j].romaname;
+                        if (romaforname.split(' ').length >= 2) {
+                            if (newromaname != null && romaforname != null)
+                                if (1 - (levenshtein(newromaname, romaforname.split(' ')[0]) / romaforname.split(' ')[0].length) >= 0.82 || romaforname.indexOf(newromaname) != -1) {
+                                    console.log("未切: " + newromaname + ", " + romaforname)
+                                    //console.log("數量: " + levenshtein(newromaname, romaforname))
+                                    console.log("分數: " + Number(1 - (levenshtein(newromaname, romaforname.split(' ')[0]) / romaforname.length)))
+                                    var finddata = JSON.stringify(jsongetusers[j]);
+                                    switch (datacount) {
+                                        case 0: //第一筆資料
+                                            resdata += finddata;
+                                            datacount++;
+                                            break;
+                                        default:
+                                            resdata += ',' + finddata;
+                                            datacount++;
+                                            break;
+                                    }
+                                }
+                        } else {
+                            if (newromaname != null && romaforname != null)
+                                if (1 - (levenshtein(newromaname, romaforname) / romaforname.split(' ')[0].length) >= 0.82 || romaforname.indexOf(newromaname) != -1) {
+                                    console.log("未切: " + newromaname + ", " + romaforname)
+                                    //console.log("數量: " + levenshtein(newromaname, romaforname))
+                                    console.log("分數: " + Number(1 - (levenshtein(newromaname, romaforname.split(' ')[0]) / romaforname.length)))
+                                    var finddata = JSON.stringify(jsongetusers[j]);
+                                    switch (datacount) {
+                                        case 0: //第一筆資料
+                                            resdata += finddata;
+                                            datacount++;
+                                            break;
+                                        default:
+                                            resdata += ',' + finddata;
+                                            datacount++;
+                                            break;
+                                    }
+                                }
+                        }
+                    }
+                } else if (result[i][1] == "eng") {
+                    var myAnswer = {
+                        index: "",
+                        answer: ""
+                    }
+                    myAnswer.index = result[i][0];
+                    for (var j in jsongetusers) {
+                        if (jsongetusers[j].userPrincipalName.split("@")[0].toLowerCase().indexOf(searchdata.toLowerCase()) != -1) {
+                            var finddata = JSON.stringify(jsongetusers[i]);
+                            switch (datacount) {
+                                case 0: //第一筆資料
+                                    resdata += finddata;
+                                    datacount++;
+                                    break;
+                                default:
+                                    resdata += ',' + finddata;
+                                    datacount++;
+                                    break;
+                            }
+                        }
+                    }
+                }else if(result[i][1] == "m"){
+                    var this_num = result[i][0];
+                    switch(this_num){
+                        case "第一":
+                            res.send("1");
+                            break;
+                        case "一個":
+                            res.send("1");
+                            break;
+                        case "第二":
+                            res.send("2");
+                            break;
+                        case "第三":
+                            res.send("3");
+                            break;
+                        case "第四":
+                            res.send("4");
+                            break;
+                        case "第五":
+                            res.send("5");
+                            break;
+                        case "第六":
+                            res.send("6");
+                            break;
+                        case "第七":
+                            res.send("7");
+                            break;
+                        case "第八":
+                            res.send("8");
+                            break;
+                        case "第九":
+                            res.send("9");
+                            break;
+                        case "10":
+                            res.send("10");
+                            break;
+                        case "11":
+                            res.send("11");
+                            break;
+                        case "12":
+                            res.send("12");
+                            break;
+                        case "13":
+                            res.send("13");
+                            break;
+                        case "14":
+                            res.send("14");
+                            break;
+                        case "15":
+                            res.send("15");
+                            break;
+                    }
+                } else if (result[i][0] == "不" || result[i][0] == "不是" || result[i][0] == "不要" || result[i][0] == "取消" || result[i][0] == "不用" || result[i][0] == "不需要" || result[i][0] == "拜拜" || result[i][0] == "掰掰") {
+                    res.send('cancel');
+                    return;
+                } else if (result[i][0] == "是" || result[i][0] == "撥" || result[i][0] == "打" || result[i][0] == "沒錯" || result[i][0] == "需要" || result[i][0] == "撥電話" || result[i][0] == "打電話") {
+                    res.send('makecall');
+                    return;
+                }
+            }
+            console.log('end');
+            console.log(datacount);
             if (datacount > 0) {
                 resdata = '[' + resdata + ']'; //最外面的 [ ]
             }
-            //console.log(resdata);
+            console.log(resdata);
             if (resdata != '') {
                 //console.log(datacount);
                 //console.log('!=null');
                 //console.log(resdata);
-                newsearch_data = resdata;
                 myAnswer.answer = resdata;
                 quickSearchData.push(myAnswer);
-                //fs.writeFile('quickSearch.json', JSON.stringify(quickSearchData, null, 2), function () {
-                res.send(resdata);
-               // })
+                fs.writeFile('quickSearch.json', JSON.stringify(quickSearchData, null, 2), function () {
+                    console.log(resdata);
+                    res.send(resdata);
+                    return;
+                })
             } else {
                 res.send('wrong');
+                return;
             }
         }
-    }
-};
-
-
-
-
-    /*
-    req({
-        headers: {
-            'Content-Type': 'text/html'
-        },
-        uri: 'https://char.iis.sinica.edu.tw/API/pinyin_SQL.aspx',
-        qs: {
-            str: searchdata,
-            choose: '4'
-        },
-        method: 'GET'
-    }, function (err, res, body) {
-        newromaname = body.substring(70);
-        console.log(newromaname.toLowerCase());
-        if (isEnglish) {
-            for (var i in jsongetusers) {
-                if (jsongetusers[i].userPrincipalName.split("@")[0].toLowerCase().indexOf(newromaname.toLowerCase()) != -1) {
-                    var finddata = JSON.stringify(jsongetusers[i]);
-                    switch (datacount) {
-                        case 0: //第一筆資料
-                            resdata += finddata;
-                            datacount++;
-                            break;
-                        default:
-                            resdata += ',' + finddata;
-                            datacount++;
-                            break;
-                    }
-                }
+        /*for (var i=(boolean_result.length-1); i>=0; i--){
+            console.log(boolean_result[i]);
+            //console.log(boolean_result[boolean_result.length-1].length);
+            if(boolean_result[i].tag>50){
+              if(boolean_result[i].tag>2600){
+                  console.log('--------->2600----------');
+                  res.send('bye');
+                  break;
+              } else if (boolean_result[i].tag>1000){
+                  console.log('--------->1000----------');
+                      res.send('makecall');
+                      break;
+              } else if (boolean_result[i].tag>750){
+                  res.send('cancel');
+                  break;
+                }else {
+                  console.log('---------+----------');
+                  res.send('yes');
+                  break;
+              }
+            } else if(boolean_result[i].tag<50){
+              res.send('wrong');
+              break;
             }
-        } else {
-            var levenshtein = require('js-levenshtein');
-            for (var i = 0; i < jsongetusers.length; i++) {
-                romaforname = jsongetusers[i].romaname;
-                if (newromaname != null && romaforname != null)
-                    if (levenshtein(newromaname, romaforname) / romaforname.length <= 0.18 || romaforname.indexOf(newromaname) != -1) {
-                        console.log("未切: " + newromaname + ", " + romaforname)
-                        console.log("數量: " + levenshtein(newromaname, romaforname))
-                        console.log("分數: " + levenshtein(newromaname, romaforname) / romaforname.length)
-                        var finddata = JSON.stringify(jsongetusers[i]);
-                        switch (datacount) {
-                            case 0: //第一筆資料
-                                resdata += finddata;
-                                datacount++;
-                                break;
-                            default:
-                                resdata += ',' + finddata;
-                                datacount++;
-                                break;
-                        }
-                    }
-            }
-        }
-        //end for loop
-        if (datacount > 0) {
-            resdata = '[' + resdata + ']'; //最外面的 [ ]
-        }
-        //console.log(resdata);
-        if (resdata != '') {
-            console.log(datacount);
-            console.log('!=null');
-            console.log(resdata);
-            this.res.send(resdata);
-        } else {
-            this.res.send('wrong');
-        }
-    }.bind({
-        res: res
-    }));*/
-}) //end else
+        }*/
+    }/*.bind({datacount:datacount})*/);
+})
+
 function checkVal(str) {
     var regExp = /^[\d|a-zA-Z]+$/;
     if (regExp.test(str))
@@ -475,80 +599,14 @@ function checkVal(str) {
     else
         return false;
 }
-app.post('/databoolean', function (req, res) {
-    console.log('POST /databoolean');
-    var databoolean = req.body.databoolean;
-    var nodejieba = require("nodejieba");
-    nodejieba.load({
-        userDict: __dirname + '/pages/checkboolean.utf8',
-    });
-      var boolean_result = nodejieba.tag(databoolean);
-      console.log(boolean_result);
-      var search_data = JSON.parse(newsearch_data)
-      for (var i=(boolean_result.length-1); i>=0; i--){
-          console.log(boolean_result[i]);
-          //console.log(boolean_result[boolean_result.length-1].length);
-          if(boolean_result[i].tag>50){
-            if(boolean_result[i].tag>2600){
-                console.log('--------->2600----------');
-                res.send('bye');
-                break;
-            } else if (boolean_result[i].tag>1000){
-                console.log('--------->1000----------');
-                /*if(boolean_result[boolean_result.length-1].tag == 'x'){
-                    var this_word = boolean_result[boolean_result.length-1].word;
-                    var pinyin_name = tranPinyin(this_word);
-                    for(var i=0; i<search_data.length;i++){
-                        if(search_data[i].romaname == pinyin_name){
-                            res.send(search_data[i].businessPhones);
-                            break;
-                        } else {
-                            res.send('unknown');
-                            break;
-                        }
-                    }
-                } else {*/
-                    res.send('makecall');
-                    break;
-                //}
-            } else {
-                console.log('---------+----------');
-                res.send('yes');
-                break;
-            }
-          } else if (boolean_result[i].tag<50){
-            res.send('wrong');
-            break;
-          } else if(i == 0) {
-            console.log('---------unknown----------');
-            res.send('unknown');
-            break;
-          }
-      }
-});
-app.post('/boolean_makecall', function (req, res) {
-    console.log('POST /boolean_makecall');
-    var boolean_makecall = req.body.boolean_makecall;
-    var nodejieba = require("nodejieba");
-    nodejieba.load({
-        userDict: __dirname + '/pages/formakecall.utf8',
-      });
-      var boolean_result = nodejieba.tag(boolean_makecall);
-      console.log(boolean_result);
-      for (var i=0; i<boolean_result.length; i++){
-          if(boolean_result[i].tag>50){
-            res.send('wrong');
-            break;
-          } else {
-            res.send('');
-            break;
-          }
-      }
-});
+
 var levenshtein = require('js-levenshtein');
-var newromaname = "liuyingxiu"
-var romaforname = "liuyinxiu"
-console.log("分數: " + 1 - (levenshtein(newromaname, romaforname) / romaforname.length))
+var newromaname = "chenzhiyi"
+var romaforname = "chenliwu"
+console.log(newromaname)
+console.log(romaforname.split(' ')[0])
+console.log("分數: " + Number(1 - (levenshtein(newromaname, romaforname.split(' ')[0]) / romaforname.length)))
+
 function tranPinyin(text) {
     return pinyin(text, {
         style: pinyin.STYLE_NORMAL
@@ -604,12 +662,16 @@ app.get('/images/flower.jpg', function (request, response) {
             this.res.send(err);
         }
         this.res.send(data);
-    }.bind({ req: request, res: response }));
+    }.bind({
+        req: request,
+        res: response
+    }));
 });
-function resetQuickSearchData(){
+
+function resetQuickSearchData() {
     console.log("清除快取");
     quickSearchData = [];
-    setTimeout(resetQuickSearchData,86400*7);
+    setTimeout(resetQuickSearchData, 86400 * 7)
 }
 /*
 app.get('/vendor/bootstrap/css/bootstrap.css', function (request, response) {
@@ -669,5 +731,5 @@ app.get('/scripts/jquery/jquery-2.1.0.min.js', function (request, response) {
     }.bind({ req: request, res: response }));
 });*/
 
-   // [ [ 'zhōng' ], [ 'xīn' ] ]
-                        // [ [ 'zhōng', 'zhòng' ], [ 'xīn' ] ] 
+// [ [ 'zhōng' ], [ 'xīn' ] ]
+// [ [ 'zhōng', 'zhòng' ], [ 'xīn' ] ]
