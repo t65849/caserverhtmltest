@@ -122,6 +122,7 @@
         var findata = [];
         var nosound = 1;
         var tatungSpeach = false;
+        var flag = false;
         $(document).ready(function () {
             var displayName = JSON.stringify(mydata.displayName);
             displayName = displayName.replace('"', '').replace('"', '');
@@ -147,6 +148,7 @@
                 getvoice(false); //1
             }
             $('#voiceSearch').click(function () {
+                console.log('voicesearch');
                 $(this).attr('disabled', true); //不讓使用者繼續按按鈕
                 if (!('webkitSpeechRecognition' in window)) {
                     alert("這個瀏覽器不支援google語音");
@@ -160,12 +162,13 @@
                 search();
             }
         });
-
+        
         function getvoice(tatungSpeach) { //1
+            
             myvoice = true;
             if (flag) tatungSpeach = true;//呼叫大同時修改狀態避免直接大同寶搜尋衝突
             else tatungSpeach = false;
-                           
+
             var myTranscript = '';
             var recognition = new webkitSpeechRecognition();
             recognition.continuous = true;
@@ -188,13 +191,14 @@
                 if (!tatungSpeach) {
                     $.post('/tatungSpeach', data, function (res) {
                         if (res == "沒叫我") {
-                            console.log("睡覺Ing")
+                            console.log("睡覺Ing");
                         } else if (res == "搜尋") {
                             console.log("進入搜尋")
                             tatungSpeach = true;
                             $("#searchdata").val(event.results[i][j].transcript);
                             myTranscript = event.results[i][j].transcript;
                             recognition.stop();
+                            search();
                         } else if (res == "請問有什麼事嗎") {
                             console.log("請問有什麼事嗎")
                             var msg = new SpeechSynthesisUtterance();
@@ -382,12 +386,7 @@
                                 $('#voiceSearch').trigger('click');
                             }, 3000)
                         } else if (resdata === 'makecall') {
-                            //---------------語音---------------
-                            var msg = new SpeechSynthesisUtterance();
-                            var voices = [];
-                            msg.text = "正在撥打中";
-                            speechSynthesis.speak(msg);
-                            //---------------語音---------------
+                            tellyouMakeCall();
                             var this_businessPhones = JSON.stringify(findata[0].businessPhones);
                             this_businessPhones = this_businessPhones.replace('[', '').replace(']', '').replace(
                                 '"', '').replace('"', '');
@@ -408,12 +407,7 @@
                             document.getElementById("voiceSearch").disabled = false;
                             getvoice(false);
                         } else if (resdata == "1") {
-                            //---------------語音---------------
-                            var msg = new SpeechSynthesisUtterance();
-                            var voices = [];
-                            msg.text = "正在撥打中";
-                            speechSynthesis.speak(msg);
-                            //---------------語音---------------
+                            tellyouMakeCall();
                             var this_businessPhones = JSON.stringify(findata[0].businessPhones);
                             this_businessPhones = this_businessPhones.replace('[', '').replace(']', '').replace(
                                 '"', '').replace('"', '');
@@ -422,12 +416,7 @@
                             document.getElementById("voiceSearch").disabled = false;
                             getvoice(false);
                         } else if (resdata == "2") {
-                            //---------------語音---------------
-                            var msg = new SpeechSynthesisUtterance();
-                            var voices = [];
-                            msg.text = "正在撥打中";
-                            speechSynthesis.speak(msg);
-                            //---------------語音---------------
+                            tellyouMakeCall();
                             var this_businessPhones = JSON.stringify(findata[1].businessPhones);
                             this_businessPhones = this_businessPhones.replace('[', '').replace(']', '').replace(
                                 '"', '').replace('"', '');
@@ -436,12 +425,7 @@
                             document.getElementById("voiceSearch").disabled = false;
                             getvoice(false);
                         } else if (resdata == "3") {
-                            //---------------語音---------------
-                            var msg = new SpeechSynthesisUtterance();
-                            var voices = [];
-                            msg.text = "正在撥打中";
-                            speechSynthesis.speak(msg);
-                            //---------------語音---------------
+                            tellyouMakeCall();
                             var this_businessPhones = JSON.stringify(findata[2].businessPhones);
                             this_businessPhones = this_businessPhones.replace('[', '').replace(']', '').replace(
                                 '"', '').replace('"', '');
@@ -450,12 +434,7 @@
                             document.getElementById("voiceSearch").disabled = false;
                             getvoice(false);
                         } else if (resdata == "4") {
-                            //---------------語音---------------
-                            var msg = new SpeechSynthesisUtterance();
-                            var voices = [];
-                            msg.text = "正在撥打中";
-                            speechSynthesis.speak(msg);
-                            //---------------語音---------------
+                            tellyouMakeCall();
                             var this_businessPhones = JSON.stringify(findata[3].businessPhones);
                             this_businessPhones = this_businessPhones.replace('[', '').replace(']', '').replace(
                                 '"', '').replace('"', '');
@@ -464,12 +443,7 @@
                             document.getElementById("voiceSearch").disabled = false;
                             getvoice(false);
                         } else if (resdata == "5") {
-                            //---------------語音---------------
-                            var msg = new SpeechSynthesisUtterance();
-                            var voices = [];
-                            msg.text = "正在撥打中";
-                            speechSynthesis.speak(msg);
-                            //---------------語音---------------
+                            tellyouMakeCall();
                             var this_businessPhones = JSON.stringify(findata[4].businessPhones);
                             this_businessPhones = this_businessPhones.replace('[', '').replace(']', '').replace(
                                 '"', '').replace('"', '');
@@ -478,12 +452,7 @@
                             document.getElementById("voiceSearch").disabled = false;
                             getvoice(false);
                         } else if (resdata == "6") {
-                            //---------------語音---------------
-                            var msg = new SpeechSynthesisUtterance();
-                            var voices = [];
-                            msg.text = "正在撥打中";
-                            speechSynthesis.speak(msg);
-                            //---------------語音---------------
+                            tellyouMakeCall();
                             var this_businessPhones = JSON.stringify(findata[5].businessPhones);
                             this_businessPhones = this_businessPhones.replace('[', '').replace(']', '').replace(
                                 '"', '').replace('"', '');
@@ -492,12 +461,7 @@
                             document.getElementById("voiceSearch").disabled = false;
                             getvoice(false);
                         } else if (resdata == "7") {
-                            //---------------語音---------------
-                            var msg = new SpeechSynthesisUtterance();
-                            var voices = [];
-                            msg.text = "正在撥打中";
-                            speechSynthesis.speak(msg);
-                            //---------------語音---------------
+                            tellyouMakeCall();
                             var this_businessPhones = JSON.stringify(findata[6].businessPhones);
                             this_businessPhones = this_businessPhones.replace('[', '').replace(']', '').replace(
                                 '"', '').replace('"', '');
@@ -506,12 +470,7 @@
                             document.getElementById("voiceSearch").disabled = false;
                             getvoice(false);
                         } else if (resdata == "8") {
-                            //---------------語音---------------
-                            var msg = new SpeechSynthesisUtterance();
-                            var voices = [];
-                            msg.text = "正在撥打中";
-                            speechSynthesis.speak(msg);
-                            //---------------語音---------------
+                            tellyouMakeCall();
                             var this_businessPhones = JSON.stringify(findata[7].businessPhones);
                             this_businessPhones = this_businessPhones.replace('[', '').replace(']', '').replace(
                                 '"', '').replace('"', '');
@@ -520,12 +479,7 @@
                             document.getElementById("voiceSearch").disabled = false;
                             getvoice(false);
                         } else if (resdata == "9") {
-                            //---------------語音---------------
-                            var msg = new SpeechSynthesisUtterance();
-                            var voices = [];
-                            msg.text = "正在撥打中";
-                            speechSynthesis.speak(msg);
-                            //---------------語音---------------
+                            tellyouMakeCall();
                             var this_businessPhones = JSON.stringify(findata[8].businessPhones);
                             this_businessPhones = this_businessPhones.replace('[', '').replace(']', '').replace(
                                 '"', '').replace('"', '');
@@ -534,12 +488,7 @@
                             document.getElementById("voiceSearch").disabled = false;
                             getvoice(false);
                         } else if (resdata == "10") {
-                            //---------------語音---------------
-                            var msg = new SpeechSynthesisUtterance();
-                            var voices = [];
-                            msg.text = "正在撥打中";
-                            speechSynthesis.speak(msg);
-                            //---------------語音---------------
+                            tellyouMakeCall();
                             var this_businessPhones = JSON.stringify(findata[9].businessPhones);
                             this_businessPhones = this_businessPhones.replace('[', '').replace(']', '').replace(
                                 '"', '').replace('"', '');
@@ -548,12 +497,7 @@
                             document.getElementById("voiceSearch").disabled = false;
                             getvoice(false);
                         } else if (resdata == "11") {
-                            //---------------語音---------------
-                            var msg = new SpeechSynthesisUtterance();
-                            var voices = [];
-                            msg.text = "正在撥打中";
-                            speechSynthesis.speak(msg);
-                            //---------------語音---------------
+                            tellyouMakeCall();
                             var this_businessPhones = JSON.stringify(findata[10].businessPhones);
                             this_businessPhones = this_businessPhones.replace('[', '').replace(']', '').replace(
                                 '"', '').replace('"', '');
@@ -562,12 +506,7 @@
                             document.getElementById("voiceSearch").disabled = false;
                             getvoice(false);
                         } else if (resdata == "12") {
-                            //---------------語音---------------
-                            var msg = new SpeechSynthesisUtterance();
-                            var voices = [];
-                            msg.text = "正在撥打中";
-                            speechSynthesis.speak(msg);
-                            //---------------語音---------------
+                            tellyouMakeCall();
                             var this_businessPhones = JSON.stringify(findata[11].businessPhones);
                             this_businessPhones = this_businessPhones.replace('[', '').replace(']', '').replace(
                                 '"', '').replace('"', '');
@@ -576,12 +515,7 @@
                             document.getElementById("voiceSearch").disabled = false;
                             getvoice(false);
                         } else if (resdata == "13") {
-                            //---------------語音---------------
-                            var msg = new SpeechSynthesisUtterance();
-                            var voices = [];
-                            msg.text = "正在撥打中";
-                            speechSynthesis.speak(msg);
-                            //---------------語音---------------
+                            tellyouMakeCall();
                             var this_businessPhones = JSON.stringify(findata[12].businessPhones);
                             this_businessPhones = this_businessPhones.replace('[', '').replace(']', '').replace(
                                 '"', '').replace('"', '');
@@ -590,12 +524,7 @@
                             document.getElementById("voiceSearch").disabled = false;
                             getvoice(false);
                         } else if (resdata == "14") {
-                            //---------------語音---------------
-                            var msg = new SpeechSynthesisUtterance();
-                            var voices = [];
-                            msg.text = "正在撥打中";
-                            speechSynthesis.speak(msg);
-                            //---------------語音---------------
+                            tellyouMakeCall();
                             var this_businessPhones = JSON.stringify(findata[13].businessPhones);
                             this_businessPhones = this_businessPhones.replace('[', '').replace(']', '').replace(
                                 '"', '').replace('"', '');
@@ -604,12 +533,7 @@
                             document.getElementById("voiceSearch").disabled = false;
                             getvoice(false);
                         } else if (resdata == "15") {
-                            //---------------語音---------------
-                            var msg = new SpeechSynthesisUtterance();
-                            var voices = [];
-                            msg.text = "正在撥打中";
-                            speechSynthesis.speak(msg);
-                            //---------------語音---------------
+                            tellyouMakeCall();
                             var this_businessPhones = JSON.stringify(findata[14].businessPhones);
                             this_businessPhones = this_businessPhones.replace('[', '').replace(']', '').replace(
                                 '"', '').replace('"', '');
@@ -832,7 +756,7 @@
                         msg.text = "以下是搜尋結果，請問幫您撥電話嗎" /*"請問您是找" + surname + '嗎'*/ ;
                         speechSynthesis.speak(msg);
                         //---------------語音---------------
-                        setTimeout(getvoiceSecond, 2500); //3
+                        setTimeout(getvoiceSecond, 3300); //3
                     } else {
                         //---------------語音---------------
                         var msg = new SpeechSynthesisUtterance();
@@ -840,9 +764,7 @@
                         msg.text = "以下是搜尋結果，要撥給第幾筆資料" /*"請問您是找" + surname + '嗎，或者有找到您要的人嗎'*/ ;
                         speechSynthesis.speak(msg);
                         //---------------語音---------------
-                        setTimeout(getvoiceSecond, 3000); //3
-                        console.log(typeof (findata));
-                        console.log(findata);
+                        setTimeout(getvoiceSecond, 3300); //3
                     }
 
                     /*setTimeout(function () {
@@ -1192,6 +1114,14 @@
                 alert('尚未完成');
             });
         });
+        function tellyouMakeCall(){
+            //---------------語音---------------
+            var msg = new SpeechSynthesisUtterance();
+            var voices = [];
+            msg.text = "正在撥打中";
+            speechSynthesis.speak(msg);
+            //---------------語音---------------
+        }
     </script>
 
 </body>

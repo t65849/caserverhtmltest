@@ -270,8 +270,8 @@ app.post('/tatungSpeach', function (req, res) {
         HMM: true
     }, function (err, result) {
         console.log(JSON.stringify(result))
-        const hasTatung = false;
-        const hasNR = false;
+        var hasTatung = false;
+        var hasNR = false;
         for(var i in result){
             if(result[i][0] == "大同寶寶") hasTatung = true;
             if(result[i][1] == "nr") hasNR = true;
@@ -377,8 +377,8 @@ app.post('/search', function (req, res) {
                             }
                             myAnswer.index = result[i][0];
                             for (var j in jsongetusers) {
-                                if (jsongetusers[j].userPrincipalName.split("@")[0].toLowerCase().indexOf(searchdata.toLowerCase()) != -1) {
-                                    var finddata = JSON.stringify(jsongetusers[i]);
+                                if ((jsongetusers[j].userPrincipalName).split("@")[0].toLowerCase().indexOf((myAnswer.index).toLowerCase()) != -1) {
+                                    var finddata = JSON.stringify(jsongetusers[j]);
                                     switch (datacount) {
                                         case 0: //第一筆資料
                                             resdata += finddata;
@@ -500,8 +500,8 @@ app.post('/databoolean', function (req, res) {
                     }
                     myAnswer.index = result[i][0];
                     for (var j in jsongetusers) {
-                        if (jsongetusers[j].userPrincipalName.split("@")[0].toLowerCase().indexOf(searchdata.toLowerCase()) != -1) {
-                            var finddata = JSON.stringify(jsongetusers[i]);
+                        if (jsongetusers[j].userPrincipalName.split("@")[0].toLowerCase().indexOf((myAnswer.index).toLowerCase()) != -1) {
+                            var finddata = JSON.stringify(jsongetusers[j]);
                             switch (datacount) {
                                 case 0: //第一筆資料
                                     resdata += finddata;
