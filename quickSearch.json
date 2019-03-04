@@ -1,0 +1,14 @@
+[
+  {
+    "index": "蔡君",
+    "answer": "[{\"businessPhones\":[\"4934\"],\"displayName\":\"蔡君德 Ader.Tsai\",\"givenName\":\"君德\",\"jobTitle\":null,\"mail\":\"Ader.Tsai@etatung.com\",\"mobilePhone\":\"0958757071\",\"officeLocation\":\"4934\",\"preferredLanguage\":null,\"surname\":\"蔡\",\"userPrincipalName\":\"Ader.Tsai@etatung.com\",\"id\":\"52149943-a7a5-4cb0-9d41-dad25ede3b81\",\"romaname\":\"caijunde\"},{\"businessPhones\":[\"5612\"],\"displayName\":\"沈彩君 Chun Shen\",\"givenName\":\"彩君\",\"jobTitle\":\"專案副理\",\"mail\":\"Chun.Shen@etatung.com\",\"mobilePhone\":\"0919301361\",\"officeLocation\":\"5612\",\"preferredLanguage\":null,\"surname\":\"沈\",\"userPrincipalName\":\"Chun.Shen@etatung.com\",\"id\":\"49dee367-864b-42b2-87c7-a2ad38a54919\",\"romaname\":\"shencaijun\"}]"
+  },
+  {
+    "index": "蔡君",
+    "answer": "[{\"businessPhones\":[\"4934\"],\"displayName\":\"蔡君德 Ader.Tsai\",\"givenName\":\"君德\",\"jobTitle\":null,\"mail\":\"Ader.Tsai@etatung.com\",\"mobilePhone\":\"0958757071\",\"officeLocation\":\"4934\",\"preferredLanguage\":null,\"surname\":\"蔡\",\"userPrincipalName\":\"Ader.Tsai@etatung.com\",\"id\":\"52149943-a7a5-4cb0-9d41-dad25ede3b81\",\"romaname\":\"caijunde\"},{\"businessPhones\":[\"5612\"],\"displayName\":\"沈彩君 Chun Shen\",\"givenName\":\"彩君\",\"jobTitle\":\"專案副理\",\"mail\":\"Chun.Shen@etatung.com\",\"mobilePhone\":\"0919301361\",\"officeLocation\":\"5612\",\"preferredLanguage\":null,\"surname\":\"沈\",\"userPrincipalName\":\"Chun.Shen@etatung.com\",\"id\":\"49dee367-864b-42b2-87c7-a2ad38a54919\",\"romaname\":\"shencaijun\"}]"
+  },
+  {
+    "index": "後",
+    "answer": "[{\"businessPhones\":[\"4705\"],\"displayName\":\"周錦隆 Along Chou\",\"givenName\":\"錦隆\",\"jobTitle\":null,\"mail\":\"along.chou@etatung.com\",\"mobilePhone\":\"0987334160\",\"officeLocation\":\"4705\",\"preferredLanguage\":null,\"surname\":\"周\",\"userPrincipalName\":\"along.chou@etatung.com\",\"id\":\"995fa9d9-693d-48b4-9d0f-324b1a8a20b5\",\"romaname\":\"zhoujinlong\"},{\"businessPhones\":[\"74103\"],\"displayName\":\"陳興洲 Peter Chen\",\"givenName\":\"興洲\",\"jobTitle\":null,\"mail\":\"Peter.Chen@etatung.com\",\"mobilePhone\":\"0932673898\",\"officeLocation\":\"台中辦事處 分機:103\",\"preferredLanguage\":null,\"surname\":\"陳\",\"userPrincipalName\":\"Peter.Chen@etatung.com\",\"id\":\"e6542c02-3f31-4bff-93b4-34bd8c32cd6f\",\"romaname\":\"chenxingzhou\"}]"
+  }
+]

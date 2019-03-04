@@ -11,7 +11,7 @@
     "surname": "05AP管理者",
     "userPrincipalName": "05AP@etatung.com.tw",
     "id": "79b37ec8-8fb3-45a6-8602-fe24203a80ad",
-    "romaname": "05APguǎnlǐzhěnull"
+    "romaname": "05APguanlizhenull"
   },
   {
     "businessPhones": [],
@@ -53,7 +53,7 @@
     "surname": "客戶服務處 0800客服信箱",
     "userPrincipalName": "0800@etatung.com",
     "id": "8d257640-a332-4088-ac78-f8cb8947b2df",
-    "romaname": "kèhùfúwùchǔ 0800kèfúxìnxiāngnull"
+    "romaname": "kehufuwuchu 0800kefuxinxiangnull"
   },
   {
     "businessPhones": [],
@@ -109,7 +109,7 @@
     "surname": "專案管理帳號",
     "userPrincipalName": "20pmadmin@etatung.com.tw",
     "id": "24c178f5-7a64-45d2-98ae-422fd6b596a2",
-    "romaname": "zhuānànguǎnlǐzhànghàonull"
+    "romaname": "zhuananguanlizhanghaonull"
   },
   {
     "businessPhones": [],
@@ -153,7 +153,7 @@
     "surname": "梁",
     "userPrincipalName": "Aaron.Liang@etatung.com",
     "id": "7b5f68dd-f761-40fe-a518-92de5061fc8f",
-    "romaname": "liángjùnyuán"
+    "romaname": "liangjunyuan"
   },
   {
     "businessPhones": [
@@ -169,7 +169,23 @@
     "surname": "林",
     "userPrincipalName": "Aaron.Lin@etatung.com",
     "id": "1fafa572-0c56-46e0-884a-07d940731412",
-    "romaname": "línjīnchéng"
+    "romaname": "linjincheng"
+  },
+  {
+    "businessPhones": [
+      "5428"
+    ],
+    "displayName": "游祥祺 營運長",
+    "givenName": "游祥祺",
+    "jobTitle": "營運長",
+    "mail": "abula.yu@tisnet.com.tw",
+    "mobilePhone": "0919202591",
+    "officeLocation": "台北北設工5樓",
+    "preferredLanguage": null,
+    "surname": "游",
+    "userPrincipalName": "abula.yu@etatung.onmicrosoft.com",
+    "id": "58498aa5-36a7-4a14-88c5-1e04e86dc0e8",
+    "romaname": "youyouxiangqi"
   },
   {
     "businessPhones": [],
@@ -199,7 +215,7 @@
     "surname": "蔡",
     "userPrincipalName": "Ader.Tsai@etatung.com",
     "id": "52149943-a7a5-4cb0-9d41-dad25ede3b81",
-    "romaname": "càijūndé"
+    "romaname": "caijunde"
   },
   {
     "businessPhones": [],
@@ -229,7 +245,7 @@
     "surname": "林",
     "userPrincipalName": "Ady.Lin@etatung.com",
     "id": "53a01491-1004-4f8a-be77-6aee9c1b07a9",
-    "romaname": "línqǐxuán"
+    "romaname": "linqixuan"
   },
   {
     "businessPhones": [
@@ -245,7 +261,7 @@
     "surname": "林",
     "userPrincipalName": "Aggie.Lin@etatung.com",
     "id": "bb4d5ced-7dec-47a4-983d-5df432c67cb4",
-    "romaname": "línmènghuà"
+    "romaname": "linmenghua"
   },
   {
     "businessPhones": [
@@ -261,7 +277,7 @@
     "surname": "陳",
     "userPrincipalName": "Aken.Chen@etatung.com",
     "id": "899136ee-8f2c-4ed9-b57d-80c0aba89432",
-    "romaname": "chénwénwěi"
+    "romaname": "chenwenwei"
   },
   {
     "businessPhones": [
@@ -277,7 +293,7 @@
     "surname": "何",
     "userPrincipalName": "alan.ho@etatung.com",
     "id": "be1d1579-3bd3-4fdd-867c-cfda9dce33c8",
-    "romaname": "hébǐngrú"
+    "romaname": "hebingru"
   },
   {
     "businessPhones": [
@@ -293,7 +309,7 @@
     "surname": "段",
     "userPrincipalName": "Albert.Duan@etatung.com",
     "id": "914cef71-53a3-426b-86e2-d25f58430cc6",
-    "romaname": "duànchúnrén"
+    "romaname": "duanchunren"
   },
   {
     "businessPhones": [],
@@ -307,7 +323,7 @@
     "surname": "段",
     "userPrincipalName": "Albert.Duan1@etatung.onmicrosoft.com",
     "id": "1205788b-9dd3-46f5-8a10-6702f5bc7fdd",
-    "romaname": "duànchúnrén"
+    "romaname": "duanchunren"
   },
   {
     "businessPhones": [
@@ -323,7 +339,7 @@
     "surname": "黃",
     "userPrincipalName": "Albert.Huang@etatung.com",
     "id": "34743330-9495-4da4-9d27-27e0edd591a4",
-    "romaname": "huángzàiyuán"
+    "romaname": "huangzaiyuan"
   },
   {
     "businessPhones": [],
@@ -353,7 +369,7 @@
     "surname": "林",
     "userPrincipalName": "Alen.Lin@etatung.com",
     "id": "01e8dcd0-9f93-4154-ae1c-1ab556388eef",
-    "romaname": "línjūndá"
+    "romaname": "linjunda"
   },
   {
     "businessPhones": [],
@@ -367,7 +383,7 @@
     "surname": "陳",
     "userPrincipalName": "Alex.Chen@etatung.com",
     "id": "ae423e10-b43f-44f6-9b04-4bb00a4976e3",
-    "romaname": "chénqìnglóng"
+    "romaname": "chenqinglong"
   },
   {
     "businessPhones": [
@@ -383,7 +399,7 @@
     "surname": "江",
     "userPrincipalName": "Alex.Chiang@etatung.com",
     "id": "4dcf19da-39c2-4f75-93d0-616b74fe0c1f",
-    "romaname": "jiāngjùnchāng"
+    "romaname": "jiangjunchang"
   },
   {
     "businessPhones": [
@@ -399,7 +415,7 @@
     "surname": "凌",
     "userPrincipalName": "alex.ryo@etatung.com",
     "id": "9dd246a6-2e17-4fee-a852-3d7677eeb345",
-    "romaname": "língfāxiáng"
+    "romaname": "lingfaxiang"
   },
   {
     "businessPhones": [
@@ -431,7 +447,7 @@
     "surname": "陳",
     "userPrincipalName": "alexfs.chen@etatung.com",
     "id": "ea8a3f39-b169-433b-b12c-09f2c90c833e",
-    "romaname": "chénfēngshèng"
+    "romaname": "chenfengsheng"
   },
   {
     "businessPhones": [
@@ -447,7 +463,7 @@
     "surname": "陳",
     "userPrincipalName": "Alice.Chen@etatung.com",
     "id": "f2475b29-700c-4ecc-a657-8bd34dcee818",
-    "romaname": "chényíjìng"
+    "romaname": "chenyijing"
   },
   {
     "businessPhones": [
@@ -463,7 +479,7 @@
     "surname": "李",
     "userPrincipalName": "Alice.Lee@etatung.com",
     "id": "537bdfc5-130b-4bb8-8a1c-fa791202c8a0",
-    "romaname": "lǐjīnlíng"
+    "romaname": "lijinling"
   },
   {
     "businessPhones": [
@@ -479,7 +495,7 @@
     "surname": "曾",
     "userPrincipalName": "Alice.Tseng@etatung.com",
     "id": "150ab817-2e84-4a4e-83e3-982ab3fc95c7",
-    "romaname": "zēnghuìwén"
+    "romaname": "zenghuiwen"
   },
   {
     "businessPhones": [
@@ -495,7 +511,7 @@
     "surname": "杨",
     "userPrincipalName": "Alice.Yang@tsticn.com",
     "id": "c4316d6d-4268-4f8c-b96b-bf6526eb0e91",
-    "romaname": "yángměinà"
+    "romaname": "yangmeina"
   },
   {
     "businessPhones": [
@@ -511,7 +527,7 @@
     "surname": "陳",
     "userPrincipalName": "Allen.Chen@etatung.com",
     "id": "368ac5db-e1d9-4b8c-adf5-930202e2204e",
-    "romaname": "chénjìnjiā"
+    "romaname": "chenjinjia"
   },
   {
     "businessPhones": [
@@ -527,7 +543,7 @@
     "surname": "許",
     "userPrincipalName": "Allen.Hsu@etatung.com",
     "id": "c611de92-be75-40d9-82f5-213852ac9241",
-    "romaname": "xūruìfēng"
+    "romaname": "xuruifeng"
   },
   {
     "businessPhones": [
@@ -543,7 +559,7 @@
     "surname": "黃",
     "userPrincipalName": "Allen.Huang@etatung.com",
     "id": "635181f9-0ecb-4769-b6a1-5bf4931e0a2c",
-    "romaname": "huángyǒnghuī"
+    "romaname": "huangyonghui"
   },
   {
     "businessPhones": [
@@ -559,7 +575,7 @@
     "surname": "湯",
     "userPrincipalName": "Allen.Tang@etatung.com",
     "id": "6924586f-804d-4618-aa33-f07c08e51edc",
-    "romaname": "tāngwénhuá"
+    "romaname": "tangwenhua"
   },
   {
     "businessPhones": [],
@@ -573,7 +589,7 @@
     "surname": "王",
     "userPrincipalName": "Allen.Wang@etatung.com",
     "id": "0fd48267-3bae-4078-b582-b8526c2f8f57",
-    "romaname": "wángxīhuá"
+    "romaname": "wangxihua"
   },
   {
     "businessPhones": [
@@ -589,7 +605,7 @@
     "surname": "陳立武 AllenX Chen",
     "userPrincipalName": "AllenX.Chen@etatung.com",
     "id": "6e9b3fdc-4ea9-49ad-8bd3-42452552a49a",
-    "romaname": "chénlìwǔ AllenX Chennull"
+    "romaname": "chenliwu AllenX Chennull"
   },
   {
     "businessPhones": [
@@ -605,7 +621,7 @@
     "surname": "許",
     "userPrincipalName": "Almund.Xu@etatung.com",
     "id": "87af0ac7-48da-4bde-961d-53181ee49164",
-    "romaname": "xūjìnbāng"
+    "romaname": "xujinbang"
   },
   {
     "businessPhones": [
@@ -621,7 +637,7 @@
     "surname": "周",
     "userPrincipalName": "along.chou@etatung.com",
     "id": "995fa9d9-693d-48b4-9d0f-324b1a8a20b5",
-    "romaname": "zhōujǐnlóng"
+    "romaname": "zhoujinlong"
   },
   {
     "businessPhones": [
@@ -637,7 +653,7 @@
     "surname": "江",
     "userPrincipalName": "Amber.Chiang@etatung.com",
     "id": "451b1157-1dc4-48aa-aed4-810e09153b72",
-    "romaname": "jiāngsīyíng"
+    "romaname": "jiangsiying"
   },
   {
     "businessPhones": [
@@ -653,7 +669,7 @@
     "surname": "劉",
     "userPrincipalName": "Amber.liu@etatung.onmicrosoft.com",
     "id": "6a652ba8-ee0c-4330-8c7a-1060855240dd",
-    "romaname": "liúlìfēi"
+    "romaname": "liulifei"
   },
   {
     "businessPhones": [
@@ -669,7 +685,7 @@
     "surname": "許",
     "userPrincipalName": "Amy.Shiu@etatung.com",
     "id": "188e9618-c639-457c-ac1c-108fc8340d6b",
-    "romaname": "xūjiājuān"
+    "romaname": "xujiajuan"
   },
   {
     "businessPhones": [],
@@ -697,7 +713,7 @@
     "surname": "陳",
     "userPrincipalName": "Anda.Chen@etatung.com",
     "id": "c37ebb62-3be2-4e41-a4cb-5991f089f755",
-    "romaname": "chénshírèn"
+    "romaname": "chenshiren"
   },
   {
     "businessPhones": [
@@ -713,7 +729,7 @@
     "surname": "許",
     "userPrincipalName": "Andy.Hsu@etatung.com.tw",
     "id": "aeeb9a13-f3e5-41e0-9764-d7569de7d051",
-    "romaname": "xūzhéháo"
+    "romaname": "xuzhehao"
   },
   {
     "businessPhones": [
@@ -729,7 +745,7 @@
     "surname": "黃",
     "userPrincipalName": "Andy.Huang@etatung.com",
     "id": "53e34583-c001-4295-966d-3fcf9ff3d9bd",
-    "romaname": "huángténghào"
+    "romaname": "huangtenghao"
   },
   {
     "businessPhones": [
@@ -745,7 +761,7 @@
     "surname": "林",
     "userPrincipalName": "Andy.Lin@etatung.com",
     "id": "1f3450d0-29f9-4fcf-ba94-22fc63fff105",
-    "romaname": "línjìyè"
+    "romaname": "linjiye"
   },
   {
     "businessPhones": [
@@ -761,7 +777,7 @@
     "surname": "湯",
     "userPrincipalName": "andy.tang@etatung.com",
     "id": "1ab29b68-b3d2-4d9b-a189-f1d2e43f2165",
-    "romaname": "tāngjūnchún"
+    "romaname": "tangjunchun"
   },
   {
     "businessPhones": [
@@ -807,7 +823,7 @@
     "surname": "吳",
     "userPrincipalName": "Andy.Wu@etatung.com",
     "id": "7cd9deb7-4066-49e6-a69f-a242bcd41251",
-    "romaname": "wúhóngyǐng"
+    "romaname": "wuhongying"
   },
   {
     "businessPhones": [
@@ -823,7 +839,7 @@
     "surname": "方",
     "userPrincipalName": "Angel.Fang@etatung.com",
     "id": "4ed88403-aa96-4ceb-9fc1-91ae4cec2fdb",
-    "romaname": "fāngxīnyí"
+    "romaname": "fangxinyi"
   },
   {
     "businessPhones": [
@@ -839,7 +855,7 @@
     "surname": "吳",
     "userPrincipalName": "Angelina.Wu@etatung.com",
     "id": "ac710368-c05b-4ce6-97a0-1bd3af3ec5c1",
-    "romaname": "wúsīxián"
+    "romaname": "wusixian"
   },
   {
     "businessPhones": [
@@ -850,12 +866,12 @@
     "jobTitle": null,
     "mail": "Angie.Lai@etatung.com.tw",
     "mobilePhone": "151 0219 7447",
-    "officeLocation": "78307",
+    "officeLocation": "中國-上海",
     "preferredLanguage": null,
     "surname": "賴",
     "userPrincipalName": "Angie.Lai@etatung.com.tw",
     "id": "9f61dd9a-b59d-4c0e-b44e-f0ff126c795d",
-    "romaname": "làizhòngyán"
+    "romaname": "laizhongyan"
   },
   {
     "businessPhones": [
@@ -871,7 +887,7 @@
     "surname": "黃",
     "userPrincipalName": "Aniki.Huang@etatung.com",
     "id": "fe5cbc5c-846e-41f7-9014-60112b0c5678",
-    "romaname": "huángzhìháo"
+    "romaname": "huangzhihao"
   },
   {
     "businessPhones": [
@@ -887,7 +903,7 @@
     "surname": "陳",
     "userPrincipalName": "anita.chen@etatung.com",
     "id": "f1368cc9-9958-4572-83f4-833cde7d6139",
-    "romaname": "chényílíng"
+    "romaname": "chenyiling"
   },
   {
     "businessPhones": [
@@ -903,7 +919,7 @@
     "surname": "鄭",
     "userPrincipalName": "Ann.Cheng@etatung.com",
     "id": "8deb8878-6d57-4f9f-9a7f-f3437c7fe7e7",
-    "romaname": "zhèngyǒngzhēn"
+    "romaname": "zhengyongzhen"
   },
   {
     "businessPhones": [
@@ -919,7 +935,7 @@
     "surname": "段",
     "userPrincipalName": "Ann.Duan@tsticn.com",
     "id": "fa62e8aa-6edf-4476-94f3-eba281ee17d3",
-    "romaname": "duànyùtíng"
+    "romaname": "duanyuting"
   },
   {
     "businessPhones": [
@@ -935,7 +951,7 @@
     "surname": "陳",
     "userPrincipalName": "Anne.Chen@etatung.com",
     "id": "770c5a51-779c-47ff-b10e-ed0929c1c878",
-    "romaname": "chényùjiāo"
+    "romaname": "chenyujiao"
   },
   {
     "businessPhones": [
@@ -951,7 +967,7 @@
     "surname": "劉",
     "userPrincipalName": "Annie.Liu@etatung.com",
     "id": "3b898946-a207-4a9b-8b60-da964ac8504b",
-    "romaname": "liúyíngxiù zǒngjīnglǐ"
+    "romaname": "liuyingxiu zongjingli"
   },
   {
     "businessPhones": [
@@ -967,7 +983,7 @@
     "surname": "李",
     "userPrincipalName": "Antony.Li@etatung.com",
     "id": "8e435f92-c4b7-4543-b689-a700773d0361",
-    "romaname": "lǐwěihóng"
+    "romaname": "liweihong"
   },
   {
     "businessPhones": [],
@@ -997,7 +1013,7 @@
     "surname": "胡",
     "userPrincipalName": "April.Hu@etatung.com",
     "id": "25235056-fb2c-4416-91fc-c205f78734c0",
-    "romaname": "húxīyún"
+    "romaname": "huxiyun"
   },
   {
     "businessPhones": [],
@@ -1027,7 +1043,7 @@
     "surname": "汪",
     "userPrincipalName": "Arashi.Wang@etatung.com.tw",
     "id": "84e7f594-a904-42bb-98f9-c140068e86ee",
-    "romaname": "wāngjiāxiáng"
+    "romaname": "wangjiaxiang"
   },
   {
     "businessPhones": [
@@ -1043,7 +1059,7 @@
     "surname": "林",
     "userPrincipalName": "Arc.Lin@etatung.com",
     "id": "21c333d9-60ef-4ab6-a4c8-f5cca998cf49",
-    "romaname": "línshèngkǎi"
+    "romaname": "linshengkai"
   },
   {
     "businessPhones": [
@@ -1059,7 +1075,7 @@
     "surname": "伍",
     "userPrincipalName": "Ariel.Wu@etatung.com",
     "id": "e9a79e3f-4d65-4a3f-bf1c-3ad9089e3332",
-    "romaname": "wǔxiānyí"
+    "romaname": "wuxianyi"
   },
   {
     "businessPhones": [],
@@ -1073,7 +1089,7 @@
     "surname": "郭",
     "userPrincipalName": "Aries.Kuo@etatung.com",
     "id": "7d53ca85-e13e-43fb-8c31-4b72dc6ba41a",
-    "romaname": "guōbǐngxīn"
+    "romaname": "guobingxin"
   },
   {
     "businessPhones": [
@@ -1089,7 +1105,7 @@
     "surname": "郭",
     "userPrincipalName": "Arthur.Kuo@etatung.com",
     "id": "ed04c915-9148-4e67-9541-06511d4d28d7",
-    "romaname": "guōjīngnán"
+    "romaname": "guojingnan"
   },
   {
     "businessPhones": [],
@@ -1103,7 +1119,7 @@
     "surname": "廖",
     "userPrincipalName": "Arthur.Liao@etatung.com",
     "id": "da54a8f8-8aed-4a76-a053-7d6b8a36f9a9",
-    "romaname": "liàoyíngzhào"
+    "romaname": "liaoyingzhao"
   },
   {
     "businessPhones": [
@@ -1119,7 +1135,7 @@
     "surname": "阮",
     "userPrincipalName": "Arvin.Juan@etatung.com",
     "id": "dc41f456-694a-4597-bbf0-7f8412a2861e",
-    "romaname": "ruǎnjiànchāng"
+    "romaname": "ruanjianchang"
   },
   {
     "businessPhones": [],
@@ -1133,7 +1149,7 @@
     "surname": "ASD管理者",
     "userPrincipalName": "asd.admin@etatung.com.tw",
     "id": "8782f517-c360-4bcf-84d8-cfa3012145b2",
-    "romaname": "ASDguǎnlǐzhěnull"
+    "romaname": "ASDguanlizhenull"
   },
   {
     "businessPhones": [],
@@ -1175,7 +1191,7 @@
     "surname": "外部稽核人員帳號",
     "userPrincipalName": "audit.bpm@etatung.com",
     "id": "77ce1f6f-c705-4e71-bdc9-f8ae54853a0b",
-    "romaname": "wàibùjīhérényuánzhànghàonull"
+    "romaname": "waibujiherenyuanzhanghaonull"
   },
   {
     "businessPhones": [],
@@ -1189,7 +1205,7 @@
     "surname": "陳",
     "userPrincipalName": "Babymin.Chen@etatung.com",
     "id": "c2e7b2c3-3756-4289-b5da-2cb0ff71d97d",
-    "romaname": "chénmǐn"
+    "romaname": "chenmin"
   },
   {
     "businessPhones": [],
@@ -1203,7 +1219,7 @@
     "surname": "徐",
     "userPrincipalName": "Bacon.Hsu@etatung.com",
     "id": "01c88ef4-056c-4d0b-8014-191d77499f78",
-    "romaname": "xúpéigēn"
+    "romaname": "xupeigen"
   },
   {
     "businessPhones": [
@@ -1219,7 +1235,7 @@
     "surname": "徐",
     "userPrincipalName": "Bang.Hsu@etatung.com",
     "id": "e26d3f3c-e66e-429e-b8ae-302188f29334",
-    "romaname": "xúhànbāng"
+    "romaname": "xuhanbang"
   },
   {
     "businessPhones": [
@@ -1235,7 +1251,7 @@
     "surname": "賴",
     "userPrincipalName": "Ben.Lai@etatung.com",
     "id": "27477711-35f9-4f6d-a1ef-f8234d49d0ab",
-    "romaname": "làishèngpíng"
+    "romaname": "laishengping"
   },
   {
     "businessPhones": [],
@@ -1249,7 +1265,7 @@
     "surname": "駱",
     "userPrincipalName": "Ben.Lo@etatung.com",
     "id": "1a43770c-d3ef-41e6-bba5-3481d18e3361",
-    "romaname": "luòjìnmíng"
+    "romaname": "luojinming"
   },
   {
     "businessPhones": [
@@ -1265,7 +1281,7 @@
     "surname": "徐",
     "userPrincipalName": "Benson.Hsu@etatung.com",
     "id": "850d0eae-94c8-4620-9418-85ebb4d55777",
-    "romaname": "xújùnyǔ"
+    "romaname": "xujunyu"
   },
   {
     "businessPhones": [
@@ -1281,7 +1297,7 @@
     "surname": "劉",
     "userPrincipalName": "Benson.Liu@etatung.com",
     "id": "c17575cb-31ad-4c59-89da-1be00710d012",
-    "romaname": "liúshìquán"
+    "romaname": "liushiquan"
   },
   {
     "businessPhones": [],
@@ -1323,7 +1339,7 @@
     "surname": "卓",
     "userPrincipalName": "Bill.Cho@etatung.com",
     "id": "1c66b5e2-f784-4ee0-baf3-e76c5f64bf97",
-    "romaname": "zhuóhéshēng"
+    "romaname": "zhuohesheng"
   },
   {
     "businessPhones": [
@@ -1339,7 +1355,7 @@
     "surname": "黃",
     "userPrincipalName": "Bill.Huang@etatung.com",
     "id": "cb9fd47a-54e5-4ddc-ad3c-df5ff1517aff",
-    "romaname": "huángyǔqìng"
+    "romaname": "huangyuqing"
   },
   {
     "businessPhones": [
@@ -1355,7 +1371,7 @@
     "surname": "羅",
     "userPrincipalName": "Bill.Luo@etatung.com",
     "id": "2a4afe7d-2f95-441a-8691-9a72aac7b1ab",
-    "romaname": "luófāmín"
+    "romaname": "luofamin"
   },
   {
     "businessPhones": [
@@ -1371,7 +1387,7 @@
     "surname": "吳",
     "userPrincipalName": "BinHan.wu@etatung.com",
     "id": "1fcc6023-8cf9-49e3-a3d0-b66fdc1d4bdf",
-    "romaname": "wúbǐnghàn"
+    "romaname": "wubinghan"
   },
   {
     "businessPhones": [
@@ -1387,7 +1403,7 @@
     "surname": "唐",
     "userPrincipalName": "Blake.Tang@etatung.com",
     "id": "1eb043ef-a71d-4af1-ae9b-f0802f1879aa",
-    "romaname": "tángyǔ"
+    "romaname": "tangyu"
   },
   {
     "businessPhones": [
@@ -1403,7 +1419,7 @@
     "surname": "李",
     "userPrincipalName": "Bob.Lee@etatung.com",
     "id": "9f3761d1-f1f4-4ad5-b808-77fef54ecb49",
-    "romaname": "lǐwāngxūn"
+    "romaname": "liwangxun"
   },
   {
     "businessPhones": [],
@@ -1433,7 +1449,7 @@
     "surname": "湛",
     "userPrincipalName": "Boris.Joan@etatung.com",
     "id": "573a1a16-acb7-4a23-bd20-4ba22d7ded2c",
-    "romaname": "zhànténgqí"
+    "romaname": "zhantengqi"
   },
   {
     "businessPhones": [
@@ -1449,7 +1465,7 @@
     "surname": "石",
     "userPrincipalName": "Bosyu.Shih@etatung.com",
     "id": "47e020a8-40cb-41f6-b456-d3819dd76f0b",
-    "romaname": "shíbóxù"
+    "romaname": "shiboxu"
   },
   {
     "businessPhones": [
@@ -1465,7 +1481,7 @@
     "surname": "陳",
     "userPrincipalName": "Boyen.Chen@etatung.com",
     "id": "22367702-51cd-47dd-afbb-c2eadbf5e261",
-    "romaname": "chénjiànliáng"
+    "romaname": "chenjianliang"
   },
   {
     "businessPhones": [],
@@ -1495,7 +1511,7 @@
     "surname": "游",
     "userPrincipalName": "Brad.Yu@etatung.com",
     "id": "2c4e5c51-5d9e-4d21-9688-9656f311051c",
-    "romaname": "yóumíngdé"
+    "romaname": "youmingde"
   },
   {
     "businessPhones": [
@@ -1511,7 +1527,7 @@
     "surname": "沈",
     "userPrincipalName": "Brian.Shen@etatung.com",
     "id": "f1705ab2-c918-4381-bba3-5b1b199b74ae",
-    "romaname": "shěnbǎiyán dǒngshìcháng"
+    "romaname": "shenbaiyan dongshichang"
   },
   {
     "businessPhones": [],
@@ -1525,7 +1541,7 @@
     "surname": "葉",
     "userPrincipalName": "Brian.Yeh@etatung.com",
     "id": "5699fbfa-8d58-4bf0-ac3f-9479b08496ce",
-    "romaname": "yècúnēn"
+    "romaname": "yecunen"
   },
   {
     "businessPhones": [
@@ -1541,7 +1557,7 @@
     "surname": "林",
     "userPrincipalName": "Bruce.Lin@etatung.com",
     "id": "31274714-5ed5-4354-9075-5f8095390116",
-    "romaname": "línmíngqīng"
+    "romaname": "linmingqing"
   },
   {
     "businessPhones": [
@@ -1557,7 +1573,7 @@
     "surname": "王",
     "userPrincipalName": "Bruce.Wang@etatung.com",
     "id": "4d8023d4-1b48-4313-bbd6-15b0c41c8611",
-    "romaname": "wángyànchéng"
+    "romaname": "wangyancheng"
   },
   {
     "businessPhones": [],
@@ -1587,7 +1603,7 @@
     "surname": "張",
     "userPrincipalName": "bud.chang@etatung.com",
     "id": "f1330b26-190c-404a-bb49-de85b4ba8480",
-    "romaname": "zhāngjiāhuá"
+    "romaname": "zhangjiahua"
   },
   {
     "businessPhones": [
@@ -1603,7 +1619,7 @@
     "surname": "洪",
     "userPrincipalName": "By.Hung@etatung.com",
     "id": "25c66c9a-7021-45ec-8fa8-6d7883081ae1",
-    "romaname": "hóngbóyuán"
+    "romaname": "hongboyuan"
   },
   {
     "businessPhones": [
@@ -1619,7 +1635,7 @@
     "surname": "關",
     "userPrincipalName": "Calf.Kuan@etatung.com",
     "id": "73bd2708-9965-4ddd-aa80-f786413043e4",
-    "romaname": "guānshèngzhōng"
+    "romaname": "guanshengzhong"
   },
   {
     "businessPhones": [
@@ -1635,7 +1651,7 @@
     "surname": "林",
     "userPrincipalName": "Camac.Lin@etatung.com",
     "id": "0a55b8ae-5337-4bbf-b1d2-604dd73cd595",
-    "romaname": "línhóngzhì"
+    "romaname": "linhongzhi"
   },
   {
     "businessPhones": [],
@@ -1649,7 +1665,23 @@
     "surname": "趙",
     "userPrincipalName": "Carl.Chao@tsticn.com",
     "id": "8d89846e-c28d-4e7a-93eb-724943488732",
-    "romaname": "zhàojiāniàn"
+    "romaname": "zhaojianian"
+  },
+  {
+    "businessPhones": [
+      "4631"
+    ],
+    "displayName": "林春輝 Cary Lin",
+    "givenName": "春輝",
+    "jobTitle": "高級顧問",
+    "mail": "Cary.Lin@etatung.com",
+    "mobilePhone": null,
+    "officeLocation": "台北北設工3樓",
+    "preferredLanguage": null,
+    "surname": "林",
+    "userPrincipalName": "Cary.Lin@etatung.com",
+    "id": "dce575c7-a323-4a31-a8b4-72a4bb512474",
+    "romaname": "linchunhui"
   },
   {
     "businessPhones": [
@@ -1665,7 +1697,7 @@
     "surname": "李",
     "userPrincipalName": "cclee@tsticn.com",
     "id": "41bdd020-e1a6-4e28-b6fe-5506463abcbe",
-    "romaname": "lǐqìngēn"
+    "romaname": "liqingen"
   },
   {
     "businessPhones": [
@@ -1681,7 +1713,7 @@
     "surname": "曾",
     "userPrincipalName": "Cena.Tseng@etatung.com",
     "id": "826d1a0d-4e15-45bd-b113-67c2419ef3a3",
-    "romaname": "zēngyìhóng"
+    "romaname": "zengyihong"
   },
   {
     "businessPhones": [
@@ -1697,7 +1729,7 @@
     "surname": "吳",
     "userPrincipalName": "Chad.Wu@etatung.com",
     "id": "1d030568-5949-4909-a570-0967e9b8a7f4",
-    "romaname": "wúqīnwàng"
+    "romaname": "wuqinwang"
   },
   {
     "businessPhones": [
@@ -1713,7 +1745,7 @@
     "surname": "黃",
     "userPrincipalName": "Chage.Huang@etatung.com",
     "id": "97b8e18b-bb63-4a7c-9a7a-e7d218ae047d",
-    "romaname": "huángguólóng"
+    "romaname": "huangguolong"
   },
   {
     "businessPhones": [
@@ -1729,7 +1761,7 @@
     "surname": "林",
     "userPrincipalName": "Charlie.Lin@etatung.com",
     "id": "398759e0-75cf-4002-9d6b-aff19ec05cad",
-    "romaname": "líntíngyì"
+    "romaname": "lintingyi"
   },
   {
     "businessPhones": [],
@@ -1773,7 +1805,7 @@
     "surname": "翁",
     "userPrincipalName": "Chenting.Weng@etatung.com",
     "id": "2cec4d29-2410-486c-bcbe-f78df923cea1",
-    "romaname": "wēngchéntíng"
+    "romaname": "wengchenting"
   },
   {
     "businessPhones": [
@@ -1784,12 +1816,12 @@
     "jobTitle": null,
     "mail": "Cherry.Ni@etatung.com",
     "mobilePhone": "0963336831",
-    "officeLocation": "高雄辦事處 分機:104",
+    "officeLocation": "高雄辦公室",
     "preferredLanguage": null,
     "surname": "倪",
     "userPrincipalName": "Cherry.Ni@etatung.com",
     "id": "2ada1f68-9a09-4a5d-a9c7-3f2e08706db8",
-    "romaname": "níqiūfěi"
+    "romaname": "niqiufei"
   },
   {
     "businessPhones": [],
@@ -1803,7 +1835,7 @@
     "surname": "陳",
     "userPrincipalName": "Chiahung.Chen@etatung.com",
     "id": "b18931e3-7738-492e-be4b-e0ace24ed563",
-    "romaname": "chénjiāhóng"
+    "romaname": "chenjiahong"
   },
   {
     "businessPhones": [
@@ -1819,7 +1851,7 @@
     "surname": "洪",
     "userPrincipalName": "chijim.hung@etatung.com",
     "id": "360cd5c0-5d0e-4a69-8542-882a8feb10d3",
-    "romaname": "hóngqíjùn"
+    "romaname": "hongqijun"
   },
   {
     "businessPhones": [
@@ -1835,7 +1867,7 @@
     "surname": "吳",
     "userPrincipalName": "chin.wu@etatung.com",
     "id": "fab7a8cc-41fc-4560-9caf-301047f1bcdc",
-    "romaname": "wúguóhuī"
+    "romaname": "wuguohui"
   },
   {
     "businessPhones": [
@@ -1851,7 +1883,7 @@
     "surname": "王",
     "userPrincipalName": "Ching.Wang@etatung.com",
     "id": "31db4342-4cd5-43d0-8287-15fe849a834c",
-    "romaname": "wángshūqīng"
+    "romaname": "wangshuqing"
   },
   {
     "businessPhones": [
@@ -1867,7 +1899,7 @@
     "surname": "許",
     "userPrincipalName": "Chinwan.Hsu@etatung.com",
     "id": "ceb0d063-2e71-4a88-a753-42b74a8f451b",
-    "romaname": "xūjìnwǎn"
+    "romaname": "xujinwan"
   },
   {
     "businessPhones": [
@@ -1883,7 +1915,7 @@
     "surname": "何",
     "userPrincipalName": "Chiyuan.Ho@etatung.com",
     "id": "4bfa56c2-6ea5-41ed-82f5-6984847a47ac",
-    "romaname": "hézhìyuǎn"
+    "romaname": "hezhiyuan"
   },
   {
     "businessPhones": [
@@ -1915,7 +1947,7 @@
     "surname": "梁",
     "userPrincipalName": "christina.liang@etatung.com",
     "id": "2431c4b6-0f03-4e7a-bfb4-85dc58088ed2",
-    "romaname": "liángwěiqín"
+    "romaname": "liangweiqin"
   },
   {
     "businessPhones": [
@@ -1931,7 +1963,7 @@
     "surname": "陳",
     "userPrincipalName": "Chuanan.Chen@etatung.com",
     "id": "c3173fd1-c908-4d0c-8ffe-1b2ef8d47823",
-    "romaname": "chénquánān"
+    "romaname": "chenquanan"
   },
   {
     "businessPhones": [],
@@ -1945,7 +1977,7 @@
     "surname": "吳",
     "userPrincipalName": "Chuck.Wu@etatung.com",
     "id": "545d6d28-ba2c-412f-92f8-e9ce67672544",
-    "romaname": "wúchénghuǎng"
+    "romaname": "wuchenghuang"
   },
   {
     "businessPhones": [
@@ -1961,7 +1993,7 @@
     "surname": "沈",
     "userPrincipalName": "Chun.Shen@etatung.com",
     "id": "49dee367-864b-42b2-87c7-a2ad38a54919",
-    "romaname": "shěncǎijūn"
+    "romaname": "shencaijun"
   },
   {
     "businessPhones": [
@@ -1972,12 +2004,12 @@
     "jobTitle": "專案副理",
     "mail": "Chunjui.Su@etatung.com",
     "mobilePhone": "0938211275",
-    "officeLocation": "高雄辦事處 分機:159",
+    "officeLocation": "高雄辦公室",
     "preferredLanguage": null,
     "surname": "蘇",
     "userPrincipalName": "Chunjui.Su@etatung.com",
     "id": "ed369eb8-990d-4598-bd11-a2b267dcdc39",
-    "romaname": "sūjùnruì"
+    "romaname": "sujunrui"
   },
   {
     "businessPhones": [
@@ -1993,7 +2025,7 @@
     "surname": "吳",
     "userPrincipalName": "Chunta.Wu@etatung.com",
     "id": "174baa74-93be-422d-8616-4cd6522fbe15",
-    "romaname": "wújùndá"
+    "romaname": "wujunda"
   },
   {
     "businessPhones": [
@@ -2009,7 +2041,7 @@
     "surname": "詹",
     "userPrincipalName": "Cindy.Jan@etatung.com",
     "id": "cc755738-6846-4c9c-89ef-b4947d5163bb",
-    "romaname": "zhānyǒngquán"
+    "romaname": "zhanyongquan"
   },
   {
     "businessPhones": [
@@ -2025,7 +2057,7 @@
     "surname": "劉",
     "userPrincipalName": "Cindy.Liu@etatung.com",
     "id": "9c833008-4ba5-40f6-9252-dfc7405f423f",
-    "romaname": "liújiāyíng"
+    "romaname": "liujiaying"
   },
   {
     "businessPhones": [
@@ -2041,7 +2073,7 @@
     "surname": "沈",
     "userPrincipalName": "Cindy.Shen@etatung.com",
     "id": "fde25071-71e2-458b-b269-a09845fa038f",
-    "romaname": "shěnzhènyí"
+    "romaname": "shenzhenyi"
   },
   {
     "businessPhones": [],
@@ -2055,7 +2087,7 @@
     "surname": "Cisco專區",
     "userPrincipalName": "Cisco.Public@etatung.com.tw",
     "id": "a5f5827c-dbf7-4883-84e1-ad3aac71e8a5",
-    "romaname": "Ciscozhuānqūnull"
+    "romaname": "Ciscozhuanqunull"
   },
   {
     "businessPhones": [],
@@ -2094,12 +2126,12 @@
     "jobTitle": null,
     "mail": "Cliff.Lee@etatung.com",
     "mobilePhone": "0930190190",
-    "officeLocation": "4797",
+    "officeLocation": "台北北設工3樓",
     "preferredLanguage": null,
     "surname": "李",
     "userPrincipalName": "Cliff.Lee@etatung.com",
     "id": "d7dad7f2-686c-40b6-8e1d-f4de4992084f",
-    "romaname": "lǐzhènrén"
+    "romaname": "lizhenren"
   },
   {
     "businessPhones": [],
@@ -2113,7 +2145,7 @@
     "surname": "顧",
     "userPrincipalName": "Cloud.Ku@etatung.com",
     "id": "d38c8758-3a85-4912-a796-8a7bcc0742f7",
-    "romaname": "gùyànyú"
+    "romaname": "guyanyu"
   },
   {
     "businessPhones": [],
@@ -2157,7 +2189,7 @@
     "surname": "張",
     "userPrincipalName": "Connie.Chang@etatung.onmicrosoft.com",
     "id": "e123f396-8fc9-4374-b63a-b7140c0ef1f2",
-    "romaname": "zhāngfāngyú"
+    "romaname": "zhangfangyu"
   },
   {
     "businessPhones": [],
@@ -2199,7 +2231,7 @@
     "surname": "客服系統管理帳號",
     "userPrincipalName": "crmadmin@etatung.com.tw",
     "id": "de1a87e3-cf3e-4231-bff2-fd9fd71cfbae",
-    "romaname": "kèfúxìtǒngguǎnlǐzhànghàonull"
+    "romaname": "kefuxitongguanlizhanghaonull"
   },
   {
     "businessPhones": [],
@@ -2271,7 +2303,7 @@
     "surname": "黃",
     "userPrincipalName": "Crystal.Huang@etatung.com",
     "id": "ced93e48-7b6f-4585-8706-c341a4519a84",
-    "romaname": "huánghuìqí"
+    "romaname": "huanghuiqi"
   },
   {
     "businessPhones": [],
@@ -2301,7 +2333,7 @@
     "surname": "蕭",
     "userPrincipalName": "cy.hsiao@etatung.com",
     "id": "abdbd3b7-fb02-4c9c-a871-edbbfb0139a1",
-    "romaname": "xiāozhèngyán"
+    "romaname": "xiaozhengyan"
   },
   {
     "businessPhones": [
@@ -2317,7 +2349,7 @@
     "surname": "賴",
     "userPrincipalName": "Cy.Lai@etatung.com",
     "id": "95b14f1f-bba6-41e5-aaec-c1fc2ff361d8",
-    "romaname": "làijīnyīng"
+    "romaname": "laijinying"
   },
   {
     "businessPhones": [
@@ -2333,7 +2365,7 @@
     "surname": "李",
     "userPrincipalName": "Daisy.Lee@etatung.com",
     "id": "207d2644-4a88-4b65-bbb6-0d8d351edc7d",
-    "romaname": "lǐzhèngjuān"
+    "romaname": "lizhengjuan"
   },
   {
     "businessPhones": [
@@ -2349,7 +2381,7 @@
     "surname": "吳",
     "userPrincipalName": "Dale.Wu@etatung.com",
     "id": "b3dd991e-ad5e-4a9f-b58f-eb1bbd85b7e1",
-    "romaname": "wúruòhuá"
+    "romaname": "wuruohua"
   },
   {
     "businessPhones": [
@@ -2365,7 +2397,7 @@
     "surname": "黃",
     "userPrincipalName": "Damien.Huang@etatung.com",
     "id": "e9808a16-b2c8-48f0-b714-5ce5a64071be",
-    "romaname": "huángdàmíng"
+    "romaname": "huangdaming"
   },
   {
     "businessPhones": [
@@ -2381,7 +2413,7 @@
     "surname": "邱",
     "userPrincipalName": "daniel.chiu@etatung.com",
     "id": "9efeb231-d428-4411-b0f2-ede07b41e3d9",
-    "romaname": "qiūyīngquán"
+    "romaname": "qiuyingquan"
   },
   {
     "businessPhones": [
@@ -2397,7 +2429,7 @@
     "surname": "黃",
     "userPrincipalName": "Daniel.Huang@etatung.com",
     "id": "3ee2d09b-91b8-48d3-93a3-ec29c4e99894",
-    "romaname": "huángdíyáo"
+    "romaname": "huangdiyao"
   },
   {
     "businessPhones": [
@@ -2413,7 +2445,7 @@
     "surname": "高",
     "userPrincipalName": "Daniel.Kao@etatung.com",
     "id": "c510ffa8-67d5-4469-8d90-98af09be0f11",
-    "romaname": "gāozhènshēng"
+    "romaname": "gaozhensheng"
   },
   {
     "businessPhones": [
@@ -2424,12 +2456,12 @@
     "jobTitle": null,
     "mail": "Daniel.Lu@etatung.com",
     "mobilePhone": "0921-514580",
-    "officeLocation": "76613",
+    "officeLocation": "台南辦公室",
     "preferredLanguage": null,
     "surname": "盧",
     "userPrincipalName": "Daniel.Lu@etatung.com",
     "id": "499e9e48-4d26-4af2-ade2-3d6e9524400b",
-    "romaname": "lúyǒngxiáng"
+    "romaname": "luyongxiang"
   },
   {
     "businessPhones": [],
@@ -2443,7 +2475,7 @@
     "surname": "石",
     "userPrincipalName": "daniel.shih@etatung.com",
     "id": "34cf2829-ea88-45cb-bfd3-d78d2de3b09a",
-    "romaname": "shíhào"
+    "romaname": "shihao"
   },
   {
     "businessPhones": [
@@ -2459,7 +2491,7 @@
     "surname": "吳",
     "userPrincipalName": "Daniel.Wu@etatung.com",
     "id": "13bcd6c2-8fa6-447b-8429-9acc768bfdba",
-    "romaname": "wúbǐngyòu"
+    "romaname": "wubingyou"
   },
   {
     "businessPhones": [
@@ -2475,7 +2507,7 @@
     "surname": "江",
     "userPrincipalName": "danny.chiang@etatung.com",
     "id": "a5aee256-5b36-43eb-95a4-258a21852c53",
-    "romaname": "jiāngqīngcóng"
+    "romaname": "jiangqingcong"
   },
   {
     "businessPhones": [
@@ -2491,7 +2523,7 @@
     "surname": "胡",
     "userPrincipalName": "Danny.Hu@etatung.com",
     "id": "773e28c5-2758-449e-a335-a015fddbada2",
-    "romaname": "húguānglóng"
+    "romaname": "huguanglong"
   },
   {
     "businessPhones": [
@@ -2507,7 +2539,7 @@
     "surname": "林",
     "userPrincipalName": "Danny.Lin@etatung.com",
     "id": "b560276c-b48e-4dc5-b9b1-2536815ce67a",
-    "romaname": "línquándì"
+    "romaname": "linquandi"
   },
   {
     "businessPhones": [
@@ -2523,7 +2555,7 @@
     "surname": "李",
     "userPrincipalName": "Dany.Lee@etatung.com",
     "id": "7714ee99-b557-4a4f-a04f-39823d154e8f",
-    "romaname": "lǐxùnchāng"
+    "romaname": "lixunchang"
   },
   {
     "businessPhones": [],
@@ -2537,7 +2569,37 @@
     "surname": "張",
     "userPrincipalName": "Darren.Chang@etatung.com",
     "id": "e43f4ccf-dbae-43ef-a248-a8ab2cac0622",
-    "romaname": "zhāngxiànwéi"
+    "romaname": "zhangxianwei"
+  },
+  {
+    "businessPhones": [
+      "4735"
+    ],
+    "displayName": "梁韡峻  Darren Liang",
+    "givenName": "韡峻",
+    "jobTitle": "高級顧問",
+    "mail": "Darren.Liang@etatung.com",
+    "mobilePhone": "0963558958",
+    "officeLocation": "台北北設工3樓",
+    "preferredLanguage": null,
+    "surname": "梁",
+    "userPrincipalName": "Darren.Liang@etatung.com",
+    "id": "2815d4e0-5186-4c7d-a1cc-2f4fd0beec6a",
+    "romaname": "liangweijun"
+  },
+  {
+    "businessPhones": [],
+    "displayName": "陳政揚 Dave Chen",
+    "givenName": "政揚",
+    "jobTitle": null,
+    "mail": "Dave.Chen@tisnet.com.tw",
+    "mobilePhone": null,
+    "officeLocation": "5427",
+    "preferredLanguage": null,
+    "surname": "陳",
+    "userPrincipalName": "Dave.Chen@etatung.onmicrosoft.com",
+    "id": "cc15c942-5763-448a-b65b-d221f4ab8267",
+    "romaname": "chenzhengyang"
   },
   {
     "businessPhones": [
@@ -2553,7 +2615,7 @@
     "surname": "江",
     "userPrincipalName": "David.Chiang@etatung.com",
     "id": "28fae68e-c301-4695-ae6f-c4b10ecc5024",
-    "romaname": "jiāngdàiwèi"
+    "romaname": "jiangdaiwei"
   },
   {
     "businessPhones": [
@@ -2569,7 +2631,7 @@
     "surname": "吴",
     "userPrincipalName": "David.Wu@tsticn.com",
     "id": "efd86e1b-29ba-433b-b3cb-6bc8a3973a8c",
-    "romaname": "wúhào"
+    "romaname": "wuhao"
   },
   {
     "businessPhones": [
@@ -2585,7 +2647,7 @@
     "surname": "楊",
     "userPrincipalName": "David.Yang@etatung.com",
     "id": "8f8758f3-f990-47fc-b9f3-90cdf57c3bf8",
-    "romaname": "yánglǐwèi"
+    "romaname": "yangliwei"
   },
   {
     "businessPhones": [],
@@ -2615,7 +2677,7 @@
     "surname": "鄭",
     "userPrincipalName": "Debbie.Cheng@etatung.com",
     "id": "95bdd734-897c-4385-a30b-344aa164e6b1",
-    "romaname": "zhèngtíngān"
+    "romaname": "zhengtingan"
   },
   {
     "businessPhones": [
@@ -2631,7 +2693,7 @@
     "surname": "洪",
     "userPrincipalName": "Debby.Hung@etatung.com",
     "id": "3aa364a7-9e74-42af-8822-811670de8778",
-    "romaname": "hóngxiùtíng"
+    "romaname": "hongxiuting"
   },
   {
     "businessPhones": [
@@ -2647,7 +2709,7 @@
     "surname": "劉",
     "userPrincipalName": "Debby.Liu@etatung.com",
     "id": "2f2293fa-1571-424b-9b69-aa6cd858e9c3",
-    "romaname": "liúruìyòu"
+    "romaname": "liuruiyou"
   },
   {
     "businessPhones": [
@@ -2663,7 +2725,7 @@
     "surname": "陳",
     "userPrincipalName": "Demi.Chen@etatung.onmicrosoft.com",
     "id": "833ccb56-b15d-4cdd-b329-0e9c21c1138b",
-    "romaname": "chényánjūn"
+    "romaname": "chenyanjun"
   },
   {
     "businessPhones": [
@@ -2679,7 +2741,7 @@
     "surname": "詹",
     "userPrincipalName": "Demi.Jan@etatung.com",
     "id": "e0c3ccac-86ac-425b-9413-a393f01a6db7",
-    "romaname": "zhānzǐqíng"
+    "romaname": "zhanziqing"
   },
   {
     "businessPhones": [
@@ -2695,7 +2757,7 @@
     "surname": "毛",
     "userPrincipalName": "Dennis.Mao@etatung.com",
     "id": "b7077be0-911d-4a80-8f8e-739b16f0a7ee",
-    "romaname": "máozhēnjié"
+    "romaname": "maozhenjie"
   },
   {
     "businessPhones": [
@@ -2711,7 +2773,7 @@
     "surname": "施",
     "userPrincipalName": "Dennis.Shih@etatung.com",
     "id": "f2c30ba3-b1d8-429f-bdd4-401292463c7b",
-    "romaname": "shīmíngcái"
+    "romaname": "shimingcai"
   },
   {
     "businessPhones": [
@@ -2727,7 +2789,7 @@
     "surname": "宋",
     "userPrincipalName": "Dennis.Sung@etatung.com",
     "id": "10b27164-8a8f-43c6-a7ff-21db2c0f9ef5",
-    "romaname": "sònghánjùn"
+    "romaname": "songhanjun"
   },
   {
     "businessPhones": [
@@ -2743,7 +2805,7 @@
     "surname": "戴",
     "userPrincipalName": "Dennis.Tai@etatung.com",
     "id": "c801ebf9-1dc8-470c-b29f-c82ffdd366a4",
-    "romaname": "dàizhèndá"
+    "romaname": "daizhenda"
   },
   {
     "businessPhones": [
@@ -2759,7 +2821,7 @@
     "surname": "羅",
     "userPrincipalName": "Denny.Lo@etatung.com",
     "id": "8ae49be6-04e6-4223-841b-52688f7177e9",
-    "romaname": "luówénxián"
+    "romaname": "luowenxian"
   },
   {
     "businessPhones": [
@@ -2775,7 +2837,7 @@
     "surname": "簡",
     "userPrincipalName": "Derek.Chien@etatung.com",
     "id": "80426f7d-efd1-4d61-a5d8-df4b0b1a8953",
-    "romaname": "jiǎnmǐnláng"
+    "romaname": "jianminlang"
   },
   {
     "businessPhones": [
@@ -2791,7 +2853,7 @@
     "surname": "張",
     "userPrincipalName": "devin.chang@etatung.com",
     "id": "1abc0fcb-6f15-41bb-89f7-a422c63d9612",
-    "romaname": "zhāngyàorén"
+    "romaname": "zhangyaoren"
   },
   {
     "businessPhones": [
@@ -2807,7 +2869,7 @@
     "surname": "陳",
     "userPrincipalName": "dick.chen@etatung.com",
     "id": "0d6dfc1d-8b38-4a59-b572-bcc028efe081",
-    "romaname": "chénjūnwěi"
+    "romaname": "chenjunwei"
   },
   {
     "businessPhones": [],
@@ -2851,7 +2913,7 @@
     "surname": "鍾",
     "userPrincipalName": "Duke.Chung@etatung.onmicrosoft.com",
     "id": "844d3bfe-cc89-48a3-b98b-bac19f337fe7",
-    "romaname": "zhōngyìyú"
+    "romaname": "zhongyiyu"
   },
   {
     "businessPhones": [
@@ -2867,7 +2929,7 @@
     "surname": "王",
     "userPrincipalName": "dwndwn.wang@etatung.com",
     "id": "56fb8d18-16de-4dae-bc77-5703f2d95307",
-    "romaname": "wángduānyí"
+    "romaname": "wangduanyi"
   },
   {
     "businessPhones": [
@@ -2883,7 +2945,7 @@
     "surname": "陳",
     "userPrincipalName": "Dylan.Chen@etatung.com",
     "id": "54dbc84d-26ed-41c7-a963-689363a2c548",
-    "romaname": "chényòuqìng"
+    "romaname": "chenyouqing"
   },
   {
     "businessPhones": [
@@ -2899,7 +2961,7 @@
     "surname": "林",
     "userPrincipalName": "Eason.Lin@etatung.com",
     "id": "9d00d94f-6c4a-4e8b-b2ac-d922692e97d5",
-    "romaname": "línyìrèn"
+    "romaname": "linyiren"
   },
   {
     "businessPhones": [
@@ -2915,7 +2977,7 @@
     "surname": "刘",
     "userPrincipalName": "Eason.Liu@tsticn.com",
     "id": "14c8e33f-0047-4521-9867-befa519bd136",
-    "romaname": "liúchūngāng"
+    "romaname": "liuchungang"
   },
   {
     "businessPhones": [
@@ -2931,7 +2993,7 @@
     "surname": "顏",
     "userPrincipalName": "Eason.Yen@etatung.com",
     "id": "8d5c7928-3b34-4dab-82cd-dc8d795d792e",
-    "romaname": "yánzhìyáng"
+    "romaname": "yanzhiyang"
   },
   {
     "businessPhones": [
@@ -2947,7 +3009,7 @@
     "surname": "唐",
     "userPrincipalName": "Echo.Tang@tsticn.com",
     "id": "6bb7f7a3-6a98-4ba6-acc8-088dbffb6eb8",
-    "romaname": "tángjié"
+    "romaname": "tangjie"
   },
   {
     "businessPhones": [],
@@ -2977,7 +3039,7 @@
     "surname": "張",
     "userPrincipalName": "Elvis.Chang@etatung.com",
     "id": "e3ddfc1e-01fe-41b9-919c-5ab82623141b",
-    "romaname": "zhāngfēngyǐng"
+    "romaname": "zhangfengying"
   },
   {
     "businessPhones": [
@@ -2993,7 +3055,7 @@
     "surname": "鍾",
     "userPrincipalName": "Elvis.Chung@etatung.com",
     "id": "cfad2220-da34-4855-8fa4-5c97bdb29e83",
-    "romaname": "zhōngxīngjiàn"
+    "romaname": "zhongxingjian"
   },
   {
     "businessPhones": [
@@ -3009,7 +3071,7 @@
     "surname": "陳",
     "userPrincipalName": "enchih.chen@etatung.com",
     "id": "463f75d2-35f4-46eb-a92c-e1e26e05b477",
-    "romaname": "chénēnzhì"
+    "romaname": "chenenzhi"
   },
   {
     "businessPhones": [
@@ -3025,7 +3087,7 @@
     "surname": "洪",
     "userPrincipalName": "Eric.Hung@etatung.com",
     "id": "0ba3ca13-b388-48a2-a8ba-5504b0d38f5c",
-    "romaname": "hóngsīyù"
+    "romaname": "hongsiyu"
   },
   {
     "businessPhones": [
@@ -3041,7 +3103,7 @@
     "surname": "高",
     "userPrincipalName": "Eric.Kao@etatung.com",
     "id": "09ba0d34-8305-4304-9caa-807ed825a3bd",
-    "romaname": "gāozhìshèng"
+    "romaname": "gaozhisheng"
   },
   {
     "businessPhones": [
@@ -3057,7 +3119,7 @@
     "surname": "曾",
     "userPrincipalName": "Eric.Tseng@etatung.com",
     "id": "0d1b04f6-ec47-4392-b51e-fe54ce53ab9b",
-    "romaname": "zēngdáxīng"
+    "romaname": "zengdaxing"
   },
   {
     "businessPhones": [
@@ -3073,7 +3135,7 @@
     "surname": "吳",
     "userPrincipalName": "Eric.Wu@etatung.com",
     "id": "bfb3f5f7-9940-4466-86ec-28421b3a7452",
-    "romaname": "wúzhìyǔ"
+    "romaname": "wuzhiyu"
   },
   {
     "businessPhones": [
@@ -3089,7 +3151,7 @@
     "surname": "高",
     "userPrincipalName": "Eric7.Kao@etatung.com",
     "id": "a3bec7f8-5804-4678-a097-3cdf0db1c0f3",
-    "romaname": "gāozhènlóng"
+    "romaname": "gaozhenlong"
   },
   {
     "businessPhones": [],
@@ -3103,7 +3165,7 @@
     "surname": "陳",
     "userPrincipalName": "Erin.Chen@etatung.com",
     "id": "a443e435-b242-46e2-bb84-a880f1d71faf",
-    "romaname": "chényíān"
+    "romaname": "chenyian"
   },
   {
     "businessPhones": [
@@ -3119,7 +3181,7 @@
     "surname": "黃",
     "userPrincipalName": "Erina.Huang@etatung.com",
     "id": "70a19e35-ba63-49fd-8741-0bc46b5d6610",
-    "romaname": "huángyùrú"
+    "romaname": "huangyuru"
   },
   {
     "businessPhones": [
@@ -3135,7 +3197,7 @@
     "surname": "黃",
     "userPrincipalName": "Ero.Huang@etatung.com",
     "id": "acee43bf-a0da-4192-83b3-a29881cfa96b",
-    "romaname": "huángjùnyì"
+    "romaname": "huangjunyi"
   },
   {
     "businessPhones": [
@@ -3151,7 +3213,7 @@
     "surname": "廖",
     "userPrincipalName": "erwin.liao@etatung.onmicrosoft.com",
     "id": "bdd979a3-b189-46a8-9a21-3842c8c58ac3",
-    "romaname": "liàozhìfāng"
+    "romaname": "liaozhifang"
   },
   {
     "businessPhones": [],
@@ -3195,7 +3257,7 @@
     "surname": "陳",
     "userPrincipalName": "Ethan.Chen@etatung.com",
     "id": "d18dba40-48c4-4a11-afa7-711396b8bfb1",
-    "romaname": "chénjiāxiáng"
+    "romaname": "chenjiaxiang"
   },
   {
     "businessPhones": [
@@ -3211,7 +3273,7 @@
     "surname": "黃",
     "userPrincipalName": "Eva.Huang@etatung.com",
     "id": "bf60d953-b67a-4db4-bb7b-cf892f660458",
-    "romaname": "huángpèihuá"
+    "romaname": "huangpeihua"
   },
   {
     "businessPhones": [
@@ -3227,7 +3289,7 @@
     "surname": "張",
     "userPrincipalName": "Evan.Chang@etatung.com",
     "id": "4b5c892e-14ff-49a5-8730-91592b7290d2",
-    "romaname": "zhāngyífán"
+    "romaname": "zhangyifan"
   },
   {
     "businessPhones": [
@@ -3243,7 +3305,7 @@
     "surname": "呂",
     "userPrincipalName": "eway.lu@etatung.com",
     "id": "980d576b-fa8d-4205-b71b-b00bc7316329",
-    "romaname": "lǚyìwěi"
+    "romaname": "lvyiwei"
   },
   {
     "businessPhones": [],
@@ -3310,12 +3372,12 @@
     "jobTitle": null,
     "mail": "Felix.Lee@etatung.com",
     "mobilePhone": "0933688800",
-    "officeLocation": "高雄辦事處 分機:112",
+    "officeLocation": "高雄辦公室",
     "preferredLanguage": null,
     "surname": "李",
     "userPrincipalName": "Felix.Lee@etatung.com",
     "id": "e548d300-5857-4c72-847c-6bb4452ad19f",
-    "romaname": "lǐjiànfú"
+    "romaname": "lijianfu"
   },
   {
     "businessPhones": [],
@@ -3329,7 +3391,7 @@
     "surname": "謝",
     "userPrincipalName": "Fion.Hsieh@etatung.com",
     "id": "a70543a4-f7b3-47b0-a627-94d990b162ff",
-    "romaname": "xièmínhuà"
+    "romaname": "xieminhua"
   },
   {
     "businessPhones": [
@@ -3345,7 +3407,7 @@
     "surname": "尚",
     "userPrincipalName": "Fion.Shang@etatung.com",
     "id": "cd190413-c1ee-4e8a-ad7c-2440d61227e3",
-    "romaname": "shàngměihuà"
+    "romaname": "shangmeihua"
   },
   {
     "businessPhones": [
@@ -3361,7 +3423,7 @@
     "surname": "許",
     "userPrincipalName": "fiona.hsu@etatung.com",
     "id": "6b9a33c4-ebeb-49e7-a20c-6330099d064c",
-    "romaname": "xūqióngxīn"
+    "romaname": "xuqiongxin"
   },
   {
     "businessPhones": [
@@ -3377,7 +3439,7 @@
     "surname": "黃",
     "userPrincipalName": "fish.huang@etatung.com",
     "id": "68e3017c-9e55-41c6-8726-ee8c71b6869f",
-    "romaname": "huángjìnyù"
+    "romaname": "huangjinyu"
   },
   {
     "businessPhones": [],
@@ -3407,7 +3469,7 @@
     "surname": "李",
     "userPrincipalName": "Fitz.Li@tsticn.com",
     "id": "fc158cb1-581f-4c1c-b8dd-bca856e4bff0",
-    "romaname": "lǐkèxiáng"
+    "romaname": "likexiang"
   },
   {
     "businessPhones": [
@@ -3423,7 +3485,7 @@
     "surname": "林",
     "userPrincipalName": "Fly.Lin@etatung.com",
     "id": "937862ca-0f08-470f-bc92-c6af035c0a9a",
-    "romaname": "línjùntíng"
+    "romaname": "linjunting"
   },
   {
     "businessPhones": [],
@@ -3453,7 +3515,7 @@
     "surname": "潘",
     "userPrincipalName": "Frank.Pan@etatung.com",
     "id": "e06c3f05-916f-43fb-890e-05ae4bdfaef9",
-    "romaname": "pānzhìháo"
+    "romaname": "panzhihao"
   },
   {
     "businessPhones": [],
@@ -3483,7 +3545,7 @@
     "surname": "郭",
     "userPrincipalName": "Friesher.Kuo@etatung.com",
     "id": "026a6a3a-b6cc-4586-82e4-573e14a1fb3a",
-    "romaname": "guōchéngfǔ"
+    "romaname": "guochengfu"
   },
   {
     "businessPhones": [],
@@ -3527,7 +3589,7 @@
     "surname": "陳",
     "userPrincipalName": "Gary.Chen@etatung.com",
     "id": "e7170a4f-973f-4f1e-bdf2-2a7dd75391df",
-    "romaname": "chénxìnān"
+    "romaname": "chenxinan"
   },
   {
     "businessPhones": [
@@ -3543,7 +3605,7 @@
     "surname": "黃",
     "userPrincipalName": "Gary.Huang@etatung.com",
     "id": "9281d779-bc65-42eb-a31a-9b94c28e08be",
-    "romaname": "huángzhāoyáng"
+    "romaname": "huangzhaoyang"
   },
   {
     "businessPhones": [
@@ -3559,7 +3621,7 @@
     "surname": "宋",
     "userPrincipalName": "Gary.Song@etatung.com",
     "id": "e7e68696-823e-46e8-b367-009e2913eecd",
-    "romaname": "sòngmíngcái"
+    "romaname": "songmingcai"
   },
   {
     "businessPhones": [
@@ -3575,7 +3637,7 @@
     "surname": "簡",
     "userPrincipalName": "George.Chein@etatung.com",
     "id": "5327ceca-ba3f-4e99-b083-f1e4cffd6fa3",
-    "romaname": "jiǎnzhàozhì"
+    "romaname": "jianzhaozhi"
   },
   {
     "businessPhones": [
@@ -3591,7 +3653,7 @@
     "surname": "段",
     "userPrincipalName": "George.Duan@etatung.com",
     "id": "bee84e10-3f37-4e85-9e6d-3eb50bdc0c9e",
-    "romaname": "duànzhèng"
+    "romaname": "duanzheng"
   },
   {
     "businessPhones": [],
@@ -3605,7 +3667,7 @@
     "surname": "蔡",
     "userPrincipalName": "George.Tsai@etatung.com",
     "id": "99e2c527-d816-4be0-9da0-7060110877ea",
-    "romaname": "càibǐngróng"
+    "romaname": "caibingrong"
   },
   {
     "businessPhones": [
@@ -3621,7 +3683,7 @@
     "surname": "蔡",
     "userPrincipalName": "Gina.Tsai@etatung.com",
     "id": "1c15982d-6ddf-41b2-92a9-a7aec745766b",
-    "romaname": "càiyíhuì"
+    "romaname": "caiyihui"
   },
   {
     "businessPhones": [
@@ -3637,7 +3699,7 @@
     "surname": "郭",
     "userPrincipalName": "Gordon.Kuo@etatung.com",
     "id": "453485b5-a593-4802-ba7b-175e51bbc3ce",
-    "romaname": "guōyìxiǎn"
+    "romaname": "guoyixian"
   },
   {
     "businessPhones": [
@@ -3681,7 +3743,7 @@
     "surname": "张",
     "userPrincipalName": "Gray.Zhang@tsticn.com",
     "id": "1b3c7330-2c2d-417b-aa99-935729bf3ecf",
-    "romaname": "zhāngfēngyíng"
+    "romaname": "zhangfengying"
   },
   {
     "businessPhones": [
@@ -3697,7 +3759,7 @@
     "surname": "蔡",
     "userPrincipalName": "Hank.tsai@etatung.onmicrosoft.com",
     "id": "ba821778-adc7-43b0-8622-81b75a0b126c",
-    "romaname": "càimíngcāng"
+    "romaname": "caimingcang"
   },
   {
     "businessPhones": [
@@ -3713,7 +3775,7 @@
     "surname": "賴",
     "userPrincipalName": "Hanter.Lai@etatung.com",
     "id": "bd4c23b7-357e-4fa9-8930-b906e676855b",
-    "romaname": "làihànzōng"
+    "romaname": "laihanzong"
   },
   {
     "businessPhones": [
@@ -3729,7 +3791,7 @@
     "surname": "何",
     "userPrincipalName": "Hao.Ho@etatung.com",
     "id": "16279c27-6cbd-420b-a712-595457ce99da",
-    "romaname": "héhào"
+    "romaname": "hehao"
   },
   {
     "businessPhones": [
@@ -3745,7 +3807,7 @@
     "surname": "莊",
     "userPrincipalName": "Hawk.Chuang@etatung.com",
     "id": "fe875794-6b71-4901-80d2-9ed07bfc4fb9",
-    "romaname": "zhuāngyúnxiáng"
+    "romaname": "zhuangyunxiang"
   },
   {
     "businessPhones": [
@@ -3761,7 +3823,7 @@
     "surname": "趙",
     "userPrincipalName": "Hc.Chao@etatung.com",
     "id": "29e71564-5e3d-47d9-b2d4-bfd09b34fc7d",
-    "romaname": "zhàohuáizhì"
+    "romaname": "zhaohuaizhi"
   },
   {
     "businessPhones": [],
@@ -3775,7 +3837,7 @@
     "surname": "新竹客服",
     "userPrincipalName": "hconsite@etatung.com.tw",
     "id": "fd06e97a-f365-4087-97b3-b1245beec412",
-    "romaname": "xīnzhúkèfúnull"
+    "romaname": "xinzhukefunull"
   },
   {
     "businessPhones": [
@@ -3791,7 +3853,7 @@
     "surname": "許",
     "userPrincipalName": "Henry.Hsu@etatung.com",
     "id": "8b73a7b8-c365-4e61-8fa3-6d107713d698",
-    "romaname": "xūhéngyuán"
+    "romaname": "xuhengyuan"
   },
   {
     "businessPhones": [],
@@ -3805,7 +3867,7 @@
     "surname": "陳",
     "userPrincipalName": "Homer.Chen@etatung.com",
     "id": "4ff657cc-45f9-4e1c-b8c4-3621594d7562",
-    "romaname": "chénwēiháo"
+    "romaname": "chenweihao"
   },
   {
     "businessPhones": [
@@ -3821,7 +3883,7 @@
     "surname": "蕭",
     "userPrincipalName": "Honda.Hsiao@etatung.com",
     "id": "4ee0483b-4cd4-4271-a120-523edeb02297",
-    "romaname": "xiāohóngdá"
+    "romaname": "xiaohongda"
   },
   {
     "businessPhones": [
@@ -3837,7 +3899,7 @@
     "surname": "陳",
     "userPrincipalName": "Hongyu.Chen@etatung.com",
     "id": "64432ec1-6115-4117-b0b8-a09dccc03a14",
-    "romaname": "chénhóngyù chǔcháng"
+    "romaname": "chenhongyu chuchang"
   },
   {
     "businessPhones": [],
@@ -3851,7 +3913,7 @@
     "surname": "陳",
     "userPrincipalName": "Hongyu.Chen1@etatung.onmicrosoft.com",
     "id": "6ac45eeb-2219-4c41-89c6-7ad8959388d5",
-    "romaname": "chénhóngyù"
+    "romaname": "chenhongyu"
   },
   {
     "businessPhones": [
@@ -3867,7 +3929,7 @@
     "surname": "黃",
     "userPrincipalName": "Howard.Huang@etatung.com",
     "id": "8406f989-842c-42e7-8da3-8ae3305fe512",
-    "romaname": "huánghàolún"
+    "romaname": "huanghaolun"
   },
   {
     "businessPhones": [
@@ -3883,7 +3945,7 @@
     "surname": "楊",
     "userPrincipalName": "Howard.Yang@etatung.onmicrosoft.com",
     "id": "e7e4346a-e724-4042-97f1-bb55f88b2e73",
-    "romaname": "yángxīhào"
+    "romaname": "yangxihao"
   },
   {
     "businessPhones": [],
@@ -3913,7 +3975,7 @@
     "surname": "林",
     "userPrincipalName": "HuiYu.Lin@etatung.com",
     "id": "7e527bd7-1526-4848-a448-912098ed6804",
-    "romaname": "línhuìyú"
+    "romaname": "linhuiyu"
   },
   {
     "businessPhones": [],
@@ -3927,7 +3989,7 @@
     "surname": "曾",
     "userPrincipalName": "Huiyu.Tseng@etatung.com",
     "id": "bdbeca63-de00-4e29-8250-293ce0f1f42f",
-    "romaname": "zēnghuìyǔ"
+    "romaname": "zenghuiyu"
   },
   {
     "businessPhones": [],
@@ -3971,7 +4033,7 @@
     "surname": "陈",
     "userPrincipalName": "Iris.Chen@tsticn.com",
     "id": "0b33ce32-4863-4467-9ada-8951bfc2d915",
-    "romaname": "chénxiǎohuá"
+    "romaname": "chenxiaohua"
   },
   {
     "businessPhones": [],
@@ -3985,7 +4047,7 @@
     "surname": "但",
     "userPrincipalName": "Iris1.Tang@etatung.com",
     "id": "bac0b383-379a-42b3-8f28-61a10a5ab4fc",
-    "romaname": "dànàiyún"
+    "romaname": "danaiyun"
   },
   {
     "businessPhones": [
@@ -4001,7 +4063,7 @@
     "surname": "詹",
     "userPrincipalName": "Ivan.Chan@etatung.com",
     "id": "b6fe5120-18b7-4221-819f-baddafdf7545",
-    "romaname": "zhānjiāhuà"
+    "romaname": "zhanjiahua"
   },
   {
     "businessPhones": [
@@ -4017,7 +4079,7 @@
     "surname": "賴",
     "userPrincipalName": "Ivan.Lai@etatung.com",
     "id": "c35df81e-003f-4038-9f3f-a7b2444298d9",
-    "romaname": "làiyìchāng"
+    "romaname": "laiyichang"
   },
   {
     "businessPhones": [],
@@ -4031,7 +4093,7 @@
     "surname": "蔡",
     "userPrincipalName": "Jack.Cai@etatung.com",
     "id": "9a5a3a94-97e8-4540-8bf7-2e2cbc3dc9bc",
-    "romaname": "càichéngyòu"
+    "romaname": "caichengyou"
   },
   {
     "businessPhones": [
@@ -4047,7 +4109,7 @@
     "surname": "陳",
     "userPrincipalName": "Jack.Chen@etatung.onmicrosoft.com",
     "id": "e94f8795-7e2a-4879-843f-8437c4fc0969",
-    "romaname": "chéndéyì"
+    "romaname": "chendeyi"
   },
   {
     "businessPhones": [],
@@ -4061,7 +4123,7 @@
     "surname": "許",
     "userPrincipalName": "Jack.Hsu@etatung.com",
     "id": "05c665e5-a7ff-4bee-a9b3-3cf154daf1d8",
-    "romaname": "xūjùnyàn"
+    "romaname": "xujunyan"
   },
   {
     "businessPhones": [
@@ -4077,7 +4139,7 @@
     "surname": "黃",
     "userPrincipalName": "jack.huang@etatung.com",
     "id": "bb946573-187c-4f46-9aad-2820cc8b460d",
-    "romaname": "huángguóxīng"
+    "romaname": "huangguoxing"
   },
   {
     "businessPhones": [
@@ -4093,7 +4155,7 @@
     "surname": "洪",
     "userPrincipalName": "jack.hung@etatung.com",
     "id": "c3a5c56d-1eb9-4a41-94f3-4789e2a60ed3",
-    "romaname": "hóngyòudiǎn"
+    "romaname": "hongyoudian"
   },
   {
     "businessPhones": [
@@ -4109,7 +4171,7 @@
     "surname": "凃",
     "userPrincipalName": "Jack.Tu@etatung.com",
     "id": "a2f33753-1f55-4a3a-a4e3-d375e463eef3",
-    "romaname": "túyìzhāng"
+    "romaname": "tuyizhang"
   },
   {
     "businessPhones": [],
@@ -4123,7 +4185,7 @@
     "surname": "王",
     "userPrincipalName": "Jack.Wang@etatung.com",
     "id": "64d10afc-2c29-48bc-9e60-72500109ea28",
-    "romaname": "wángguānhào"
+    "romaname": "wangguanhao"
   },
   {
     "businessPhones": [],
@@ -4137,7 +4199,7 @@
     "surname": "王",
     "userPrincipalName": "Jack.Wang1881@etatung.com",
     "id": "394df102-754f-49ef-bc06-abdeefaabdb7",
-    "romaname": "wángxuéwén"
+    "romaname": "wangxuewen"
   },
   {
     "businessPhones": [],
@@ -4151,7 +4213,7 @@
     "surname": "李",
     "userPrincipalName": "Jack1.Lee@etatung.com",
     "id": "d46004d8-1b6e-4eed-b062-de14df0d348d",
-    "romaname": "lǐpéiyú"
+    "romaname": "lipeiyu"
   },
   {
     "businessPhones": [
@@ -4167,7 +4229,7 @@
     "surname": "黃",
     "userPrincipalName": "Jackie.Huang@etatung.com",
     "id": "203cfee5-6c8e-4950-9787-3c53f7f466cd",
-    "romaname": "huángjìngwén"
+    "romaname": "huangjingwen"
   },
   {
     "businessPhones": [
@@ -4183,7 +4245,7 @@
     "surname": "王",
     "userPrincipalName": "jackie.wang@etatung.com",
     "id": "1b816c58-1189-42a7-954d-b02eb24c9275",
-    "romaname": "wángxiùkāng"
+    "romaname": "wangxiukang"
   },
   {
     "businessPhones": [
@@ -4199,7 +4261,7 @@
     "surname": "洪",
     "userPrincipalName": "Jacky.Hong@etatung.com",
     "id": "28d1c00b-08ff-4ccd-ab97-af3500250073",
-    "romaname": "hóngtàiyuán"
+    "romaname": "hongtaiyuan"
   },
   {
     "businessPhones": [],
@@ -4213,7 +4275,7 @@
     "surname": "李",
     "userPrincipalName": "Jacky.Li@etatung.com",
     "id": "ae473c06-7ab1-48b4-9cc4-6ddd4ac19b29",
-    "romaname": "lǐjiāxīng"
+    "romaname": "lijiaxing"
   },
   {
     "businessPhones": [
@@ -4229,21 +4291,7 @@
     "surname": "楊",
     "userPrincipalName": "Jacky.Yang@etatung.com",
     "id": "5ce1d117-c062-4511-a1fe-e112416e27c4",
-    "romaname": "yángjiāxīng"
-  },
-  {
-    "businessPhones": [],
-    "displayName": "张亚斌 Jacob Zhang",
-    "givenName": "亚斌",
-    "jobTitle": "顾问",
-    "mail": "Jacob.Zhang@etatung.com.tw",
-    "mobilePhone": "18201859998",
-    "officeLocation": null,
-    "preferredLanguage": null,
-    "surname": "张",
-    "userPrincipalName": "Jacob.Zhang@tsticn.com",
-    "id": "0c4e97f4-d7e7-4279-91a8-a289f8978dc7",
-    "romaname": "zhāngyàbīn"
+    "romaname": "yangjiaxing"
   },
   {
     "businessPhones": [
@@ -4259,7 +4307,7 @@
     "surname": "張",
     "userPrincipalName": "James.Chang@etatung.com",
     "id": "20224f28-ac57-4c96-aa66-625df19cc1f3",
-    "romaname": "zhāngjiànlóng"
+    "romaname": "zhangjianlong"
   },
   {
     "businessPhones": [
@@ -4275,7 +4323,7 @@
     "surname": "陳",
     "userPrincipalName": "James.Chen@etatung.com",
     "id": "5e9c2a0d-9f58-4d16-b9b1-049ad6eaa533",
-    "romaname": "chénrénhóng"
+    "romaname": "chenrenhong"
   },
   {
     "businessPhones": [
@@ -4291,7 +4339,7 @@
     "surname": "黃",
     "userPrincipalName": "James.Huang@etatung.com",
     "id": "f5fceef0-ae3b-482c-893c-d1b11e4cb5f4",
-    "romaname": "huángzhìhào"
+    "romaname": "huangzhihao"
   },
   {
     "businessPhones": [
@@ -4307,7 +4355,7 @@
     "surname": "廖",
     "userPrincipalName": "Jamie.Liao@etatung.com",
     "id": "8a4004cd-82a7-4743-949a-92d908a6b8e7",
-    "romaname": "liàozhǐyí"
+    "romaname": "liaozhiyi"
   },
   {
     "businessPhones": [],
@@ -4321,7 +4369,7 @@
     "surname": "薛",
     "userPrincipalName": "Jammy.Sheng@etatung.com",
     "id": "61289a7e-00ed-40fc-95d3-82b1a482c871",
-    "romaname": "xuēyǒngshēng"
+    "romaname": "xueyongsheng"
   },
   {
     "businessPhones": [
@@ -4337,7 +4385,7 @@
     "surname": "郭",
     "userPrincipalName": "janice.kuo@etatung.com",
     "id": "df1e7e56-825d-4b74-874d-81fa20d502f3",
-    "romaname": "guōyánjūn"
+    "romaname": "guoyanjun"
   },
   {
     "businessPhones": [
@@ -4353,7 +4401,7 @@
     "surname": "謝",
     "userPrincipalName": "Jarvis.Hsieh@etatung.com",
     "id": "a5377941-54ab-47c7-9b2c-23a0ced5f658",
-    "romaname": "xièfāngjiā"
+    "romaname": "xiefangjia"
   },
   {
     "businessPhones": [
@@ -4369,7 +4417,7 @@
     "surname": "陳",
     "userPrincipalName": "Jason.Chen@etatung.com",
     "id": "e5d7e5f7-1467-4d00-ab87-06da30b763bc",
-    "romaname": "chénzhìshēng"
+    "romaname": "chenzhisheng"
   },
   {
     "businessPhones": [
@@ -4385,7 +4433,7 @@
     "surname": "何",
     "userPrincipalName": "Jason.Ho@etatung.com",
     "id": "14ca30bc-f676-49db-bfad-6f3d5f87aaea",
-    "romaname": "héqíchāng"
+    "romaname": "heqichang"
   },
   {
     "businessPhones": [],
@@ -4399,7 +4447,7 @@
     "surname": "洪",
     "userPrincipalName": "Jason.Hung@etatung.com",
     "id": "e20fd09f-cabb-4c56-a7d0-53fc940bf7c4",
-    "romaname": "hóngguójùn"
+    "romaname": "hongguojun"
   },
   {
     "businessPhones": [
@@ -4415,7 +4463,7 @@
     "surname": "羅",
     "userPrincipalName": "jason.lo@etatung.onmicrosoft.com",
     "id": "b41c2757-655d-4f1c-806a-649b73b21c04",
-    "romaname": "luóyìcóng"
+    "romaname": "luoyicong"
   },
   {
     "businessPhones": [
@@ -4431,7 +4479,7 @@
     "surname": "紀",
     "userPrincipalName": "Jasper.Chi@etatung.com",
     "id": "0e1d31d6-a3d6-4615-ad60-8766b2800ec7",
-    "romaname": "jìyànmíng"
+    "romaname": "jiyanming"
   },
   {
     "businessPhones": [
@@ -4447,7 +4495,7 @@
     "surname": "劉",
     "userPrincipalName": "jay.liou@etatung.com",
     "id": "9d9f6d32-d09f-46fa-88e9-629ae159b8e9",
-    "romaname": "liúzǐjié"
+    "romaname": "liuzijie"
   },
   {
     "businessPhones": [],
@@ -4461,7 +4509,7 @@
     "surname": "蕭",
     "userPrincipalName": "Jayne.Hsiao@etatung.com",
     "id": "30c0a2f8-c973-4f6b-b8a2-220695b0fcaf",
-    "romaname": "xiāozhújūn"
+    "romaname": "xiaozhujun"
   },
   {
     "businessPhones": [],
@@ -4475,7 +4523,7 @@
     "surname": "蔡",
     "userPrincipalName": "Jayson.Tsai@etatung.com",
     "id": "4b93fede-455c-4e24-860d-c5cee2226166",
-    "romaname": "càixiángshēng"
+    "romaname": "caixiangsheng"
   },
   {
     "businessPhones": [
@@ -4491,7 +4539,7 @@
     "surname": "葉",
     "userPrincipalName": "Jean.Yeh@etatung.com",
     "id": "49a46c2d-89e3-40af-8be8-0a28fe59488b",
-    "romaname": "yèyíjūn"
+    "romaname": "yeyijun"
   },
   {
     "businessPhones": [
@@ -4507,7 +4555,7 @@
     "surname": "陳",
     "userPrincipalName": "Jeff.Chen@etatung.onmicrosoft.com",
     "id": "718292d9-5324-4dbb-a2e9-0cd9170130e0",
-    "romaname": "chénwénjié"
+    "romaname": "chenwenjie"
   },
   {
     "businessPhones": [],
@@ -4521,7 +4569,7 @@
     "surname": "謝",
     "userPrincipalName": "Jeff.Hsieh@etatung.com",
     "id": "68e742f5-3342-401c-a595-1f44a547b193",
-    "romaname": "xièyángxiáng"
+    "romaname": "xieyangxiang"
   },
   {
     "businessPhones": [
@@ -4537,7 +4585,7 @@
     "surname": "李",
     "userPrincipalName": "jeff.lee@etatung.com",
     "id": "5e4a3e52-f3af-417e-be20-5c61159ce2a1",
-    "romaname": "lǐsīxián"
+    "romaname": "lisixian"
   },
   {
     "businessPhones": [
@@ -4553,7 +4601,7 @@
     "surname": "廖",
     "userPrincipalName": "Jeff.Liao@etatung.com",
     "id": "aa9d37a7-31b6-4b14-a4ab-8d7f8f0e4d01",
-    "romaname": "liàozhènyǔ"
+    "romaname": "liaozhenyu"
   },
   {
     "businessPhones": [
@@ -4569,7 +4617,7 @@
     "surname": "阮",
     "userPrincipalName": "Jeff.Ruan@etatung.com",
     "id": "e585eb71-2fe4-415b-beea-9a9dab23eb91",
-    "romaname": "ruǎnzhéfū"
+    "romaname": "ruanzhefu"
   },
   {
     "businessPhones": [
@@ -4585,7 +4633,7 @@
     "surname": "賴",
     "userPrincipalName": "Jeffery.Lie@etatung.com",
     "id": "0e44e2ae-08e2-462b-8eef-d828f6afba6c",
-    "romaname": "làiwéndēng"
+    "romaname": "laiwendeng"
   },
   {
     "businessPhones": [
@@ -4601,7 +4649,7 @@
     "surname": "林",
     "userPrincipalName": "jeffrey.lin@etatung.com",
     "id": "db4ff234-0303-48c3-b591-02e320783eb2",
-    "romaname": "línzhìwěi"
+    "romaname": "linzhiwei"
   },
   {
     "businessPhones": [
@@ -4617,7 +4665,7 @@
     "surname": "杨",
     "userPrincipalName": "Jeffrey.Yang@etatung.com.tw",
     "id": "0bd09209-3bdd-46fc-9a04-c27f4adc88d8",
-    "romaname": "yángyáng"
+    "romaname": "yangyang"
   },
   {
     "businessPhones": [],
@@ -4647,7 +4695,7 @@
     "surname": "陳",
     "userPrincipalName": "Jelly.Chen@etatung.com",
     "id": "bd9f1264-f7b5-4a49-8902-a1c43b17552f",
-    "romaname": "chényùhóng"
+    "romaname": "chenyuhong"
   },
   {
     "businessPhones": [],
@@ -4661,7 +4709,7 @@
     "surname": "翁",
     "userPrincipalName": "Jennifer.Weng@etatung.com",
     "id": "fc96a591-eb18-4672-b178-d77d582a64f0",
-    "romaname": "wēngqióngxiū"
+    "romaname": "wengqiongxiu"
   },
   {
     "businessPhones": [
@@ -4677,7 +4725,7 @@
     "surname": "陳",
     "userPrincipalName": "Jenny.Chen@etatung.com",
     "id": "f1b00b40-8bc8-4ef8-a696-e3ef8a13cf0f",
-    "romaname": "chényíjūn"
+    "romaname": "chenyijun"
   },
   {
     "businessPhones": [
@@ -4693,7 +4741,7 @@
     "surname": "簡",
     "userPrincipalName": "Jenny.Chien@etatung.com",
     "id": "6da3ddee-6136-4e59-af96-7d94a9e53a26",
-    "romaname": "jiǎnwǎnrú"
+    "romaname": "jianwanru"
   },
   {
     "businessPhones": [
@@ -4709,7 +4757,7 @@
     "surname": "王",
     "userPrincipalName": "Jenny.Wang@etatung.com",
     "id": "dfb6be8d-e06c-4fbf-9c6a-7812f174c14b",
-    "romaname": "wángguāngwén"
+    "romaname": "wangguangwen"
   },
   {
     "businessPhones": [
@@ -4725,7 +4773,7 @@
     "surname": "張",
     "userPrincipalName": "Jerry.Chang@etatung.com",
     "id": "e377eb26-a036-4d84-832b-c064376a3286",
-    "romaname": "zhāngkǎijié"
+    "romaname": "zhangkaijie"
   },
   {
     "businessPhones": [
@@ -4741,7 +4789,7 @@
     "surname": "鄭",
     "userPrincipalName": "Jerry.Cheng@etatung.com",
     "id": "f80527fe-bdd4-4700-a070-f234e6b13f04",
-    "romaname": "zhèngwéixù"
+    "romaname": "zhengweixu"
   },
   {
     "businessPhones": [],
@@ -4755,7 +4803,7 @@
     "surname": "鄭",
     "userPrincipalName": "Jerry.Jheng@etatung.com",
     "id": "876e35ee-998f-4f58-a233-981b6658eb24",
-    "romaname": "zhèngshàohuá"
+    "romaname": "zhengshaohua"
   },
   {
     "businessPhones": [
@@ -4771,7 +4819,7 @@
     "surname": "李",
     "userPrincipalName": "Jerry.Lee@etatung.com",
     "id": "b457022e-ca35-43b3-9d00-28a42ad24936",
-    "romaname": "lǐfāngrén"
+    "romaname": "lifangren"
   },
   {
     "businessPhones": [
@@ -4787,7 +4835,7 @@
     "surname": "顏",
     "userPrincipalName": "Jesse.Yen@etatung.com",
     "id": "e47acbda-0c17-4789-a5c8-ec93e1f318ca",
-    "romaname": "yánzōngyòu"
+    "romaname": "yanzongyou"
   },
   {
     "businessPhones": [
@@ -4803,7 +4851,7 @@
     "surname": "鄭",
     "userPrincipalName": "Jessica.Cheng@etatung.com",
     "id": "1e03474e-ed52-4f0c-8d9d-6ec2679628b0",
-    "romaname": "zhèngyǎyún"
+    "romaname": "zhengyayun"
   },
   {
     "businessPhones": [
@@ -4819,7 +4867,7 @@
     "surname": "莊",
     "userPrincipalName": "Jessie.Chuang@etatung.com",
     "id": "297ed64e-beb5-4dfb-8ec9-569fc1e3ff1a",
-    "romaname": "zhuāngyíjīng"
+    "romaname": "zhuangyijing"
   },
   {
     "businessPhones": [
@@ -4835,7 +4883,7 @@
     "surname": "林",
     "userPrincipalName": "Jessie.Lin@etatung.com.tw",
     "id": "a8e0e959-ed4c-4111-bffa-6bc8869d630b",
-    "romaname": "línzīlíng"
+    "romaname": "linziling"
   },
   {
     "businessPhones": [
@@ -4851,7 +4899,7 @@
     "surname": "劉",
     "userPrincipalName": "jessie.liu@etatung.com",
     "id": "0bba0381-01b7-4585-a227-41f9e080bdb1",
-    "romaname": "liújiāxūn"
+    "romaname": "liujiaxun"
   },
   {
     "businessPhones": [],
@@ -4865,7 +4913,7 @@
     "surname": "李",
     "userPrincipalName": "Jhenhao.Li@etatung.com",
     "id": "92c0963f-d756-48b4-81e6-b2ad83d1434d",
-    "romaname": "lǐzhènháo"
+    "romaname": "lizhenhao"
   },
   {
     "businessPhones": [
@@ -4881,7 +4929,7 @@
     "surname": "謝",
     "userPrincipalName": "Jim.Hsieh@etatung.com",
     "id": "2a6d3ce5-2caa-408f-a0b0-3931ec769d54",
-    "romaname": "xièjìnyú"
+    "romaname": "xiejinyu"
   },
   {
     "businessPhones": [
@@ -4897,7 +4945,7 @@
     "surname": "陈",
     "userPrincipalName": "Jimmy.Chen@tsticn.com",
     "id": "de9f46b0-5c07-4c36-abe8-623b809b7674",
-    "romaname": "chényǒngbīn"
+    "romaname": "chenyongbin"
   },
   {
     "businessPhones": [
@@ -4913,7 +4961,7 @@
     "surname": "林",
     "userPrincipalName": "Jimmy.Lin@etatung.com",
     "id": "b35da9fa-1847-48bc-a4df-b00c7d1550c5",
-    "romaname": "línmíngxián"
+    "romaname": "linmingxian"
   },
   {
     "businessPhones": [
@@ -4924,12 +4972,12 @@
     "jobTitle": "專案副理",
     "mail": "Jimmy.Pai@etatung.com",
     "mobilePhone": "0921125912",
-    "officeLocation": "4632",
+    "officeLocation": "台北北設工3樓",
     "preferredLanguage": null,
     "surname": "白",
     "userPrincipalName": "Jimmy.Pai@etatung.com",
     "id": "2a8204de-c7f3-4a27-a44e-0be90547450c",
-    "romaname": "báixùxiáng"
+    "romaname": "baixuxiang"
   },
   {
     "businessPhones": [
@@ -4945,7 +4993,7 @@
     "surname": "陳",
     "userPrincipalName": "Jingan.Chen@etatung.com",
     "id": "458c0f5f-24db-4ece-9f58-5c9b10b137ca",
-    "romaname": "chénjìngān"
+    "romaname": "chenjingan"
   },
   {
     "businessPhones": [
@@ -4961,7 +5009,7 @@
     "surname": "賴",
     "userPrincipalName": "Joe.Lai@etatung.com",
     "id": "d31478fb-47be-4244-b99d-b638abc58327",
-    "romaname": "làizhōngyì"
+    "romaname": "laizhongyi"
   },
   {
     "businessPhones": [
@@ -4977,7 +5025,7 @@
     "surname": "李",
     "userPrincipalName": "Joe.Li@etatung.com",
     "id": "a014c880-32b0-4a11-9f73-9b52f29aa60e",
-    "romaname": "lǐzhènyì"
+    "romaname": "lizhenyi"
   },
   {
     "businessPhones": [
@@ -4993,7 +5041,7 @@
     "surname": "马",
     "userPrincipalName": "Joe.Ma@tsticn.com",
     "id": "5a8d63cf-63b4-47f5-aa20-75a33e592375",
-    "romaname": "mǎwěicāng"
+    "romaname": "maweicang"
   },
   {
     "businessPhones": [],
@@ -5023,7 +5071,7 @@
     "surname": "曾",
     "userPrincipalName": "Joe.Tseng@etatung.com",
     "id": "530b6825-aac8-43aa-96d5-f59604e76d2c",
-    "romaname": "zēngwěijùn"
+    "romaname": "zengweijun"
   },
   {
     "businessPhones": [
@@ -5039,7 +5087,7 @@
     "surname": "李",
     "userPrincipalName": "Joey.Li@etatung.onmicrosoft.com",
     "id": "46e144e4-354d-48d0-b426-f22399c37a4f",
-    "romaname": "lǐqiūlíng"
+    "romaname": "liqiuling"
   },
   {
     "businessPhones": [
@@ -5055,7 +5103,7 @@
     "surname": "秦",
     "userPrincipalName": "John.Qin@tsticn.com",
     "id": "d7995385-8d74-4c8e-84e1-afd07e1db25b",
-    "romaname": "qínjiāpéng"
+    "romaname": "qinjiapeng"
   },
   {
     "businessPhones": [
@@ -5071,7 +5119,7 @@
     "surname": "陳",
     "userPrincipalName": "Johnny.Chen@etatung.com",
     "id": "4754d852-b036-4000-9c5b-472cd01d50d2",
-    "romaname": "chényǔchén"
+    "romaname": "chenyuchen"
   },
   {
     "businessPhones": [
@@ -5087,7 +5135,7 @@
     "surname": "李",
     "userPrincipalName": "Johnny.Li@etatung.com",
     "id": "e167e54b-546b-4556-b418-6459c8d78b64",
-    "romaname": "lǐyízhāng"
+    "romaname": "liyizhang"
   },
   {
     "businessPhones": [
@@ -5103,7 +5151,7 @@
     "surname": "楊",
     "userPrincipalName": "Jolee.Yang@etatung.onmicrosoft.com",
     "id": "063d93d9-bb4e-4c44-a952-1b53eb29f507",
-    "romaname": "yángshūyǎ"
+    "romaname": "yangshuya"
   },
   {
     "businessPhones": [
@@ -5119,7 +5167,7 @@
     "surname": "林",
     "userPrincipalName": "Jomes.Lin@etatung.com",
     "id": "34727cf8-556e-4320-862f-2d59836f432c",
-    "romaname": "línwénbīn"
+    "romaname": "linwenbin"
   },
   {
     "businessPhones": [
@@ -5135,7 +5183,7 @@
     "surname": "林",
     "userPrincipalName": "Jonathan.Lin@etatung.com",
     "id": "647b9217-667c-490c-add4-3ddfda6cc123",
-    "romaname": "línyúchéng"
+    "romaname": "linyucheng"
   },
   {
     "businessPhones": [
@@ -5151,7 +5199,7 @@
     "surname": "張",
     "userPrincipalName": "Jordan.Chang@etatung.com",
     "id": "c4e5a356-96b8-4ea9-939c-0bedc1f8ffd1",
-    "romaname": "zhāngjǐngyáo"
+    "romaname": "zhangjingyao"
   },
   {
     "businessPhones": [
@@ -5167,7 +5215,7 @@
     "surname": "高",
     "userPrincipalName": "Jordon.Kao@etatung.com",
     "id": "abf50a31-bbc8-45b7-b25f-b67afbb8a9cc",
-    "romaname": "gāozhènglóng"
+    "romaname": "gaozhenglong"
   },
   {
     "businessPhones": [
@@ -5183,7 +5231,7 @@
     "surname": "葉",
     "userPrincipalName": "Joseph.Ye@etatung.com",
     "id": "b0c3bed7-ed42-4b14-b4c9-5dd864322a5f",
-    "romaname": "yèjǐnhóng"
+    "romaname": "yejinhong"
   },
   {
     "businessPhones": [
@@ -5199,7 +5247,7 @@
     "surname": "毛",
     "userPrincipalName": "Josh.Mo@etatung.com",
     "id": "7db6e3a6-f04f-4dd3-9c55-2de8849afee4",
-    "romaname": "máosūnlóng"
+    "romaname": "maosunlong"
   },
   {
     "businessPhones": [],
@@ -5229,7 +5277,7 @@
     "surname": "黃",
     "userPrincipalName": "Jovi.Huang@etatung.com",
     "id": "c6e9de16-d21b-44fc-917b-2a01d6332678",
-    "romaname": "huánghétáng"
+    "romaname": "huanghetang"
   },
   {
     "businessPhones": [
@@ -5245,7 +5293,7 @@
     "surname": "江",
     "userPrincipalName": "Joy.Chiang@etatung.com",
     "id": "4626c51c-8606-4d57-9419-9b5696f81ea4",
-    "romaname": "jiāngjiāróng"
+    "romaname": "jiangjiarong"
   },
   {
     "businessPhones": [
@@ -5261,7 +5309,7 @@
     "surname": "許",
     "userPrincipalName": "Joyce.Hsu@etatung.com",
     "id": "bdac9eff-3767-4a57-818e-97ce5319e1ad",
-    "romaname": "xūyìxīn"
+    "romaname": "xuyixin"
   },
   {
     "businessPhones": [
@@ -5277,7 +5325,7 @@
     "surname": "李",
     "userPrincipalName": "Joyce.Lee@etatung.onmicrosoft.com",
     "id": "09400804-ba5e-4a4e-bcbc-6b764c0c5d50",
-    "romaname": "lǐxiùjiè"
+    "romaname": "lixiujie"
   },
   {
     "businessPhones": [
@@ -5293,7 +5341,7 @@
     "surname": "马",
     "userPrincipalName": "Joyce.Ma@tsticn.com",
     "id": "d11773eb-824e-4b04-95a8-b1b2bf754f48",
-    "romaname": "mǎmǐn"
+    "romaname": "mamin"
   },
   {
     "businessPhones": [
@@ -5309,7 +5357,7 @@
     "surname": "曾",
     "userPrincipalName": "Joyce.Tseng@etatung.com",
     "id": "bbfc32d0-cf8b-4fa3-a5da-97fe7d4e79f4",
-    "romaname": "zēngyànzī"
+    "romaname": "zengyanzi"
   },
   {
     "businessPhones": [],
@@ -5339,7 +5387,7 @@
     "surname": "張",
     "userPrincipalName": "Judy.Chang@etatung.com",
     "id": "65319e5b-7e06-4e1a-a4d3-e4365e7b2381",
-    "romaname": "zhāngwénqǐ"
+    "romaname": "zhangwenqi"
   },
   {
     "businessPhones": [
@@ -5355,7 +5403,7 @@
     "surname": "蕭",
     "userPrincipalName": "Judy.Hsiao@etatung.com",
     "id": "5d3a0e3d-cd3f-4f2a-94bc-45d97a88acd8",
-    "romaname": "xiāowǎnqín"
+    "romaname": "xiaowanqin"
   },
   {
     "businessPhones": [
@@ -5371,7 +5419,7 @@
     "surname": "徐",
     "userPrincipalName": "julia.hsu@etatung.com",
     "id": "da98fe17-ab65-4895-90d6-00f234c69f38",
-    "romaname": "xúxuānchén"
+    "romaname": "xuxuanchen"
   },
   {
     "businessPhones": [
@@ -5387,7 +5435,7 @@
     "surname": "許",
     "userPrincipalName": "Julie.Hsu@etatung.com",
     "id": "7c97e1db-d9e8-4adc-95d0-f4e54cc086fd",
-    "romaname": "xūshūzhū"
+    "romaname": "xushuzhu"
   },
   {
     "businessPhones": [
@@ -5403,7 +5451,7 @@
     "surname": "連",
     "userPrincipalName": "Julie.Lien@etatung.com",
     "id": "767826ed-c0b6-4064-885d-32378d64b6e7",
-    "romaname": "liánlíngcí"
+    "romaname": "lianlingci"
   },
   {
     "businessPhones": [
@@ -5419,7 +5467,7 @@
     "surname": "吳",
     "userPrincipalName": "Justin.Wu@etatung.com",
     "id": "10d38e95-a138-426c-adc6-ce7f2fb59410",
-    "romaname": "wútàiyì"
+    "romaname": "wutaiyi"
   },
   {
     "businessPhones": [
@@ -5435,7 +5483,7 @@
     "surname": "陳",
     "userPrincipalName": "Kai.Chen@etatung.com",
     "id": "6ac90606-02e8-41c7-9987-54d564d1ea83",
-    "romaname": "chénshìkǎi"
+    "romaname": "chenshikai"
   },
   {
     "businessPhones": [
@@ -5451,7 +5499,7 @@
     "surname": "張",
     "userPrincipalName": "kaiping.chang@etatung.com",
     "id": "5e9c23b6-c0db-45c7-9257-0ba9d4709b4c",
-    "romaname": "zhāngkǎipíng"
+    "romaname": "zhangkaiping"
   },
   {
     "businessPhones": [
@@ -5467,7 +5515,7 @@
     "surname": "吳",
     "userPrincipalName": "Kane.Wu@etatung.com",
     "id": "ec7c9f4a-b5bb-4045-8606-4da93841f6bb",
-    "romaname": "wúdōngxìn"
+    "romaname": "wudongxin"
   },
   {
     "businessPhones": [
@@ -5483,7 +5531,7 @@
     "surname": "陳",
     "userPrincipalName": "Kant.Chen@etatung.com",
     "id": "04177742-b8f7-46c7-a23b-db5ce3daa837",
-    "romaname": "chénmíngjié"
+    "romaname": "chenmingjie"
   },
   {
     "businessPhones": [
@@ -5499,7 +5547,7 @@
     "surname": "陳",
     "userPrincipalName": "kate.chen@etatung.com",
     "id": "5f2d5407-f87b-4b4b-9e97-54b4fc6d31c4",
-    "romaname": "chényíshān"
+    "romaname": "chenyishan"
   },
   {
     "businessPhones": [
@@ -5515,7 +5563,7 @@
     "surname": "林",
     "userPrincipalName": "Kate.Lin@etatung.onmicrosoft.com",
     "id": "85ea1fd7-35fe-40d0-8d01-a0d5c5af1289",
-    "romaname": "línxiāngwěi"
+    "romaname": "linxiangwei"
   },
   {
     "businessPhones": [
@@ -5531,7 +5579,7 @@
     "surname": "李",
     "userPrincipalName": "Kathleen.Lee@etatung.com",
     "id": "73a527a2-3102-4202-a075-125e26c1367e",
-    "romaname": "lǐjiālíng"
+    "romaname": "lijialing"
   },
   {
     "businessPhones": [
@@ -5547,7 +5595,7 @@
     "surname": "劉",
     "userPrincipalName": "Kelly.Liu@etatung.com",
     "id": "3d068ba3-6ec8-416d-99c9-0711cee51645",
-    "romaname": "liúmǐnfāng"
+    "romaname": "liuminfang"
   },
   {
     "businessPhones": [
@@ -5563,7 +5611,7 @@
     "surname": "傅",
     "userPrincipalName": "Ken.Fu@etatung.com",
     "id": "9a1cefab-ce57-4501-9d97-56a341e36df2",
-    "romaname": "fùguǎnghuī"
+    "romaname": "fuguanghui"
   },
   {
     "businessPhones": [
@@ -5579,7 +5627,7 @@
     "surname": "謝",
     "userPrincipalName": "Ken.Hsieh@etatung.com",
     "id": "923a5eb1-2bd9-44a0-8c23-8ee5a0fa9faa",
-    "romaname": "xièyǒuxiáng"
+    "romaname": "xieyouxiang"
   },
   {
     "businessPhones": [
@@ -5595,7 +5643,7 @@
     "surname": "曾",
     "userPrincipalName": "Kenneth.Tzeng@etatung.com",
     "id": "e94efa79-b3ed-4718-98ad-cf60dca51c2a",
-    "romaname": "zēngyàodé"
+    "romaname": "zengyaode"
   },
   {
     "businessPhones": [
@@ -5611,7 +5659,7 @@
     "surname": "巫",
     "userPrincipalName": "kenny.wu@etatung.com",
     "id": "1f4fdcd0-25a5-477b-9a92-405663d11e90",
-    "romaname": "wūyǒngchāng"
+    "romaname": "wuyongchang"
   },
   {
     "businessPhones": [
@@ -5627,7 +5675,7 @@
     "surname": "楊",
     "userPrincipalName": "Kenny.Yang@etatung.com",
     "id": "dee2f31e-81c7-4363-be0f-0e67b4708fa7",
-    "romaname": "yángmíngjùn"
+    "romaname": "yangmingjun"
   },
   {
     "businessPhones": [
@@ -5643,7 +5691,7 @@
     "surname": "冯",
     "userPrincipalName": "Kent.Feng@tsticn.com",
     "id": "3877cf56-97ee-4e78-ad8a-6e55fc635788",
-    "romaname": "fénghànwén"
+    "romaname": "fenghanwen"
   },
   {
     "businessPhones": [
@@ -5659,7 +5707,7 @@
     "surname": "陳",
     "userPrincipalName": "Kerwin.Chen@etatung.com",
     "id": "7ea32dc6-74bc-4cdb-b46a-b6a83d5227c2",
-    "romaname": "chénqíyán"
+    "romaname": "chenqiyan"
   },
   {
     "businessPhones": [
@@ -5675,7 +5723,7 @@
     "surname": "趙",
     "userPrincipalName": "kevin.chao@etatung.com",
     "id": "4584f87e-5bcf-47b4-9d5f-a39932acab04",
-    "romaname": "zhàoguóchéng"
+    "romaname": "zhaoguocheng"
   },
   {
     "businessPhones": [
@@ -5691,7 +5739,7 @@
     "surname": "陳",
     "userPrincipalName": "Kevin.Chen@etatung.com",
     "id": "ecc21e3b-dfa6-4c41-aa2c-863cfbe3f9c0",
-    "romaname": "chénqìyìn"
+    "romaname": "chenqiyin"
   },
   {
     "businessPhones": [
@@ -5707,7 +5755,7 @@
     "surname": "童",
     "userPrincipalName": "Kevin.Tung@etatung.com",
     "id": "e4959dca-615c-4518-9241-58e5ac49779a",
-    "romaname": "tóngréntài"
+    "romaname": "tongrentai"
   },
   {
     "businessPhones": [
@@ -5723,7 +5771,7 @@
     "surname": "余",
     "userPrincipalName": "Kevin.Yu@etatung.com",
     "id": "69f9b7bf-a9f3-4ee7-a4b4-e86a0c3aaa68",
-    "romaname": "yúqīnghuá"
+    "romaname": "yuqinghua"
   },
   {
     "businessPhones": [
@@ -5739,7 +5787,7 @@
     "surname": "林",
     "userPrincipalName": "Kevin6535.Lin@etatung.com",
     "id": "be89e9a0-0c9e-44ab-9d09-99a7adea5890",
-    "romaname": "línyǒngxiáng"
+    "romaname": "linyongxiang"
   },
   {
     "businessPhones": [],
@@ -5753,7 +5801,7 @@
     "surname": "高雄客服",
     "userPrincipalName": "khonsite@etatung.com.tw",
     "id": "8afc446c-a6fa-44b8-be99-7fbe9d58038e",
-    "romaname": "gāoxióngkèfúnull"
+    "romaname": "gaoxiongkefunull"
   },
   {
     "businessPhones": [
@@ -5769,7 +5817,7 @@
     "surname": "黃",
     "userPrincipalName": "Killio.Huang@etatung.com",
     "id": "037d9060-2c0f-45a9-a1bb-e659f0540095",
-    "romaname": "huángbǎicōng"
+    "romaname": "huangbaicong"
   },
   {
     "businessPhones": [
@@ -5785,7 +5833,7 @@
     "surname": "楊",
     "userPrincipalName": "Kimi.Yang@etatung.com",
     "id": "eab4714f-d1b0-4836-a656-0e9752cac937",
-    "romaname": "yángxiùjūn"
+    "romaname": "yangxiujun"
   },
   {
     "businessPhones": [
@@ -5801,7 +5849,7 @@
     "surname": "黃",
     "userPrincipalName": "Kirito.Huang@etatung.com",
     "id": "dd8770c2-4f12-482e-85db-578ad16430a5",
-    "romaname": "huángjìngfū"
+    "romaname": "huangjingfu"
   },
   {
     "businessPhones": [
@@ -5817,7 +5865,7 @@
     "surname": "黃",
     "userPrincipalName": "Kitty.Huang@etatung.com",
     "id": "66253980-c98d-4e9a-98c7-5cd678700cce",
-    "romaname": "huángyùtíng"
+    "romaname": "huangyuting"
   },
   {
     "businessPhones": [],
@@ -5847,7 +5895,7 @@
     "surname": "蔡",
     "userPrincipalName": "Kongo.Tsai@etatung.com",
     "id": "2383669b-1043-4089-bb6e-23e9eb48fde2",
-    "romaname": "càiyídé"
+    "romaname": "caiyide"
   },
   {
     "businessPhones": [
@@ -5863,7 +5911,7 @@
     "surname": "黃",
     "userPrincipalName": "kristie.huang@etatung.com",
     "id": "7505d26a-61b3-46fb-b5b0-e1cdbe574b0a",
-    "romaname": "huángwǎntíng"
+    "romaname": "huangwanting"
   },
   {
     "businessPhones": [
@@ -5879,7 +5927,7 @@
     "surname": "林",
     "userPrincipalName": "Ks.Lin@etatung.com",
     "id": "e1951b5c-dac0-430f-a3ed-329856866762",
-    "romaname": "línguìshēng"
+    "romaname": "linguisheng"
   },
   {
     "businessPhones": [
@@ -5895,7 +5943,7 @@
     "surname": "陳",
     "userPrincipalName": "Kuanyu.Chen@etatung.com",
     "id": "27623cdc-1c1e-4eba-af9a-8f0a625248eb",
-    "romaname": "chénguānyǔ"
+    "romaname": "chenguanyu"
   },
   {
     "businessPhones": [
@@ -5911,7 +5959,7 @@
     "surname": "黃",
     "userPrincipalName": "kuber.huang@etatung.com",
     "id": "57c57ee7-befe-49b9-979f-6333ed8291da",
-    "romaname": "huángmíngfēn"
+    "romaname": "huangmingfen"
   },
   {
     "businessPhones": [],
@@ -5925,7 +5973,7 @@
     "surname": "吳",
     "userPrincipalName": "Kueiping.Wu@etatung.com",
     "id": "60587cd2-4fd6-46b0-8165-997df2fc835f",
-    "romaname": "wúguìpíng"
+    "romaname": "wuguiping"
   },
   {
     "businessPhones": [
@@ -5941,7 +5989,7 @@
     "surname": "張",
     "userPrincipalName": "Laila.Chang@etatung.com",
     "id": "a2f23d71-675f-4f0f-b7f2-0cf847940d1c",
-    "romaname": "zhāngfènglín"
+    "romaname": "zhangfenglin"
   },
   {
     "businessPhones": [
@@ -5957,7 +6005,7 @@
     "surname": "張",
     "userPrincipalName": "Lance.Chang@etatung.com",
     "id": "6403e0d6-45e9-4f40-b056-4be543fd1e30",
-    "romaname": "zhāngyìmín"
+    "romaname": "zhangyimin"
   },
   {
     "businessPhones": [],
@@ -5971,7 +6019,7 @@
     "surname": "刘",
     "userPrincipalName": "Lance.Liu@tsticn.com",
     "id": "92567bd5-a0f0-414b-90ba-a4f1876d29ff",
-    "romaname": "liúzhìwěi"
+    "romaname": "liuzhiwei"
   },
   {
     "businessPhones": [
@@ -5987,7 +6035,7 @@
     "surname": "曾",
     "userPrincipalName": "Lance.Tseng@etatung.onmicrosoft.com",
     "id": "44f46ecc-ee91-4afe-8277-9a76866b6244",
-    "romaname": "zēnghóngjié"
+    "romaname": "zenghongjie"
   },
   {
     "businessPhones": [
@@ -6003,7 +6051,7 @@
     "surname": "徐",
     "userPrincipalName": "Lc.Hsu@etatung.com",
     "id": "cd3c8038-d425-463c-93d8-23bbf0c37d71",
-    "romaname": "xúlìchén"
+    "romaname": "xulichen"
   },
   {
     "businessPhones": [
@@ -6019,7 +6067,7 @@
     "surname": "程",
     "userPrincipalName": "Lear.Cheng@etatung.com",
     "id": "645cad72-cf03-406b-9a9d-59e7ed294bde",
-    "romaname": "chéngjùnyǐng"
+    "romaname": "chengjunying"
   },
   {
     "businessPhones": [
@@ -6035,7 +6083,7 @@
     "surname": "郭",
     "userPrincipalName": "leito.kuo@etatung.com",
     "id": "0d2ed43e-c740-4b3e-94f3-2157132a83cc",
-    "romaname": "guōkuíyòu"
+    "romaname": "guokuiyou"
   },
   {
     "businessPhones": [],
@@ -6044,12 +6092,12 @@
     "jobTitle": "资深顾问",
     "mail": "Lena.Feng@etatung.com.tw",
     "mobilePhone": "15900557486",
-    "officeLocation": null,
+    "officeLocation": "中國-上海",
     "preferredLanguage": null,
     "surname": "峰",
     "userPrincipalName": "Lena.Feng@tsticn.com",
     "id": "02a9fc9f-0326-4c58-9f11-7ef2ba227f2e",
-    "romaname": "fēngqín"
+    "romaname": "fengqin"
   },
   {
     "businessPhones": [
@@ -6065,7 +6113,7 @@
     "surname": "李",
     "userPrincipalName": "Leo.Lee@etatung.com",
     "id": "c3a4caa5-8348-49a8-a548-e685f8676555",
-    "romaname": "lǐjiāháo"
+    "romaname": "lijiahao"
   },
   {
     "businessPhones": [
@@ -6081,7 +6129,7 @@
     "surname": "李",
     "userPrincipalName": "Leo.Li@etatung.com",
     "id": "2301c0c8-d644-4c91-b1de-eebdad2581b8",
-    "romaname": "lǐsīxián"
+    "romaname": "lisixian"
   },
   {
     "businessPhones": [
@@ -6097,7 +6145,7 @@
     "surname": "黃",
     "userPrincipalName": "Leon.Huang@etatung.com",
     "id": "d895c08f-63cd-4da4-8189-7bd7d05174d9",
-    "romaname": "huángguózhāng"
+    "romaname": "huangguozhang"
   },
   {
     "businessPhones": [
@@ -6113,7 +6161,7 @@
     "surname": "李",
     "userPrincipalName": "Leon.Li@etatung.com",
     "id": "4a3f6961-864b-4a6d-b51f-c82aefdf7ce8",
-    "romaname": "lǐguólín"
+    "romaname": "liguolin"
   },
   {
     "businessPhones": [
@@ -6129,7 +6177,7 @@
     "surname": "王",
     "userPrincipalName": "leon.wang@etatung.com",
     "id": "b9decf2a-33ba-4525-80e4-db6338957214",
-    "romaname": "wángguówěi"
+    "romaname": "wangguowei"
   },
   {
     "businessPhones": [
@@ -6145,7 +6193,7 @@
     "surname": "王志雄 Leon6 Wang",
     "userPrincipalName": "Leon6.Wang@etatung.com",
     "id": "f87909c0-c4b6-432a-89d2-257765af5a1d",
-    "romaname": "wángzhìxióng Leon6 Wangnull"
+    "romaname": "wangzhixiong Leon6 Wangnull"
   },
   {
     "businessPhones": [
@@ -6161,7 +6209,7 @@
     "surname": "陳",
     "userPrincipalName": "Lili.Chen@etatung.onmicrosoft.com",
     "id": "7c0aef18-d0ea-48b2-b7f1-eee28b380ce5",
-    "romaname": "chénlìlì"
+    "romaname": "chenlili"
   },
   {
     "businessPhones": [
@@ -6177,7 +6225,7 @@
     "surname": "黃",
     "userPrincipalName": "Linda.Huang@etatung.com",
     "id": "2980f76c-0354-4d80-82ef-d2540569162e",
-    "romaname": "huángpèirú"
+    "romaname": "huangpeiru"
   },
   {
     "businessPhones": [
@@ -6193,7 +6241,7 @@
     "surname": "莊",
     "userPrincipalName": "Linda.Juang@etatung.com",
     "id": "4fbe4e21-959c-4fd0-8dde-56aa0bc4fc37",
-    "romaname": "zhuāngzhòngféng"
+    "romaname": "zhuangzhongfeng"
   },
   {
     "businessPhones": [
@@ -6209,7 +6257,7 @@
     "surname": "黃",
     "userPrincipalName": "Ling.Huang@etatung.com",
     "id": "e0a72b69-058c-4c97-afb6-fe6766d04fa2",
-    "romaname": "huángyùlíng"
+    "romaname": "huangyuling"
   },
   {
     "businessPhones": [
@@ -6225,7 +6273,7 @@
     "surname": "凌",
     "userPrincipalName": "Ling.Ling@etatung.com",
     "id": "35da93d5-3815-45e2-b90e-86ad6542f23a",
-    "romaname": "língfèngzī"
+    "romaname": "lingfengzi"
   },
   {
     "businessPhones": [
@@ -6241,7 +6289,7 @@
     "surname": "郭",
     "userPrincipalName": "Lisa.Guo@tsticn.com",
     "id": "1444c754-66f9-4687-bbdc-bc47c7026b33",
-    "romaname": "guōzōngpíng"
+    "romaname": "guozongping"
   },
   {
     "businessPhones": [
@@ -6257,7 +6305,7 @@
     "surname": "林",
     "userPrincipalName": "lisa.lin@tsticn.com",
     "id": "1b0a57ac-efc3-4cc4-842e-e79cafc9920e",
-    "romaname": "línwéitóng"
+    "romaname": "linweitong"
   },
   {
     "businessPhones": [
@@ -6273,7 +6321,7 @@
     "surname": "劉",
     "userPrincipalName": "Liuann.liu@etatung.com",
     "id": "18d65725-a8c0-4694-b4b4-af2f7028fef3",
-    "romaname": "liúānzhé"
+    "romaname": "liuanzhe"
   },
   {
     "businessPhones": [],
@@ -6303,7 +6351,7 @@
     "surname": "廖",
     "userPrincipalName": "Liya.Liao@tsticn.com",
     "id": "a63fb978-2705-4dfd-9084-4feb8e63c97a",
-    "romaname": "liàoxīnyuè"
+    "romaname": "liaoxinyue"
   },
   {
     "businessPhones": [
@@ -6319,7 +6367,7 @@
     "surname": "張",
     "userPrincipalName": "lj.chang@etatung.com",
     "id": "48e6f8da-8597-443c-931f-c13a848e72c7",
-    "romaname": "zhānglíngrú"
+    "romaname": "zhanglingru"
   },
   {
     "businessPhones": [
@@ -6335,23 +6383,23 @@
     "surname": "黃",
     "userPrincipalName": "Loader.Huang@etatung.com",
     "id": "0b310ccd-199f-4b88-b4c2-17c38bbdece6",
-    "romaname": "huánghuìmíng"
+    "romaname": "huanghuiming"
   },
   {
     "businessPhones": [
-      "4696"
+      "73411"
     ],
     "displayName": "王彥博 Louis Wang",
     "givenName": "彥博",
     "jobTitle": null,
     "mail": "Louis.Wang@etatung.com",
     "mobilePhone": "0937817014",
-    "officeLocation": "4696",
+    "officeLocation": "新竹辦公室",
     "preferredLanguage": null,
     "surname": "王",
     "userPrincipalName": "Louis.Wang@etatung.com",
     "id": "6e7a851c-7dd2-4aed-9113-0a01e2ab3e09",
-    "romaname": "wángyànbó"
+    "romaname": "wangyanbo"
   },
   {
     "businessPhones": [
@@ -6367,7 +6415,7 @@
     "surname": "吳",
     "userPrincipalName": "Louis.Wu@etatung.com",
     "id": "659003a7-f5e3-4979-bfe8-503e3c3a08d2",
-    "romaname": "wúzhìwěi"
+    "romaname": "wuzhiwei"
   },
   {
     "businessPhones": [
@@ -6383,7 +6431,7 @@
     "surname": "陆",
     "userPrincipalName": "Lucy.Lu@tsticn.com",
     "id": "be9f0c4a-8a0c-438f-b0ac-f84d11a83d25",
-    "romaname": "lùyànyàn"
+    "romaname": "luyanyan"
   },
   {
     "businessPhones": [
@@ -6399,7 +6447,7 @@
     "surname": "陳",
     "userPrincipalName": "Luke.Chen@etatung.com",
     "id": "b39f1aa7-9996-4096-95fe-44bd6025bb08",
-    "romaname": "chényǔruì"
+    "romaname": "chenyurui"
   },
   {
     "businessPhones": [
@@ -6415,7 +6463,7 @@
     "surname": "王",
     "userPrincipalName": "Luke.Wang@etatung.com",
     "id": "03c6de5f-0d24-4bfb-b3fe-d12a30699dc0",
-    "romaname": "wángyǒngmíng"
+    "romaname": "wangyongming"
   },
   {
     "businessPhones": [
@@ -6431,7 +6479,7 @@
     "surname": "徐",
     "userPrincipalName": "Lun.Hsu@etatung.com",
     "id": "b55392f9-48b0-4611-b556-361392f31548",
-    "romaname": "xúyùlún"
+    "romaname": "xuyulun"
   },
   {
     "businessPhones": [],
@@ -6489,7 +6537,7 @@
     "surname": "陳",
     "userPrincipalName": "Lydia.Chen@etatung.com",
     "id": "ee841589-2953-416a-a39c-1c2a6c663eec",
-    "romaname": "chénxiùjuān"
+    "romaname": "chenxiujuan"
   },
   {
     "businessPhones": [
@@ -6505,7 +6553,7 @@
     "surname": "陳",
     "userPrincipalName": "Lynne.Chen@etatung.com",
     "id": "11bee86e-5b8b-4341-8fa1-d64b4b50ad43",
-    "romaname": "chénjiālín"
+    "romaname": "chenjialin"
   },
   {
     "businessPhones": [
@@ -6521,7 +6569,7 @@
     "surname": "張",
     "userPrincipalName": "Mackey.Chang@etatung.com",
     "id": "f24f91db-1ece-4e6a-a14d-e5e3b28cfc44",
-    "romaname": "zhāngguìlín"
+    "romaname": "zhangguilin"
   },
   {
     "businessPhones": [
@@ -6537,7 +6585,7 @@
     "surname": "楊",
     "userPrincipalName": "Mandy.Yang@etatung.com",
     "id": "4eead673-961f-4ecd-a3e8-218ca25f28bf",
-    "romaname": "yángfèngyí"
+    "romaname": "yangfengyi"
   },
   {
     "businessPhones": [
@@ -6553,7 +6601,23 @@
     "surname": "林",
     "userPrincipalName": "Marge.Lin@etatung.com",
     "id": "3a9fd4b6-a241-4541-800d-c9f98cba8d5e",
-    "romaname": "línróujūn"
+    "romaname": "linroujun"
+  },
+  {
+    "businessPhones": [
+      "77180"
+    ],
+    "displayName": "歐力誠  Mario Ou",
+    "givenName": "力誠",
+    "jobTitle": null,
+    "mail": "Mario.Ou@etatung.com",
+    "mobilePhone": "0989841100",
+    "officeLocation": "高雄辦公室",
+    "preferredLanguage": null,
+    "surname": "歐",
+    "userPrincipalName": "Mario.Ou@etatung.com",
+    "id": "1f503616-9279-4bff-bb9d-aa275a8c7fc6",
+    "romaname": "oulicheng"
   },
   {
     "businessPhones": [
@@ -6569,7 +6633,7 @@
     "surname": "陳",
     "userPrincipalName": "Mark.Chen@etatung.com",
     "id": "8eb20f62-1afb-4a87-a742-19e599ac37d1",
-    "romaname": "chénzhìhóng"
+    "romaname": "chenzhihong"
   },
   {
     "businessPhones": [
@@ -6585,7 +6649,7 @@
     "surname": "蕭",
     "userPrincipalName": "mark.hsiao@etatung.com",
     "id": "a1d40708-8357-44f6-b84d-e48801d72e99",
-    "romaname": "xiāoānshùn"
+    "romaname": "xiaoanshun"
   },
   {
     "businessPhones": [
@@ -6601,7 +6665,7 @@
     "surname": "蔡",
     "userPrincipalName": "Markars.Tsai@etatung.com",
     "id": "608d0cf5-c4db-4ed8-a576-1eb46dc83830",
-    "romaname": "càibǎihóng"
+    "romaname": "caibaihong"
   },
   {
     "businessPhones": [],
@@ -6615,7 +6679,7 @@
     "surname": "大同世界科技-諮詢服務信箱",
     "userPrincipalName": "marketing@etatung.com.tw",
     "id": "9c80a4b2-f86a-4a13-a9c3-429272116ead",
-    "romaname": "dàtóngshìjièkējì-zīxúnfúwùxìnxiāngnull"
+    "romaname": "datongshijiekeji-zixunfuwuxinxiangnull"
   },
   {
     "businessPhones": [
@@ -6631,7 +6695,7 @@
     "surname": "張",
     "userPrincipalName": "mars.chang@etatung.com",
     "id": "60f404b1-6fa6-4757-b27f-714dcba650cd",
-    "romaname": "zhāngzhǎnyuán"
+    "romaname": "zhangzhanyuan"
   },
   {
     "businessPhones": [
@@ -6647,7 +6711,7 @@
     "surname": "郭",
     "userPrincipalName": "Mars.Kuo@etatung.com.tw",
     "id": "0ea4f6e1-99dc-4139-93a8-637ef252b382",
-    "romaname": "guōxìndǐng"
+    "romaname": "guoxinding"
   },
   {
     "businessPhones": [
@@ -6663,7 +6727,7 @@
     "surname": "林",
     "userPrincipalName": "Match.Lin@etatung.com",
     "id": "b4fe2ded-42fe-4b7c-bb72-ac1c5c692707",
-    "romaname": "línqíhuáng"
+    "romaname": "linqihuang"
   },
   {
     "businessPhones": [
@@ -6679,7 +6743,7 @@
     "surname": "江",
     "userPrincipalName": "Matt.Jiang@etatung.com",
     "id": "b6196189-0977-4bd4-b148-dca9749991a7",
-    "romaname": "jiānghóng"
+    "romaname": "jianghong"
   },
   {
     "businessPhones": [
@@ -6695,7 +6759,7 @@
     "surname": "張",
     "userPrincipalName": "Max.Chang@etatung.com",
     "id": "8cfefdd8-578d-454e-9f8b-a41cef3ca883",
-    "romaname": "zhāngzhìhóng"
+    "romaname": "zhangzhihong"
   },
   {
     "businessPhones": [
@@ -6711,7 +6775,7 @@
     "surname": "潘",
     "userPrincipalName": "Max.Pan@etatung.com",
     "id": "946c1729-bfd9-48f7-b009-576974b53276",
-    "romaname": "pānjiànchéng"
+    "romaname": "panjiancheng"
   },
   {
     "businessPhones": [
@@ -6727,7 +6791,7 @@
     "surname": "張",
     "userPrincipalName": "may.chang@etatung.com",
     "id": "0bc5d571-5569-4459-adf1-a9f811e192f5",
-    "romaname": "zhāngfúzhēn"
+    "romaname": "zhangfuzhen"
   },
   {
     "businessPhones": [
@@ -6743,7 +6807,7 @@
     "surname": "陈",
     "userPrincipalName": "May.Chen@tsticn.com",
     "id": "f50aee25-91a5-450b-982d-9937b4f10235",
-    "romaname": "chénxiǎoméi"
+    "romaname": "chenxiaomei"
   },
   {
     "businessPhones": [
@@ -6759,7 +6823,7 @@
     "surname": "蔡",
     "userPrincipalName": "May.Tsai@etatung.com",
     "id": "1ea7de7a-1b62-48d8-b42b-d8be29e4bdbb",
-    "romaname": "càiměizhēn"
+    "romaname": "caimeizhen"
   },
   {
     "businessPhones": [
@@ -6775,7 +6839,7 @@
     "surname": "蘇",
     "userPrincipalName": "Mf.Su@etatung.com",
     "id": "0b56e0d9-e1eb-4422-ac38-0ef7b0b38b45",
-    "romaname": "sūmínfēi"
+    "romaname": "suminfei"
   },
   {
     "businessPhones": [
@@ -6791,7 +6855,7 @@
     "surname": "張",
     "userPrincipalName": "michael.chang@etatung.onmicrosoft.com",
     "id": "5e654a72-6e9c-4fdc-8848-e8f5c0fe1b99",
-    "romaname": "zhāngzhìchāo"
+    "romaname": "zhangzhichao"
   },
   {
     "businessPhones": [
@@ -6807,7 +6871,7 @@
     "surname": "陳",
     "userPrincipalName": "Michael.Chen@etatung.com",
     "id": "2e12a066-8bae-405a-8a49-ccf1889d19de",
-    "romaname": "chénlìdé"
+    "romaname": "chenlide"
   },
   {
     "businessPhones": [
@@ -6823,7 +6887,7 @@
     "surname": "方",
     "userPrincipalName": "Michael.Fang@etatung.onmicrosoft.com",
     "id": "ade9217b-4b0e-4f46-a1fa-9f4b9c9ac979",
-    "romaname": "fāngwǔmù"
+    "romaname": "fangwumu"
   },
   {
     "businessPhones": [],
@@ -6837,7 +6901,7 @@
     "surname": "蔡",
     "userPrincipalName": "Michael.Tsai@etatung.onmicrosoft.com",
     "id": "1d25e4e1-8081-4433-a2c1-9f2c35fb6b50",
-    "romaname": "càiyánjūn"
+    "romaname": "caiyanjun"
   },
   {
     "businessPhones": [
@@ -6853,7 +6917,7 @@
     "surname": "甘",
     "userPrincipalName": "Mico.Kan@etatung.com",
     "id": "48337e45-5fae-49a7-b647-9aefac28fef0",
-    "romaname": "gānmíngqiǎo"
+    "romaname": "ganmingqiao"
   },
   {
     "businessPhones": [
@@ -6869,7 +6933,7 @@
     "surname": "莊",
     "userPrincipalName": "Middle.Chuang@etatung.com",
     "id": "f5df81f0-20a7-4a23-b1fe-94b6daa473b2",
-    "romaname": "zhuāngwǔmù"
+    "romaname": "zhuangwumu"
   },
   {
     "businessPhones": [
@@ -6880,12 +6944,12 @@
     "jobTitle": null,
     "mail": "Mike.chang@etatung.com",
     "mobilePhone": "0928375137",
-    "officeLocation": "台北北設工3樓",
+    "officeLocation": "台北北設工2樓",
     "preferredLanguage": null,
     "surname": "張",
     "userPrincipalName": "Mike.chang@etatung.com",
     "id": "9eaac8a5-6e30-42c2-8d91-0ace16b0556f",
-    "romaname": "zhāngbóxiáng"
+    "romaname": "zhangboxiang"
   },
   {
     "businessPhones": [
@@ -6901,7 +6965,7 @@
     "surname": "李",
     "userPrincipalName": "Mike.Lee@etatung.com",
     "id": "ba730738-15ad-4c14-936e-ac6a372834b8",
-    "romaname": "lǐmàoguì"
+    "romaname": "limaogui"
   },
   {
     "businessPhones": [
@@ -6917,7 +6981,7 @@
     "surname": "王",
     "userPrincipalName": "ming.wang@etatung.com",
     "id": "f8d8d034-2790-4a80-bc26-2f45ae48c9e0",
-    "romaname": "wángzuǒmíng"
+    "romaname": "wangzuoming"
   },
   {
     "businessPhones": [
@@ -6933,7 +6997,7 @@
     "surname": "钟",
     "userPrincipalName": "Misty.Zhong@tsticn.com",
     "id": "c9b795b0-ad80-4c21-b709-ec1d11f9742b",
-    "romaname": "zhōngxiǎoxiá"
+    "romaname": "zhongxiaoxia"
   },
   {
     "businessPhones": [
@@ -6949,7 +7013,7 @@
     "surname": "陳",
     "userPrincipalName": "Mk.Chen@etatung.com",
     "id": "465e64bd-a514-42db-a1b3-64bece875ff1",
-    "romaname": "chénshìchān"
+    "romaname": "chenshichan"
   },
   {
     "businessPhones": [
@@ -6965,7 +7029,7 @@
     "surname": "簡",
     "userPrincipalName": "Molin.Chien@etatung.com",
     "id": "585f68f1-802f-4fc3-91f3-20b3d5534cf0",
-    "romaname": "jiǎnmàolín"
+    "romaname": "jianmaolin"
   },
   {
     "businessPhones": [],
@@ -6979,7 +7043,7 @@
     "surname": "洪",
     "userPrincipalName": "Molly.Hung@etatung.com",
     "id": "1ab99cc7-1f72-4533-a51e-91feecb0ecfc",
-    "romaname": "hóngqìnyán"
+    "romaname": "hongqinyan"
   },
   {
     "businessPhones": [
@@ -6995,7 +7059,7 @@
     "surname": "江",
     "userPrincipalName": "moon.chiang@etatung.com",
     "id": "83c656cf-0c09-42d8-8913-e5690bcb66b9",
-    "romaname": "jiāngxiùyuè hùlǐshī"
+    "romaname": "jiangxiuyue hulishi"
   },
   {
     "businessPhones": [
@@ -7011,7 +7075,7 @@
     "surname": "傅",
     "userPrincipalName": "Morgan.Fu@etatung.com",
     "id": "ad2bb9e3-37b5-47a8-ac95-e762b02af9ae",
-    "romaname": "fùchuánjūn"
+    "romaname": "fuchuanjun"
   },
   {
     "businessPhones": [
@@ -7027,7 +7091,7 @@
     "surname": "王",
     "userPrincipalName": "Morris.Wang@etatung.onmicrosoft.com",
     "id": "8778900b-8b72-41d2-9b8a-a294eb4aa546",
-    "romaname": "wángyànjūn"
+    "romaname": "wangyanjun"
   },
   {
     "businessPhones": [],
@@ -7041,7 +7105,7 @@
     "surname": "MOSS管理帳號",
     "userPrincipalName": "mossadmin@etatung.com.tw",
     "id": "3336c4a0-d93d-45dd-aa6a-0dc5564e6825",
-    "romaname": "MOSSguǎnlǐzhànghàonull"
+    "romaname": "MOSSguanlizhanghaonull"
   },
   {
     "businessPhones": [],
@@ -7085,7 +7149,7 @@
     "surname": "許",
     "userPrincipalName": "Nancy.Hsu@etatung.com",
     "id": "37f04733-993e-4443-b59a-5e9c78d8c1d8",
-    "romaname": "xūnǎixīn"
+    "romaname": "xunaixin"
   },
   {
     "businessPhones": [
@@ -7101,7 +7165,7 @@
     "surname": "陳",
     "userPrincipalName": "Natalie.Chen@etatung.com",
     "id": "23177359-71bb-4652-90b6-dfdcde2ff60c",
-    "romaname": "chényǎqí"
+    "romaname": "chenyaqi"
   },
   {
     "businessPhones": [
@@ -7117,7 +7181,7 @@
     "surname": "吳",
     "userPrincipalName": "Natasha.Wu@etatung.onmicrosoft.com",
     "id": "580f4b9f-a2e0-4728-b661-25385dcaf6ce",
-    "romaname": "wúsīshī"
+    "romaname": "wusishi"
   },
   {
     "businessPhones": [
@@ -7133,7 +7197,7 @@
     "surname": "呂",
     "userPrincipalName": "Neda.Le@etatung.com",
     "id": "40525812-b701-4c94-8a56-5b65c5320b8a",
-    "romaname": "lǚbǐngdé"
+    "romaname": "lvbingde"
   },
   {
     "businessPhones": [],
@@ -7163,7 +7227,7 @@
     "surname": "黃",
     "userPrincipalName": "Nick.Huang@etatung.com",
     "id": "a9493bd0-6f41-45b2-8ebd-3871fdff72dd",
-    "romaname": "huángwénbīn"
+    "romaname": "huangwenbin"
   },
   {
     "businessPhones": [
@@ -7179,7 +7243,7 @@
     "surname": "林",
     "userPrincipalName": "Nico.Lin@etatung.com",
     "id": "6fcd44fe-e155-4538-b802-fef3e21efa6a",
-    "romaname": "línwēihàn"
+    "romaname": "linweihan"
   },
   {
     "businessPhones": [
@@ -7195,7 +7259,7 @@
     "surname": "張",
     "userPrincipalName": "Nicole.Chang@etatung.com",
     "id": "d6595ae6-bacd-48e4-a2a7-d1462b3286de",
-    "romaname": "zhāngxiùwén"
+    "romaname": "zhangxiuwen"
   },
   {
     "businessPhones": [
@@ -7211,7 +7275,7 @@
     "surname": "許",
     "userPrincipalName": "Nicole.Hsu@etatung.com",
     "id": "232d4cfd-f3d1-4c52-a7ce-a9e91047aee8",
-    "romaname": "xūwéiqíng"
+    "romaname": "xuweiqing"
   },
   {
     "businessPhones": [
@@ -7227,7 +7291,7 @@
     "surname": "李",
     "userPrincipalName": "Nicole.Li@etatung.com",
     "id": "379f37bf-e92f-4aa0-9c32-c59b1f26156a",
-    "romaname": "lǐpǐnyíng"
+    "romaname": "lipinying"
   },
   {
     "businessPhones": [
@@ -7243,7 +7307,7 @@
     "surname": "倪",
     "userPrincipalName": "Nicole.Ni@etatung.com",
     "id": "7e706c64-76dc-4a90-81fb-668f4c87aa15",
-    "romaname": "níchéngyuàn"
+    "romaname": "nichengyuan"
   },
   {
     "businessPhones": [],
@@ -7257,7 +7321,7 @@
     "surname": "客服到府安裝信箱",
     "userPrincipalName": "onsiteset@etatung.com.tw",
     "id": "01f1c360-c21c-4921-bf39-695f42971107",
-    "romaname": "kèfúdàofǔānzhuāngxìnxiāngnull"
+    "romaname": "kefudaofuanzhuangxinxiangnull"
   },
   {
     "businessPhones": [],
@@ -7287,7 +7351,7 @@
     "surname": "林",
     "userPrincipalName": "Parker.Lin@etatung.com",
     "id": "10a6b641-8d76-484e-a239-d791daad00ac",
-    "romaname": "línjiànshēng"
+    "romaname": "linjiansheng"
   },
   {
     "businessPhones": [
@@ -7303,7 +7367,7 @@
     "surname": "羅",
     "userPrincipalName": "Paul.Lo@etatung.com",
     "id": "cef35fdf-f32f-433f-8a79-33fe0829c46b",
-    "romaname": "luózhèn"
+    "romaname": "luozhen"
   },
   {
     "businessPhones": [
@@ -7319,7 +7383,7 @@
     "surname": "伍",
     "userPrincipalName": "Pearl.Wu@etatung.com",
     "id": "6d5e162b-324d-4347-ad37-0d4063df7875",
-    "romaname": "wǔmíngshū"
+    "romaname": "wumingshu"
   },
   {
     "businessPhones": [
@@ -7335,7 +7399,7 @@
     "surname": "張",
     "userPrincipalName": "Peggy.Chang@etatung.com",
     "id": "9291b64a-b901-4756-be27-30bd1c288bcc",
-    "romaname": "zhāngpèiqí"
+    "romaname": "zhangpeiqi"
   },
   {
     "businessPhones": [
@@ -7351,7 +7415,7 @@
     "surname": "卓",
     "userPrincipalName": "Penny.Cho@etatung.com",
     "id": "ecabe532-c401-4e61-9609-66edeba65e70",
-    "romaname": "zhuópèiyí"
+    "romaname": "zhuopeiyi"
   },
   {
     "businessPhones": [
@@ -7367,7 +7431,7 @@
     "surname": "施",
     "userPrincipalName": "penny.shih@etatung.com",
     "id": "2bce1a09-675a-420e-b96d-7c3c33ea3848",
-    "romaname": "shīpèicén"
+    "romaname": "shipeicen"
   },
   {
     "businessPhones": [
@@ -7383,7 +7447,7 @@
     "surname": "陳",
     "userPrincipalName": "Peter.Chen@etatung.com",
     "id": "e6542c02-3f31-4bff-93b4-34bd8c32cd6f",
-    "romaname": "chénxīngzhōu"
+    "romaname": "chenxingzhou"
   },
   {
     "businessPhones": [
@@ -7391,7 +7455,7 @@
     ],
     "displayName": "莊銘仁 Peter Chuang",
     "givenName": "銘仁",
-    "jobTitle": "專案副理",
+    "jobTitle": null,
     "mail": "Peter.Chuang@etatung.com",
     "mobilePhone": "0929826154",
     "officeLocation": "台南辦公室",
@@ -7399,7 +7463,7 @@
     "surname": "莊",
     "userPrincipalName": "Peter.Chuang@etatung.com",
     "id": "fac6d457-b606-4800-94e6-3440b23d0edc",
-    "romaname": "zhuāngmíngrén"
+    "romaname": "zhuangmingren"
   },
   {
     "businessPhones": [
@@ -7415,23 +7479,23 @@
     "surname": "李",
     "userPrincipalName": "peter.li@etatung.com",
     "id": "e226c7c3-e54e-4178-80c6-f84cbbe6e5d8",
-    "romaname": "lǐjùnfā"
+    "romaname": "lijunfa"
   },
   {
     "businessPhones": [
       "4867"
     ],
-    "displayName": "林仕玉 Peter Lin",
+    "displayName": "魏仕玉 Peter Lin",
     "givenName": "仕玉",
     "jobTitle": null,
     "mail": "Peter.Lin@etatung.com",
-    "mobilePhone": "0976354252",
+    "mobilePhone": "0981125638",
     "officeLocation": "4867",
     "preferredLanguage": null,
-    "surname": "林",
+    "surname": "魏",
     "userPrincipalName": "Peter.Lin@etatung.com",
     "id": "7e017465-0744-4b05-95f4-881832ff59dd",
-    "romaname": "línshìyù"
+    "romaname": "weishiyu"
   },
   {
     "businessPhones": [
@@ -7447,7 +7511,7 @@
     "surname": "楊",
     "userPrincipalName": "Peter.Yang@etatung.com",
     "id": "b9a202ec-f915-4b5a-9d41-8ee2841f15bb",
-    "romaname": "yángchúnsēn"
+    "romaname": "yangchunsen"
   },
   {
     "businessPhones": [
@@ -7458,12 +7522,12 @@
     "jobTitle": null,
     "mail": "Peter.Yeh@etatung.com",
     "mobilePhone": "0936369186",
-    "officeLocation": "高雄辦事處 分機:111",
+    "officeLocation": "高雄辦公室",
     "preferredLanguage": null,
     "surname": "葉",
     "userPrincipalName": "Peter.Yeh@etatung.com",
     "id": "fc8a4908-285a-4b39-8324-64fdd8d99bf3",
-    "romaname": "yèyǒngchūn"
+    "romaname": "yeyongchun"
   },
   {
     "businessPhones": [
@@ -7479,7 +7543,7 @@
     "surname": "徐",
     "userPrincipalName": "Petrus.Hsu@etatung.com",
     "id": "03da4577-a77b-409f-b341-b8a022b3c265",
-    "romaname": "xúshìlóng"
+    "romaname": "xushilong"
   },
   {
     "businessPhones": [],
@@ -7509,7 +7573,7 @@
     "surname": "吳",
     "userPrincipalName": "Pinhou.Wu@etatung.com",
     "id": "000d0e1e-a81b-4cb6-b8e8-21b36ea31013",
-    "romaname": "wúpǐnháo"
+    "romaname": "wupinhao"
   },
   {
     "businessPhones": [
@@ -7525,7 +7589,7 @@
     "surname": "陳",
     "userPrincipalName": "pojui.chen@etatung.com",
     "id": "0e9f4c15-3f4f-4212-9527-77d641910413",
-    "romaname": "chénbǎiruì"
+    "romaname": "chenbairui"
   },
   {
     "businessPhones": [],
@@ -7539,7 +7603,7 @@
     "surname": "陆",
     "userPrincipalName": "Polly.Lu@tsticn.com",
     "id": "61796210-30d0-4b15-a0a6-f18bd8934ca7",
-    "romaname": "lùpèipèi"
+    "romaname": "lupeipei"
   },
   {
     "businessPhones": [
@@ -7555,7 +7619,7 @@
     "surname": "游",
     "userPrincipalName": "Poppy.Yu@etatung.com",
     "id": "e204fbd0-a040-4094-bb91-ce328dea542f",
-    "romaname": "yóutíngjūn"
+    "romaname": "youtingjun"
   },
   {
     "businessPhones": [
@@ -7571,7 +7635,7 @@
     "surname": "朱",
     "userPrincipalName": "Poyu.Chu@etatung.com",
     "id": "da1ace0d-4a6e-4728-9c79-514c405c73f6",
-    "romaname": "zhūbǎiyòu"
+    "romaname": "zhubaiyou"
   },
   {
     "businessPhones": [],
@@ -7585,7 +7649,7 @@
     "surname": "潘",
     "userPrincipalName": "poyu.pan@etatung.com",
     "id": "85107cfb-d401-445b-8920-9fa29b07da17",
-    "romaname": "pānbǎiyù"
+    "romaname": "panbaiyu"
   },
   {
     "businessPhones": [],
@@ -7617,22 +7681,6 @@
   },
   {
     "businessPhones": [
-      "5428"
-    ],
-    "displayName": "游祥祺 營運長",
-    "givenName": "游祥祺",
-    "jobTitle": "營運長",
-    "mail": "pro.you@tisnet.com.tw",
-    "mobilePhone": "0919202591",
-    "officeLocation": "台北北設工5樓",
-    "preferredLanguage": null,
-    "surname": "游",
-    "userPrincipalName": "pro.you@etatung.onmicrosoft.com",
-    "id": "58498aa5-36a7-4a14-88c5-1e04e86dc0e8",
-    "romaname": "yóuyóuxiángqí"
-  },
-  {
-    "businessPhones": [
       "78321"
     ],
     "displayName": "许祺君 QJ Xu",
@@ -7640,12 +7688,12 @@
     "jobTitle": "顾问",
     "mail": "QJ.Xu@etatung.com.tw",
     "mobilePhone": "13774216731",
-    "officeLocation": "78321",
+    "officeLocation": "中國-上海",
     "preferredLanguage": null,
     "surname": "许",
     "userPrincipalName": "QJ.Xu@tsticn.com",
     "id": "4db4f20a-038c-4603-ade9-007f6a1bb2ee",
-    "romaname": "xǔqíjūn"
+    "romaname": "xuqijun"
   },
   {
     "businessPhones": [],
@@ -7659,7 +7707,7 @@
     "surname": "病毒信隔離所",
     "userPrincipalName": "quarantine@etatung.com.tw",
     "id": "bb59b59b-aa23-4b4c-9c7c-196f1fc69499",
-    "romaname": "bìngdúxìngélísuǒnull"
+    "romaname": "bingduxingelisuonull"
   },
   {
     "businessPhones": [
@@ -7675,7 +7723,7 @@
     "surname": "江",
     "userPrincipalName": "rahim.chiang@etatung.com",
     "id": "b910e22b-ccd1-46d1-b971-20e56e54cb4e",
-    "romaname": "jiāngyìchéng"
+    "romaname": "jiangyicheng"
   },
   {
     "businessPhones": [
@@ -7691,7 +7739,7 @@
     "surname": "鄭",
     "userPrincipalName": "Ranjay.Cheng@etatung.com",
     "id": "f731bdb9-84ce-4022-9f19-35925b520827",
-    "romaname": "zhèngrénjié"
+    "romaname": "zhengrenjie"
   },
   {
     "businessPhones": [
@@ -7707,7 +7755,7 @@
     "surname": "陳",
     "userPrincipalName": "Ray.Chen@etatung.com",
     "id": "e418c0d5-6a9f-4db7-9a24-16b709cf2051",
-    "romaname": "chényòuróng"
+    "romaname": "chenyourong"
   },
   {
     "businessPhones": [
@@ -7723,7 +7771,7 @@
     "surname": "林",
     "userPrincipalName": "Raymond.Lin@etatung.com",
     "id": "a60786dd-753e-469d-8aea-d24c738ffb01",
-    "romaname": "línmènghàn"
+    "romaname": "linmenghan"
   },
   {
     "businessPhones": [],
@@ -7753,7 +7801,7 @@
     "surname": "成",
     "userPrincipalName": "Reagan.Cheng@etatung.com",
     "id": "9711335b-a13e-4194-b357-85c9205120e6",
-    "romaname": "chénglìgēng"
+    "romaname": "chengligeng"
   },
   {
     "businessPhones": [
@@ -7769,7 +7817,7 @@
     "surname": "林",
     "userPrincipalName": "Rebecca.Lin@etatung.com",
     "id": "7c3e329b-bdf8-411c-9304-85cbf5fe8f08",
-    "romaname": "línyànfēi"
+    "romaname": "linyanfei"
   },
   {
     "businessPhones": [
@@ -7785,7 +7833,7 @@
     "surname": "苏",
     "userPrincipalName": "Rebecca.Su@tsticn.com",
     "id": "371a8294-2357-469a-8d3c-ee88b5b4bcae",
-    "romaname": "sūlìxiá"
+    "romaname": "sulixia"
   },
   {
     "businessPhones": [
@@ -7801,7 +7849,7 @@
     "surname": "陳",
     "userPrincipalName": "Regina.Chen@etatung.com",
     "id": "aab0c9c5-82bf-4d8f-9990-854183e96c48",
-    "romaname": "chényùnrú"
+    "romaname": "chenyunru"
   },
   {
     "businessPhones": [],
@@ -7815,7 +7863,7 @@
     "surname": "陳",
     "userPrincipalName": "Rex.Chen@etatung.com",
     "id": "ef6787a5-5e89-4f6d-ada4-63de5eed0e39",
-    "romaname": "chényànwěi"
+    "romaname": "chenyanwei"
   },
   {
     "businessPhones": [
@@ -7831,7 +7879,7 @@
     "surname": "廖",
     "userPrincipalName": "Rex.Liao@etatung.com",
     "id": "f8bfdb18-89e1-4b18-8f10-12a7618eca7a",
-    "romaname": "liàoqǐzhù"
+    "romaname": "liaoqizhu"
   },
   {
     "businessPhones": [
@@ -7847,7 +7895,7 @@
     "surname": "張",
     "userPrincipalName": "Rina.Chang@etatung.com",
     "id": "932481e1-df36-4e34-af2f-2ffe4dea73b6",
-    "romaname": "zhāngxuǎnjuān"
+    "romaname": "zhangxuanjuan"
   },
   {
     "businessPhones": [
@@ -7863,7 +7911,7 @@
     "surname": "陳",
     "userPrincipalName": "rita.chen@etatung.com",
     "id": "165e94b5-cbd2-4fde-8c57-1e71e302c20f",
-    "romaname": "chényíchún"
+    "romaname": "chenyichun"
   },
   {
     "businessPhones": [
@@ -7879,7 +7927,7 @@
     "surname": "洪",
     "userPrincipalName": "Rita.Hung@etatung.com",
     "id": "9a906b89-3b09-45ae-ae52-d828fca3c2ad",
-    "romaname": "hóngbìtáo"
+    "romaname": "hongbitao"
   },
   {
     "businessPhones": [
@@ -7895,7 +7943,7 @@
     "surname": "楊",
     "userPrincipalName": "rita.yang@etatung.onmicrosoft.com",
     "id": "11994fe7-7e16-49a9-8177-0391da7587eb",
-    "romaname": "yángyǔróu"
+    "romaname": "yangyurou"
   },
   {
     "businessPhones": [
@@ -7911,7 +7959,7 @@
     "surname": "姚",
     "userPrincipalName": "Rita.Yao@etatung.com",
     "id": "55b6a9be-00e0-4d64-a9f9-9e195848f3bb",
-    "romaname": "yáozhēnyī"
+    "romaname": "yaozhenyi"
   },
   {
     "businessPhones": [
@@ -7927,7 +7975,7 @@
     "surname": "呂",
     "userPrincipalName": "Roberta.Lu@etatung.com",
     "id": "5a17e3f3-027a-451c-8100-b7d68d47f635",
-    "romaname": "lǚyuèqǐ"
+    "romaname": "lvyueqi"
   },
   {
     "businessPhones": [
@@ -7943,7 +7991,7 @@
     "surname": "施",
     "userPrincipalName": "Robin.Shie@etatung.com",
     "id": "476d65b6-a461-47fb-9e60-aeb6182fb58a",
-    "romaname": "shīzhìbīn"
+    "romaname": "shizhibin"
   },
   {
     "businessPhones": [
@@ -7959,7 +8007,7 @@
     "surname": "曹",
     "userPrincipalName": "robinson.tsao@etatung.com",
     "id": "6a21b662-103d-4513-824e-00582f02fd88",
-    "romaname": "cáohuī"
+    "romaname": "caohui"
   },
   {
     "businessPhones": [],
@@ -7973,7 +8021,7 @@
     "surname": "蔡",
     "userPrincipalName": "Rock.Tsai@etatung.com",
     "id": "effc6baa-9f95-4ada-9960-bfd424f40280",
-    "romaname": "càimíngxiào"
+    "romaname": "caimingxiao"
   },
   {
     "businessPhones": [
@@ -7989,7 +8037,7 @@
     "surname": "李",
     "userPrincipalName": "Roger.Lee@etatung.com",
     "id": "08c6b4a6-856d-436c-a95f-e49abb97c30e",
-    "romaname": "lǐzhìwěi"
+    "romaname": "lizhiwei"
   },
   {
     "businessPhones": [
@@ -8005,7 +8053,7 @@
     "surname": "余",
     "userPrincipalName": "Ron.Yu@etatung.com",
     "id": "be7f1b51-14bc-48a3-abdb-7d93e62f630d",
-    "romaname": "yúróngēn"
+    "romaname": "yurongen"
   },
   {
     "businessPhones": [
@@ -8021,7 +8069,7 @@
     "surname": "陳",
     "userPrincipalName": "Rong.Chen@etatung.com",
     "id": "67fa7a48-4fad-45a3-8f21-9ecda2a9588f",
-    "romaname": "chényìróng"
+    "romaname": "chenyirong"
   },
   {
     "businessPhones": [
@@ -8037,7 +8085,7 @@
     "surname": "李",
     "userPrincipalName": "Root.Lee@tsticn.com",
     "id": "d092aa90-3a32-44dc-91dc-50eadce0dc3e",
-    "romaname": "lǐhóngjié"
+    "romaname": "lihongjie"
   },
   {
     "businessPhones": [],
@@ -8081,7 +8129,7 @@
     "surname": "郭",
     "userPrincipalName": "Ruby.Guo@tsticn.com",
     "id": "0f1b73b7-df80-40e0-8404-76e58e1f9e5f",
-    "romaname": "guōyǒnghóng"
+    "romaname": "guoyonghong"
   },
   {
     "businessPhones": [
@@ -8097,7 +8145,7 @@
     "surname": "郭",
     "userPrincipalName": "Ruru.Kuo@etatung.com",
     "id": "139c3124-50b8-458d-af9f-c3247fbb528d",
-    "romaname": "guōrúxiū"
+    "romaname": "guoruxiu"
   },
   {
     "businessPhones": [
@@ -8113,7 +8161,7 @@
     "surname": "許",
     "userPrincipalName": "Ryan.Hsu@etatung.com",
     "id": "3dae658b-d461-4e80-850d-9218b97be4ad",
-    "romaname": "xūjùnxiàn"
+    "romaname": "xujunxian"
   },
   {
     "businessPhones": [
@@ -8129,7 +8177,7 @@
     "surname": "林",
     "userPrincipalName": "Ryan.Lin@etatung.com",
     "id": "4d6e5d19-35e4-41cf-a4c3-237a6f396389",
-    "romaname": "línhóngmíng"
+    "romaname": "linhongming"
   },
   {
     "businessPhones": [],
@@ -8143,7 +8191,7 @@
     "surname": "林",
     "userPrincipalName": "Ryan16.Lin@etatung.com",
     "id": "50caff27-c582-428f-b67f-9230ba106f30",
-    "romaname": "línyànxūn"
+    "romaname": "linyanxun"
   },
   {
     "businessPhones": [
@@ -8159,7 +8207,7 @@
     "surname": "黃",
     "userPrincipalName": "sabrina.huang@etatung.com",
     "id": "a237e613-28e3-4905-93f0-cc4353e05839",
-    "romaname": "huángshūyuàn"
+    "romaname": "huangshuyuan"
   },
   {
     "businessPhones": [
@@ -8175,7 +8223,7 @@
     "surname": "江",
     "userPrincipalName": "Sam.Chiang@etatung.com",
     "id": "054fb3e1-1421-4ef0-a888-3af1176f1b08",
-    "romaname": "jiānghuìzōng"
+    "romaname": "jianghuizong"
   },
   {
     "businessPhones": [
@@ -8191,7 +8239,7 @@
     "surname": "邱",
     "userPrincipalName": "Sam.Chiou@etatung.com",
     "id": "62e55016-f5b5-4ddb-af2f-200912a2877c",
-    "romaname": "qiūjùnmíng"
+    "romaname": "qiujunming"
   },
   {
     "businessPhones": [
@@ -8207,7 +8255,7 @@
     "surname": "李",
     "userPrincipalName": "Sam.Lee@etatung.com",
     "id": "ca7a010b-201f-40f0-bfda-887cb45943ff",
-    "romaname": "lǐsīlín"
+    "romaname": "lisilin"
   },
   {
     "businessPhones": [
@@ -8223,7 +8271,7 @@
     "surname": "廖",
     "userPrincipalName": "Sam.Liao@etatung.com",
     "id": "646dd339-61ba-4cc6-b70c-cc851c5c7c36",
-    "romaname": "liàoyùzhì"
+    "romaname": "liaoyuzhi"
   },
   {
     "businessPhones": [
@@ -8239,7 +8287,7 @@
     "surname": "劉",
     "userPrincipalName": "Sam.Liu@etatung.com",
     "id": "0385d777-b869-41e4-a493-8a65091135c6",
-    "romaname": "liúsānchūn"
+    "romaname": "liusanchun"
   },
   {
     "businessPhones": [
@@ -8255,7 +8303,7 @@
     "surname": "涂",
     "userPrincipalName": "Sam.Tu@etatung.com",
     "id": "8045f957-32cb-4990-ad76-b3a4b40185d8",
-    "romaname": "túfùsōng"
+    "romaname": "tufusong"
   },
   {
     "businessPhones": [
@@ -8271,7 +8319,7 @@
     "surname": "陳",
     "userPrincipalName": "Sandra.Chen@etatung.com",
     "id": "cfe6210a-5a45-4e67-889f-a21afdfbeae9",
-    "romaname": "chénzhīyī"
+    "romaname": "chenzhiyi"
   },
   {
     "businessPhones": [
@@ -8287,7 +8335,7 @@
     "surname": "許",
     "userPrincipalName": "sandy.hsu@etatung.com",
     "id": "34448e24-c887-4c0a-bb6e-e616400d01f3",
-    "romaname": "xūqiūchán"
+    "romaname": "xuqiuchan"
   },
   {
     "businessPhones": [
@@ -8303,7 +8351,7 @@
     "surname": "林",
     "userPrincipalName": "Sarah.Lin@tsticn.com",
     "id": "8f22affc-15e7-427e-ba48-976e7d220fdc",
-    "romaname": "línxuěhuá"
+    "romaname": "linxuehua"
   },
   {
     "businessPhones": [],
@@ -8359,7 +8407,7 @@
     "surname": "黄",
     "userPrincipalName": "Sean.Huang@tsticn.com",
     "id": "5fad6f8a-fb57-4897-9d48-87d5fac0a22f",
-    "romaname": "huángxiāo"
+    "romaname": "huangxiao"
   },
   {
     "businessPhones": [
@@ -8375,7 +8423,7 @@
     "surname": "劉",
     "userPrincipalName": "Semy.Liu@tsticn.com",
     "id": "01eec4da-a1b1-432c-a204-7ae37fdedf28",
-    "romaname": "liúxīmín"
+    "romaname": "liuximin"
   },
   {
     "businessPhones": [
@@ -8391,7 +8439,7 @@
     "surname": "趙",
     "userPrincipalName": "Shady.Chao@etatung.com",
     "id": "f02a6525-04a3-47e8-8dbb-ffa6674cf52f",
-    "romaname": "zhàoqǐshuò"
+    "romaname": "zhaoqishuo"
   },
   {
     "businessPhones": [
@@ -8407,7 +8455,7 @@
     "surname": "邱",
     "userPrincipalName": "Shafer.Chiou@etatung.com",
     "id": "9e77c632-adff-45f8-864c-07f353c44df6",
-    "romaname": "qiūmíngxióng"
+    "romaname": "qiumingxiong"
   },
   {
     "businessPhones": [
@@ -8423,7 +8471,7 @@
     "surname": "邱",
     "userPrincipalName": "Shafer.Chiou1@etatung.onmicrosoft.com",
     "id": "7cefec44-3b12-438e-a8d7-3e08ab90d6d3",
-    "romaname": "qiūmíngxióng"
+    "romaname": "qiumingxiong"
   },
   {
     "businessPhones": [
@@ -8439,7 +8487,7 @@
     "surname": "李",
     "userPrincipalName": "Sharon.Lee@etatung.com",
     "id": "7b6b1fd7-27ca-4055-9221-2930a2732e26",
-    "romaname": "lǐshūhǎo"
+    "romaname": "lishuhao"
   },
   {
     "businessPhones": [
@@ -8455,7 +8503,7 @@
     "surname": "鄭",
     "userPrincipalName": "shawn.cheng@etatung.com",
     "id": "49552dd0-e1d4-42a4-b643-768a9ad28c26",
-    "romaname": "zhèngxǐyáng"
+    "romaname": "zhengxiyang"
   },
   {
     "businessPhones": [
@@ -8471,7 +8519,7 @@
     "surname": "鍾",
     "userPrincipalName": "Sheila.Chung@etatung.com",
     "id": "2e8c9b44-e20f-4632-91e1-8cff078ea5b7",
-    "romaname": "zhōngyòudīng"
+    "romaname": "zhongyouding"
   },
   {
     "businessPhones": [
@@ -8487,7 +8535,7 @@
     "surname": "簡",
     "userPrincipalName": "Shellen.Chien@etatung.com",
     "id": "38023e02-82ce-44f0-a880-0fee28065b5f",
-    "romaname": "jiǎnxìngrú"
+    "romaname": "jianxingru"
   },
   {
     "businessPhones": [
@@ -8503,7 +8551,7 @@
     "surname": "張",
     "userPrincipalName": "Shengchin.Chang@etatung.com",
     "id": "2c51e8d4-667f-412a-9443-c517f8577d85",
-    "romaname": "zhāngshèngqīn"
+    "romaname": "zhangshengqin"
   },
   {
     "businessPhones": [
@@ -8519,7 +8567,7 @@
     "surname": "古",
     "userPrincipalName": "Shengwei.Ku@etatung.com",
     "id": "c9228858-e05b-43eb-a7f6-9887461cf1a1",
-    "romaname": "gǔshèngwéi"
+    "romaname": "gushengwei"
   },
   {
     "businessPhones": [
@@ -8535,7 +8583,7 @@
     "surname": "黃",
     "userPrincipalName": "Sherry.Huang@etatung.com",
     "id": "de79779d-a28e-48a9-a008-c20eb418272b",
-    "romaname": "huángxuānyǎ"
+    "romaname": "huangxuanya"
   },
   {
     "businessPhones": [
@@ -8551,7 +8599,7 @@
     "surname": "蔡",
     "userPrincipalName": "Sherry.Tsai@etatung.com",
     "id": "2804d4b1-b2db-407d-8808-5ffca367cd8a",
-    "romaname": "càilíngyù"
+    "romaname": "cailingyu"
   },
   {
     "businessPhones": [
@@ -8567,7 +8615,7 @@
     "surname": "黃",
     "userPrincipalName": "Shiang.Huang@etatung.com",
     "id": "4d038b21-f1d6-4074-be2d-e6cdaa580780",
-    "romaname": "huángyànxiáng"
+    "romaname": "huangyanxiang"
   },
   {
     "businessPhones": [
@@ -8583,7 +8631,7 @@
     "surname": "廖",
     "userPrincipalName": "Shirley.Liao@etatung.com",
     "id": "4d7a5174-579a-4efd-bebd-27aee47c85ea",
-    "romaname": "liàoxiùyíng"
+    "romaname": "liaoxiuying"
   },
   {
     "businessPhones": [
@@ -8599,7 +8647,7 @@
     "surname": "曾",
     "userPrincipalName": "Shiuan.Tseng@etatung.com",
     "id": "9a774a9e-28fe-4b09-8b5a-8d0259abef5f",
-    "romaname": "zēngzǐxuān"
+    "romaname": "zengzixuan"
   },
   {
     "businessPhones": [
@@ -8631,7 +8679,7 @@
     "surname": "陳",
     "userPrincipalName": "Simon.Chen@etatung.com",
     "id": "0a06ac49-4400-43f7-8ed0-6fa1e557f04d",
-    "romaname": "chénzhúshèng"
+    "romaname": "chenzhusheng"
   },
   {
     "businessPhones": [
@@ -8647,7 +8695,7 @@
     "surname": "陳",
     "userPrincipalName": "Simon.Chen1@etatung.com",
     "id": "8f199d21-6903-42dd-ba0a-9304fbdffdd8",
-    "romaname": "chénchāngshèng"
+    "romaname": "chenchangsheng"
   },
   {
     "businessPhones": [],
@@ -8661,7 +8709,7 @@
     "surname": "洪",
     "userPrincipalName": "Simon.Hong@etatung.com",
     "id": "0010c7d4-baca-4a83-87de-8ac1246342e7",
-    "romaname": "hóngcóngqīn"
+    "romaname": "hongcongqin"
   },
   {
     "businessPhones": [
@@ -8677,7 +8725,7 @@
     "surname": "連",
     "userPrincipalName": "Simon.Lian@etatung.onmicrosoft.com",
     "id": "1fe43076-3918-49ee-a3f6-f27079b5b950",
-    "romaname": "liánzhāonéng"
+    "romaname": "lianzhaoneng"
   },
   {
     "businessPhones": [
@@ -8693,7 +8741,7 @@
     "surname": "莊",
     "userPrincipalName": "Siyen.Zhuang@etatung.com",
     "id": "5d57e910-95a3-431f-a210-dda16c262f3b",
-    "romaname": "zhuāngsīyàn"
+    "romaname": "zhuangsiyan"
   },
   {
     "businessPhones": [
@@ -8709,7 +8757,7 @@
     "surname": "鄭",
     "userPrincipalName": "Sky.Cheng@etatung.com",
     "id": "baf42255-3d7a-44e7-a402-38d607b3b421",
-    "romaname": "zhèngyízhāng"
+    "romaname": "zhengyizhang"
   },
   {
     "businessPhones": [
@@ -8725,7 +8773,7 @@
     "surname": "叶",
     "userPrincipalName": "Sliver.Ye@tsticn.com",
     "id": "bd6e369d-a802-489f-b40c-7cea307c8bb1",
-    "romaname": "yèzhìshān"
+    "romaname": "yezhishan"
   },
   {
     "businessPhones": [],
@@ -8755,7 +8803,7 @@
     "surname": "張",
     "userPrincipalName": "Sofina.Chang@etatung.com",
     "id": "d574d923-77cf-4c7e-972b-572a127a2581",
-    "romaname": "zhāngshūjuān"
+    "romaname": "zhangshujuan"
   },
   {
     "businessPhones": [
@@ -8771,7 +8819,7 @@
     "surname": "任",
     "userPrincipalName": "Solomon.Ren@tsticn.com",
     "id": "2cf68393-50f9-4ed8-869f-bac6e67aac8e",
-    "romaname": "rènwěi"
+    "romaname": "renwei"
   },
   {
     "businessPhones": [
@@ -8787,7 +8835,7 @@
     "surname": "吳",
     "userPrincipalName": "Sonia.Wu@etatung.com",
     "id": "5c98e104-01ae-4dde-973d-c8ed2570fd10",
-    "romaname": "wúshūnǚ"
+    "romaname": "wushunv"
   },
   {
     "businessPhones": [],
@@ -8807,15 +8855,15 @@
     "businessPhones": [],
     "displayName": "张洪星 Star Zhang",
     "givenName": "洪星",
-    "jobTitle": "顾问",
+    "jobTitle": null,
     "mail": "Star.Zhang@etatung.com.tw",
     "mobilePhone": "18662670740",
-    "officeLocation": null,
+    "officeLocation": "中國-上海",
     "preferredLanguage": null,
     "surname": "张",
     "userPrincipalName": "Star.Zhang@tsticn.com",
     "id": "dfe309b5-b4f8-4474-9407-6d775ac80d5e",
-    "romaname": "zhānghóngxīng"
+    "romaname": "zhanghongxing"
   },
   {
     "businessPhones": [],
@@ -8843,7 +8891,7 @@
     "surname": "詹",
     "userPrincipalName": "Stephen.Chan@etatung.com",
     "id": "d7c1375f-3e9f-4dba-a4ae-d7a047fd58f6",
-    "romaname": "zhānyìquán"
+    "romaname": "zhanyiquan"
   },
   {
     "businessPhones": [
@@ -8859,7 +8907,7 @@
     "surname": "羅",
     "userPrincipalName": "Stephen.luo@etatung.com",
     "id": "c5a1f0df-72a8-42a9-9fec-491384fcaec5",
-    "romaname": "luóyùhuán"
+    "romaname": "luoyuhuan"
   },
   {
     "businessPhones": [
@@ -8875,7 +8923,7 @@
     "surname": "陳",
     "userPrincipalName": "steven.chen@etatung.com",
     "id": "22f4c528-0efd-4b5d-a78e-0991b64906ff",
-    "romaname": "chénjiànyuán"
+    "romaname": "chenjianyuan"
   },
   {
     "businessPhones": [
@@ -8891,7 +8939,7 @@
     "surname": "傅",
     "userPrincipalName": "Steven.Fu@etatung.com",
     "id": "4e5c379c-0819-4d6f-b217-26a314ebfef3",
-    "romaname": "fùyàoshēng"
+    "romaname": "fuyaosheng"
   },
   {
     "businessPhones": [
@@ -8907,7 +8955,7 @@
     "surname": "李",
     "userPrincipalName": "Steven.Li@tsticn.com",
     "id": "cc87904d-6f1a-4219-98b8-4d58f7029778",
-    "romaname": "lǐtiě"
+    "romaname": "litie"
   },
   {
     "businessPhones": [
@@ -8923,7 +8971,7 @@
     "surname": "王",
     "userPrincipalName": "Steven.Wang@tsticn.com",
     "id": "f2c98d57-e0b7-4b85-8848-765baa74c468",
-    "romaname": "wángyuánwěi"
+    "romaname": "wangyuanwei"
   },
   {
     "businessPhones": [
@@ -8939,7 +8987,7 @@
     "surname": "巫",
     "userPrincipalName": "Steven.Wu@etatung.com",
     "id": "dd204c92-32e2-400c-be68-11e400d5ee90",
-    "romaname": "wūmínghào"
+    "romaname": "wuminghao"
   },
   {
     "businessPhones": [],
@@ -8953,7 +9001,7 @@
     "surname": "資材指送處理信箱",
     "userPrincipalName": "stockto@etatung.com.tw",
     "id": "fad5f88c-318f-415c-8449-736c05da6e4d",
-    "romaname": "zīcáizhǐsòngchǔlǐxìnxiāngnull"
+    "romaname": "zicaizhisongchulixinxiangnull"
   },
   {
     "businessPhones": [],
@@ -8967,7 +9015,7 @@
     "surname": "資材備貨通知信箱",
     "userPrincipalName": "stockup@etatung.com",
     "id": "328f58a7-899a-4d84-aa6a-cd0663149111",
-    "romaname": "zīcáibèihuòtōngzhīxìnxiāngnull"
+    "romaname": "zicaibeihuotongzhixinxiangnull"
   },
   {
     "businessPhones": [
@@ -8983,7 +9031,7 @@
     "surname": "王",
     "userPrincipalName": "Stone.Wang@etatung.com",
     "id": "94946715-1a19-42e9-8af6-d7e7e7a9c0d0",
-    "romaname": "wángzhōng"
+    "romaname": "wangzhong"
   },
   {
     "businessPhones": [
@@ -8999,7 +9047,7 @@
     "surname": "盧",
     "userPrincipalName": "Sunny.Lu@etatung.onmicrosoft.com",
     "id": "058747f6-136f-4824-b571-8cebf8f6a048",
-    "romaname": "lúqǐrú"
+    "romaname": "luqiru"
   },
   {
     "businessPhones": [
@@ -9015,7 +9063,7 @@
     "surname": "于",
     "userPrincipalName": "Sunny.Yu@etatung.com",
     "id": "75e69c42-30a3-42d2-8c9b-e363c773dea8",
-    "romaname": "yúzhōngtíng"
+    "romaname": "yuzhongting"
   },
   {
     "businessPhones": [
@@ -9031,7 +9079,7 @@
     "surname": "賴",
     "userPrincipalName": "Susan.Lai@etatung.com",
     "id": "111ca1fa-4cd9-4543-9322-62f111afe15b",
-    "romaname": "làishūhuì"
+    "romaname": "laishuhui"
   },
   {
     "businessPhones": [
@@ -9047,7 +9095,7 @@
     "surname": "黃",
     "userPrincipalName": "Sylvia.Huang@etatung.com",
     "id": "7a8c504d-b74f-4317-a926-82ae657b1268",
-    "romaname": "huángyúchén"
+    "romaname": "huangyuchen"
   },
   {
     "businessPhones": [],
@@ -9091,7 +9139,7 @@
     "surname": "劉",
     "userPrincipalName": "Taine.Liu@etatung.com",
     "id": "d3861c29-4190-465c-a0bb-234493fd74d5",
-    "romaname": "liúzhéyuán"
+    "romaname": "liuzheyuan"
   },
   {
     "businessPhones": [
@@ -9107,7 +9155,7 @@
     "surname": "張",
     "userPrincipalName": "Taner.Chang@etatung.com",
     "id": "31132ab3-9b43-4562-bc81-1bfa64ae90b5",
-    "romaname": "zhāngjiāxūn"
+    "romaname": "zhangjiaxun"
   },
   {
     "businessPhones": [
@@ -9123,7 +9171,7 @@
     "surname": "楊",
     "userPrincipalName": "Tank.Yung@etatung.com",
     "id": "afe503a6-12c6-4362-a609-36ac06770e3e",
-    "romaname": "yángténgxūn"
+    "romaname": "yangtengxun"
   },
   {
     "businessPhones": [
@@ -9139,7 +9187,7 @@
     "surname": "陳",
     "userPrincipalName": "TC.Chen@etatung.onmicrosoft.com",
     "id": "be506572-6f80-49b0-adeb-a914c9e8d58c",
-    "romaname": "chéndéqīn"
+    "romaname": "chendeqin"
   },
   {
     "businessPhones": [
@@ -9155,7 +9203,7 @@
     "surname": "楊",
     "userPrincipalName": "TC.Yang@etatung.com",
     "id": "bc06a579-0afa-41b1-bbb6-48d0803bfdaa",
-    "romaname": "yángtiānzhù"
+    "romaname": "yangtianzhu"
   },
   {
     "businessPhones": [],
@@ -9169,7 +9217,7 @@
     "surname": "台中客服",
     "userPrincipalName": "tconsite@etatung.com.tw",
     "id": "890d4870-0761-4215-b042-5b228ca11d7f",
-    "romaname": "táizhōngkèfúnull"
+    "romaname": "taizhongkefunull"
   },
   {
     "businessPhones": [],
@@ -9183,7 +9231,7 @@
     "surname": "TCSI管理者",
     "userPrincipalName": "TCSI@etatung.com.tw",
     "id": "b34c101e-ebda-45b9-bd99-d46d678be69c",
-    "romaname": "TCSIguǎnlǐzhěnull"
+    "romaname": "TCSIguanlizhenull"
   },
   {
     "businessPhones": [
@@ -9199,7 +9247,7 @@
     "surname": "陳",
     "userPrincipalName": "Ted.Chen@etatung.com",
     "id": "08a58d22-76e0-4b98-9ca4-3a000528c1ae",
-    "romaname": "chénqíxiáng"
+    "romaname": "chenqixiang"
   },
   {
     "businessPhones": [
@@ -9215,7 +9263,7 @@
     "surname": "姜",
     "userPrincipalName": "Ted.Chiang@etatung.com",
     "id": "f9e3f4a2-0466-4916-b6df-a8788c461144",
-    "romaname": "jiāngyìdé"
+    "romaname": "jiangyide"
   },
   {
     "businessPhones": [
@@ -9231,7 +9279,7 @@
     "surname": "光",
     "userPrincipalName": "ted.kwang@etatung.com",
     "id": "d12c422a-a748-4f91-8282-b0a308bb1f33",
-    "romaname": "guāngxiāngtiān"
+    "romaname": "guangxiangtian"
   },
   {
     "businessPhones": [],
@@ -9245,7 +9293,7 @@
     "surname": "李",
     "userPrincipalName": "Teddy.Lee@etatung.com",
     "id": "d3388337-e3d2-4917-9b1a-3991ce4806b1",
-    "romaname": "lǐxiánlín"
+    "romaname": "lixianlin"
   },
   {
     "businessPhones": [
@@ -9261,7 +9309,7 @@
     "surname": "張",
     "userPrincipalName": "Terry.Chang@etatung.com",
     "id": "f3081c36-0c33-4413-9ce6-c0ed214ace4e",
-    "romaname": "zhāngjǐngxiáng"
+    "romaname": "zhangjingxiang"
   },
   {
     "businessPhones": [
@@ -9277,7 +9325,7 @@
     "surname": "李",
     "userPrincipalName": "Terry.Li@etatung.com",
     "id": "66ee718b-99ce-4fb7-a38a-94f107ddeac6",
-    "romaname": "lǐzhāoyì"
+    "romaname": "lizhaoyi"
   },
   {
     "businessPhones": [
@@ -9293,7 +9341,7 @@
     "surname": "游",
     "userPrincipalName": "Terry.Yu@etatung.com",
     "id": "8296611c-ca5f-40a7-818e-cd94fc0ecae0",
-    "romaname": "yóujìnzōng"
+    "romaname": "youjinzong"
   },
   {
     "businessPhones": [],
@@ -9337,7 +9385,7 @@
     "surname": "許",
     "userPrincipalName": "Theresa.Hsu@etatung.com",
     "id": "750f45b4-39bf-44a1-8363-d84766e2eb15",
-    "romaname": "xūshūxián"
+    "romaname": "xushuxian"
   },
   {
     "businessPhones": [],
@@ -9395,7 +9443,7 @@
     "surname": "魏",
     "userPrincipalName": "Tim.Wei@etatung.com",
     "id": "89ec59c1-ba8a-473a-9901-21f489a91603",
-    "romaname": "wèilìqīn"
+    "romaname": "weiliqin"
   },
   {
     "businessPhones": [],
@@ -9409,7 +9457,7 @@
     "surname": "翁",
     "userPrincipalName": "Timothy.Wong@etatung.com",
     "id": "f5f34ad2-84c2-4a25-89e9-cc055dd2faaa",
-    "romaname": "wēngjiāēn"
+    "romaname": "wengjiaen"
   },
   {
     "businessPhones": [
@@ -9425,7 +9473,7 @@
     "surname": "廖",
     "userPrincipalName": "Tina.Liao@etatung.com",
     "id": "a0384d14-370d-4cf1-9a79-3bee6b3a1347",
-    "romaname": "liàoyùzhēn"
+    "romaname": "liaoyuzhen"
   },
   {
     "businessPhones": [
@@ -9441,7 +9489,7 @@
     "surname": "戴",
     "userPrincipalName": "Tina.Tai@etatung.com",
     "id": "450d08f3-5402-4a54-86e6-022186c5f684",
-    "romaname": "dàiyún"
+    "romaname": "daiyun"
   },
   {
     "businessPhones": [
@@ -9457,7 +9505,7 @@
     "surname": "陳",
     "userPrincipalName": "Ting.Chen@etatung.com",
     "id": "52fd6148-9203-4b76-bf08-9dd5d4e4acba",
-    "romaname": "chényùtíng"
+    "romaname": "chenyuting"
   },
   {
     "businessPhones": [
@@ -9468,12 +9516,12 @@
     "jobTitle": "副理",
     "mail": "Ting.Wu@etatung.com",
     "mobilePhone": "0919265636",
-    "officeLocation": "高雄辦事處 分機:106",
+    "officeLocation": "高雄辦公室",
     "preferredLanguage": null,
     "surname": "伍",
     "userPrincipalName": "Ting.Wu@etatung.com",
     "id": "72abd657-bbb6-4658-a002-fdde80736cb5",
-    "romaname": "wǔtíngjǐn"
+    "romaname": "wutingjin"
   },
   {
     "businessPhones": [
@@ -9489,7 +9537,7 @@
     "surname": "黃",
     "userPrincipalName": "Tingyu.Huang@etatung.com",
     "id": "f509bf78-9e16-4148-ac3c-6b5f171a058b",
-    "romaname": "huángtíngyǔ"
+    "romaname": "huangtingyu"
   },
   {
     "businessPhones": [
@@ -9505,7 +9553,7 @@
     "surname": "王",
     "userPrincipalName": "Tinna.Wang@tsticn.com",
     "id": "9a247ac8-3718-4e3a-9c0a-478b49bc49ea",
-    "romaname": "wángtíng"
+    "romaname": "wangting"
   },
   {
     "businessPhones": [
@@ -9521,7 +9569,7 @@
     "surname": "蔡",
     "userPrincipalName": "Titan.Tsai@etatung.com",
     "id": "3eb78502-55a6-4ac1-a104-b56d5f650dfc",
-    "romaname": "càimíngxián"
+    "romaname": "caimingxian"
   },
   {
     "businessPhones": [
@@ -9537,7 +9585,7 @@
     "surname": "蔡",
     "userPrincipalName": "Tj.Tsai@etatung.com",
     "id": "0bf4f24b-164f-4c57-85f7-55d5a3337af9",
-    "romaname": "càizōngzhé"
+    "romaname": "caizongzhe"
   },
   {
     "businessPhones": [],
@@ -9551,7 +9599,7 @@
     "surname": "台南客服",
     "userPrincipalName": "tnonsite@etatung.com.tw",
     "id": "a3afaf1a-7218-4bce-96a2-1e336b0e197a",
-    "romaname": "táinánkèfúnull"
+    "romaname": "tainankefunull"
   },
   {
     "businessPhones": [
@@ -9567,7 +9615,7 @@
     "surname": "湯",
     "userPrincipalName": "Tobe.Tang@etatung.com",
     "id": "3b1197bb-b367-4f58-8184-644ea7f2459b",
-    "romaname": "tāngjūnwǎi"
+    "romaname": "tangjunwai"
   },
   {
     "businessPhones": [
@@ -9583,7 +9631,7 @@
     "surname": "田",
     "userPrincipalName": "Tobey.Tian@tsticn.com",
     "id": "31b982bb-c2a9-4631-8e1f-dcd1d269e31f",
-    "romaname": "tiányù"
+    "romaname": "tianyu"
   },
   {
     "businessPhones": [
@@ -9599,7 +9647,7 @@
     "surname": "江",
     "userPrincipalName": "Toby.Chiang@etatung.com",
     "id": "57b9b78e-0842-4b88-8420-b2f4bf8274d2",
-    "romaname": "jiāngmíngchāng"
+    "romaname": "jiangmingchang"
   },
   {
     "businessPhones": [],
@@ -9613,7 +9661,7 @@
     "surname": "蔡",
     "userPrincipalName": "Tom.Tsai@etatung.com",
     "id": "c8e5a6e1-37d5-4ad6-a31f-9f28b4a59b85",
-    "romaname": "càiyùyè"
+    "romaname": "caiyuye"
   },
   {
     "businessPhones": [],
@@ -9622,12 +9670,12 @@
     "jobTitle": null,
     "mail": "Tommy.Cai@etatung.com.tw",
     "mobilePhone": "15921299411",
-    "officeLocation": null,
+    "officeLocation": "中國-上海",
     "preferredLanguage": null,
     "surname": "蔡",
     "userPrincipalName": "Tommy.Cai@tsticn.com",
     "id": "590e1e03-1535-412f-97b5-ee87653f64a1",
-    "romaname": "càizhēngróng"
+    "romaname": "caizhengrong"
   },
   {
     "businessPhones": [
@@ -9643,7 +9691,7 @@
     "surname": "彭",
     "userPrincipalName": "Tommy.Peng@etatung.com",
     "id": "f9b87fc7-0581-4afe-a743-b3ddb8d0fc5f",
-    "romaname": "péngjūnpíng"
+    "romaname": "pengjunping"
   },
   {
     "businessPhones": [
@@ -9659,7 +9707,7 @@
     "surname": "葉",
     "userPrincipalName": "Tommy.Yeh@etatung.com",
     "id": "05527875-6fe9-44da-99e9-8b9dd54f7f63",
-    "romaname": "yèguānwěi"
+    "romaname": "yeguanwei"
   },
   {
     "businessPhones": [
@@ -9675,7 +9723,7 @@
     "surname": "張",
     "userPrincipalName": "Tony.Chang@etatung.com",
     "id": "3304fbd5-4d12-46e8-a3f4-415ab63dab34",
-    "romaname": "zhānghóngyù"
+    "romaname": "zhanghongyu"
   },
   {
     "businessPhones": [
@@ -9691,7 +9739,7 @@
     "surname": "朱",
     "userPrincipalName": "Tony.Chu@etatung.onmicrosoft.com",
     "id": "5f856737-4e02-4641-8c3e-c5d6acaf9d3e",
-    "romaname": "zhūshèngyù"
+    "romaname": "zhushengyu"
   },
   {
     "businessPhones": [
@@ -9707,7 +9755,7 @@
     "surname": "羅",
     "userPrincipalName": "Tony.Lo@etatung.com",
     "id": "450e6fbb-e883-457e-bd70-0309bdafd304",
-    "romaname": "luózǐháo"
+    "romaname": "luozihao"
   },
   {
     "businessPhones": [
@@ -9723,7 +9771,7 @@
     "surname": "溫",
     "userPrincipalName": "Tony.Wen@etatung.com",
     "id": "60d5b983-865e-4431-90b1-7f16c3f42bd3",
-    "romaname": "wēnfùtiān"
+    "romaname": "wenfutian"
   },
   {
     "businessPhones": [
@@ -9739,7 +9787,7 @@
     "surname": "余",
     "userPrincipalName": "Tony.yu@etatung.onmicrosoft.com",
     "id": "17792a18-247c-4ec3-94af-6d23a0a628fa",
-    "romaname": "yúchénháo"
+    "romaname": "yuchenhao"
   },
   {
     "businessPhones": [
@@ -9755,7 +9803,7 @@
     "surname": "鄭",
     "userPrincipalName": "Tracy.Cheng@etatung.com",
     "id": "2688cc68-19d1-4fa7-af1e-44e119fb0380",
-    "romaname": "zhèngzhīwěi"
+    "romaname": "zhengzhiwei"
   },
   {
     "businessPhones": [],
@@ -10051,7 +10099,7 @@
     "surname": "楊",
     "userPrincipalName": "Tunchin.Yang@etatung.com",
     "id": "4ad0b05b-2df0-4175-8803-65cbf4f4b5e0",
-    "romaname": "yángdūnqīn"
+    "romaname": "yangdunqin"
   },
   {
     "businessPhones": [],
@@ -10093,7 +10141,7 @@
     "surname": "大哥大信箱",
     "userPrincipalName": "twmonsite@etatung.com.tw",
     "id": "fd682330-250d-4219-aed7-e6edea986221",
-    "romaname": "dàgēdàxìnxiāngnull"
+    "romaname": "dagedaxinxiangnull"
   },
   {
     "businessPhones": [],
@@ -10107,7 +10155,7 @@
     "surname": "郭",
     "userPrincipalName": "Tzcheng.Kuo@etatung.com",
     "id": "a94677ae-35c0-4ed1-8334-6d3a5a836432",
-    "romaname": "guōzǐchéng"
+    "romaname": "guozicheng"
   },
   {
     "businessPhones": [
@@ -10123,7 +10171,7 @@
     "surname": "陳",
     "userPrincipalName": "Vanessa.Chen@etatung.com",
     "id": "998a9596-87be-4094-9a08-e7766e3dee6f",
-    "romaname": "chénfèngrú"
+    "romaname": "chenfengru"
   },
   {
     "businessPhones": [
@@ -10139,7 +10187,7 @@
     "surname": "陳",
     "userPrincipalName": "Vic.Chen@etatung.onmicrosoft.com",
     "id": "b763a030-f62c-446f-b81c-428e7325e4d4",
-    "romaname": "chénjǔwǔ"
+    "romaname": "chenjuwu"
   },
   {
     "businessPhones": [
@@ -10155,7 +10203,7 @@
     "surname": "簡",
     "userPrincipalName": "vica.chien@etatung.com",
     "id": "eb5bbb44-294b-4e13-8017-8267044f3e81",
-    "romaname": "jiǎnxìngróu"
+    "romaname": "jianxingrou"
   },
   {
     "businessPhones": [
@@ -10171,7 +10219,7 @@
     "surname": "邱",
     "userPrincipalName": "Vicki.Chiu@etatung.com",
     "id": "2b0add3a-59a6-4235-ac8f-d635e6a5fe75",
-    "romaname": "qiūxiǎoqí"
+    "romaname": "qiuxiaoqi"
   },
   {
     "businessPhones": [
@@ -10187,7 +10235,7 @@
     "surname": "邱",
     "userPrincipalName": "Vicky.Chiu@etatung.onmicrosoft.com",
     "id": "9889f775-5bab-4cf7-bfb6-3a0d17b026c5",
-    "romaname": "qiūxiùyuè"
+    "romaname": "qiuxiuyue"
   },
   {
     "businessPhones": [
@@ -10203,7 +10251,7 @@
     "surname": "洪",
     "userPrincipalName": "vicky.hung@etatung.com",
     "id": "5d1b6abc-d95a-4e08-903c-734b43098558",
-    "romaname": "hóngshūjuān"
+    "romaname": "hongshujuan"
   },
   {
     "businessPhones": [
@@ -10219,7 +10267,7 @@
     "surname": "曾",
     "userPrincipalName": "vicky.tseng@etatung.com",
     "id": "bdd71288-29a5-4a7f-b4a2-90d524dbac85",
-    "romaname": "zēnghuìcí"
+    "romaname": "zenghuici"
   },
   {
     "businessPhones": [
@@ -10235,7 +10283,7 @@
     "surname": "黃",
     "userPrincipalName": "Victor.Huang@etatung.com",
     "id": "95cb78a1-8cae-4908-b9c3-5332730ec690",
-    "romaname": "huángguóqīn"
+    "romaname": "huangguoqin"
   },
   {
     "businessPhones": [
@@ -10251,7 +10299,7 @@
     "surname": "郑",
     "userPrincipalName": "Victory.Zheng@tsticn.com",
     "id": "bf8eceab-882b-4996-9b7f-d5597fadc9f6",
-    "romaname": "zhèngyǒng"
+    "romaname": "zhengyong"
   },
   {
     "businessPhones": [
@@ -10267,7 +10315,7 @@
     "surname": "李",
     "userPrincipalName": "Villy.Li@etatung.com",
     "id": "170e3d67-4f2f-467c-b6e8-bef40b5f8cd7",
-    "romaname": "lǐyīchún"
+    "romaname": "liyichun"
   },
   {
     "businessPhones": [
@@ -10283,7 +10331,7 @@
     "surname": "李",
     "userPrincipalName": "Vincent.Lee@etatung.com",
     "id": "7c4fcf85-913d-4811-b870-433df8bc7851",
-    "romaname": "lǐbówén"
+    "romaname": "libowen"
   },
   {
     "businessPhones": [
@@ -10299,7 +10347,7 @@
     "surname": "林",
     "userPrincipalName": "Vincent.Lin@etatung.com",
     "id": "abbb0228-e910-4454-a1d6-c897016b7473",
-    "romaname": "línyìhóng"
+    "romaname": "linyihong"
   },
   {
     "businessPhones": [
@@ -10315,7 +10363,7 @@
     "surname": "林",
     "userPrincipalName": "Vincent1.Lin@etatung.com",
     "id": "cd8682e8-a45f-4a5a-95cd-7ad5f5267d53",
-    "romaname": "línzǐxiū"
+    "romaname": "linzixiu"
   },
   {
     "businessPhones": [],
@@ -10345,7 +10393,7 @@
     "surname": "陳",
     "userPrincipalName": "vivian.chen@etatung.com",
     "id": "fb99f848-0ea5-4bff-8d0c-5e0ac0f87ff8",
-    "romaname": "chényìngyī"
+    "romaname": "chenyingyi"
   },
   {
     "businessPhones": [
@@ -10361,7 +10409,7 @@
     "surname": "林",
     "userPrincipalName": "Vivien.Lin@etatung.com",
     "id": "fe37227e-873c-4787-b484-a17e9c555570",
-    "romaname": "línjìnghuì"
+    "romaname": "linjinghui"
   },
   {
     "businessPhones": [
@@ -10377,7 +10425,7 @@
     "surname": "賴",
     "userPrincipalName": "Viz.Lai@etatung.com",
     "id": "1fd11d19-6bb6-43c5-a951-b07ed42d6df5",
-    "romaname": "làiyìjiā"
+    "romaname": "laiyijia"
   },
   {
     "businessPhones": [],
@@ -10407,7 +10455,7 @@
     "surname": "鄭",
     "userPrincipalName": "wayne.cheng@etatung.com",
     "id": "952f3081-a50c-4e0f-81aa-c8d15b50f9fd",
-    "romaname": "zhèngyòuchéng"
+    "romaname": "zhengyoucheng"
   },
   {
     "businessPhones": [],
@@ -10435,7 +10483,7 @@
     "surname": "郝",
     "userPrincipalName": "Wendy.Hao@tsticn.com",
     "id": "0119d41c-42da-4c5f-a07b-af658cc8d44a",
-    "romaname": "hǎoqiànwén"
+    "romaname": "haoqianwen"
   },
   {
     "businessPhones": [],
@@ -10449,7 +10497,7 @@
     "surname": "黃",
     "userPrincipalName": "Wendy.Huang@etatung.com",
     "id": "bebbf576-2761-4acc-aca8-4135f0f80ef8",
-    "romaname": "huángchǔyún"
+    "romaname": "huangchuyun"
   },
   {
     "businessPhones": [
@@ -10465,7 +10513,7 @@
     "surname": "林",
     "userPrincipalName": "Wendy.Lin@etatung.com",
     "id": "ee13dcc6-8561-476c-98bc-d68159308768",
-    "romaname": "línzhǐwén"
+    "romaname": "linzhiwen"
   },
   {
     "businessPhones": [
@@ -10481,7 +10529,7 @@
     "surname": "詹",
     "userPrincipalName": "Wenjui.Chan@etatung.com",
     "id": "e069f8c5-cea1-4d71-8887-46deafe26e30",
-    "romaname": "zhānwénruì"
+    "romaname": "zhanwenrui"
   },
   {
     "businessPhones": [
@@ -10497,7 +10545,7 @@
     "surname": "蔡",
     "userPrincipalName": "Wenlin.Tsai@etatung.com",
     "id": "aa1d057b-9d13-4b8f-97d5-19bef9797702",
-    "romaname": "càiwènlín"
+    "romaname": "caiwenlin"
   },
   {
     "businessPhones": [
@@ -10513,7 +10561,7 @@
     "surname": "潘",
     "userPrincipalName": "Wf.Pan@etatung.com",
     "id": "db56b550-9364-41ce-91e6-69bf432572f1",
-    "romaname": "pānwénfú"
+    "romaname": "panwenfu"
   },
   {
     "businessPhones": [
@@ -10529,7 +10577,7 @@
     "surname": "蕭",
     "userPrincipalName": "William.Shaw@etatung.com",
     "id": "897ebbad-0547-47ce-8e73-aff950d2f29c",
-    "romaname": "xiāowéiliáng"
+    "romaname": "xiaoweiliang"
   },
   {
     "businessPhones": [
@@ -10545,7 +10593,7 @@
     "surname": "彭",
     "userPrincipalName": "Willie.Peng@etatung.com",
     "id": "bbc40df3-57b7-4822-b3b9-ddfb1c48a21b",
-    "romaname": "péngzhìwěi"
+    "romaname": "pengzhiwei"
   },
   {
     "businessPhones": [],
@@ -10559,7 +10607,7 @@
     "surname": "王",
     "userPrincipalName": "Willie.Wang@etatung.com",
     "id": "8506cdc7-5b2d-4636-b3a4-d97509171e16",
-    "romaname": "wángxiáng"
+    "romaname": "wangxiang"
   },
   {
     "businessPhones": [
@@ -10575,7 +10623,7 @@
     "surname": "邱",
     "userPrincipalName": "Willis.Chiu@etatung.com",
     "id": "1f8f0351-d09d-418d-be34-bde332e86f00",
-    "romaname": "qiūzhìháng"
+    "romaname": "qiuzhihang"
   },
   {
     "businessPhones": [
@@ -10591,7 +10639,7 @@
     "surname": "楊",
     "userPrincipalName": "Wilson.Yang@etatung.com",
     "id": "89f7f4bf-b14f-45e6-a290-4482b1a7ad16",
-    "romaname": "yángzōnglín"
+    "romaname": "yangzonglin"
   },
   {
     "businessPhones": [
@@ -10607,7 +10655,7 @@
     "surname": "黃",
     "userPrincipalName": "winnie.huang@etatung.com",
     "id": "a9f46593-b351-4e65-9184-7e818bd9f4db",
-    "romaname": "huángwǎnrú"
+    "romaname": "huangwanru"
   },
   {
     "businessPhones": [
@@ -10623,7 +10671,7 @@
     "surname": "張",
     "userPrincipalName": "Winson.Chang@etatung.com",
     "id": "1c483640-f85a-4c3c-83ee-afc9d46a5116",
-    "romaname": "zhāngyùyì"
+    "romaname": "zhangyuyi"
   },
   {
     "businessPhones": [
@@ -10639,7 +10687,23 @@
     "surname": "洪",
     "userPrincipalName": "Winters.Hong@tsticn.com",
     "id": "a3907dac-d5a2-4cd9-886a-e5308a72c8a9",
-    "romaname": "hóngyǔcǎo"
+    "romaname": "hongyucao"
+  },
+  {
+    "businessPhones": [
+      "78303"
+    ],
+    "displayName": "王逸材 Wood Wang",
+    "givenName": "逸材",
+    "jobTitle": null,
+    "mail": "Wood.Wang@tsticn.com",
+    "mobilePhone": "13814862545",
+    "officeLocation": "中國-上海",
+    "preferredLanguage": null,
+    "surname": "王",
+    "userPrincipalName": "Wood.Wang@tsticn.com",
+    "id": "6f1a1e3d-8d27-4f95-9e5c-757fe1b10a6e",
+    "romaname": "wangyicai"
   },
   {
     "businessPhones": [],
@@ -10669,7 +10733,7 @@
     "surname": "劉",
     "userPrincipalName": "Wy.Liu@etatung.com",
     "id": "c8b72f36-aefe-4256-b97a-68f7cc324978",
-    "romaname": "liúwéiyǒng"
+    "romaname": "liuweiyong"
   },
   {
     "businessPhones": [],
@@ -10697,7 +10761,7 @@
     "surname": "吳",
     "userPrincipalName": "Yale.Wu@etatung.com",
     "id": "4fca5c36-6724-47f2-9b53-901be98c0faa",
-    "romaname": "wúyànrú"
+    "romaname": "wuyanru"
   },
   {
     "businessPhones": [
@@ -10713,7 +10777,7 @@
     "surname": "黄",
     "userPrincipalName": "Yana.Huang@tsticn.com",
     "id": "fff2025d-b5b2-47e7-8760-eddbdfd67827",
-    "romaname": "huángyànán"
+    "romaname": "huangyanan"
   },
   {
     "businessPhones": [
@@ -10729,7 +10793,7 @@
     "surname": "謝",
     "userPrincipalName": "Yc.Hsieh@etatung.com",
     "id": "7b7257a2-7711-4b1d-bfd7-ac2e09824103",
-    "romaname": "xièyùqīng"
+    "romaname": "xieyuqing"
   },
   {
     "businessPhones": [],
@@ -10743,7 +10807,7 @@
     "surname": "劉",
     "userPrincipalName": "Yenhung.Liou@etatung.com",
     "id": "1b97c42d-d275-47b5-8e82-67143f595963",
-    "romaname": "liúyànhóng"
+    "romaname": "liuyanhong"
   },
   {
     "businessPhones": [
@@ -10759,7 +10823,7 @@
     "surname": "蘇",
     "userPrincipalName": "Yenru.Su@etatung.com",
     "id": "65c830ca-7979-4616-a326-f1a62809bfcd",
-    "romaname": "sūyànrú"
+    "romaname": "suyanru"
   },
   {
     "businessPhones": [
@@ -10775,7 +10839,7 @@
     "surname": "吳",
     "userPrincipalName": "Yf.Wu@etatung.com",
     "id": "c1a99db8-1e9c-4215-9d96-c69c6f8cf282",
-    "romaname": "wúyínfēng"
+    "romaname": "wuyinfeng"
   },
   {
     "businessPhones": [
@@ -10786,12 +10850,12 @@
     "jobTitle": null,
     "mail": "Yiting.Huang@etatung.com",
     "mobilePhone": "0910226586",
-    "officeLocation": "4734",
+    "officeLocation": "台北北設工3樓",
     "preferredLanguage": null,
     "surname": "黃",
     "userPrincipalName": "Yiting.Huang@etatung.com",
     "id": "ae675a7d-6594-407e-97d3-8c7fe38f79c1",
-    "romaname": "huángyìtíng"
+    "romaname": "huangyiting"
   },
   {
     "businessPhones": [],
@@ -10805,7 +10869,7 @@
     "surname": "林",
     "userPrincipalName": "Yiwei.Lin@etatung.com",
     "id": "1cd63eef-763b-47ba-b432-de9d9adc3a09",
-    "romaname": "línyìwěi"
+    "romaname": "linyiwei"
   },
   {
     "businessPhones": [
@@ -10821,7 +10885,7 @@
     "surname": "黃",
     "userPrincipalName": "Yiyo.Huang@etatung.onmicrosoft.com",
     "id": "50008630-d505-4dd1-aafb-a2c7fb2719fd",
-    "romaname": "huángyíyǒu"
+    "romaname": "huangyiyou"
   },
   {
     "businessPhones": [
@@ -10837,7 +10901,7 @@
     "surname": "林",
     "userPrincipalName": "YuFong.Lin@etatung.com",
     "id": "97d8c239-57fc-41a4-9477-f12a493c46ee",
-    "romaname": "línyùfēng"
+    "romaname": "linyufeng"
   },
   {
     "businessPhones": [
@@ -10853,7 +10917,7 @@
     "surname": "高",
     "userPrincipalName": "Yumi.Kao@etatung.com",
     "id": "aeb3af7e-2090-4b4c-a611-2bd951f21f16",
-    "romaname": "gāoxiùjuān"
+    "romaname": "gaoxiujuan"
   },
   {
     "businessPhones": [
@@ -10869,7 +10933,7 @@
     "surname": "廖",
     "userPrincipalName": "Yuna.Liao@etatung.com",
     "id": "414c73b0-6d8f-4d7e-a540-403fdf7d3500",
-    "romaname": "liàozīhán"
+    "romaname": "liaozihan"
   },
   {
     "businessPhones": [
@@ -10885,7 +10949,7 @@
     "surname": "張",
     "userPrincipalName": "yunhsin.chang@etatung.com",
     "id": "680abd5f-cd2b-4cd4-89a7-110daf2ff30e",
-    "romaname": "zhāngyùnxīn"
+    "romaname": "zhangyunxin"
   },
   {
     "businessPhones": [
@@ -10901,7 +10965,7 @@
     "surname": "黃",
     "userPrincipalName": "yvonne.huang@etatung.com",
     "id": "8b7cec97-f693-40d5-8691-540d7d14ff15",
-    "romaname": "huángyífāng"
+    "romaname": "huangyifang"
   },
   {
     "businessPhones": [
@@ -10917,7 +10981,7 @@
     "surname": "翁",
     "userPrincipalName": "Zedekian.Weng@etatung.com",
     "id": "ff1a261e-70a2-4efb-9b5f-447dd50244d2",
-    "romaname": "wēngtíngxuān"
+    "romaname": "wengtingxuan"
   },
   {
     "businessPhones": [
@@ -10933,7 +10997,7 @@
     "surname": "庞",
     "userPrincipalName": "ZhengWei.Pang@tsticn.com",
     "id": "fd402e1f-3fbb-4278-a69d-5b014cc46a8a",
-    "romaname": "pángzhèngwěi"
+    "romaname": "pangzhengwei"
   },
   {
     "businessPhones": [],
@@ -10947,6 +11011,6 @@
     "surname": "汪",
     "userPrincipalName": "ZongXian.Wang@etatung.onmicrosoft.com",
     "id": "9914f53c-cc96-4c07-8796-586c649daf93",
-    "romaname": "wāngzōngxián"
+    "romaname": "wangzongxian"
   }
 ]

@@ -29,11 +29,17 @@ var listener = server.listen(process.env.port || process.env.PORT || 3870, funct
 process.on('uncaughtException', function (err) {
     logger.error('uncaughtException occurred: ' + (err.stack ? err.stack : err));
 });
-var analyzer = Jieba({//==
+var analyzer = Jieba({ //==
     debug: false
 });
-analyzer.dict(__dirname+'dict.txt', function (err) {//==
+analyzer.dict(__dirname + '/dict.txt', function (err) { //==
     if (err) console.log(err)
+    analyzer.pseg("嗨阿,你好呀,大同寶寶", {
+        mode: Jieba.mode.SEARCH,
+        HMM: true
+    }, function (err, result) {
+        console.log(JSON.stringify(result))
+    })
 });
 var getusers;
 var displayName;
@@ -255,7 +261,33 @@ app.get('/login', function (request, response) {
         res: response
     }));
 });
-
+app.post('/tatungSpeach', function (req, res) {
+    console.log('POST /tatungSpech');
+    var data = req.body.data;
+    console.log("tatungSpech data: "+data)
+    analyzer.pseg(data, {
+        mode: Jieba.mode.SEARCH,
+        HMM: true
+    }, function (err, result) {
+        console.log(JSON.stringify(result))
+        const hasTatung = false;
+        const hasNR = false;
+        for(var i in result){
+            if(result[i][0] == "大同寶寶") hasTatung = true;
+            if(result[i][1] == "nr") hasNR = true;
+        }
+        if(hasTatung == true  &&　hasNR == false){
+            res.send("請問有什麼事嗎")
+        }
+        else if(hasTatung == true  &&　hasNR == true){
+            res.send("搜尋")
+        }
+        else if(!hasTatung){
+            res.send("沒叫我");
+        }
+        //if(result)
+    })
+})
 app.post('/search', function (req, res) {
     console.log('POST /search');
     var searchdata = req.body.searchdata;
@@ -359,7 +391,7 @@ app.post('/search', function (req, res) {
                                     }
                                 }
                             }
-                        }else if (result[i][0] == "不" || result[i][0] == "不是" || result[i][0] == "不要" || result[i][0] == "取消" || result[i][0] == "不用" || result[i][0] == "不需要" || result[i][0] == "拜拜" || result[i][0] == "掰掰") {
+                        } else if (result[i][0] == "不" || result[i][0] == "不是" || result[i][0] == "不要" || result[i][0] == "取消" || result[i][0] == "不用" || result[i][0] == "不需要" || result[i][0] == "拜拜" || result[i][0] == "掰掰") {
                             res.send('cancel');
                             return;
                         }
@@ -411,7 +443,7 @@ app.post('/databoolean', function (req, res) {
         else {
             console.log(JSON.stringify(result));
             var datacount = 0;
-            for (var i = (result.length-1); i>=0; i--) {
+            for (var i = (result.length - 1); i >= 0; i--) {
                 if (result[i][1] == "nr") {
                     var myAnswer = {
                         index: "",
@@ -482,9 +514,9 @@ app.post('/databoolean', function (req, res) {
                             }
                         }
                     }
-                }else if(result[i][1] == "m"){
+                } else if (result[i][1] == "m") {
                     var this_num = result[i][0];
-                    switch(this_num){
+                    switch (this_num) {
                         case "第一":
                             res.send("1");
                             break;
@@ -589,7 +621,7 @@ app.post('/databoolean', function (req, res) {
               break;
             }
         }*/
-    }/*.bind({datacount:datacount})*/);
+    } /*.bind({datacount:datacount})*/ );
 })
 
 function checkVal(str) {
