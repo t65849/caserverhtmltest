@@ -123,6 +123,7 @@
         var nosound = 1;
         var tatungSpeach = false;
         var flag = false;
+        var insearch = false;
         $(document).ready(function () {
             var displayName = JSON.stringify(mydata.displayName);
             displayName = displayName.replace('"', '').replace('"', '');
@@ -145,7 +146,8 @@
             if (!('webkitSpeechRecognition' in window)) {
                 alert("這個瀏覽器不支援google語音");
             } else {
-                getvoice(false); //1
+                tatungSpeach = false;
+                getvoice(); //1
             }
             $('#voiceSearch').click(function () {
                 console.log('voicesearch');
@@ -153,6 +155,7 @@
                 if (!('webkitSpeechRecognition' in window)) {
                     alert("這個瀏覽器不支援google語音");
                 } else {
+                    tatungSpeach = true;
                     getvoice(); //1
                 }
             });
@@ -163,21 +166,22 @@
             }
         });
         
-        function getvoice(tatungSpeach) { //1
+        function getvoice() { //1
             
             myvoice = true;
-            if (flag) tatungSpeach = true;//呼叫大同時修改狀態避免直接大同寶搜尋衝突
-            else tatungSpeach = false;
+            /*if (flag) tatungSpeach = true;//呼叫大同時修改狀態避免直接大同寶搜尋衝突
+            else tatungSpeach = false;*/
 
             var myTranscript = '';
             var recognition = new webkitSpeechRecognition();
-            recognition.continuous = true;
+            recognition.continuous = false;
             //如果設定為 true，表示除非我們停止辨識，不然就會一直持續的辨識語音轉換為文字，如果設定為 false，在辨識一段話完成之後就會結束辨識
             recognition.interimResults = false;
             //如果設定為 true，表示在我們講話的當下就會即時辨識，不然就會在一段話結束之後，才會開始辨識。
             recognition.lang = "cmn-Hant-TW";
             recognition.onstart = function () {
-                console.log('開始辨識...');
+                console.log('開始辨識183...');
+                console.log('insearch: '+insearch);
                 $("#speechStatue").html("開始識別語音...");
             };
             recognition.onresult = function (event) {
@@ -188,12 +192,13 @@
                 data = {
                     data: event.results[i][j].transcript
                 };
-                if (!tatungSpeach) {
+                if (tatungSpeach == false) {
                     $.post('/tatungSpeach', data, function (res) {
                         if (res == "沒叫我") {
                             console.log("睡覺Ing");
                         } else if (res == "搜尋") {
                             console.log("進入搜尋")
+                            insearch = true;
                             tatungSpeach = true;
                             $("#searchdata").val(event.results[i][j].transcript);
                             myTranscript = event.results[i][j].transcript;
@@ -206,21 +211,38 @@
                             speechSynthesis.speak(msg);
                             setTimeout(function () {
                                 recognition.stop();
-                                getvoice(true);
-                            }, 2500)
+                                //getvoice();
+                                $('#voiceSearch').trigger('click');
+                            }, 1000)
                         }
                     })
                 } else {
-                    recognition.stop();
+                    //recognition.stop();
+                    console.log('test');
                     $("#searchdata").val(event.results[i][j].transcript);
                     myTranscript = event.results[i][j].transcript;
+                    setTimeout(function () {
+                        //recognition.stop();
+                        getvoice();
+                    }, 2000)
                 }
 
             };
             recognition.onend = function () {
-                console.log('停止辨識!');
+                console.log('insearch: '+insearch);
+                console.log('停止辨識!233');
+                if(insearch == true){
+                    recognition.stop();
+                } else{
+                    recognition.stop();
+                    setTimeout(function () {
+                        //recognition.stop();
+                        getvoice();
+                    }, 1000)
+                }
+               
                 //$("#speechStatue").html("停止識別語音...");
-                if (tatungSpeach) {
+                /*if (tatungSpeach) {
                     if (myTranscript == '') {
                         nosound++;
                         if (nosound > 5) {
@@ -250,7 +272,7 @@
 
                         nosound = 1;
                     }
-                }
+                }*/
             };
             //document.getElementById("getcontacts").click();
             recognition.start();
@@ -329,7 +351,7 @@
             //如果設定為 true，表示在我們講話的當下就會即時辨識，不然就會在一段話結束之後，才會開始辨識。
             recognition_forsecond.lang = "cmn-Hant-TW";
             recognition_forsecond.onstart = function () {
-                console.log('開始辨識...');
+                console.log('開始辨識...345');
                 $("#speechStatue").html("開始識別語音...");
             };
             recognition_forsecond.onresult = function (event) {
@@ -345,7 +367,7 @@
                 }, 3000);*/
             };
             recognition_forsecond.onend = function () {
-                console.log('停止辨識!');
+                console.log('停止辨識!361');
                 //$("#speechStatue").html("停止識別語音...");
                 if (myTranscript == '') {
                     nosound++;
@@ -358,11 +380,12 @@
                         var voices = [];
                         msg.text = "我暫離一下，再呼叫我立即回來";
                         speechSynthesis.speak(msg);
-                        getvoice(false);
+                        insearch = false;
+                        getvoice();
                         //---------------語音---------------
                     } else {
                         $("#speechStatue").html("沒有識別到語音...");
-                        setTimeout(getvoiceSecond, 1500);
+                        setTimeout(getvoiceSecond, 2000);
                     }
                 } else {
                     nosound = 1;
@@ -388,8 +411,7 @@
                         } else if (resdata === 'makecall') {
                             tellyouMakeCall();
                             var this_businessPhones = JSON.stringify(findata[0].businessPhones);
-                            this_businessPhones = this_businessPhones.replace('[', '').replace(']', '').replace(
-                                '"', '').replace('"', '');
+                            this_businessPhones = this_businessPhones.replace('[', '').replace(']', '').replace('"', '').replace('"', '');
                             camakecall(this_businessPhones);
                             $("#speechStatue").html("點擊\"語音查詢\"開始識別語音，如:請幫我找某某某");
                             document.getElementById("voiceSearch").disabled = false;
@@ -405,7 +427,9 @@
                             console.log('cancel');
                             $("#speechStatue").html("點擊\"語音查詢\"開始識別語音，如:請幫我找某某某");
                             document.getElementById("voiceSearch").disabled = false;
-                            getvoice(false);
+                            insearch = false;
+                            console.log('cancel');
+                            getvoice();
                         } else if (resdata == "1") {
                             tellyouMakeCall();
                             var this_businessPhones = JSON.stringify(findata[0].businessPhones);
@@ -551,7 +575,6 @@
                             document.getElementById("getcontacts").click();
                             return;
                         }
-                        
                     });
                 }
                 /*setTimeout(function () {
@@ -1073,6 +1096,8 @@
                                 $('#caholdcall' + number_id).hide();
                                 $('#caretrievecall' + number_id).hide();
                                 $('#caendcall' + number_id).hide();
+                                insearch = false;
+                                getvoice();
                                 //$('#showtext' + showtext).text("");
                                 break;
                             case "oncallhold": //保留中
@@ -1123,7 +1148,5 @@
             //---------------語音---------------
         }
     </script>
-
 </body>
-
 </html>

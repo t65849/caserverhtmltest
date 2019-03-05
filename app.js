@@ -277,13 +277,18 @@ app.post('/tatungSpeach', function (req, res) {
             if(result[i][1] == "nr") hasNR = true;
         }
         if(hasTatung == true  &&　hasNR == false){
-            res.send("請問有什麼事嗎")
+            console.log("請問有什麼事嗎");
+            res.send("請問有什麼事嗎");
+            return;
         }
         else if(hasTatung == true  &&　hasNR == true){
-            res.send("搜尋")
+            console.log("搜尋");
+            res.send("搜尋");
+            return;
         }
         else if(!hasTatung){
             res.send("沒叫我");
+            return;
         }
         //if(result)
     })
