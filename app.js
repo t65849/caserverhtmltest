@@ -171,14 +171,14 @@ app.get('/indexpage', function (request, response) {
                             getnextdata(skiptoken);
                         } else {
                             jsongetusers = JSON.parse(getusers);
-
+                            fs.writeFile('user.txt', '', function () {
+                            });
                             for (var i = 0; i < jsongetusers.length; i++) {
                                 var givenName = jsongetusers[i].givenName;
                                 var surname = jsongetusers[i].surname;
                                 //var jobTitle = jsongetusers[i].jobTitle;
                                 var name = surname + givenName; //+jobTitle
                                 jsongetusers[i].romaname = tranPinyin(name);
-
                                 /*
                                 var req = require('request');
                                 req({
@@ -274,7 +274,8 @@ app.post('/tatungSpeach', function (req, res) {
         var hasNR = false;
         for(var i in result){
             if(result[i][0] == "大同寶寶") hasTatung = true;
-            if(result[i][1] == "nr") hasNR = true;
+            if(result[i][1] == "nr" || result[i][1] == "ng" || result[i][1] == "nrfg" || result[i][1] == "nrt" || result[i][1] == "nt" || result[i][1] == "nz") hasNR = true;
+            if(result[i][1] == "eng") hasNR = true;
         }
         if(hasTatung == true  &&　hasNR == false){
             console.log("請問有什麼事嗎");
@@ -325,7 +326,7 @@ app.post('/search', function (req, res) {
                 else {
                     console.log(JSON.stringify(result))
                     for (var i in result) {
-                        if (result[i][1] == "nr") {
+                        if (result[i][1] == "nr" || result[i][1] == "ng" || result[i][1] == "nrfg" || result[i][1] == "nrt" || result[i][1] == "nt" || result[i][1] == "nz") {
                             var myAnswer = {
                                 index: "",
                                 answer: ""
@@ -448,8 +449,8 @@ app.post('/databoolean', function (req, res) {
         else {
             console.log(JSON.stringify(result));
             var datacount = 0;
-            for (var i = (result.length - 1); i >= 0; i--) {
-                if (result[i][1] == "nr") {
+            for (var i in result) {
+                if (result[i][1] == "nr" || result[i][1] == "ng" || result[i][1] == "nrfg" || result[i][1] == "nrt" || result[i][1] == "nt" || result[i][1] == "nz") {
                     var myAnswer = {
                         index: "",
                         answer: ""
@@ -528,6 +529,9 @@ app.post('/databoolean', function (req, res) {
                         case "一個":
                             res.send("1");
                             break;
+                        case "一筆":
+                            res.send("1");
+                            break;
                         case "第二":
                             res.send("2");
                             break;
@@ -570,11 +574,17 @@ app.post('/databoolean', function (req, res) {
                         case "15":
                             res.send("15");
                             break;
+                        case "16":
+                            res.send("16");
+                            break;
+                        case "17":
+                            res.send("17");
+                            break;
                     }
-                } else if (result[i][0] == "不" || result[i][0] == "不是" || result[i][0] == "不要" || result[i][0] == "取消" || result[i][0] == "不用" || result[i][0] == "不需要" || result[i][0] == "拜拜" || result[i][0] == "掰掰") {
+                } else if (result[i][0] == "不" || result[i][0] == "不是" || result[i][0] == "不要" || result[i][0] == "取消" || result[i][0] == "不用" || result[i][0] == "不需要" || result[i][0] == "拜拜" || result[i][0] == "掰掰" || result[i][0] == "不好") {
                     res.send('cancel');
                     return;
-                } else if (result[i][0] == "是" || result[i][0] == "撥" || result[i][0] == "打" || result[i][0] == "沒錯" || result[i][0] == "需要" || result[i][0] == "撥電話" || result[i][0] == "打電話") {
+                } else if (result[i][0] == "是" || result[i][0] == "撥" || result[i][0] == "打" || result[i][0] == "沒錯" || result[i][0] == "需要" || result[i][0] == "撥電話" || result[i][0] == "打電話" || result[i][0] == "好" || result[i][0] == "謝謝") {
                     res.send('makecall');
                     return;
                 }

@@ -196,6 +196,7 @@
                     $.post('/tatungSpeach', data, function (res) {
                         if (res == "沒叫我") {
                             console.log("睡覺Ing");
+                            //recognition.stop();
                         } else if (res == "搜尋") {
                             console.log("進入搜尋")
                             insearch = true;
@@ -209,22 +210,30 @@
                             var msg = new SpeechSynthesisUtterance();
                             msg.text = "請問有什麼事嗎";
                             speechSynthesis.speak(msg);
+                            insearch = true;
+                            tatungSpeach = true;
+                            recognition.stop();
                             setTimeout(function () {
-                                recognition.stop();
                                 //getvoice();
                                 $('#voiceSearch').trigger('click');
-                            }, 1000)
+                            }, 2000)
                         }
                     })
                 } else {
-                    //recognition.stop();
+                    recognition.stop();
                     console.log('test');
                     $("#searchdata").val(event.results[i][j].transcript);
                     myTranscript = event.results[i][j].transcript;
-                    setTimeout(function () {
+                    var searchdata = document.getElementById('searchdata');
+                    if(searchdata == ''){
+                        getvoice();
+                    } else {
+                        search();
+                    }
+                    /*setTimeout(function () {
                         //recognition.stop();
                         getvoice();
-                    }, 2000)
+                    }, 2000)*/
                 }
 
             };
@@ -413,6 +422,7 @@
                             var this_businessPhones = JSON.stringify(findata[0].businessPhones);
                             this_businessPhones = this_businessPhones.replace('[', '').replace(']', '').replace('"', '').replace('"', '');
                             camakecall(this_businessPhones);
+                            recognition_forsecond.stop();
                             $("#speechStatue").html("點擊\"語音查詢\"開始識別語音，如:請幫我找某某某");
                             document.getElementById("voiceSearch").disabled = false;
                         } else if (resdata == 'yes') {
@@ -425,10 +435,11 @@
                             setTimeout(getvoiceThird, 3000);
                         } else if (resdata == 'cancel') {
                             console.log('cancel');
+                            recognition_forsecond.stop();
                             $("#speechStatue").html("點擊\"語音查詢\"開始識別語音，如:請幫我找某某某");
                             document.getElementById("voiceSearch").disabled = false;
+                            tatungSpeach = false;
                             insearch = false;
-                            console.log('cancel');
                             getvoice();
                         } else if (resdata == "1") {
                             tellyouMakeCall();
@@ -677,6 +688,9 @@
             } else if (searchdata.indexOf('之一') != -1) {
                 searchdata = searchdata.replace('之一', '志伊');
                 $('#searchdata').val(searchdata);
+            } else if (searchdata.indexOf('年齡') != -1) {
+                searchdata = searchdata.replace('年齡', '連玲');
+                $('#searchdata').val(searchdata);
             }
             var data = {
                 searchdata: searchdata
@@ -864,17 +878,15 @@
                                 "stationid": stationid,
                                 "destinationid": destinationid,
                                 "name": name
-                            }),
-                            success: function (reg) {
-                                setTimeout(function () {
-                                    return checkStatus(destinationid)
-                                }, 500);
+                            }),success: function (reg) {
                                 if (reg.success === false) {
                                     //$('#showtext'+showtext).text("撥號失敗");
+                                    console.log('reg.success === false');
                                     setTimeout(function () {
                                         return checkStatus(destinationid)
                                     }, 1000);
                                 } else {
+                                    console.log('reg.success === true');
                                     //$('#showtext'+showtext).text("正在撥號請等候...");
                                     //延遲一秒function checkStatus()，因為直接跑會出現結束通話狀態，延遲一秒後才會出現撥號中
                                     setTimeout(function () {
@@ -883,8 +895,8 @@
                                     callid = reg.callid;
                                     return callid;
                                 }
-                            },
-                            complete: function (reg) { //超時
+                            }/*,complete: function (reg) { //超時
+                                console.log('complete');
                                 if (secondcount < 1) {
                                     secondcount++;
                                     //$('#showtext'+showtext).text("撥號連線失敗...");
@@ -892,8 +904,8 @@
                                         return checkStatus(destinationid)
                                     }, 200);
                                 }
-                            },
-                            error: function (reg) {
+                            }*/,error: function (reg) {
+                                console.log('error');
                                 console.log(JSON.stringify(reg));
                                 if (secondcount < 1) {
                                     secondcount++;
@@ -992,13 +1004,15 @@
                     "stationid": stationid,
                     "callid": callid,
                     "name": name
-                }),
-                success: function (reg) {
+                }),success: function (reg) {
                     if (reg.success === false) {
                         //$('#showtext'+showtext).text("掛斷失敗");
                         $('#endcall').show();
                     } else {
-                        checkStatus(businessPhones);
+                        console.log('endcall');
+                        /*setTimeout(function () {
+                            return checkStatus(businessPhones)
+                        }, 500);*/
                     }
                 }
             }); //end post ajax
@@ -1024,8 +1038,7 @@
                 success: function (reg) {
                     console.log("token資訊: " + JSON.stringify(reg));
                     callback(reg);
-                },
-                error: function (reg) {
+                },error: function (reg) {
                     //alert("伺服器錯誤..........")
                     alert(JSON.stringify(reg));
                     //return callout(destination);
@@ -1096,6 +1109,7 @@
                                 $('#caholdcall' + number_id).hide();
                                 $('#caretrievecall' + number_id).hide();
                                 $('#caendcall' + number_id).hide();
+                                tatungSpeach = false;
                                 insearch = false;
                                 getvoice();
                                 //$('#showtext' + showtext).text("");
@@ -1117,8 +1131,7 @@
                                 //do
                         }
                     }
-                },
-                error: function (reg) {
+                },error: function (reg) {
                     if (name == '' || stationid == '' || caserverurl == '') {
                         //$('#showtext').text("請檢查撥號話機和使用者帳號!");
                     } else {
