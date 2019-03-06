@@ -389,11 +389,14 @@
                         var voices = [];
                         msg.text = "我暫離一下，再呼叫我立即回來";
                         speechSynthesis.speak(msg);
+                        //---------------語音---------------
+                        recognition_forsecond.stop();
+                        tatungSpeach = false;
                         insearch = false;
                         getvoice();
-                        //---------------語音---------------
                     } else {
                         $("#speechStatue").html("沒有識別到語音...");
+                        recognition_forsecond.stop();
                         setTimeout(getvoiceSecond, 2000);
                     }
                 } else {
@@ -414,6 +417,9 @@
                             $('#appendforuser').empty(); //清空appendforuser裡面所有node
                             $('#divrow').width(330);
                             $('#searchdata').val(databoolean);
+                            recognition_forsecond.stop();
+                            tatungSpeach = false;
+                            insearch = false;
                             setTimeout(function () {
                                 $('#voiceSearch').trigger('click');
                             }, 3000)
@@ -704,6 +710,8 @@
                         msg.text = "很抱歉沒有搜尋到資料，請再說一次";
                         speechSynthesis.speak(msg);
                         //---------------語音---------------
+                        tatungSpeach = false;
+                        insearch = false;
                         setTimeout(function () {
                             $('#voiceSearch').trigger('click');
                         }, 3800);
@@ -744,8 +752,7 @@
                     for (var i = 0; i < datalength; i++) {
                         if (resdata[i].businessPhones.toString().indexOf('#') != -1) {
                             resdata[i].businessPhones = resdata[i].businessPhones.toString().split('#')[1];
-                            resdata[i].businessPhones = resdata[i].businessPhones.toString().replace(/[^0-9]/ig,
-                                "");
+                            resdata[i].businessPhones = resdata[i].businessPhones.toString().replace(/[^0-9]/ig,"");
                         }
                         $('#appendforuser').append(
                             '<td id="newdata">' +

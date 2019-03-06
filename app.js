@@ -273,7 +273,7 @@ app.post('/tatungSpeach', function (req, res) {
         var hasTatung = false;
         var hasNR = false;
         for(var i in result){
-            if(result[i][0] == "大同寶寶") hasTatung = true;
+            if(result[i][0] == "萬事達" || result[i][0] == "萬視達") hasTatung = true;
             if(result[i][1] == "nr" || result[i][1] == "ng" || result[i][1] == "nrfg" || result[i][1] == "nrt" || result[i][1] == "nt" || result[i][1] == "nz") hasNR = true;
             if(result[i][1] == "eng") hasNR = true;
         }
