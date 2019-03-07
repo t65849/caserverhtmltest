@@ -48,12 +48,18 @@ body {
 }
 #divrow{
   height:2000px; 
-  width: 330px; 
+  width: 850px; 
   overflow-y:hidden;
 }
 .fontmsjh{
   font-family: 'Microsoft JhengHei', monospace;
 }
+
+.img-valign {
+  vertical-align: middle;
+  margin-bottom: 0.75em;
+}
+
 .tableresize{
   width:700px;
   margin-top:5px;
@@ -63,8 +69,8 @@ body {
   height: 305px;
 }
 .employeespic{
-  width: 200px;
-  height: 200px;
+  width: 50px;
+  height: 50px;
 }
 .divheight{
   height: 337px;
@@ -89,6 +95,23 @@ body {
   color: #ffffff;
   font-size: 21px;
 }
+
+.newcaserverbtn{
+  width: 80px;
+  height: 40px;
+  background-color: #28a745;
+  color: #ffffff;
+  font-size: 16px;
+}
+
+.newcancelbtn{
+  width: 80px;
+  height: 40px;
+  background-color: #ff0000;
+  color: #ffffff;
+  font-size: 16px;
+}
+
 .searchbtn{
   font-size: 21px;
 }

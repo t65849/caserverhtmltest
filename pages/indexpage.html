@@ -82,7 +82,7 @@
                             <div id="divrow" class="row">
                                 <!--width:15720px;-->
                                 <!--background-color:blue;-->
-                                <table class="table table-bordered tableresize" style="margin-left:30px;">
+                                <table id="tableforuser" class="table tableresize" style="margin-left:30px;">
                                     <tr id="appendforuser">
                                     </tr>
                                 </table>
@@ -747,14 +747,14 @@
                     var datalength = resdata.length;
                     //resdata[0].businessPhones = 4952;
                     console.log(resdata);
-                    $('#divrow').width(905 * datalength);
-                    $('.tableresize').width(905 * datalength);
+                    /*$('#divrow').width(905 * datalength);
+                    $('.tableresize').width(905 * datalength);*/
                     for (var i = 0; i < datalength; i++) {
                         if (resdata[i].businessPhones.toString().indexOf('#') != -1) {
                             resdata[i].businessPhones = resdata[i].businessPhones.toString().split('#')[1];
                             resdata[i].businessPhones = resdata[i].businessPhones.toString().replace(/[^0-9]/ig,"");
                         }
-                        $('#appendforuser').append(
+                        /*$('#appendforuser').append(
                             '<td id="newdata">' +
                             '<table class="table table-bordered">' +
                             '<tr>' +
@@ -765,7 +765,7 @@
                             '<td>' +
                             '<table class="table table-bordered">' +
                             '<tr>' +
-                            '<td><h3>姓名:' + resdata[i].displayName + '<h3>' +
+                            '<td><h3>姓名:' + resdata[i].displayName + '</h3>' +
                             '</td>' +
                             '</tr>' +
                             '<tr>' +
@@ -788,7 +788,16 @@
                             '</tr>' +
                             '</table>' +
                             '</td>'
-                        );
+                        );*/
+                        if((i+1)<=5){
+                            $('#appendforuser').append(
+                                '<span><img src="/images/tatungba.jpg" class="rounded-circle employeespic" style="margin-right: 4px;"><h3 style="display: inline">'+(i+1)+'.'+resdata[i].displayName+'</h3>&nbsp;'+
+                                    '<button id="camakecall' + resdata[i].businessPhones+'" type="submit" class="btn newcaserverbtn" onclick="camakecall('+ resdata[i].businessPhones +')">分機</button><button id="caendcall' + resdata[i].businessPhones +
+                            '" type="submit" class="btn newcancelbtn caendcall" onclick="caendcall(' +
+                            resdata[i].businessPhones + ')" style="display:none">掛斷</button>&nbsp;<button class="btn newcaserverbtn">手機</button></span><br/>'
+                            );
+                        }
+                        
                         //$('#userdepart').text('單位:' + resdata.department);
                     }
                     var surname = resdata[0].displayName
