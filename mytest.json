@@ -2588,13 +2588,15 @@
     "romaname": "liangweijun"
   },
   {
-    "businessPhones": [],
+    "businessPhones": [
+      "5427"
+    ],
     "displayName": "陳政揚 Dave Chen",
     "givenName": "政揚",
     "jobTitle": null,
     "mail": "Dave.Chen@tisnet.com.tw",
-    "mobilePhone": null,
-    "officeLocation": "5427",
+    "mobilePhone": "0921907038",
+    "officeLocation": "台北北設工5樓",
     "preferredLanguage": null,
     "surname": "陳",
     "userPrincipalName": "Dave.Chen@etatung.onmicrosoft.com",
@@ -3933,14 +3935,14 @@
   },
   {
     "businessPhones": [
-      "5427"
+      "4807"
     ],
     "displayName": "楊希皓 Howard Yang",
     "givenName": "希皓",
     "jobTitle": null,
     "mail": "Howard.Yang@etatung.com.tw",
     "mobilePhone": "0912401767",
-    "officeLocation": "北設工5F",
+    "officeLocation": "台北北設工4樓",
     "preferredLanguage": null,
     "surname": "楊",
     "userPrincipalName": "Howard.Yang@etatung.onmicrosoft.com",
@@ -4436,7 +4438,9 @@
     "romaname": "heqichang"
   },
   {
-    "businessPhones": [],
+    "businessPhones": [
+      "4826"
+    ],
     "displayName": "洪國竣 Jason Hung",
     "givenName": "國竣",
     "jobTitle": null,
@@ -7931,6 +7935,22 @@
   },
   {
     "businessPhones": [
+      "5422"
+    ],
+    "displayName": "廖婉君 Rita Liao",
+    "givenName": "婉君",
+    "jobTitle": null,
+    "mail": "Rita.Liao@tisnet.com.tw",
+    "mobilePhone": "0905666608",
+    "officeLocation": "台北北設工5樓",
+    "preferredLanguage": null,
+    "surname": "廖",
+    "userPrincipalName": "Rita.Liao@etatung.onmicrosoft.com",
+    "id": "b9d6452c-f4d6-47eb-8b8c-c9633ce63be4",
+    "romaname": "liaowanjun"
+  },
+  {
+    "businessPhones": [
       "4957"
     ],
     "displayName": "楊羽柔 Rita Yang",
@@ -10440,6 +10460,22 @@
     "userPrincipalName": "VY088712_globalymc.com#EXT#@etatung.com.tw",
     "id": "b749b889-cbee-4e4e-be6c-3b059da2efac",
     "romaname": ""
+  },
+  {
+    "businessPhones": [
+      "4774"
+    ],
+    "displayName": "凌偉峰 Wade Ling",
+    "givenName": "偉峰",
+    "jobTitle": null,
+    "mail": "Wade.Ling@etatung.com",
+    "mobilePhone": "0988196452",
+    "officeLocation": "台北北設工4樓",
+    "preferredLanguage": null,
+    "surname": "凌",
+    "userPrincipalName": "Wade.Ling@etatung.com",
+    "id": "5f32c9ec-58ce-4ba1-b933-9e6cb9f129fc",
+    "romaname": "lingweifeng"
   },
   {
     "businessPhones": [

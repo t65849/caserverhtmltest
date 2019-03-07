@@ -264,6 +264,7 @@ app.get('/login', function (request, response) {
 app.post('/tatungSpeach', function (req, res) {
     console.log('POST /tatungSpech');
     var data = req.body.data;
+    var tatungSpeach = req.body.tatungSpeach
     console.log("tatungSpech data: "+data)
     analyzer.pseg(data, {
         mode: Jieba.mode.SEARCH,
@@ -287,7 +288,13 @@ app.post('/tatungSpeach', function (req, res) {
             res.send("搜尋");
             return;
         }
-        else if(!hasTatung){
+        else if(tatungSpeach && hasNR){
+            console.log("搜尋");
+            res.send("搜尋");
+            return;
+        }
+        else {
+            console.log("沒叫我");
             res.send("沒叫我");
             return;
         }

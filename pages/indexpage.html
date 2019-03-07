@@ -146,8 +146,7 @@
             if (!('webkitSpeechRecognition' in window)) {
                 alert("這個瀏覽器不支援google語音");
             } else {
-                tatungSpeach = false;
-                getvoice(); //1
+                getvoice(false); //1
             }
             $('#voiceSearch').click(function () {
                 console.log('voicesearch');
@@ -155,8 +154,7 @@
                 if (!('webkitSpeechRecognition' in window)) {
                     alert("這個瀏覽器不支援google語音");
                 } else {
-                    tatungSpeach = true;
-                    getvoice(); //1
+                    //getvoice(false); //1
                 }
             });
         });
@@ -165,23 +163,23 @@
                 search();
             }
         });
-        
-        function getvoice() { //1
-            
+
+        function getvoice(flag) { //1
+            console.log("getvoice")
             myvoice = true;
             /*if (flag) tatungSpeach = true;//呼叫大同時修改狀態避免直接大同寶搜尋衝突
             else tatungSpeach = false;*/
-
+            if (flag != null) tatungSpeach = flag;
             var myTranscript = '';
             var recognition = new webkitSpeechRecognition();
-            recognition.continuous = false;
+            recognition.continuous = true;
             //如果設定為 true，表示除非我們停止辨識，不然就會一直持續的辨識語音轉換為文字，如果設定為 false，在辨識一段話完成之後就會結束辨識
             recognition.interimResults = false;
             //如果設定為 true，表示在我們講話的當下就會即時辨識，不然就會在一段話結束之後，才會開始辨識。
             recognition.lang = "cmn-Hant-TW";
+            recognition.start();
             recognition.onstart = function () {
                 console.log('開始辨識183...');
-                console.log('insearch: '+insearch);
                 $("#speechStatue").html("開始識別語音...");
             };
             recognition.onresult = function (event) {
@@ -189,67 +187,72 @@
                 var i = event.resultIndex;
                 var j = event.results[i].length - 1;
                 //show.innerHTML = event.results[i][j].transcript;
-                data = {
-                    data: event.results[i][j].transcript
-                };
-                if (tatungSpeach == false) {
+                console.log(event.results[i][j].transcript)
+                console.log("tatungSpeach: " + tatungSpeach)
+                console.log("insearch: " + insearch)
+                if (event.results[i][j].transcript != "") {
+                    data = {
+                        data: event.results[i][j].transcript,
+                        tatungSpeach: tatungSpeach
+                    };
+                    console.log("tatungSpeach: " + tatungSpeach)
                     $.post('/tatungSpeach', data, function (res) {
                         if (res == "沒叫我") {
-                            console.log("睡覺Ing");
+                            if (tatungSpeach) {
+                                var msg = new SpeechSynthesisUtterance();
+                                msg.text = "聽不懂指令喔，請再說一次";
+                                speechSynthesis.speak(msg);
+                                tatungSpeach = true;
+                                msg.onend = function (event) {
+                                    console.log('說完 聽不懂指令喔，請再說一次');
+                                    recognition.stop();
+                                }
+                            } else
+                                console.log("睡覺Ing");
                             //recognition.stop();
                         } else if (res == "搜尋") {
                             console.log("進入搜尋")
-                            insearch = true;
                             tatungSpeach = true;
-                            $("#searchdata").val(event.results[i][j].transcript);
-                            myTranscript = event.results[i][j].transcript;
-                            recognition.stop();
-                            search();
+                            if (tatungSpeach) {
+                                $("#searchdata").val(event.results[i][j].transcript);
+                                myTranscript = event.results[i][j].transcript;
+                                insearch = true;
+                                recognition.stop();
+                                search();
+                            }
                         } else if (res == "請問有什麼事嗎") {
                             console.log("請問有什麼事嗎")
                             var msg = new SpeechSynthesisUtterance();
                             msg.text = "請問有什麼事嗎";
                             speechSynthesis.speak(msg);
-                            insearch = true;
                             tatungSpeach = true;
-                            recognition.stop();
-                            setTimeout(function () {
+                            msg.onend = function (event) {
+                                console.log('說完 請問有什麼事嗎');
+                                recognition.stop();
+                            }
+                            /*setTimeout(function () {
                                 //getvoice();
                                 $('#voiceSearch').trigger('click');
-                            }, 2000)
+                            }, 2000)*/
                         }
                     })
-                } else {
-                    recognition.stop();
-                    console.log('test');
-                    $("#searchdata").val(event.results[i][j].transcript);
-                    myTranscript = event.results[i][j].transcript;
-                    var searchdata = document.getElementById('searchdata');
-                    if(searchdata == ''){
-                        getvoice();
-                    } else {
-                        search();
-                    }
-                    /*setTimeout(function () {
-                        //recognition.stop();
-                        getvoice();
-                    }, 2000)*/
                 }
-
-            };
+            }
             recognition.onend = function () {
-                console.log('insearch: '+insearch);
                 console.log('停止辨識!233');
-                if(insearch == true){
-                    recognition.stop();
-                } else{
+                if (!insearch)
+                    getvoice(tatungSpeach)
+                /* console.log('insearch: ' + insearch);         
+                if (insearch == true) {
+                    recognition.start();
+                } else {
                     recognition.stop();
                     setTimeout(function () {
                         //recognition.stop();
                         getvoice();
                     }, 1000)
                 }
-               
+                */
                 //$("#speechStatue").html("停止識別語音...");
                 /*if (tatungSpeach) {
                     if (myTranscript == '') {
@@ -283,8 +286,9 @@
                     }
                 }*/
             };
+
             //document.getElementById("getcontacts").click();
-            recognition.start();
+
             /*setTimeout(function () {
                 recognition.stop();
             }, 3000);*/
@@ -370,6 +374,7 @@
                 //show.innerHTML = event.results[i][j].transcript;
                 $("#databoolean").val(event.results[i][j].transcript);
                 myTranscript = event.results[i][j].transcript;
+                recognition_forsecond.stop();
                 /*setTimeout(function () {
                     recognition.stop();
                     getvoiceSecond();
@@ -389,15 +394,20 @@
                         var voices = [];
                         msg.text = "我暫離一下，再呼叫我立即回來";
                         speechSynthesis.speak(msg);
+                        msg.onend = function (event) {
+                            console.log('說完 我暫離一下，再呼叫我立即回來');
+                            insearch = false;
+                            getvoice(false);
+                        }
                         //---------------語音---------------
-                        recognition_forsecond.stop();
-                        tatungSpeach = false;
-                        insearch = false;
-                        getvoice();
+                        //recognition_forsecond.stop();
+                        //tatungSpeach = false;
+                        //insearch = false;
+
                     } else {
                         $("#speechStatue").html("沒有識別到語音...");
-                        recognition_forsecond.stop();
-                        setTimeout(getvoiceSecond, 2000);
+                        getvoiceSecond();
+                        //setTimeout(getvoiceSecond, 2000);
                     }
                 } else {
                     nosound = 1;
@@ -417,16 +427,24 @@
                             $('#appendforuser').empty(); //清空appendforuser裡面所有node
                             $('#divrow').width(330);
                             $('#searchdata').val(databoolean);
+                            msg.onend = function (event) {
+                                console.log('說完 很抱歉沒有搜尋到資料，請再說一次');
+                                getvoice(true);
+                            }
+                            //setTimeout(getvoiceSecond, 3000);
+                            /*
                             recognition_forsecond.stop();
                             tatungSpeach = false;
                             insearch = false;
                             setTimeout(function () {
                                 $('#voiceSearch').trigger('click');
-                            }, 3000)
+                            }, 3000)*/
                         } else if (resdata === 'makecall') {
                             tellyouMakeCall();
                             var this_businessPhones = JSON.stringify(findata[0].businessPhones);
-                            this_businessPhones = this_businessPhones.replace('[', '').replace(']', '').replace('"', '').replace('"', '');
+                            this_businessPhones = this_businessPhones.replace('[', '').replace(']', '')
+                                .replace(
+                                    '"', '').replace('"', '');
                             camakecall(this_businessPhones);
                             recognition_forsecond.stop();
                             $("#speechStatue").html("點擊\"語音查詢\"開始識別語音，如:請幫我找某某某");
@@ -438,158 +456,165 @@
                             msg.text = "很高興能幫到您，需要撥電話嗎";
                             speechSynthesis.speak(msg);
                             //---------------語音---------------
-                            setTimeout(getvoiceThird, 3000);
+                            msg.onend = function (event) {
+                                console.log('說完 很高興能幫到您，需要撥電話嗎');
+                                getvoiceThird();
+                            }
+                            //setTimeout(getvoiceThird, 3000);
                         } else if (resdata == 'cancel') {
                             console.log('cancel');
                             recognition_forsecond.stop();
                             $("#speechStatue").html("點擊\"語音查詢\"開始識別語音，如:請幫我找某某某");
                             document.getElementById("voiceSearch").disabled = false;
-                            tatungSpeach = false;
                             insearch = false;
-                            getvoice();
+                            getvoice(false);
                         } else if (resdata == "1") {
                             tellyouMakeCall();
                             var this_businessPhones = JSON.stringify(findata[0].businessPhones);
-                            this_businessPhones = this_businessPhones.replace('[', '').replace(']', '').replace(
-                                '"', '').replace('"', '');
+                            this_businessPhones = this_businessPhones.replace('[', '').replace(']', '')
+                                .replace(
+                                    '"', '').replace('"', '');
                             camakecall(this_businessPhones);
                             $("#speechStatue").html("點擊\"語音查詢\"開始識別語音，如:請幫我找某某某");
                             document.getElementById("voiceSearch").disabled = false;
-                            getvoice(false);
                         } else if (resdata == "2") {
                             tellyouMakeCall();
                             var this_businessPhones = JSON.stringify(findata[1].businessPhones);
-                            this_businessPhones = this_businessPhones.replace('[', '').replace(']', '').replace(
-                                '"', '').replace('"', '');
+                            this_businessPhones = this_businessPhones.replace('[', '').replace(']', '')
+                                .replace(
+                                    '"', '').replace('"', '');
                             camakecall(this_businessPhones);
                             $("#speechStatue").html("點擊\"語音查詢\"開始識別語音，如:請幫我找某某某");
                             document.getElementById("voiceSearch").disabled = false;
-                            getvoice(false);
                         } else if (resdata == "3") {
                             tellyouMakeCall();
                             var this_businessPhones = JSON.stringify(findata[2].businessPhones);
-                            this_businessPhones = this_businessPhones.replace('[', '').replace(']', '').replace(
-                                '"', '').replace('"', '');
+                            this_businessPhones = this_businessPhones.replace('[', '').replace(']', '')
+                                .replace(
+                                    '"', '').replace('"', '');
                             camakecall(this_businessPhones);
                             $("#speechStatue").html("點擊\"語音查詢\"開始識別語音，如:請幫我找某某某");
                             document.getElementById("voiceSearch").disabled = false;
-                            getvoice(false);
                         } else if (resdata == "4") {
                             tellyouMakeCall();
                             var this_businessPhones = JSON.stringify(findata[3].businessPhones);
-                            this_businessPhones = this_businessPhones.replace('[', '').replace(']', '').replace(
-                                '"', '').replace('"', '');
+                            this_businessPhones = this_businessPhones.replace('[', '').replace(']', '')
+                                .replace(
+                                    '"', '').replace('"', '');
                             camakecall(this_businessPhones);
                             $("#speechStatue").html("點擊\"語音查詢\"開始識別語音，如:請幫我找某某某");
                             document.getElementById("voiceSearch").disabled = false;
-                            getvoice(false);
                         } else if (resdata == "5") {
                             tellyouMakeCall();
                             var this_businessPhones = JSON.stringify(findata[4].businessPhones);
-                            this_businessPhones = this_businessPhones.replace('[', '').replace(']', '').replace(
-                                '"', '').replace('"', '');
+                            this_businessPhones = this_businessPhones.replace('[', '').replace(']', '')
+                                .replace(
+                                    '"', '').replace('"', '');
                             camakecall(this_businessPhones);
                             $("#speechStatue").html("點擊\"語音查詢\"開始識別語音，如:請幫我找某某某");
                             document.getElementById("voiceSearch").disabled = false;
-                            getvoice(false);
                         } else if (resdata == "6") {
                             tellyouMakeCall();
                             var this_businessPhones = JSON.stringify(findata[5].businessPhones);
-                            this_businessPhones = this_businessPhones.replace('[', '').replace(']', '').replace(
-                                '"', '').replace('"', '');
+                            this_businessPhones = this_businessPhones.replace('[', '').replace(']', '')
+                                .replace(
+                                    '"', '').replace('"', '');
                             camakecall(this_businessPhones);
                             $("#speechStatue").html("點擊\"語音查詢\"開始識別語音，如:請幫我找某某某");
                             document.getElementById("voiceSearch").disabled = false;
-                            getvoice(false);
                         } else if (resdata == "7") {
                             tellyouMakeCall();
                             var this_businessPhones = JSON.stringify(findata[6].businessPhones);
-                            this_businessPhones = this_businessPhones.replace('[', '').replace(']', '').replace(
-                                '"', '').replace('"', '');
+                            this_businessPhones = this_businessPhones.replace('[', '').replace(']', '')
+                                .replace(
+                                    '"', '').replace('"', '');
                             camakecall(this_businessPhones);
                             $("#speechStatue").html("點擊\"語音查詢\"開始識別語音，如:請幫我找某某某");
                             document.getElementById("voiceSearch").disabled = false;
-                            getvoice(false);
                         } else if (resdata == "8") {
                             tellyouMakeCall();
                             var this_businessPhones = JSON.stringify(findata[7].businessPhones);
-                            this_businessPhones = this_businessPhones.replace('[', '').replace(']', '').replace(
-                                '"', '').replace('"', '');
+                            this_businessPhones = this_businessPhones.replace('[', '').replace(']', '')
+                                .replace(
+                                    '"', '').replace('"', '');
                             camakecall(this_businessPhones);
                             $("#speechStatue").html("點擊\"語音查詢\"開始識別語音，如:請幫我找某某某");
                             document.getElementById("voiceSearch").disabled = false;
-                            getvoice(false);
                         } else if (resdata == "9") {
                             tellyouMakeCall();
                             var this_businessPhones = JSON.stringify(findata[8].businessPhones);
-                            this_businessPhones = this_businessPhones.replace('[', '').replace(']', '').replace(
-                                '"', '').replace('"', '');
+                            this_businessPhones = this_businessPhones.replace('[', '').replace(']', '')
+                                .replace(
+                                    '"', '').replace('"', '');
                             camakecall(this_businessPhones);
                             $("#speechStatue").html("點擊\"語音查詢\"開始識別語音，如:請幫我找某某某");
                             document.getElementById("voiceSearch").disabled = false;
-                            getvoice(false);
                         } else if (resdata == "10") {
                             tellyouMakeCall();
                             var this_businessPhones = JSON.stringify(findata[9].businessPhones);
-                            this_businessPhones = this_businessPhones.replace('[', '').replace(']', '').replace(
-                                '"', '').replace('"', '');
+                            this_businessPhones = this_businessPhones.replace('[', '').replace(']', '')
+                                .replace(
+                                    '"', '').replace('"', '');
                             camakecall(this_businessPhones);
                             $("#speechStatue").html("點擊\"語音查詢\"開始識別語音，如:請幫我找某某某");
                             document.getElementById("voiceSearch").disabled = false;
-                            getvoice(false);
                         } else if (resdata == "11") {
                             tellyouMakeCall();
                             var this_businessPhones = JSON.stringify(findata[10].businessPhones);
-                            this_businessPhones = this_businessPhones.replace('[', '').replace(']', '').replace(
-                                '"', '').replace('"', '');
+                            this_businessPhones = this_businessPhones.replace('[', '').replace(']', '')
+                                .replace(
+                                    '"', '').replace('"', '');
                             camakecall(this_businessPhones);
                             $("#speechStatue").html("點擊\"語音查詢\"開始識別語音，如:請幫我找某某某");
                             document.getElementById("voiceSearch").disabled = false;
-                            getvoice(false);
                         } else if (resdata == "12") {
                             tellyouMakeCall();
                             var this_businessPhones = JSON.stringify(findata[11].businessPhones);
-                            this_businessPhones = this_businessPhones.replace('[', '').replace(']', '').replace(
-                                '"', '').replace('"', '');
+                            this_businessPhones = this_businessPhones.replace('[', '').replace(']', '')
+                                .replace(
+                                    '"', '').replace('"', '');
                             camakecall(this_businessPhones);
                             $("#speechStatue").html("點擊\"語音查詢\"開始識別語音，如:請幫我找某某某");
                             document.getElementById("voiceSearch").disabled = false;
-                            getvoice(false);
                         } else if (resdata == "13") {
                             tellyouMakeCall();
                             var this_businessPhones = JSON.stringify(findata[12].businessPhones);
-                            this_businessPhones = this_businessPhones.replace('[', '').replace(']', '').replace(
-                                '"', '').replace('"', '');
+                            this_businessPhones = this_businessPhones.replace('[', '').replace(']', '')
+                                .replace(
+                                    '"', '').replace('"', '');
                             camakecall(this_businessPhones);
                             $("#speechStatue").html("點擊\"語音查詢\"開始識別語音，如:請幫我找某某某");
                             document.getElementById("voiceSearch").disabled = false;
-                            getvoice(false);
                         } else if (resdata == "14") {
                             tellyouMakeCall();
                             var this_businessPhones = JSON.stringify(findata[13].businessPhones);
-                            this_businessPhones = this_businessPhones.replace('[', '').replace(']', '').replace(
-                                '"', '').replace('"', '');
+                            this_businessPhones = this_businessPhones.replace('[', '').replace(']', '')
+                                .replace(
+                                    '"', '').replace('"', '');
                             camakecall(this_businessPhones);
                             $("#speechStatue").html("點擊\"語音查詢\"開始識別語音，如:請幫我找某某某");
                             document.getElementById("voiceSearch").disabled = false;
-                            getvoice(false);
                         } else if (resdata == "15") {
                             tellyouMakeCall();
                             var this_businessPhones = JSON.stringify(findata[14].businessPhones);
-                            this_businessPhones = this_businessPhones.replace('[', '').replace(']', '').replace(
-                                '"', '').replace('"', '');
+                            this_businessPhones = this_businessPhones.replace('[', '').replace(']', '')
+                                .replace(
+                                    '"', '').replace('"', '');
                             camakecall(this_businessPhones);
                             $("#speechStatue").html("點擊\"語音查詢\"開始識別語音，如:請幫我找某某某");
                             document.getElementById("voiceSearch").disabled = false;
-                            getvoice(false);
                         } else if (resdata === 'bye') {
                             $("#speechStatue").html("點擊\"語音查詢\"開始識別語音，如:請幫我找某某某");
                             document.getElementById("voiceSearch").disabled = false;
                             $('#searchdata').val('');
+                            insearch = false;
                             getvoice(false);
-                        } else {
+                        } 
+                        else {
                             $('#searchdata').val(databoolean);
-                            document.getElementById("getcontacts").click();
+                            //document.getElementById("getcontacts").click();
+                            insearch = false;
+                            getvoice(false);
                             return;
                         }
                     });
@@ -603,6 +628,7 @@
                 recognition_forsecond.stop();
             }, 5000);*/
         };
+
 
         function getvoiceThird() { //4
             console.log('Third');
@@ -658,10 +684,16 @@
                             var voices = [];
                             msg.text = "正在撥打中";
                             speechSynthesis.speak(msg);
+                            msg.onend = function (event) {
+                                console.log('說完 正在撥打中');
+                                insearch = false;
+                                getvoice(false);
+                            }
                             //---------------語音---------------
                             var this_businessPhones = JSON.stringify(findata[0].businessPhones);
-                            this_businessPhones = this_businessPhones.replace('[', '').replace(']', '').replace(
-                                '"', '').replace('"', '');
+                            this_businessPhones = this_businessPhones.replace('[', '').replace(']', '')
+                                .replace(
+                                    '"', '').replace('"', '');
                             camakecall(this_businessPhones);
                             $("#speechStatue").html("點擊\"語音查詢\"開始識別語音，如:請幫我找某某某");
                             document.getElementById("voiceSearch").disabled = false;
@@ -710,11 +742,13 @@
                         msg.text = "很抱歉沒有搜尋到資料，請再說一次";
                         speechSynthesis.speak(msg);
                         //---------------語音---------------
-                        tatungSpeach = false;
+                        insearch = false;
+                        getvoice(true);
+                        /*tatungSpeach = false;
                         insearch = false;
                         setTimeout(function () {
                             $('#voiceSearch').trigger('click');
-                        }, 3800);
+                        }, 3800);*/
                     } else {
                         //---------------語音---------------
                         var msg = new SpeechSynthesisUtterance();
@@ -722,6 +756,8 @@
                         msg.text = "很抱歉沒有搜尋到資料，請再試一次";
                         speechSynthesis.speak(msg);
                         //---------------語音---------------
+                        insearch = false;
+                        getvoice(true);
                     }
                     $('#appendforuser').empty(); //清空appendforuser裡面所有node
                     $('#divrow').width(330);
@@ -752,7 +788,9 @@
                     for (var i = 0; i < datalength; i++) {
                         if (resdata[i].businessPhones.toString().indexOf('#') != -1) {
                             resdata[i].businessPhones = resdata[i].businessPhones.toString().split('#')[1];
-                            resdata[i].businessPhones = resdata[i].businessPhones.toString().replace(/[^0-9]/ig,"");
+                            resdata[i].businessPhones = resdata[i].businessPhones.toString().replace(
+                                /[^0-9]/ig,
+                                "");
                         }
                         /*$('#appendforuser').append(
                             '<td id="newdata">' +
@@ -789,15 +827,21 @@
                             '</table>' +
                             '</td>'
                         );*/
-                        if((i+1)<=5){
+                        if ((i + 1) <= 5) {
                             $('#appendforuser').append(
-                                '<span><img src="/images/tatungba.jpg" class="rounded-circle employeespic" style="margin-right: 4px;"><h3 style="display: inline">'+(i+1)+'.'+resdata[i].displayName+'</h3>&nbsp;'+
-                                    '<button id="camakecall' + resdata[i].businessPhones+'" type="submit" class="btn newcaserverbtn" onclick="camakecall('+ resdata[i].businessPhones +')">分機</button><button id="caendcall' + resdata[i].businessPhones +
-                            '" type="submit" class="btn newcancelbtn caendcall" onclick="caendcall(' +
-                            resdata[i].businessPhones + ')" style="display:none">掛斷</button>&nbsp;<button class="btn newcaserverbtn">手機</button></span><br/>'
+                                '<span><img src="/images/tatungba.jpg" class="rounded-circle employeespic" style="margin-right: 4px;"><h3 style="display: inline">' +
+                                (i + 1) + '.' + resdata[i].displayName + '</h3>&nbsp;' +
+                                '<button id="camakecall' + resdata[i].businessPhones +
+                                '" type="submit" class="btn newcaserverbtn" onclick="camakecall(' +
+                                resdata[
+                                    i].businessPhones + ')">分機</button><button id="caendcall' + resdata[
+                                    i].businessPhones +
+                                '" type="submit" class="btn newcancelbtn caendcall" onclick="caendcall(' +
+                                resdata[i].businessPhones +
+                                ')" style="display:none">掛斷</button>&nbsp;<button class="btn newcaserverbtn">手機</button></span><br/>'
                             );
                         }
-                        
+
                         //$('#userdepart').text('單位:' + resdata.department);
                     }
                     var surname = resdata[0].displayName
@@ -809,7 +853,11 @@
                         msg.text = "以下是搜尋結果，請問幫您撥電話嗎" /*"請問您是找" + surname + '嗎'*/ ;
                         speechSynthesis.speak(msg);
                         //---------------語音---------------
-                        setTimeout(getvoiceSecond, 3300); //3
+                        msg.onend = function (event) {
+                            console.log('說完 以下是搜尋結果，請問幫您撥電話嗎');
+                            getvoiceSecond();
+                        }
+                        //setTimeout(getvoiceSecond, 3300); //3
                     } else {
                         //---------------語音---------------
                         var msg = new SpeechSynthesisUtterance();
@@ -817,7 +865,11 @@
                         msg.text = "以下是搜尋結果，要撥給第幾筆資料" /*"請問您是找" + surname + '嗎，或者有找到您要的人嗎'*/ ;
                         speechSynthesis.speak(msg);
                         //---------------語音---------------
-                        setTimeout(getvoiceSecond, 3300); //3
+                        msg.onend = function (event) {
+                            console.log('說完 以下是搜尋結果，要撥給第幾筆資料');
+                            getvoiceSecond();
+                        }
+                        //setTimeout(getvoiceSecond, 3300); //3
                     }
 
                     /*setTimeout(function () {
@@ -894,33 +946,37 @@
                                 "stationid": stationid,
                                 "destinationid": destinationid,
                                 "name": name
-                            }),success: function (reg) {
-                                if (reg.success === false) {
-                                    //$('#showtext'+showtext).text("撥號失敗");
-                                    console.log('reg.success === false');
-                                    setTimeout(function () {
-                                        return checkStatus(destinationid)
-                                    }, 1000);
-                                } else {
-                                    console.log('reg.success === true');
-                                    //$('#showtext'+showtext).text("正在撥號請等候...");
-                                    //延遲一秒function checkStatus()，因為直接跑會出現結束通話狀態，延遲一秒後才會出現撥號中
-                                    setTimeout(function () {
-                                        return checkStatus(destinationid)
-                                    }, 1000);
-                                    callid = reg.callid;
-                                    return callid;
+                            }),
+                            success: function (reg) {
+                                    if (reg.success === false) {
+                                        //$('#showtext'+showtext).text("撥號失敗");
+                                        console.log('reg.success === false');
+                                        setTimeout(function () {
+                                            return checkStatus(destinationid)
+                                        }, 1000);
+                                    } else {
+                                        console.log('reg.success === true');
+                                        //$('#showtext'+showtext).text("正在撥號請等候...");
+                                        //延遲一秒function checkStatus()，因為直接跑會出現結束通話狀態，延遲一秒後才會出現撥號中
+                                        setTimeout(function () {
+                                            return checkStatus(destinationid)
+                                        }, 1000);
+                                        callid = reg.callid;
+                                        return callid;
+                                    }
                                 }
-                            }/*,complete: function (reg) { //超時
-                                console.log('complete');
-                                if (secondcount < 1) {
-                                    secondcount++;
-                                    //$('#showtext'+showtext).text("撥號連線失敗...");
-                                    setTimeout(function () {
-                                        return checkStatus(destinationid)
-                                    }, 200);
-                                }
-                            }*/,error: function (reg) {
+                                /*,complete: function (reg) { //超時
+                                                                console.log('complete');
+                                                                if (secondcount < 1) {
+                                                                    secondcount++;
+                                                                    //$('#showtext'+showtext).text("撥號連線失敗...");
+                                                                    setTimeout(function () {
+                                                                        return checkStatus(destinationid)
+                                                                    }, 200);
+                                                                }
+                                                            }*/
+                                ,
+                            error: function (reg) {
                                 console.log('error');
                                 console.log(JSON.stringify(reg));
                                 if (secondcount < 1) {
@@ -1020,7 +1076,8 @@
                     "stationid": stationid,
                     "callid": callid,
                     "name": name
-                }),success: function (reg) {
+                }),
+                success: function (reg) {
                     if (reg.success === false) {
                         //$('#showtext'+showtext).text("掛斷失敗");
                         $('#endcall').show();
@@ -1054,7 +1111,8 @@
                 success: function (reg) {
                     console.log("token資訊: " + JSON.stringify(reg));
                     callback(reg);
-                },error: function (reg) {
+                },
+                error: function (reg) {
                     //alert("伺服器錯誤..........")
                     alert(JSON.stringify(reg));
                     //return callout(destination);
@@ -1125,9 +1183,9 @@
                                 $('#caholdcall' + number_id).hide();
                                 $('#caretrievecall' + number_id).hide();
                                 $('#caendcall' + number_id).hide();
-                                tatungSpeach = false;
-                                insearch = false;
-                                getvoice();
+                                //tatungSpeach = false;
+                                //insearch = false;
+                                getvoice(false);
                                 //$('#showtext' + showtext).text("");
                                 break;
                             case "oncallhold": //保留中
@@ -1147,7 +1205,8 @@
                                 //do
                         }
                     }
-                },error: function (reg) {
+                },
+                error: function (reg) {
                     if (name == '' || stationid == '' || caserverurl == '') {
                         //$('#showtext').text("請檢查撥號話機和使用者帳號!");
                     } else {
@@ -1168,14 +1227,24 @@
                 alert('尚未完成');
             });
         });
-        function tellyouMakeCall(){
+
+
+        function tellyouMakeCall() {
             //---------------語音---------------
             var msg = new SpeechSynthesisUtterance();
             var voices = [];
             msg.text = "正在撥打中";
             speechSynthesis.speak(msg);
+            insearch = false
             //---------------語音---------------
+            /*msg.onend = function (event) {
+                console.log('說完 正在撥打中');
+                insearch = false;
+                getvoice(false);
+            }*/
+
         }
     </script>
 </body>
+
 </html>
