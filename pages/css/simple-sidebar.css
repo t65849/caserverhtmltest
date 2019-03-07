@@ -48,7 +48,7 @@ body {
 }
 #divrow{
   height:2000px; 
-  width: 850px; 
+  width: 905px;
   overflow-y:hidden;
 }
 .fontmsjh{
@@ -61,16 +61,17 @@ body {
 }
 
 .tableresize{
-  width:700px;
+  /*width:700px;*/
   margin-top:5px;
 }
 .tdresize{
-  width:230px;
-  height: 305px;
+  width:100%
+  /*width:230px;*/
+  /*height: 305px;*/
 }
 .employeespic{
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
 }
 .divheight{
   height: 337px;
