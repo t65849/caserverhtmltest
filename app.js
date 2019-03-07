@@ -171,8 +171,7 @@ app.get('/indexpage', function (request, response) {
                             getnextdata(skiptoken);
                         } else {
                             jsongetusers = JSON.parse(getusers);
-                            fs.writeFile('user.txt', '', function () {
-                            });
+                            fs.writeFile('user.txt', '', function () {});
                             for (var i = 0; i < jsongetusers.length; i++) {
                                 var givenName = jsongetusers[i].givenName;
                                 var surname = jsongetusers[i].surname;
@@ -265,7 +264,7 @@ app.post('/tatungSpeach', function (req, res) {
     console.log('POST /tatungSpech');
     var data = req.body.data;
     var tatungSpeach = req.body.tatungSpeach
-    console.log("tatungSpech data: "+data)
+    console.log("tatungSpech data: " + data)
     analyzer.pseg(data, {
         mode: Jieba.mode.SEARCH,
         HMM: true
@@ -273,27 +272,28 @@ app.post('/tatungSpeach', function (req, res) {
         console.log(JSON.stringify(result))
         var hasTatung = false;
         var hasNR = false;
-        for(var i in result){
-            if(result[i][0] == "萬事達" || result[i][0] == "萬視達") hasTatung = true;
-            if(result[i][1] == "nr" || result[i][1] == "ng" || result[i][1] == "nrfg" || result[i][1] == "nrt" || result[i][1] == "nt" || result[i][1] == "nz") hasNR = true;
-            if(result[i][1] == "eng") hasNR = true;
+        for (var i in result) {
+            if (result[i][0] == "不" || result[i][0] == "不是" || result[i][0] == "不要" || result[i][0] == "取消" || result[i][0] == "不用" || result[i][0] == "不需要" || result[i][0] == "拜拜" || result[i][0] == "掰掰") {
+                res.send('掰掰');
+                return;
+            }
+            if (result[i][0] == "萬事達" || result[i][0] == "萬視達") hasTatung = true;
+            if (result[i][1] == "nr" || result[i][1] == "ng" || result[i][1] == "nrfg" || result[i][1] == "nrt" || result[i][1] == "nt" || result[i][1] == "nz") hasNR = true;
+            if (result[i][1] == "eng") hasNR = true;
         }
-        if(hasTatung == true  &&　hasNR == false){
+        if (hasTatung == true && hasNR == false) {
             console.log("請問有什麼事嗎");
             res.send("請問有什麼事嗎");
             return;
-        }
-        else if(hasTatung == true  &&　hasNR == true){
+        } else if (hasTatung == true && hasNR == true) {
             console.log("搜尋");
             res.send("搜尋");
             return;
-        }
-        else if(tatungSpeach && hasNR){
+        } else if (tatungSpeach && hasNR) {
             console.log("搜尋");
             res.send("搜尋");
             return;
-        }
-        else {
+        } else {
             console.log("沒叫我");
             res.send("沒叫我");
             return;
