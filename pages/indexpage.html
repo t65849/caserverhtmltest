@@ -191,7 +191,6 @@
             }
             recognition.onend = function () {
                 console.log('getvoice停止辨識!');
-                $("#searchdata").val(myTranscript);
                 if (myTranscript != "") {
                     data = {
                         data: myTranscript,
@@ -215,7 +214,7 @@
                             console.log("進入搜尋")
                             tatungSpeach = true;
                             if (tatungSpeach) {
-                                //$("#searchdata").val(myTranscript);
+                                $("#searchdata").val(myTranscript);
                                 insearch = true;
                                 recognition.stop();
                                 search();
@@ -237,7 +236,7 @@
                         } else if (res == "掰掰") {
                             console.log("沒事別吵我")
                             var msg = new SpeechSynthesisUtterance();
-                            msg.text = ""; //沒事別吵我
+                            msg.text = "沒事別吵我";
                             speechSynthesis.speak(msg);
                             tatungSpeach = true;
                             msg.onend = function (event) {
@@ -248,8 +247,57 @@
                         }
                     })
                 }
+
+                /* console.log('insearch: ' + insearch);         
+                if (insearch == true) {
+                    recognition.start();
+                } else {
+                    recognition.stop();
+                    setTimeout(function () {
+                        //recognition.stop();
+                        getvoice();
+                    }, 1000)
+                }
+                */
+                //$("#speechStatue").html("停止識別語音...");
+                /*if (tatungSpeach) {
+                    if (myTranscript == '') {
+                        nosound++;
+                        if (nosound > 5) {
+                            document.getElementById("voiceSearch").disabled = false;
+                            $("#speechStatue").html("點擊\"語音查詢\"開始識別語音，如:請幫我找某某某");
+                            nosound = 1;
+                            //---------------語音---------------
+                            var msg = new SpeechSynthesisUtterance();
+                            var voices = [];
+                            msg.text = "請再按一次語音查詢";
+                            speechSynthesis.speak(msg);
+                            //---------------語音---------------
+                            document.getElementById("voiceSearch").disabled = false;
+                        } else {
+                            //---------------語音---------------
+                            var msg = new SpeechSynthesisUtterance();
+                            var voices = [];
+                            msg.text = "對不起，聲音有點小";
+                            speechSynthesis.speak(msg);
+                            //---------------語音---------------
+                            $("#speechStatue").html("沒有識別到語音...");
+                            setTimeout(function () {
+                                $('#voiceSearch').trigger('click');
+                            }, 2500);
+                        }
+                    } else {
+
+                        nosound = 1;
+                    }
+                }*/
             };
+
             //document.getElementById("getcontacts").click();
+
+            /*setTimeout(function () {
+                recognition.stop();
+            }, 3000);*/
         }
 
         function search() { //2
@@ -284,8 +332,13 @@
                     //---------------語音---------------
                     insearch = false;
                     getvoice(true);
-                    $('#tableforuser').empty(); //清空appendforuser裡面所有node
-                    $('#divrow').width(635);
+                    /*tatungSpeach = false;
+                    insearch = false;
+                    setTimeout(function () {
+                        $('#voiceSearch').trigger('click');
+                    }, 3800);*/
+                    $('#appendforuser').empty(); //清空appendforuser裡面所有node
+                    $('#divrow').width(330);
                 } else if (resdata === 'cancel') {
                     document.getElementById("voiceSearch").disabled = false;
                     $("#speechStatue").html("點擊\"語音查詢\"開始識別語音，如:請幫我找某某某");
@@ -402,6 +455,15 @@
                         }
                         //setTimeout(getvoiceSecond, 3300); //3
                     }
+
+                    /*setTimeout(function () {
+                        //---------------語音---------------
+                        var msg = new SpeechSynthesisUtterance();
+                        var voices = [];
+                        msg.text = "對不起，我暫離一下，再按語音查詢即可找到我哦";
+                        speechSynthesis.speak(msg);
+                        //---------------語音---------------
+                    }, 300000);*/
                 }
             })
         };
@@ -477,7 +539,7 @@
                                 speechSynthesis.speak(msg);
                                 //---------------語音---------------
                                 $('#tableforuser').empty(); //清空appendforuser裡面所有node
-                                $('#divrow').width(635);
+                                $('#divrow').width(330);
                                 $('#searchdata').val(databoolean);
                                 msg.onend = function (event) {
                                     console.log('說完 很抱歉沒有搜尋到資料，請再說一次');
@@ -548,8 +610,14 @@
                         }
                     });
                 }
+                /*setTimeout(function () {
+                    $("#speechStatue").html("點擊\"語音查詢\"開始識別語音，如:請幫我找某某某");
+                }, 3000);*/
             };
             recognition_forsecond.start();
+            /*setTimeout(function () {
+                recognition_forsecond.stop();
+            }, 5000);*/
         };
 
 
@@ -573,6 +641,10 @@
                 //show.innerHTML = event.results[i][j].transcript;
                 $("#boolean_makecall").val(event.results[i][j].transcript);
                 myTranscript = event.results[i][j].transcript;
+                /*setTimeout(function () {
+                    recognition.stop();
+                    getvoiceSecond();
+                }, 3000);*/
             };
             recognition_forthird.onend = function () {
                 console.log('停止辨識!');
@@ -619,8 +691,14 @@
                         }
                     });
                 }
+                /*setTimeout(function () {
+                    $("#speechStatue").html("點擊\"語音查詢\"開始識別語音，如:請幫我找某某某");
+                }, 3000);*/
             };
             recognition_forthird.start();
+            /*setTimeout(function () {
+                recognition_forthird.stop();
+            }, 5000);*/
         };
 
 
@@ -986,4 +1064,5 @@
         }
     </script>
 </body>
+
 </html>
