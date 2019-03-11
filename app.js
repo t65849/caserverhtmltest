@@ -32,7 +32,7 @@ process.on('uncaughtException', function (err) {
 var analyzer = Jieba({ //==
     debug: false
 });
-analyzer.dict(__dirname + '/dict.txt', function (err) { //==
+analyzer.dict(__dirname + '\dict.txt', function (err) { //==
     if (err) console.log(err)
     analyzer.pseg("嗨阿,你好呀,大同寶寶", {
         mode: Jieba.mode.SEARCH,
@@ -277,8 +277,8 @@ app.post('/tatungSpeach', function (req, res) {
                 res.send('掰掰');
                 return;
             }
-            if (result[i][0] == "萬事達" || result[i][0] == "萬視達") hasTatung = true;
-            if (result[i][1] == "nr" || result[i][1] == "ng" || result[i][1] == "nrfg" || result[i][1] == "nrt" || result[i][1] == "nt" || result[i][1] == "nz") hasNR = true;
+            if (result[i][0] == "萬事達" || result[i][0] == "萬視達" || result[i][0] == "萬") hasTatung = true;
+            if (result[i][1] == "nr" || result[i][1] == "ng" || result[i][1] == "nrt" || result[i][1] == "nt") hasNR = true;
             if (result[i][1] == "eng") hasNR = true;
         }
         if (hasTatung == true && hasNR == false) {
@@ -301,6 +301,50 @@ app.post('/tatungSpeach', function (req, res) {
         //if(result)
     })
 })
+/*app.post('/tatungSpeach', function (req, res) {
+    console.log('POST /tatungSpech');
+    var data = req.body.data;
+    var tatungSpeach = req.body.tatungSpeach
+    console.log("tatungSpech data: " + data)
+    analyzer.pseg(data, {
+        mode: Jieba.mode.SEARCH,
+        HMM: true
+    }, function (err, result) {
+        console.log(JSON.stringify(result))
+        var hasTatung = false;
+        var hasNR = false;
+        for (var i in result) {
+            if (result[i][0] == result[i][0] == "沒事"  || result[i][0] == "拜拜" || result[i][0] == "掰掰") {
+                res.send('掰掰');
+                return;
+            }
+            if (result[i][0] == "萬事達" || result[i][0] == "萬視達") hasTatung = true;
+            if (result[i][1] == "nr" || result[i][1] == "ng" || result[i][1] == "nrt" || result[i][1] == "nt") hasNR = true;
+            if (result[i][1] == "eng") hasNR = true;
+        }
+        if (hasTatung == true && hasNR == false) {
+            console.log("請問有什麼事嗎");
+            res.send("請問有什麼事嗎");
+            return;
+        } else if (hasTatung == true && hasNR == true) {
+            console.log("搜尋");
+            res.send("搜尋");
+            return;
+        } else if (tatungSpeach && hasNR) {
+            console.log('hasTatung '+hasTatung);
+            console.log('hasNR '+hasNR);
+            console.log("搜尋");
+            res.send("搜尋");
+            return;
+        } else {
+            console.log('hasTatung '+hasTatung);
+            console.log('hasNR '+hasNR);
+            console.log("沒叫我");
+            res.send("沒叫我");
+            return;
+        }
+    })
+})*/
 app.post('/search', function (req, res) {
     console.log('POST /search');
     var searchdata = req.body.searchdata;
@@ -591,7 +635,7 @@ app.post('/databoolean', function (req, res) {
                 } else if (result[i][0] == "不" || result[i][0] == "不是" || result[i][0] == "不要" || result[i][0] == "取消" || result[i][0] == "不用" || result[i][0] == "不需要" || result[i][0] == "拜拜" || result[i][0] == "掰掰" || result[i][0] == "不好") {
                     res.send('cancel');
                     return;
-                } else if (result[i][0] == "是" || result[i][0] == "沒錯" || result[i][0] == "需要" || result[i][0] == "撥電話" || result[i][0] == "打電話" || result[i][0] == "好" || result[i][0] == "謝謝") {
+                } else if (result[i][0] == "沒錯" || result[i][0] == "需要" || result[i][0] == "撥電話" || result[i][0] == "打電話" || result[i][0] == "好" || result[i][0] == "謝謝") {
                     res.send('makecall');
                     return;
                 }
