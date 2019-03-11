@@ -47,8 +47,8 @@ body {
   margin: -135px 0 0 -270px;
 }
 #divrow{
-  height:2000px; 
-  width: 905px;
+  /*height:2000px; */
+  /*width: 905px;*/
   overflow-y:hidden;
 }
 .fontmsjh{
