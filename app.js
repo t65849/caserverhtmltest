@@ -32,7 +32,8 @@ process.on('uncaughtException', function (err) {
 var analyzer = Jieba({ //==
     debug: false
 });
-analyzer.dict(__dirname + '\dict.txt', function (err) { //==
+
+analyzer.dict( 'dict.txt', function (err) { //==
     if (err) console.log(err)
     analyzer.pseg("嗨阿,你好呀,大同寶寶", {
         mode: Jieba.mode.SEARCH,
@@ -264,16 +265,19 @@ app.post('/tatungSpeach', function (req, res) {
     console.log('POST /tatungSpech');
     var data = req.body.data;
     var tatungSpeach = req.body.tatungSpeach
+
     console.log("tatungSpech data: " + data)
-    analyzer.pseg(data, {
+    console.log("tatungSpech tatung :"+tatungSpeach)
+    analyzer.pseg(String(data), {
         mode: Jieba.mode.SEARCH,
         HMM: true
     }, function (err, result) {
+        console.log(err);
         console.log(JSON.stringify(result))
         var hasTatung = false;
         var hasNR = false;
         for (var i in result) {
-            if (result[i][0] == result[i][0] == "沒事"  || result[i][0] == "拜拜" || result[i][0] == "掰掰") {
+            if (result[i][0] == "沒事"  || result[i][0] == "拜拜" || result[i][0] == "掰掰") {
                 res.send('掰掰');
                 return;
             }
@@ -286,11 +290,11 @@ app.post('/tatungSpeach', function (req, res) {
             res.send("請問有什麼事嗎");
             return;
         } else if (hasTatung == true && hasNR == true) {
-            console.log("搜尋");
+            console.log("搜尋1");
             res.send("搜尋");
             return;
-        } else if (tatungSpeach && hasNR) {
-            console.log("搜尋");
+        } else if (tatungSpeach=="true" && hasNR==true) {
+            console.log("搜尋2");
             res.send("搜尋");
             return;
         } else {
@@ -369,7 +373,7 @@ app.post('/search', function (req, res) {
         } else {
             //---------取得使用者輸入文字的羅馬拼音------------
             var req = require('request');
-            analyzer.pseg(searchdata, {
+            analyzer.pseg(String(searchdata), {
                 mode: Jieba.mode.SEARCH,
                 HMM: true
             }, function (err, result) {
@@ -390,7 +394,7 @@ app.post('/search', function (req, res) {
                                 romaforname = jsongetusers[j].romaname;
                                 if (romaforname.split(' ').length >= 2) {
                                     if (newromaname != null && romaforname != null)
-                                        if (1 - (levenshtein(newromaname, romaforname.split(' ')[0]) / romaforname.split(' ')[0].length) >= 0.82 || romaforname.indexOf(newromaname) != -1) {
+                                        if (1 - (levenshtein(newromaname, romaforname.split(' ')[0]) / romaforname.split(' ')[0].length) >= 0.77 || romaforname.indexOf(newromaname) != -1) {
                                             console.log("未切: " + newromaname + ", " + romaforname)
                                             //console.log("數量: " + levenshtein(newromaname, romaforname))
                                             console.log("分數: " + Number(1 - (levenshtein(newromaname, romaforname.split(' ')[0]) / romaforname.length)))
@@ -408,7 +412,7 @@ app.post('/search', function (req, res) {
                                         }
                                 } else {
                                     if (newromaname != null && romaforname != null)
-                                        if (1 - (levenshtein(newromaname, romaforname) / romaforname.split(' ')[0].length) >= 0.82 || romaforname.indexOf(newromaname) != -1) {
+                                        if (1 - (levenshtein(newromaname, romaforname) / romaforname.split(' ')[0].length) >= 0.77 || romaforname.indexOf(newromaname) != -1) {
                                             console.log("未切: " + newromaname + ", " + romaforname)
                                             //console.log("數量: " + levenshtein(newromaname, romaforname))
                                             console.log("分數: " + Number(1 - (levenshtein(newromaname, romaforname.split(' ')[0]) / romaforname.length)))
@@ -514,7 +518,7 @@ app.post('/databoolean', function (req, res) {
                         romaforname = jsongetusers[j].romaname;
                         if (romaforname.split(' ').length >= 2) {
                             if (newromaname != null && romaforname != null)
-                                if (1 - (levenshtein(newromaname, romaforname.split(' ')[0]) / romaforname.split(' ')[0].length) >= 0.82 || romaforname.indexOf(newromaname) != -1) {
+                                if (1 - (levenshtein(newromaname, romaforname.split(' ')[0]) / romaforname.split(' ')[0].length) >= 0.77 || romaforname.indexOf(newromaname) != -1) {
                                     console.log("未切: " + newromaname + ", " + romaforname)
                                     //console.log("數量: " + levenshtein(newromaname, romaforname))
                                     console.log("分數: " + Number(1 - (levenshtein(newromaname, romaforname.split(' ')[0]) / romaforname.length)))
@@ -532,7 +536,7 @@ app.post('/databoolean', function (req, res) {
                                 }
                         } else {
                             if (newromaname != null && romaforname != null)
-                                if (1 - (levenshtein(newromaname, romaforname) / romaforname.split(' ')[0].length) >= 0.82 || romaforname.indexOf(newromaname) != -1) {
+                                if (1 - (levenshtein(newromaname, romaforname) / romaforname.split(' ')[0].length) >= 0.77 || romaforname.indexOf(newromaname) != -1) {
                                     console.log("未切: " + newromaname + ", " + romaforname)
                                     //console.log("數量: " + levenshtein(newromaname, romaforname))
                                     console.log("分數: " + Number(1 - (levenshtein(newromaname, romaforname.split(' ')[0]) / romaforname.length)))
@@ -699,8 +703,10 @@ function checkVal(str) {
 }
 
 var levenshtein = require('js-levenshtein');
-var newromaname = "chenzhiyi"
-var romaforname = "chenliwu"
+var newromaname = "簡兆志"
+var romaforname = "簡造字"
+newromaname = tranPinyin(newromaname);
+romaforname = tranPinyin(romaforname);
 console.log(newromaname)
 console.log(romaforname.split(' ')[0])
 console.log("分數: " + Number(1 - (levenshtein(newromaname, romaforname.split(' ')[0]) / romaforname.length)))

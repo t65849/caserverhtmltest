@@ -67,15 +67,15 @@
                         <table style="margin-top:10px">
                             <tr>
                                 <td>
-                                    <h4>請說出您要找的人名: <input id="voiceSearch" type="button" value="語音查詢" /></h4>
+                                    <h4>請說"萬事達"幫您找同仁: <span id="speechStatue"></span></h4>
                                 </td>
                                 <td>
-                                    <div id="speechStatue"></div>
+                                    <input id="voiceSearch" type="button" value="語音查詢" style="visibility:hidden" />
                                 </td>
                             </tr>
                         </table>
                         <h4 style="margin-top:5px;">或輸入您要找的人名: <input id="searchdata" class="form-control">&nbsp;<button
-                                id="getcontacts" type="submit" onclick="search()" style="width:100px;">搜尋</button></h4>
+                                id="getcontacts" type="submit" onclick="search()" style="width:100px;visibility:hidden;">搜尋</button></h4>
                         <!--class="btn searchbtn"-->
                         <div id="scrollx" style="overflow-x:auto;">
                             <!--margin-left: 120px; margin-top: -25px;-->
@@ -192,7 +192,7 @@
             recognition.onend = function () {
                 console.log('getvoice停止辨識!');
                 if (myTranscript != "") {
-                    data = {
+                    var data = {
                         data: myTranscript,
                         tatungSpeach: tatungSpeach
                     };
@@ -203,14 +203,14 @@
                             if (tatungSpeach) {
                                 $("#searchdata").val(myTranscript);
                                 var msg = new SpeechSynthesisUtterance();
-                                msg.text = "聽不懂指令喔，請再說一次";
+                                msg.text = "很抱歉沒有搜尋到資料，請再說一次"; //聽不懂指令喔，
                                 speechSynthesis.speak(msg);
                                 tatungSpeach = true;
                                 msg.onend = function (event) {
-                                    console.log('說完 聽不懂指令喔，請再說一次');
+                                    console.log('說完 很抱歉沒有搜尋到資料，請再說一次');
                                     getvoice(true);
                                 }
-                            } else{
+                            } else {
                                 console.log("睡覺Ing");
                                 getvoice(false);
                             }
@@ -369,8 +369,7 @@
                                 '" type="submit" class="btn newcaserverbtn" onclick="camakecall(' + resdata[
                                     i].businessPhones + ')">分機</button><button id="caendcall' + resdata[i].businessPhones +
                                 '" type="submit" class="btn newcancelbtn caendcall" onclick="caendcall(' +
-                                resdata[i].businessPhones +
-                                ')" style="display:none">掛斷</button></td><td><button class="btn newcaserverbtn">手機</button></td></tr>'
+                                resdata[i].businessPhones +')" style="display:none">掛斷</button></td></tr>' //<td><button class="btn newcaserverbtn">手機</button></td>
                             );
                         } else {
                             $('#tr' + (i % 5)).append(
@@ -380,8 +379,7 @@
                                 '" type="submit" class="btn newcaserverbtn" onclick="camakecall(' + resdata[
                                     i].businessPhones + ')">分機</button><button id="caendcall' + resdata[i].businessPhones +
                                 '" type="submit" class="btn newcancelbtn caendcall" onclick="caendcall(' +
-                                resdata[i].businessPhones +
-                                ')" style="display:none">掛斷</button></td><td><button class="btn newcaserverbtn">手機</button></td>'
+                                resdata[i].businessPhones +')" style="display:none">掛斷</button></td>' //<td><button class="btn newcaserverbtn">手機</button></td>
                             );
                         }
 
