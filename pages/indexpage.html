@@ -123,6 +123,7 @@
         var tatungSpeach = false;
         var flag = false;
         var insearch = false;
+        var nowCall = '';
         $(document).ready(function () {
             var displayName = JSON.stringify(mydata.displayName);
             displayName = displayName.replace('"', '').replace('"', '');
@@ -199,7 +200,7 @@
                     $.post('/tatungSpeach', data, function (res) {
                         console.log(res);
                         if (res == "沒叫我") {
-                            console.log('tatungSpeach '+tatungSpeach);
+                            console.log('tatungSpeach ' + tatungSpeach);
                             if (tatungSpeach) {
                                 $("#searchdata").val(myTranscript);
                                 var msg = new SpeechSynthesisUtterance();
@@ -369,7 +370,7 @@
                                 '" type="submit" class="btn newcaserverbtn" onclick="camakecall(' + resdata[
                                     i].businessPhones + ')">分機</button><button id="caendcall' + resdata[i].businessPhones +
                                 '" type="submit" class="btn newcancelbtn caendcall" onclick="caendcall(' +
-                                resdata[i].businessPhones +')" style="display:none">掛斷</button></td></tr>' //<td><button class="btn newcaserverbtn">手機</button></td>
+                                resdata[i].businessPhones + ')" style="display:none">掛斷</button></td></tr>' //<td><button class="btn newcaserverbtn">手機</button></td>
                             );
                         } else {
                             $('#tr' + (i % 5)).append(
@@ -379,7 +380,7 @@
                                 '" type="submit" class="btn newcaserverbtn" onclick="camakecall(' + resdata[
                                     i].businessPhones + ')">分機</button><button id="caendcall' + resdata[i].businessPhones +
                                 '" type="submit" class="btn newcancelbtn caendcall" onclick="caendcall(' +
-                                resdata[i].businessPhones +')" style="display:none">掛斷</button></td>' //<td><button class="btn newcaserverbtn">手機</button></td>
+                                resdata[i].businessPhones + ')" style="display:none">掛斷</button></td>' //<td><button class="btn newcaserverbtn">手機</button></td>
                             );
                         }
 
@@ -502,7 +503,7 @@
                                     .replace(
                                         '"', '').replace('"', '');
                                 camakecall(this_businessPhones);
-                                recognition_forsecond.stop();
+                                getvoice_HangUp();
                                 $("#speechStatue").html("點擊\"語音查詢\"開始識別語音，如:請幫我找某某某");
                                 break;
                             case "1":
@@ -527,6 +528,7 @@
                                     .replace(
                                         '"', '').replace('"', '');
                                 camakecall(this_businessPhones);
+                                getvoice_HangUp();
                                 $("#speechStatue").html("點擊\"語音查詢\"開始識別語音，如:請幫我找某某某");
                                 document.getElementById("voiceSearch").disabled = false;
                                 break;
@@ -557,84 +559,38 @@
         };
 
 
-        function getvoiceThird() { //4
-            console.log('Third');
+        function getvoice_HangUp() { //4
+
+            console.log('getvoice_HangUp');
             var myTranscript = '';
-            var recognition_forthird = new webkitSpeechRecognition();
-            recognition_forthird.continuous = false;
+            var recognition_HangUp = new webkitSpeechRecognition();
+            recognition_HangUp.continuous = true;
             //如果設定為 true，表示除非我們停止辨識，不然就會一直持續的辨識語音轉換為文字，如果設定為 false，在辨識一段話完成之後就會結束辨識
-            recognition_forthird.interimResults = false;
+            recognition_HangUp.interimResults = true;
             //如果設定為 true，表示在我們講話的當下就會即時辨識，不然就會在一段話結束之後，才會開始辨識。
-            recognition_forthird.lang = "cmn-Hant-TW";
-            recognition_forthird.onstart = function () {
-                console.log('開始辨識...');
+            recognition_HangUp.lang = "cmn-Hant-TW";
+            recognition_HangUp.start();
+            recognition_HangUp.onstart = function () {
+                console.log('開始辨識...getvoice_HangUp');
                 $("#speechStatue").html("開始識別語音...");
             };
-            recognition_forthird.onresult = function (event) {
+            recognition_HangUp.onresult = function (event) {
                 console.log(event)
                 var i = event.resultIndex;
                 var j = event.results[i].length - 1;
                 //show.innerHTML = event.results[i][j].transcript;
-                $("#boolean_makecall").val(event.results[i][j].transcript);
                 myTranscript = event.results[i][j].transcript;
-                /*setTimeout(function () {
-                    recognition.stop();
-                    getvoiceSecond();
-                }, 3000);*/
-            };
-            recognition_forthird.onend = function () {
-                console.log('停止辨識!');
-                //$("#speechStatue").html("停止識別語音...");
-                if (myTranscript == '') {
-                    //---------------語音---------------
-                    var msg = new SpeechSynthesisUtterance();
-                    var voices = [];
-                    msg.text = "對不起，聲音有點小";
-                    speechSynthesis.speak(msg);
-                    //---------------語音---------------
-                    $("#speechStatue").html("沒有識別到語音...");
-                    setTimeout(getvoiceThird, 2500);
-                } else {
-                    //document.getElementById("getcontacts").click();
-                    //getvoiceSecond();
-                    var boolean_makecall = $('#boolean_makecall').val();
-                    var data = {
-                        boolean_makecall: boolean_makecall
-                    }
-                    $.post('/boolean_makecall', data, function (resdata) {
-                        if (resdata === 'wrong') {
-                            $("#speechStatue").html("點擊\"語音查詢\"開始識別語音，如:請幫我找某某某");
-                            document.getElementById("voiceSearch").disabled = false;
-                        } else {
-                            //---------------語音---------------
-                            var msg = new SpeechSynthesisUtterance();
-                            var voices = [];
-                            msg.text = "正在撥打中";
-                            speechSynthesis.speak(msg);
-                            msg.onend = function (event) {
-                                console.log('說完 正在撥打中');
-                                insearch = false;
-                                getvoice(false);
-                            }
-                            //---------------語音---------------
-                            var this_businessPhones = JSON.stringify(findata[0].businessPhones);
-                            this_businessPhones = this_businessPhones.replace('[', '').replace(']', '')
-                                .replace(
-                                    '"', '').replace('"', '');
-                            camakecall(this_businessPhones);
-                            $("#speechStatue").html("點擊\"語音查詢\"開始識別語音，如:請幫我找某某某");
-                            document.getElementById("voiceSearch").disabled = false;
-                        }
-                    });
+                console.log("通話紀錄: " + myTranscript)
+                if (myTranscript.indexOf("萬事達") != -1 &&
+                    (myTranscript.indexOf("掛電話") != -1 || myTranscript.indexOf("掛斷") != -1 || myTranscript.indexOf(
+                        "掛掉") != -1)) {
+                    recognition_HangUp.stop();
                 }
-                /*setTimeout(function () {
-                    $("#speechStatue").html("點擊\"語音查詢\"開始識別語音，如:請幫我找某某某");
-                }, 3000);*/
             };
-            recognition_forthird.start();
-            /*setTimeout(function () {
-                recognition_forthird.stop();
-            }, 5000);*/
+            recognition_HangUp.onend = function () {
+                console.log('掛斷電號');
+                caendcall(nowCall);
+            }
         };
 
 
@@ -876,6 +832,7 @@
 
         function checkStatus(number_id) {
             console.log("checkStatus >......");
+            nowCall = number_id;
             $.ajax({
                 "async": true,
                 "crossDomain": true,
@@ -937,9 +894,8 @@
                                 $('#caholdcall' + number_id).hide();
                                 $('#caretrievecall' + number_id).hide();
                                 $('#caendcall' + number_id).hide();
-                                //tatungSpeach = false;
-                                //insearch = false;
-                                getvoice(false);
+                                insearch = false;
+                                getvoice(false)
                                 //$('#showtext' + showtext).text("");
                                 break;
                             case "oncallhold": //保留中
