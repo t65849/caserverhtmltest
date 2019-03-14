@@ -265,15 +265,16 @@ app.post('/tatungSpeach', function (req, res) {
     console.log('POST /tatungSpech');
     var data = req.body.data;
     var tatungSpeach = req.body.tatungSpeach
-
-    console.log("tatungSpech data: " + data)
-    console.log("tatungSpech tatung :"+tatungSpeach)
+    console.log("tatungSpech data: " + data);
+    console.log("tatungSpech tatung :"+tatungSpeach);
+    console.log('270'+typeof(data));
     analyzer.pseg(String(data), {
         mode: Jieba.mode.SEARCH,
         HMM: true
     }, function (err, result) {
         console.log(err);
-        console.log(JSON.stringify(result))
+        console.log('276'+typeof(result));
+        console.log(JSON.stringify(result));
         var hasTatung = false;
         var hasNR = false;
         for (var i in result) {
@@ -302,7 +303,6 @@ app.post('/tatungSpeach', function (req, res) {
             res.send("沒叫我");
             return;
         }
-        //if(result)
     })
 })
 /*app.post('/tatungSpeach', function (req, res) {
@@ -359,6 +359,7 @@ app.post('/search', function (req, res) {
             //console.log(quickSearchData[i].answer);
             flag = true;
             res.send(quickSearchData[i].answer);
+            return;
         }
     }
     if (!flag) {
@@ -367,18 +368,23 @@ app.post('/search', function (req, res) {
         var resdata = '';
         console.log(jsongetusers.length);
         var datacount = 0;
+        console.log('371'+typeof(searchdata));
+        console.log('372'+searchdata);
         if (searchdata === '') {
             resdata = JSON.stringify(jsongetusers);
             res.send(resdata);
         } else {
             //---------取得使用者輸入文字的羅馬拼音------------
             var req = require('request');
+            console.log('379'+typeof(searchdata));
+            console.log('380'+searchdata);
             analyzer.pseg(String(searchdata), {
                 mode: Jieba.mode.SEARCH,
                 HMM: true
             }, function (err, result) {
                 if (err) console.log(err)
                 else {
+                    console.log('387'+typeof(result));
                     console.log(JSON.stringify(result))
                     for (var i in result) {
                         if (result[i][1] == "nr" || result[i][1] == "ng" || result[i][1] == "nrfg" || result[i][1] == "nrt" || result[i][1] == "nt" || result[i][1] == "nz") {
@@ -483,6 +489,7 @@ app.post('/search', function (req, res) {
             */
         }
     }
+    //res.end();
 })
 
 app.post('/databoolean', function (req, res) {
@@ -496,12 +503,16 @@ app.post('/databoolean', function (req, res) {
     var boolean_result = nodejieba.tag(databoolean);
     console.log(boolean_result);*/
     var req = require('request');
+    console.log('506'+typeof(databoolean));
+    console.log('507'+databoolean);
     analyzer.pseg(databoolean, {
         mode: Jieba.mode.SEARCH,
         HMM: true
     }, function (err, result) {
         if (err) console.log(err)
         else {
+            console.log('514'+typeof(result));
+            console.log('515'+result);
             console.log(JSON.stringify(result));
             var datacount = 0;
             for (var i in result) {
@@ -666,32 +677,7 @@ app.post('/databoolean', function (req, res) {
                 return;
             }
         }
-        /*for (var i=(boolean_result.length-1); i>=0; i--){
-            console.log(boolean_result[i]);
-            //console.log(boolean_result[boolean_result.length-1].length);
-            if(boolean_result[i].tag>50){
-              if(boolean_result[i].tag>2600){
-                  console.log('--------->2600----------');
-                  res.send('bye');
-                  break;
-              } else if (boolean_result[i].tag>1000){
-                  console.log('--------->1000----------');
-                      res.send('makecall');
-                      break;
-              } else if (boolean_result[i].tag>750){
-                  res.send('cancel');
-                  break;
-                }else {
-                  console.log('---------+----------');
-                  res.send('yes');
-                  break;
-              }
-            } else if(boolean_result[i].tag<50){
-              res.send('wrong');
-              break;
-            }
-        }*/
-    } /*.bind({datacount:datacount})*/ );
+    });
 })
 
 function checkVal(str) {
