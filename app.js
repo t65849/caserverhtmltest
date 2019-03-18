@@ -32,16 +32,23 @@ process.on('uncaughtException', function (err) {
 var analyzer = Jieba({ //==
     debug: false
 });
-
-analyzer.dict( 'dict.txt', function (err) { //==
-    if (err) console.log(err)
-    analyzer.pseg("嗨阿,你好呀,大同寶寶", {
-        mode: Jieba.mode.SEARCH,
-        HMM: true
-    }, function (err, result) {
-        console.log(JSON.stringify(result))
-    })
-});
+jiebarun()
+function jiebarun() {
+    analyzer.dict('dict.txt', function (err) { //==
+        if (err) console.log(err)
+        analyzer.pseg("嗨阿,你好呀,大同寶寶", {
+            mode: Jieba.mode.SEARCH,
+            HMM: true
+        }, function (err, result) {
+            if (err) console.log(err);
+            console.log(JSON.stringify(result))
+            var checkresult = JSON.stringify(result);
+            if (checkresult.indexOf('["[[') != -1) {
+                jiebarun();
+            }
+        })
+    });
+}
 var getusers;
 var displayName;
 var businessPhones;
@@ -172,7 +179,7 @@ app.get('/indexpage', function (request, response) {
                             getnextdata(skiptoken);
                         } else {
                             jsongetusers = JSON.parse(getusers);
-                            fs.writeFile('user.txt', '', function () {});
+                            fs.writeFile('user.txt', '', function () { });
                             for (var i = 0; i < jsongetusers.length; i++) {
                                 var givenName = jsongetusers[i].givenName;
                                 var surname = jsongetusers[i].surname;
@@ -264,23 +271,28 @@ app.get('/login', function (request, response) {
 app.post('/tatungSpeach', function (req, res) {
     console.log('POST /tatungSpech');
     var data = req.body.data;
-    var tatungSpeach = req.body.tatungSpeach
-    console.log("tatungSpech data: " + data);
-    console.log("tatungSpech tatung :"+tatungSpeach);
-    console.log('270'+typeof(data));
+    var tatungSpeach = req.body.tatungSpeach;
+    tatung(data, tatungSpeach, function (a) {
+        res.send(a);
+    })
+})
+
+function tatung(data, tatungSpeach, callback) {
     analyzer.pseg(String(data), {
         mode: Jieba.mode.SEARCH,
         HMM: true
     }, function (err, result) {
-        console.log(err);
-        console.log('276'+typeof(result));
-        console.log(JSON.stringify(result));
+        if (err) console.log(err);
+        var checkresult = JSON.stringify(result);
+        console.log(checkresult);
+        if (checkresult.indexOf('["[[') != -1) {
+            return tatung(data, tatungSpeach.callback);
+        }
         var hasTatung = false;
         var hasNR = false;
         for (var i in result) {
-            if (result[i][0] == "沒事"  || result[i][0] == "拜拜" || result[i][0] == "掰掰") {
-                res.send('掰掰');
-                return;
+            if (result[i][0] == "沒事" || result[i][0] == "拜拜" || result[i][0] == "掰掰") {
+                callback('掰掰');
             }
             if (result[i][0] == "萬事達" || result[i][0] == "萬視達" || result[i][0] == "萬") hasTatung = true;
             if (result[i][1] == "nr" || result[i][1] == "ng" || result[i][1] == "nrt" || result[i][1] == "nt") hasNR = true;
@@ -288,67 +300,20 @@ app.post('/tatungSpeach', function (req, res) {
         }
         if (hasTatung == true && hasNR == false) {
             console.log("請問有什麼事嗎");
-            res.send("請問有什麼事嗎");
-            return;
+            callback("請問有什麼事嗎");
         } else if (hasTatung == true && hasNR == true) {
             console.log("搜尋1");
-            res.send("搜尋");
-            return;
-        } else if (tatungSpeach=="true" && hasNR==true) {
+            callback("搜尋");
+        } else if (tatungSpeach == "true" && hasNR == true) {
             console.log("搜尋2");
-            res.send("搜尋");
-            return;
+            callback("搜尋");
         } else {
             console.log("沒叫我");
-            res.send("沒叫我");
-            return;
+            callback("沒叫我");
         }
     })
-})
-/*app.post('/tatungSpeach', function (req, res) {
-    console.log('POST /tatungSpech');
-    var data = req.body.data;
-    var tatungSpeach = req.body.tatungSpeach
-    console.log("tatungSpech data: " + data)
-    analyzer.pseg(data, {
-        mode: Jieba.mode.SEARCH,
-        HMM: true
-    }, function (err, result) {
-        console.log(JSON.stringify(result))
-        var hasTatung = false;
-        var hasNR = false;
-        for (var i in result) {
-            if (result[i][0] == result[i][0] == "沒事"  || result[i][0] == "拜拜" || result[i][0] == "掰掰") {
-                res.send('掰掰');
-                return;
-            }
-            if (result[i][0] == "萬事達" || result[i][0] == "萬視達") hasTatung = true;
-            if (result[i][1] == "nr" || result[i][1] == "ng" || result[i][1] == "nrt" || result[i][1] == "nt") hasNR = true;
-            if (result[i][1] == "eng") hasNR = true;
-        }
-        if (hasTatung == true && hasNR == false) {
-            console.log("請問有什麼事嗎");
-            res.send("請問有什麼事嗎");
-            return;
-        } else if (hasTatung == true && hasNR == true) {
-            console.log("搜尋");
-            res.send("搜尋");
-            return;
-        } else if (tatungSpeach && hasNR) {
-            console.log('hasTatung '+hasTatung);
-            console.log('hasNR '+hasNR);
-            console.log("搜尋");
-            res.send("搜尋");
-            return;
-        } else {
-            console.log('hasTatung '+hasTatung);
-            console.log('hasNR '+hasNR);
-            console.log("沒叫我");
-            res.send("沒叫我");
-            return;
-        }
-    })
-})*/
+}
+
 app.post('/search', function (req, res) {
     console.log('POST /search');
     var searchdata = req.body.searchdata;
@@ -368,23 +333,23 @@ app.post('/search', function (req, res) {
         var resdata = '';
         console.log(jsongetusers.length);
         var datacount = 0;
-        console.log('371'+typeof(searchdata));
-        console.log('372'+searchdata);
+        console.log('371' + typeof (searchdata));
+        console.log('372' + searchdata);
         if (searchdata === '') {
             resdata = JSON.stringify(jsongetusers);
             res.send(resdata);
         } else {
             //---------取得使用者輸入文字的羅馬拼音------------
             var req = require('request');
-            console.log('379'+typeof(searchdata));
-            console.log('380'+searchdata);
+            console.log('379' + typeof (searchdata));
+            console.log('380' + searchdata);
             analyzer.pseg(String(searchdata), {
                 mode: Jieba.mode.SEARCH,
                 HMM: true
             }, function (err, result) {
                 if (err) console.log(err)
                 else {
-                    console.log('387'+typeof(result));
+                    console.log('387' + typeof (result));
                     console.log(JSON.stringify(result))
                     for (var i in result) {
                         if (result[i][1] == "nr" || result[i][1] == "ng" || result[i][1] == "nrfg" || result[i][1] == "nrt" || result[i][1] == "nt" || result[i][1] == "nz") {
@@ -503,16 +468,16 @@ app.post('/databoolean', function (req, res) {
     var boolean_result = nodejieba.tag(databoolean);
     console.log(boolean_result);*/
     var req = require('request');
-    console.log('506'+typeof(databoolean));
-    console.log('507'+databoolean);
+    console.log('506' + typeof (databoolean));
+    console.log('507' + databoolean);
     analyzer.pseg(databoolean, {
         mode: Jieba.mode.SEARCH,
         HMM: true
     }, function (err, result) {
         if (err) console.log(err)
         else {
-            console.log('514'+typeof(result));
-            console.log('515'+result);
+            console.log('514' + typeof (result));
+            console.log('515' + result);
             console.log(JSON.stringify(result));
             var datacount = 0;
             for (var i in result) {
