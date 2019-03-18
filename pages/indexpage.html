@@ -67,7 +67,7 @@
                         <table style="margin-top:10px">
                             <tr>
                                 <td>
-                                    <h4>請說"萬事達"幫您找同仁: <span id="speechStatue"></span></h4>
+                                    <h4>請說"大同寶寶"幫您找同仁: <span id="speechStatue"></span></h4>
                                 </td>
                                 <td>
                                     <input id="voiceSearch" type="button" value="語音查詢" style="visibility:hidden" />
@@ -170,7 +170,7 @@
                 search();
             }
         });
-
+        var datalength =0;
         function getvoice(flag) { //1
             console.log("getvoice")
             if (flag != null) tatungSpeach = flag;
@@ -325,7 +325,7 @@
                     document.getElementById("voiceSearch").disabled = false;
                     $("#speechStatue").html("點擊\"語音查詢\"開始識別語音，如:請幫我找某某某");
                 } else {
-                    console.log('else');
+                    console.log(resdata);
                     $('#tableforuser').empty(); //清空appendforuser裡面所有node
                     $('#scrollx').animate({
                         scrollLeft: 0
@@ -337,7 +337,7 @@
                     });*/
                     resdata = JSON.parse(resdata);
                     findata = resdata; //記錄目前搜尋出來的資料，之後打電話方便搜尋
-                    var datalength = resdata.length;
+                    datalength = resdata.length;
                     $('#divrow').width((Math.floor(datalength / 5) + 1) * 635);
                     /*$('#divrow').width(905 * datalength);
                     $('.tableresize').width(905 * datalength);*/
@@ -392,7 +392,7 @@
                         //---------------語音---------------
                         try {
                             console.log('386');
-                            msg = function (event) {
+                            msg.onend = function (event) {
                                 console.log(typeof(event));
                                 console.log(JSON.stringify(event));
                                 console.log('說完 以下是搜尋結果，要撥給第幾筆資料');
@@ -492,9 +492,7 @@
                                 console.log("makecall")
                                 tellyouMakeCall();
                                 var this_businessPhones = JSON.stringify(findata[0].businessPhones);
-                                this_businessPhones = this_businessPhones.replace('[', '').replace(']', '')
-                                    .replace(
-                                        '"', '').replace('"', '');
+                                this_businessPhones = this_businessPhones.replace('[', '').replace(']', '').replace('"', '').replace('"', '');
                                 camakecall(this_businessPhones);
                                 getvoice_HangUp();
                                 $("#speechStatue").html("點擊\"語音查詢\"開始識別語音，如:請幫我找某某某");
@@ -517,9 +515,7 @@
                                 console.log("數量")
                                 tellyouMakeCall();
                                 var this_businessPhones = JSON.stringify(findata[Number(resdata) - 1].businessPhones);
-                                this_businessPhones = this_businessPhones.replace('[', '').replace(']', '')
-                                    .replace(
-                                        '"', '').replace('"', '');
+                                this_businessPhones = this_businessPhones.replace('[', '').replace(']', '').replace('"', '').replace('"', '');
                                 camakecall(this_businessPhones);
                                 getvoice_HangUp();
                                 $("#speechStatue").html("點擊\"語音查詢\"開始識別語音，如:請幫我找某某某");
@@ -574,9 +570,8 @@
                 //show.innerHTML = event.results[i][j].transcript;
                 myTranscript = event.results[i][j].transcript;
                 console.log("通話紀錄: " + myTranscript)
-                if (myTranscript.indexOf("萬事達") != -1 &&
-                    (myTranscript.indexOf("掛電話") != -1 || myTranscript.indexOf("掛斷") != -1 || myTranscript.indexOf(
-                        "掛掉") != -1)) {
+                if (myTranscript.indexOf("大同寶寶") != -1 &&
+                    (myTranscript.indexOf("掛電話") != -1 || myTranscript.indexOf("掛斷") != -1 || myTranscript.indexOf("掛掉") != -1)) {
                     recognition_HangUp.stop();
                 }
             };

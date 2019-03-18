@@ -36,7 +36,7 @@ jiebarun()
 function jiebarun() {
     analyzer.dict('dict.txt', function (err) { //==
         if (err) console.log(err)
-        analyzer.pseg("嗨阿,你好呀,大同寶寶", {
+        analyzer.pseg("第一筆資料大同寶寶", {
             mode: Jieba.mode.SEARCH,
             HMM: true
         }, function (err, result) {
@@ -294,7 +294,7 @@ function tatung(data, tatungSpeach, callback) {
             if (result[i][0] == "沒事" || result[i][0] == "拜拜" || result[i][0] == "掰掰") {
                 callback('掰掰');
             }
-            if (result[i][0] == "萬事達" || result[i][0] == "萬視達" || result[i][0] == "萬") hasTatung = true;
+            if (result[i][0] == "大同寶寶") hasTatung = true;
             if (result[i][1] == "nr" || result[i][1] == "ng" || result[i][1] == "nrt" || result[i][1] == "nt") hasNR = true;
             if (result[i][1] == "eng") hasNR = true;
         }
@@ -352,8 +352,13 @@ function checksearch(searchdata,callback){
         mode: Jieba.mode.SEARCH,
         HMM: true
     }, function (err, result) {
-        if (err) console.log(err)
+        if (err) console.log(err);
         else {
+            var checkresult = JSON.stringify(result);
+            console.log(checkresult);
+            if (checkresult.indexOf('["[[') != -1) {
+                return checksearch(searchdata, callback);
+            }
             for (var i in result) {
                 if (result[i][1] == "nr" || result[i][1] == "ng" || result[i][1] == "nrfg" || result[i][1] == "nrt" || result[i][1] == "nt" || result[i][1] == "nz") {
                     var myAnswer = {
@@ -404,7 +409,6 @@ function checksearch(searchdata,callback){
                                 }
                         }
                     }
-
                 } else if (result[i][1] == "eng") {
                     var myAnswer = {
                         index: "",
@@ -434,6 +438,7 @@ function checksearch(searchdata,callback){
         }
         if (datacount > 0) {
             resdata = '[' + resdata + ']'; //最外面的 [ ]
+            console.log(resdata);
         }
         //console.log(resdata);
         if (resdata != '') {
@@ -446,6 +451,7 @@ function checksearch(searchdata,callback){
                 callback(resdata);
             })
         } else {
+            console.log('wrong');
             callback('wrong');
         }
     }.bind({
@@ -473,7 +479,7 @@ function dataforboolean(databoolean, callback){
             var checkresult = JSON.stringify(result);
             console.log(checkresult);
             if (checkresult.indexOf('["[[') != -1) {
-                return databoolean(databoolean, callback);
+                return dataforboolean(databoolean, callback);
             }
             var datacount = 0;
             for (var i in result) {
