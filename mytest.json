@@ -1130,6 +1130,22 @@
     "romaname": "waibujiherenyuanzhanghaonull"
   },
   {
+    "businessPhones": [
+      "4600"
+    ],
+    "displayName": "陳聖棻 Audrey Chen",
+    "givenName": "聖棻",
+    "jobTitle": null,
+    "mail": "Audrey.Chen@etatung.com",
+    "mobilePhone": "0983365266",
+    "officeLocation": "台北北設工2樓",
+    "preferredLanguage": null,
+    "surname": "陳",
+    "userPrincipalName": "Audrey.Chen@etatung.com",
+    "id": "5b5d619b-a017-4226-8faf-2937b4e35df9",
+    "romaname": "chenshengfen"
+  },
+  {
     "businessPhones": [],
     "displayName": "陳敏 Babymin Chen",
     "givenName": "敏",
@@ -6320,7 +6336,7 @@
     "displayName": "陆莲 Lynne Lu",
     "givenName": "莲",
     "jobTitle": null,
-    "mail": "Lynne.Lu@tstich.com",
+    "mail": "Lynne.Lu@tsticn.com",
     "mobilePhone": "15921070547",
     "officeLocation": "中國-上海",
     "preferredLanguage": null,
@@ -8947,22 +8963,6 @@
   },
   {
     "businessPhones": [
-      "4729"
-    ],
-    "displayName": "姜義德 Ted Chiang",
-    "givenName": "義德",
-    "jobTitle": "副經理",
-    "mail": "Ted.Chiang@etatung.com",
-    "mobilePhone": "+886 937862610",
-    "officeLocation": "4729",
-    "preferredLanguage": null,
-    "surname": "姜",
-    "userPrincipalName": "Ted.Chiang@etatung.com",
-    "id": "f9e3f4a2-0466-4916-b6df-a8788c461144",
-    "romaname": "jiangyide"
-  },
-  {
-    "businessPhones": [
       "4856"
     ],
     "displayName": "光相天 ted kwang",
@@ -9140,6 +9140,22 @@
     "userPrincipalName": "Timothy.Wong@etatung.com",
     "id": "f5f34ad2-84c2-4a25-89e9-cc055dd2faaa",
     "romaname": "wengjiaen"
+  },
+  {
+    "businessPhones": [
+      "4647"
+    ],
+    "displayName": "黃靚恩 Tina Huang",
+    "givenName": "靚恩",
+    "jobTitle": null,
+    "mail": "Tina.Huang@etatung.com",
+    "mobilePhone": "0913402750",
+    "officeLocation": "台北北設工3樓",
+    "preferredLanguage": null,
+    "surname": "黃",
+    "userPrincipalName": "Tina.Huang@etatung.com",
+    "id": "cc4a60f7-2fbc-42be-beea-12d1d4689e89",
+    "romaname": "huangjingen"
   },
   {
     "businessPhones": [
@@ -10062,6 +10078,22 @@
     "userPrincipalName": "vivian.chen@etatung.com",
     "id": "fb99f848-0ea5-4bff-8d0c-5e0ac0f87ff8",
     "romaname": "chenyingyi"
+  },
+  {
+    "businessPhones": [
+      "5430"
+    ],
+    "displayName": "徐綵彤 Vivian Hsu",
+    "givenName": "綵彤",
+    "jobTitle": "專案經理",
+    "mail": "Vivian.Hsu@tisnet.com.tw",
+    "mobilePhone": "0955235636",
+    "officeLocation": "台北北設工5樓",
+    "preferredLanguage": null,
+    "surname": "徐",
+    "userPrincipalName": "Vivian.Hsu@etatung.onmicrosoft.com",
+    "id": "d1d66fdf-5f2a-4ac3-802f-7969699aa49a",
+    "romaname": "xucaitong"
   },
   {
     "businessPhones": [
