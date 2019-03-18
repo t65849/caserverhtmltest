@@ -438,7 +438,6 @@ function checksearch(searchdata,callback){
         }
         if (datacount > 0) {
             resdata = '[' + resdata + ']'; //最外面的 [ ]
-            console.log(resdata);
         }
         //console.log(resdata);
         if (resdata != '') {
@@ -555,69 +554,29 @@ function dataforboolean(databoolean, callback){
                     }
                 } else if (result[i][1] == "m") {
                     var this_num = result[i][0];
-                    switch (this_num) {
-                        case "第一":
-                            callback("1");
+                    console.log(typeof(this_num));
+                    switch(isNaN(this_num) || parseInt(this_num)){
+                        case true:
+                            if(this_num.indexOf("一")!=-1) callback("1");
+                            else if(this_num.indexOf("二")!=-1) callback("2");
+                            else if(this_num.indexOf("三")!=-1) callback("3");
+                            else if(this_num.indexOf("四")!=-1) callback("4");
+                            else if(this_num.indexOf("五")!=-1) callback("5");
+                            else if(this_num.indexOf("六")!=-1) callback("6");
+                            else if(this_num.indexOf("七")!=-1) callback("7");
+                            else if(this_num.indexOf("八")!=-1) callback("8");
+                            else if(this_num.indexOf("九")!=-1) callback("9");
+                            else if(this_num.indexOf("十")!=-1) callback("10");
+                            else if(this_num.indexOf("第")!=-1) ;
+                            else callback('notfound');
                             break;
-                        case "一個":
-                            callback("1");
-                            break;
-                        case "一筆":
-                            callback("1");
-                            break;
-                        case "第二":
-                            callback("2");
-                            break;
-                        case "第三":
-                            callback("3");
-                            break;
-                        case "第四":
-                            callback("4");
-                            break;
-                        case "第五":
-                            callback("5");
-                            break;
-                        case "第六":
-                            callback("6");
-                            break;
-                        case "第七":
-                            callback("7");
-                            break;
-                        case "第八":
-                            callback("8");
-                            break;
-                        case "第九":
-                            callback("9");
-                            break;
-                        case "10":
-                            callback("10");
-                            break;
-                        case "11":
-                            callback("11");
-                            break;
-                        case "12":
-                            callback("12");
-                            break;
-                        case "13":
-                            callback("13");
-                            break;
-                        case "14":
-                            callback("14");
-                            break;
-                        case "15":
-                            callback("15");
-                            break;
-                        case "16":
-                            callback("16");
-                            break;
-                        case "17":
-                            callback("17");
-                            break;
+                        default:
+                            callback(this_num);
                     }
                 } else if (result[i][0] == "不" || result[i][0] == "不是" || result[i][0] == "不要" || result[i][0] == "取消" || result[i][0] == "不用" || result[i][0] == "不需要" || result[i][0] == "拜拜" || result[i][0] == "掰掰" || result[i][0] == "不好") {
                     callback('cancel');
                     return;
-                } else if (result[i][0] == "沒錯" || result[i][0] == "需要" || result[i][0] == "撥電話" || result[i][0] == "打電話" || result[i][0] == "好" || result[i][0] == "謝謝") {
+                } else if (result[i][0] == "沒錯" || result[i][0] == "需要" || result[i][0] == "撥電話" || result[i][0] == "打電話" || result[i][0] == "好" || result[i][0] == "謝謝"  || result[i][0] == "是" || result[i][0] == "是的") {
                     callback('makecall');
                     return;
                 }
@@ -627,7 +586,6 @@ function dataforboolean(databoolean, callback){
             if (datacount > 0) {
                 resdata = '[' + resdata + ']'; //最外面的 [ ]
             }
-            console.log(resdata);
             if (resdata != '') {
                 //console.log(datacount);
                 //console.log('!=null');
