@@ -392,7 +392,7 @@
                         //---------------語音---------------
                         try {
                             console.log('386');
-                            this.msg.onend = function (event) {
+                            msg = function (event) {
                                 console.log(typeof(event));
                                 console.log(JSON.stringify(event));
                                 console.log('說完 以下是搜尋結果，要撥給第幾筆資料');
