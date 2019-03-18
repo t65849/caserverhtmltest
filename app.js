@@ -286,7 +286,7 @@ function tatung(data, tatungSpeach, callback) {
         var checkresult = JSON.stringify(result);
         console.log(checkresult);
         if (checkresult.indexOf('["[[') != -1) {
-            return tatung(data, tatungSpeach.callback);
+            return tatung(data, tatungSpeach, callback);
         }
         var hasTatung = false;
         var hasNR = false;
@@ -461,24 +461,24 @@ app.post('/databoolean', function (req, res) {
     var resdata = '';
     console.log('POST /databoolean');
     var databoolean = req.body.databoolean;
-    /*var nodejieba = require("nodejieba");
-    nodejieba.load({
-        userDict: __dirname + '/pages/checkboolean.utf8',
-    });
-    var boolean_result = nodejieba.tag(databoolean);
-    console.log(boolean_result);*/
     var req = require('request');
-    console.log('506' + typeof (databoolean));
-    console.log('507' + databoolean);
+    dataforboolean(databoolean, function(b){
+        res.send(b);
+    });
+})
+
+function dataforboolean(databoolean, callback){
     analyzer.pseg(databoolean, {
         mode: Jieba.mode.SEARCH,
         HMM: true
     }, function (err, result) {
         if (err) console.log(err)
         else {
-            console.log('514' + typeof (result));
-            console.log('515' + result);
-            console.log(JSON.stringify(result));
+            var checkresult = JSON.stringify(result);
+            console.log(checkresult);
+            if (checkresult.indexOf('["[[') != -1) {
+                return databoolean(databoolean, callback);
+            }
             var datacount = 0;
             for (var i in result) {
                 if (result[i][1] == "nr" || result[i][1] == "ng" || result[i][1] == "nrfg" || result[i][1] == "nrt" || result[i][1] == "nt" || result[i][1] == "nz") {
@@ -555,68 +555,68 @@ app.post('/databoolean', function (req, res) {
                     var this_num = result[i][0];
                     switch (this_num) {
                         case "第一":
-                            res.send("1");
+                            callback("1");
                             break;
                         case "一個":
-                            res.send("1");
+                            callback("1");
                             break;
                         case "一筆":
-                            res.send("1");
+                            callback("1");
                             break;
                         case "第二":
-                            res.send("2");
+                            callback("2");
                             break;
                         case "第三":
-                            res.send("3");
+                            callback("3");
                             break;
                         case "第四":
-                            res.send("4");
+                            callback("4");
                             break;
                         case "第五":
-                            res.send("5");
+                            callback("5");
                             break;
                         case "第六":
-                            res.send("6");
+                            callback("6");
                             break;
                         case "第七":
-                            res.send("7");
+                            callback("7");
                             break;
                         case "第八":
-                            res.send("8");
+                            callback("8");
                             break;
                         case "第九":
-                            res.send("9");
+                            callback("9");
                             break;
                         case "10":
-                            res.send("10");
+                            callback("10");
                             break;
                         case "11":
-                            res.send("11");
+                            callback("11");
                             break;
                         case "12":
-                            res.send("12");
+                            callback("12");
                             break;
                         case "13":
-                            res.send("13");
+                            callback("13");
                             break;
                         case "14":
-                            res.send("14");
+                            callback("14");
                             break;
                         case "15":
-                            res.send("15");
+                            callback("15");
                             break;
                         case "16":
-                            res.send("16");
+                            callback("16");
                             break;
                         case "17":
-                            res.send("17");
+                            callback("17");
                             break;
                     }
                 } else if (result[i][0] == "不" || result[i][0] == "不是" || result[i][0] == "不要" || result[i][0] == "取消" || result[i][0] == "不用" || result[i][0] == "不需要" || result[i][0] == "拜拜" || result[i][0] == "掰掰" || result[i][0] == "不好") {
-                    res.send('cancel');
+                    callback('cancel');
                     return;
                 } else if (result[i][0] == "沒錯" || result[i][0] == "需要" || result[i][0] == "撥電話" || result[i][0] == "打電話" || result[i][0] == "好" || result[i][0] == "謝謝") {
-                    res.send('makecall');
+                    callback('makecall');
                     return;
                 }
             }
@@ -634,16 +634,16 @@ app.post('/databoolean', function (req, res) {
                 quickSearchData.push(myAnswer);
                 fs.writeFile('quickSearch.json', JSON.stringify(quickSearchData, null, 2), function () {
                     console.log(resdata);
-                    res.send(resdata);
+                    callback(resdata);
                     return;
                 })
             } else {
-                res.send('wrong');
+                callback('wrong');
                 return;
             }
         }
     });
-})
+}
 
 function checkVal(str) {
     var regExp = /^[\d|a-zA-Z]+$/;
