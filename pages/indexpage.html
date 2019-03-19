@@ -79,7 +79,7 @@
                                 style="width:100px;visibility:hidden;">搜尋</button></h4>
                     </div>
                     <!--class="btn searchbtn"-->
-                    <div id="scrollx" style="width:80vw; height:66.5vh; overflow-y:auto; overflow-x:auto;">
+                    <div id="scrollx" style="width:80vw; height:66.5vh; overflow-y:auto; overflow-x:auto;margin-top: 30px;">
                         <!--margin-left: 120px; margin-top: -25px;
                             style="width:34.5vw; height:95vh; overflow-y:auto; overflow-x:auto;-->
                         <!--<div id="divrow" class="row">-->
@@ -195,7 +195,7 @@
                 console.log("insearch: " + insearch)
                 myTranscript = event.results[i][j].transcript
                 recognition.stop();
-
+                $("#speechStatue").html("識別語音中...");
             }
             recognition.onend = function () {
                 console.log('getvoice停止辨識!');
@@ -210,7 +210,16 @@
                         myTranscript = myTranscript.replace('之一', '志伊');
                     } else if (myTranscript.indexOf('年齡') != -1) {
                         myTranscript = myTranscript.replace('年齡', '連玲');
+                    } else if (myTranscript.indexOf('字尾') != -1) {
+                        myTranscript = myTranscript.replace('字尾', '智偉');
+                    }else if (myTranscript.indexOf('紅') != -1) {
+                        myTranscript = myTranscript.replace('紅', '洪');
+                    } else if (myTranscript.indexOf('大潤發') != -1) {
+                        myTranscript = myTranscript.replace('大潤發', '大同');
+                    } else if (myTranscript.indexOf('剪刀子') != -1) {
+                        myTranscript = myTranscript.replace('剪刀子', '簡兆智');
                     }
+                    $('#searchdata').val(myTranscript);
                     var data = {
                         data: myTranscript,
                         tatungSpeach: tatungSpeach
@@ -230,12 +239,16 @@
                                     getvoice(true);
                                 }
                             } else {
+                                $("#speechStatue").html("開始識別語音...");
                                 console.log("睡覺Ing");
                                 getvoice(false);
+                                $('#tableforuser').empty(); //清空appendforuser裡面所有node
+                                $('#divrow').width(635);
                             }
                             //recognition.stop();
                         } else if (res == "搜尋") {
-                            console.log("進入搜尋")
+                            console.log("進入搜尋");
+                            $("#speechStatue").html("收尋中...");
                             tatungSpeach = true;
                             if (tatungSpeach) {
                                 $("#searchdata").val(myTranscript);
@@ -245,6 +258,8 @@
                             }
                         } else if (res == "請問有什麼事嗎") {
                             console.log("請問有什麼事嗎");
+                            $('#tableforuser').empty(); //清空appendforuser裡面所有node
+                            $('#divrow').width(635);
                             $("#searchdata").val(myTranscript);
                             var msg = new SpeechSynthesisUtterance();
                             msg.text = "請問有什麼事嗎";
@@ -260,13 +275,14 @@
                             }, 2000)*/
                         } else if (res == "掰掰") {
                             console.log("沒事別吵我");
+                            $("#speechStatue").html("開始識別語音...");
                             $("#searchdata").val('');
                             var msg = new SpeechSynthesisUtterance();
-                            msg.text = ""; //沒事別吵我
+                            msg.text = "掰掰"; //沒事別吵我
                             speechSynthesis.speak(msg);
                             tatungSpeach = true;
                             msg.onend = function (event) {
-                                console.log('說完 沒事別吵我');
+                                console.log('說完 掰掰');
                                 tatungSpeach = false;
                                 getvoice(false);
                             }
@@ -282,22 +298,26 @@
             console.log('function search');
             var searchdata = $('#searchdata').val();
             console.log(searchdata);
-            /*if (searchdata.indexOf('eyny') != -1) {
+            if (searchdata.indexOf('eyny') != -1) {
                 searchdata = searchdata.replace('eyny', 'Annie');
-                $('#searchdata').val(searchdata);
             } else if (searchdata.indexOf('造字') != -1) {
                 searchdata = searchdata.replace('造字', '兆志');
-                $('#searchdata').val(searchdata);
             } else if (searchdata.indexOf('自慰') != -1) {
                 searchdata = searchdata.replace('自慰', '智偉');
-                $('#searchdata').val(searchdata);
             } else if (searchdata.indexOf('之一') != -1) {
                 searchdata = searchdata.replace('之一', '志伊');
-                $('#searchdata').val(searchdata);
             } else if (searchdata.indexOf('年齡') != -1) {
                 searchdata = searchdata.replace('年齡', '連玲');
-                $('#searchdata').val(searchdata);
-            }*/
+            } else if (searchdata.indexOf('字尾') != -1) {
+                searchdata = searchdata.replace('字尾', '智偉');
+            }else if (searchdata.indexOf('紅') != -1) {
+                searchdata = searchdata.replace('紅', '洪');
+            } else if (searchdata.indexOf('大潤發') != -1) {
+                searchdata = searchdata.replace('大潤發', '大同');
+            } else if (searchdata.indexOf('剪刀子') != -1) {
+                searchdata = searchdata.replace('剪刀子', '簡兆智');
+            }
+            $('#searchdata').val(searchdata);
             var data = {
                 searchdata: searchdata
             }
@@ -314,18 +334,12 @@
                         insearch = false;
                         getvoice(true);
                     }
-                    /*tatungSpeach = false;
-                    insearch = false;
-                    setTimeout(function () {
-                        $('#voiceSearch').trigger('click');
-                    }, 3800);*/
                     $('#tableforuser').empty(); //清空appendforuser裡面所有node
                     $('#divrow').width(635);
                 } else if (resdata === 'cancel') {
                     document.getElementById("voiceSearch").disabled = false;
-                    $("#speechStatue").html("點擊\"語音查詢\"開始識別語音，如:請幫我找某某某");
+                    $("#speechStatue").html("開始識別語音...");
                 } else {
-                    console.log(resdata);
                     $('#tableforuser').empty(); //清空appendforuser裡面所有node
                     $('#scrollx').animate({
                         scrollLeft: 0
@@ -360,7 +374,6 @@
                     }
                     var surname = resdata[0].displayName
                     var givenName = resdata[0].givenName;
-                    console.log(surname);
                     if (resdata.length < 2) {
                         //---------------語音---------------
                         var msg = new SpeechSynthesisUtterance();
@@ -369,15 +382,12 @@
                         speechSynthesis.speak(msg);
                         //---------------語音---------------
                         try {
-                            console.log('368');
                             msg.onend = function (event) {
-                                console.log(typeof (event));
                                 console.log(JSON.stringify(event));
                                 console.log('說完 以下是搜尋結果，請問幫您撥電話嗎');
                                 getvoiceSecond();
                             }
                         } catch (err) {
-                            console.log('374');
                             console.log(err);
                             msg.onerror = function (event) {
                                 console.log(event.error);
@@ -391,7 +401,6 @@
                         speechSynthesis.speak(msg);
                         //---------------語音---------------
                         try {
-                            console.log('386');
                             msg.onend = function (event) {
                                 console.log(typeof (event));
                                 console.log(JSON.stringify(event));
@@ -399,22 +408,12 @@
                                 getvoiceSecond();
                             }
                         } catch (err) {
-                            console.log('392');
                             console.log(err);
                             msg.onerror = function (event) {
                                 console.log(event.error);
                             }
                         }
                     }
-
-                    /*setTimeout(function () {
-                        //---------------語音---------------
-                        var msg = new SpeechSynthesisUtterance();
-                        var voices = [];
-                        msg.text = "對不起，我暫離一下，再按語音查詢即可找到我哦";
-                        speechSynthesis.speak(msg);
-                        //---------------語音---------------
-                    }, 300000);*/
                 }
             })
         };
@@ -433,6 +432,7 @@
                 $("#speechStatue").html("開始識別語音...");
             };
             recognition_forsecond.onresult = function (event) {
+                $("#speechStatue").html("識別語音中...");
                 console.log(event)
                 var i = event.resultIndex;
                 var j = event.results[i].length - 1;
@@ -448,7 +448,7 @@
                     nosound++;
                     if (nosound > 10) {
                         document.getElementById("voiceSearch").disabled = false;
-                        $("#speechStatue").html("點擊\"語音查詢\"開始識別語音，如:請幫我找某某某");
+                        $("#speechStatue").html("開始識別語音...");
                         nosound = 1;
                         //---------------語音---------------
                         var msg = new SpeechSynthesisUtterance();
@@ -467,6 +467,27 @@
                 } else {
                     nosound = 1;
                     var databoolean = $('#databoolean').val();
+                    if (databoolean.indexOf('eyny') != -1) {
+                        databoolean = databoolean.replace('eyny', 'Annie');
+                    } else if (databoolean.indexOf('造字') != -1) {
+                        databoolean = databoolean.replace('造字', '兆志');
+                    } else if (databoolean.indexOf('自慰') != -1) {
+                        databoolean = databoolean.replace('自慰', '智偉');
+                    } else if (databoolean.indexOf('之一') != -1) {
+                        databoolean = databoolean.replace('之一', '志伊');
+                    } else if (databoolean.indexOf('年齡') != -1) {
+                        databoolean = databoolean.replace('年齡', '連玲');
+                    } else if (databoolean.indexOf('字尾') != -1) {
+                        databoolean = databoolean.replace('字尾', '智偉');
+                    } else if (databoolean.indexOf('字尾') != -1) {
+                        databoolean = databoolean.replace('字尾', '智偉');
+                    } else if (databoolean.indexOf('紅') != -1) {
+                        databoolean = databoolean.replace('紅', '洪');
+                    } else if (databoolean.indexOf('大潤發') != -1) {
+                        databoolean = databoolean.replace('大潤發', '大同');
+                    } else if (databoolean.indexOf('剪刀子') != -1) {
+                        databoolean = databoolean.replace('剪刀子', '簡兆智');
+                    }
                     var data = {
                         databoolean: databoolean
                     }
@@ -475,9 +496,10 @@
                         console.log(resdata)
                         console.log(Number(resdata))
                         switch (isNaN(resdata) || parseInt(resdata)) {
-                            case true   :
+                            case true:
                                 switch (resdata) {
                                     case 'wrong':
+                                        $('#searchdata').val(databoolean);
                                         var msg = new SpeechSynthesisUtterance();
                                         var voices = [];
                                         msg.text = "很抱歉沒有搜尋到資料，請再說一次";
@@ -499,16 +521,16 @@
                                         this_businessPhones = this_businessPhones.replace('[', '').replace(']', '').replace('"', '').replace('"', '');
                                         camakecall(this_businessPhones);
                                         getvoice_HangUp();
-                                        $("#speechStatue").html("點擊\"語音查詢\"開始識別語音，如:請幫我找某某某");
+                                        $("#speechStatue").html("開始識別語音...");
                                         break;
                                     case 'cancel':
-                                        $("#speechStatue").html("點擊\"語音查詢\"開始識別語音，如:請幫我找某某某");
+                                    $("#speechStatue").html("開始識別語音...");
                                         document.getElementById("voiceSearch").disabled = false;
                                         insearch = false;
                                         getvoice(false);
                                         break;
                                     case 'bye':
-                                        $("#speechStatue").html("點擊\"語音查詢\"開始識別語音，如:請幫我找某某某");
+                                    $("#speechStatue").html("開始識別語音...");
                                         document.getElementById("voiceSearch").disabled = false;
                                         $('#searchdata').val('');
                                         insearch = false;
@@ -527,11 +549,8 @@
                                 this_businessPhones = this_businessPhones.replace('[', '').replace(']', '').replace('"', '').replace('"', '');
                                 camakecall(this_businessPhones);
                                 getvoice_HangUp();
-                                $("#speechStatue").html("點擊\"語音查詢\"開始識別語音，如:請幫我找某某某");
+                                $("#speechStatue").html("開始識別語音...");
                                 document.getElementById("voiceSearch").disabled = false;
-
-                            //insearch = false;
-                            //getvoice(false);
                         }
                     });
                 }
@@ -541,7 +560,6 @@
 
 
         function getvoice_HangUp() { //4
-
             console.log('getvoice_HangUp');
             var myTranscript = '';
             var recognition_HangUp = new webkitSpeechRecognition();
@@ -562,7 +580,7 @@
                 //show.innerHTML = event.results[i][j].transcript;
                 myTranscript = event.results[i][j].transcript;
                 console.log("通話紀錄: " + myTranscript)
-                if (myTranscript.indexOf("大同寶寶") != -1 &&
+                if ((myTranscript.indexOf("大同寶寶") != -1 || myTranscript.indexOf("大同") != -1 || myTranscript.indexOf("寶寶") != -1)&&
                     (myTranscript.indexOf("掛電話") != -1 || myTranscript.indexOf("掛斷") != -1 || myTranscript.indexOf("掛掉") != -1)) {
                     recognition_HangUp.stop();
                 }

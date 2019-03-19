@@ -295,7 +295,7 @@ function tatung(data, tatungSpeach, callback) {
             if (result[i][0] == "沒事" || result[i][0] == "拜拜" || result[i][0] == "掰掰") {
                 callback('掰掰');
             }
-            if (result[i][0] == "大同寶寶") hasTatung = true;
+            if (result[i][0] == "大同寶寶" || result[i][0] == "大同" || result[i][0] == "寶寶") hasTatung = true;
             if (result[i][1] == "nr" || result[i][1] == "ng" || result[i][1] == "nrt" || result[i][1] == "nt") hasNR = true;
             if (result[i][1] == "eng") hasNR = true;
         }
@@ -568,12 +568,13 @@ function dataforboolean(databoolean, callback) {
                             else if (this_num.indexOf("八") != -1) callback("8");
                             else if (this_num.indexOf("九") != -1) callback("9");
                             else if (this_num.indexOf("十") != -1) callback("10");
-                            else if (this_num.indexOf("第") != -1);
+                            else if (this_num.indexOf("第") != -1) {console.log('第~571'); continue;}
                             else callback('notfound');
                             break;
                         default:
+                            console.log(typeof(this_num));
+                            console.log(this_num);
                             callback(this_num);
-
                     }
                     return;
                 } else if (result[i][0] == "不" || result[i][0] == "不是" || result[i][0] == "不要" || result[i][0] == "取消" || result[i][0] == "不用" || result[i][0] == "不需要" || result[i][0] == "拜拜" || result[i][0] == "掰掰" || result[i][0] == "不好") {
