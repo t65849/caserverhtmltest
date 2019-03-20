@@ -481,8 +481,32 @@ function dataforboolean(databoolean, callback) {
             if (checkresult.indexOf('["[[') != -1) {
                 return dataforboolean(databoolean, callback);
             }
+            var hasTatungg = false;
+            var hasNRR = false;
+            for (var i in result) {
+                if (result[i][0] == "沒事" || result[i][0] == "拜拜" || result[i][0] == "掰掰") {
+                    callback('掰掰');
+                }
+                if (result[i][0] == "大同寶寶" || result[i][0] == "大同" || result[i][0] == "寶寶") hasTatungg = true;
+                if (result[i][1] == "nr" || result[i][1] == "ng" || result[i][1] == "nrt" || result[i][1] == "nt") hasNRR = true;
+                if (result[i][1] == "eng") hasNRR = true;
+            }
+            console.log('494 '+hasTatungg+' tatung');
+            console.log('495 '+hasNRR+' nr');
             var datacount = 0;
             for (var i in result) {
+                if (result[i][0] == "沒事" || result[i][0] == "拜拜" || result[i][0] == "掰掰") {
+                    callback('掰掰');
+                    return;
+                }
+                if (result[i][0] == "大同寶寶" || result[i][0] == "大同" || result[i][0] == "寶寶") hasTatungg = true;
+                if (result[i][1] == "nr" || result[i][1] == "ng" || result[i][1] == "nrt" || result[i][1] == "nt") hasNRR = true;
+                if (result[i][1] == "eng") hasNRR = true;
+                if (hasTatungg == true && hasNRR == false) {
+                    console.log("請問有什麼事嗎");
+                    callback("請問有什麼事嗎");
+                    return;
+                } 
                 if (result[i][1] == "nr" || result[i][1] == "ng" || result[i][1] == "nrfg" || result[i][1] == "nrt" || result[i][1] == "nt" || result[i][1] == "nz") {
                     var myAnswer = {
                         index: "",
@@ -618,8 +642,8 @@ function checkVal(str) {
 }
 
 var levenshtein = require('js-levenshtein');
-var newromaname = "簡兆志"
-var romaforname = "簡造字"
+var newromaname = "石柏旭"
+var romaforname = "石博旭"
 newromaname = tranPinyin(newromaname);
 romaforname = tranPinyin(romaforname);
 console.log(newromaname)

@@ -149,7 +149,7 @@
         });
         //voiceSearch
         $(document).ready(function () {
-            $("#speechStatue").html("點擊\"語音查詢\"開始識別語音，如:請幫我找某某某");
+            $("#speechStatue").html("開始識別語音...");
             if (!('webkitSpeechRecognition' in window)) {
                 alert("這個瀏覽器不支援google語音");
             } else {
@@ -172,7 +172,7 @@
         });
         var datalength = 0;
         function getvoice(flag) { //1
-            console.log("getvoice")
+            console.log("getvoice");
             if (flag != null) tatungSpeach = flag;
             var myTranscript = '';
             var recognition = new webkitSpeechRecognition();
@@ -191,8 +191,10 @@
                 var j = event.results[i].length - 1;
                 //show.innerHTML = event.results[i][j].transcript;
                 console.log(event.results[i][j].transcript)
+                console.log('194');
                 console.log("tatungSpeach: " + tatungSpeach)
                 console.log("insearch: " + insearch)
+                console.log('197');
                 myTranscript = event.results[i][j].transcript
                 recognition.stop();
                 $("#speechStatue").html("識別語音中...");
@@ -218,6 +220,22 @@
                         myTranscript = myTranscript.replace('大潤發', '大同');
                     } else if (myTranscript.indexOf('剪刀子') != -1) {
                         myTranscript = myTranscript.replace('剪刀子', '簡兆智');
+                    } else if (myTranscript.indexOf('帶') != -1) {
+                        myTranscript = myTranscript.replace('帶', '戴');
+                    } else if (myTranscript.indexOf('代孕') != -1) {
+                        myTranscript = myTranscript.replace('代孕', '戴筠');
+                    } else if (myTranscript.indexOf('大雲') != -1) {
+                        myTranscript = myTranscript.replace('大雲', '戴筠');
+                    } else if (myTranscript.indexOf('成人') != -1) {
+                        myTranscript = myTranscript.replace('成人', '淳仁');
+                    } else if (myTranscript.indexOf('大雨') != -1) {
+                        myTranscript = myTranscript.replace('大雨', '戴筠');
+                    } else if (myTranscript.indexOf('斷腸') != -1) {
+                        myTranscript = myTranscript.replace('斷腸', '段淳');
+                    } else if (myTranscript.indexOf('和好') != -1) {
+                        myTranscript = myTranscript.replace('和好', '何顥');
+                    } else if (myTranscript.indexOf('柏旭') != -1) {
+                        myTranscript = myTranscript.replace('柏旭', '博旭');
                     }
                     $('#searchdata').val(myTranscript);
                     var data = {
@@ -241,6 +259,7 @@
                             } else {
                                 $("#speechStatue").html("開始識別語音...");
                                 console.log("睡覺Ing");
+                                $('#searchdata').val('(沒有聽到大同寶寶)');
                                 getvoice(false);
                                 $('#tableforuser').empty(); //清空appendforuser裡面所有node
                                 $('#divrow').width(635);
@@ -248,7 +267,7 @@
                             //recognition.stop();
                         } else if (res == "搜尋") {
                             console.log("進入搜尋");
-                            $("#speechStatue").html("收尋中...");
+                            $("#speechStatue").html("搜尋中...");
                             tatungSpeach = true;
                             if (tatungSpeach) {
                                 $("#searchdata").val(myTranscript);
@@ -278,7 +297,7 @@
                             $("#speechStatue").html("開始識別語音...");
                             $("#searchdata").val('');
                             var msg = new SpeechSynthesisUtterance();
-                            msg.text = "掰掰"; //沒事別吵我
+                            msg.text = "再見"; //沒事別吵我
                             speechSynthesis.speak(msg);
                             tatungSpeach = true;
                             msg.onend = function (event) {
@@ -316,6 +335,22 @@
                 searchdata = searchdata.replace('大潤發', '大同');
             } else if (searchdata.indexOf('剪刀子') != -1) {
                 searchdata = searchdata.replace('剪刀子', '簡兆智');
+            } else if (searchdata.indexOf('帶') != -1) {
+                searchdata = searchdata.replace('帶', '戴');
+            } else if (searchdata.indexOf('代孕') != -1) {
+                searchdata = searchdata.replace('代孕', '戴筠');
+            } else if (searchdata.indexOf('大雲') != -1) {
+                searchdata = searchdata.replace('大雲', '戴筠');
+            } else if (searchdata.indexOf('成人') != -1) {
+                searchdata = searchdata.replace('成人', '淳仁');
+            } else if (searchdata.indexOf('大雨') != -1) {
+                searchdata = searchdata.replace('大雨', '戴筠');
+            } else if (searchdata.indexOf('斷腸') != -1) {
+                searchdata = searchdata.replace('斷腸', '段淳');
+            } else if (searchdata.indexOf('和好') != -1) {
+                searchdata = searchdata.replace('和好', '何顥');
+            } else if (searchdata.indexOf('柏旭ˇ') != -1) {
+                searchdata = searchdata.replace('柏旭', '博旭');
             }
             $('#searchdata').val(searchdata);
             var data = {
@@ -457,6 +492,7 @@
                         speechSynthesis.speak(msg);
                         msg.onend = function (event) {
                             console.log('說完 我暫離一下，再呼叫我立即回來');
+                            $('#searchdata').val('(沒有聽到大同寶寶)');
                             insearch = false;
                             getvoice(false);
                         }
@@ -487,13 +523,28 @@
                         databoolean = databoolean.replace('大潤發', '大同');
                     } else if (databoolean.indexOf('剪刀子') != -1) {
                         databoolean = databoolean.replace('剪刀子', '簡兆智');
+                    } else if (databoolean.indexOf('帶') != -1) {
+                        databoolean = databoolean.replace('帶', '戴');
+                    } else if (databoolean.indexOf('代孕') != -1) {
+                        databoolean = databoolean.replace('代孕', '戴筠');
+                    } else if (databoolean.indexOf('大雲') != -1) {
+                        databoolean = databoolean.replace('大雲', '戴筠');
+                    } else if (databoolean.indexOf('成人') != -1) {
+                        databoolean = databoolean.replace('成人', '淳仁');
+                    } else if (databoolean.indexOf('大雨') != -1) {
+                        databoolean = databoolean.replace('大雨', '戴筠');
+                    } else if (databoolean.indexOf('斷腸') != -1) {
+                        databoolean = databoolean.replace('斷腸', '段淳');
+                    } else if (databoolean.indexOf('和好') != -1) {
+                        databoolean = databoolean.replace('和好', '何顥');
+                    } else if (databoolean.indexOf('柏旭') != -1) {
+                        databoolean = databoolean.replace('柏旭', '博旭');
                     }
                     var data = {
                         databoolean: databoolean
                     }
                     console.log(databoolean);
                     $.post('/databoolean', data, function (resdata) {
-                        console.log(resdata)
                         console.log(Number(resdata))
                         switch (isNaN(resdata) || parseInt(resdata)) {
                             case true:
@@ -535,6 +586,20 @@
                                         $('#searchdata').val('');
                                         insearch = false;
                                         getvoice(false);
+                                        break;
+                                    case '請問有什麼事嗎':
+                                        console.log('請問有什麼事嗎');
+                                        $('#tableforuser').empty(); //清空appendforuser裡面所有node
+                                        $('#divrow').width(635);
+                                        $("#searchdata").val(myTranscript);
+                                        var msg = new SpeechSynthesisUtterance();
+                                            msg.text = "請問有什麼事嗎";
+                                            speechSynthesis.speak(msg);
+                                            tatungSpeach = true;
+                                            msg.onend = function (event) {
+                                            console.log('說完 請問有什麼事嗎');
+                                            getvoice(true);
+                                        }
                                         break;
                                     default:
                                         console.log("default: " + resdata)
