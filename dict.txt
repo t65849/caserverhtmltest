@@ -95,6 +95,7 @@ AlexanderLin 20 eng
 豐盛 10 nr
 怡靜 10 nr
 陳怡靜 20 nr
+陳一靜 200 nr
 金鈴 10 nr
 李金鈴 20 nr
 惠雯 10 nr
@@ -138,7 +139,9 @@ AlexanderLin 20 eng
 翃穎 10 nr
 心怡 10 nr
 方心怡 20 nr
+方心一 200 nr
 吳翃穎 20 nr
+吳宏一 200 nr
 思賢 10 nr
 吳思賢 20 nr
 仲妍 10 nr
@@ -147,6 +150,7 @@ AlexanderLin 20 eng
 黃志豪 20 nr
 怡伶 10 nr
 陳怡伶 20 nr
+陳一伶 200 nr
 詠蓁 10 nr
 鄭詠蓁 20 nr
 玉婷 10 nr
@@ -169,6 +173,7 @@ ARnull 20 nr
 林聖凱 20 nr
 先怡 10 nr
 伍先怡 20 nr
+伍先一 20 nr
 秉鑫 10 nr
 郭秉鑫 20 nr
 經南 10 nr
@@ -283,6 +288,7 @@ ARnull 20 nr
 劉佳盈 20 nr
 振怡 10 nr
 沈振怡 20 nr
+沈振一 200 nr
 
 振仁 10 nr
 李振仁 20 nr
@@ -315,6 +321,7 @@ ARnull 20 nr
 盧永翔 20 nr
 浩 10 nr
 石浩 20 nr
+石好 200 nr
 秉宥 10 nr
 吳秉宥 20 nr
 清琮 10 nr
@@ -335,6 +342,8 @@ ARnull 20 nr
 江岱衛 20 nr
 浩 10 nr
 吴浩 20 nr
+吴好 200 nr
+吳好 200 nr
 鯉蔚 10 nr
 楊鯉蔚 20 nr
 
@@ -382,6 +391,7 @@ ARnull 20 nr
 
 豐穎 10 nr
 張豐穎 20 nr
+張豐一 200 nr
 興建 10 nr
 鍾興建 20 nr
 恩至 10 nr
@@ -398,6 +408,7 @@ ARnull 20 nr
 高振龍 20 nr
 怡安 10 nr
 陳怡安 20 nr
+陳一安 200 nr
 郁茹 10 nr
 黃郁茹 20 nr
 俊議 10 nr
@@ -412,6 +423,7 @@ ARnull 20 nr
 王珮華 20 nr
 怡凡 10 nr
 張怡凡 20 nr
+張一凡 200 nr
 奕緯 10 nr
 呂奕緯 20 nr
 
@@ -452,6 +464,7 @@ Fitzlee 20 nr
 蔡秉融 20 nr
 怡慧 10 nr
 蔡怡慧 20 nr
+蔡一慧 200 nr
 奕顯 10 nr
 郭奕顯 20 nr
 郭奕賢 200 nr
@@ -483,6 +496,7 @@ Fitzlee 20 nr
 陳宏裕 20 nr
 浩綸 10 nr
 黃浩綸 20 nr
+黃好綸 20 nr
 希皓 10 nr
 楊希皓 20 nr
 
@@ -563,6 +577,7 @@ Fitzlee 20 nr
 蔡翔升 20 nr
 怡均 10 nr
 葉怡均 20 nr
+葉一均 200 nr
 文杰 10 nr
 陳文杰 20 nr
 揚翔 10 nr
@@ -586,6 +601,7 @@ Fitzlee 20 nr
 翁瓊修 20 nr
 怡君 10 nr
 陳怡君 20 nr
+陳一君 200 nr
 婉如 10 nr
 簡婉如 20 nr
 光雯 10 nr
@@ -604,6 +620,7 @@ Fitzlee 20 nr
 鄭雅云 20 nr
 怡菁 10 nr
 莊怡菁 20 nr
+莊一菁 200 nr
 姿伶 10 nr
 林姿伶 20 nr
 家熏 10 nr
@@ -638,6 +655,7 @@ joetest 20 nr
 陳宇宸 20 nr
 怡璋 10 nr
 李怡璋 20 nr
+李一璋 200 nr
 淑雅 10 nr
 楊淑雅 20 nr
 文濱 10 nr
@@ -688,6 +706,7 @@ joetest 20 nr
 陳明杰 20 nr
 怡珊 10 nr
 陳怡珊 20 nr
+陳一珊 200 nr
 湘偉 10 nr
 林湘偉 20 nr
 嘉玲 10 nr
@@ -731,6 +750,7 @@ joetest 20 nr
 
 怡德 10 nr
 蔡怡德 20 nr
+蔡一德 200 nr
 琬婷 10 nr
 黃琬婷 20 nr
 桂生 10 nr
@@ -753,6 +773,7 @@ joetest 20 nr
 徐立宸 20 nr
 俊穎 10 nr
 程俊穎 20 nr
+程俊一 200 nr
 奎佑 10 nr
 郭奎佑 20 nr
 琴 10 nr
@@ -779,6 +800,7 @@ joetest 20 nr
 黃郁翎 20 nr
 鳳姿 10 nr
 凌鳳姿 20 nr
+林鳳姿 200 nr
 宗萍 10 nr
 郭宗萍 20 nr
 韋彤 10 nr
@@ -813,6 +835,7 @@ joetest 20 nr
 張桂琳 20 nr
 鳳宜 10 nr
 楊鳳宜 20 nr
+楊鳳一 200 nr
 柔君 10 nr
 林柔君 20 nr
 力誠 10 nr
@@ -909,6 +932,7 @@ joetest 20 nr
 張珮琪 20 nr
 佩怡 10 nr
 卓佩怡 20 nr
+卓佩一 200 nr
 沛岑 10 nr
 施沛岑 20 nr
 興洲 10 nr
@@ -973,6 +997,7 @@ joetest 20 nr
 楊羽柔 20 nr
 貞伊 10 nr
 姚貞伊 20 nr
+姚貞一 200 nr
 月綺 10 nr
 呂月綺 20 nr
 智斌 10 nr
@@ -1017,6 +1042,7 @@ joetest 20 nr
 涂富嵩 20 nr
 芝伊 10 nr
 陳芝伊 20 nr
+陳芝一 200 nr
 秋嬋 10 nr
 許秋嬋 20 nr
 雪華 10 nr
@@ -1067,6 +1093,7 @@ joetest 20 nr
 莊思彥 20 nr
 宜彰 10 nr
 鄭宜彰 20 nr
+鄭一彰 20 nr
 志山 10 nr
 叶志山 20 nr
 
@@ -1094,6 +1121,9 @@ joetest 20 nr
 王元伟 20 nr
 銘浩 10 nr
 巫銘浩 20 nr
+吳銘浩 100 nr
+巫銘好 200 nr
+吳銘好 200 nr
 
 中 10 nr
 王中 20 nr
@@ -1210,6 +1240,7 @@ joetest 20 nr
 郑咏 20 nr
 依純 10 nr
 李依純 20 nr
+李一純 200 nr
 博文 10 nr
 李博文 20 nr
 益弘 10 nr
@@ -1219,6 +1250,7 @@ joetest 20 nr
 
 映伊 10 nr
 陳映伊 20 nr
+陳映一 200 nr
 靜惠 10 nr
 林靜惠 20 nr
 逸佳 10 nr
@@ -1226,6 +1258,7 @@ joetest 20 nr
 賴一家 200 nr
 偉峰 10 nr
 凌偉峰 20 nr
+林偉峰 200 nr
 又誠 10 nr
 鄭又誠 20 nr
 
@@ -1281,6 +1314,7 @@ joetest 20 nr
 林羿緯 20 nr
 怡友 10 nr
 黃怡友 20 nr
+黃一友 200 nr
 育鋒 10 nr
 林育鋒 20 nr
 秀娟 10 nr
@@ -1291,6 +1325,7 @@ joetest 20 nr
 張運欣 20 nr
 怡芳 10 nr
 黃怡芳 20 nr
+黃一芳 200 nr
 廷煊 10 nr
 翁廷煊 20 nr
 正委 10 nr

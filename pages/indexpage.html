@@ -236,7 +236,9 @@
                         myTranscript = myTranscript.replace('和好', '何顥');
                     } else if (myTranscript.indexOf('柏旭') != -1) {
                         myTranscript = myTranscript.replace('柏旭', '博旭');
-                    }
+                    } else if (myTranscript.indexOf('剪') != -1) {
+                        myTranscript = myTranscript.replace('剪', '簡');
+                    } 
                     $('#searchdata').val(myTranscript);
                     var data = {
                         data: myTranscript,
@@ -349,8 +351,10 @@
                 searchdata = searchdata.replace('斷腸', '段淳');
             } else if (searchdata.indexOf('和好') != -1) {
                 searchdata = searchdata.replace('和好', '何顥');
-            } else if (searchdata.indexOf('柏旭ˇ') != -1) {
+            } else if (searchdata.indexOf('柏旭') != -1) {
                 searchdata = searchdata.replace('柏旭', '博旭');
+            } else if (searchdata.indexOf('剪') != -1) {
+                searchdata = searchdata.replace('剪', '簡');
             }
             $('#searchdata').val(searchdata);
             var data = {
@@ -539,6 +543,8 @@
                         databoolean = databoolean.replace('和好', '何顥');
                     } else if (databoolean.indexOf('柏旭') != -1) {
                         databoolean = databoolean.replace('柏旭', '博旭');
+                    } else if (databoolean.indexOf('剪') != -1) {
+                        databoolean = databoolean.replace('剪', '簡');
                     }
                     var data = {
                         databoolean: databoolean
