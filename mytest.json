@@ -6649,6 +6649,22 @@
   },
   {
     "businessPhones": [
+      "4614"
+    ],
+    "displayName": "劉書辰 Michael Liu",
+    "givenName": "書辰",
+    "jobTitle": null,
+    "mail": "Michael.Liu@etatung.com",
+    "mobilePhone": "0958070393",
+    "officeLocation": "台北北設工3樓",
+    "preferredLanguage": null,
+    "surname": "劉",
+    "userPrincipalName": "Michael.Liu@etatung.com",
+    "id": "7119918f-beb8-4c6b-8d21-5db9f77ba417",
+    "romaname": "liushuchen"
+  },
+  {
+    "businessPhones": [
       "73118"
     ],
     "displayName": "甘明巧 Mico Kan",
@@ -6894,6 +6910,22 @@
     "userPrincipalName": "Nancy.Hsu@etatung.com",
     "id": "37f04733-993e-4443-b59a-5e9c78d8c1d8",
     "romaname": "xunaixin"
+  },
+  {
+    "businessPhones": [
+      "4602"
+    ],
+    "displayName": "連婉君 Nancy Lien",
+    "givenName": "婉君",
+    "jobTitle": null,
+    "mail": "Nancy.Lien@etatung.com",
+    "mobilePhone": "0956912701",
+    "officeLocation": "台北北設工4樓",
+    "preferredLanguage": null,
+    "surname": "連",
+    "userPrincipalName": "Nancy.Lien@etatung.com",
+    "id": "9db4aed6-7934-45f2-b4cc-84e091fdca47",
+    "romaname": "lianwanjun"
   },
   {
     "businessPhones": [
@@ -9147,7 +9179,7 @@
     ],
     "displayName": "黃靚恩 Tina Huang",
     "givenName": "靚恩",
-    "jobTitle": null,
+    "jobTitle": "專案副理",
     "mail": "Tina.Huang@etatung.com",
     "mobilePhone": "0913402750",
     "officeLocation": "台北北設工3樓",
