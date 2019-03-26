@@ -279,17 +279,17 @@
                                 recognition.stop();
                                 search();
                             }
-                        } else if (res == "請問有什麼事嗎") {
-                            console.log("請問有什麼事嗎");
+                        } else if (res == "請說您要找的中英文人名") {
+                            console.log("請說您要找的中英文人名");
                             $('#tableforuser').empty(); //清空appendforuser裡面所有node
                             $('#divrow').width(635);
                             $("#searchdata").val(myTranscript);
                             var msg = new SpeechSynthesisUtterance();
-                            msg.text = "請問有什麼事嗎";
+                            msg.text = "請說您要找的中英文人名";
                             speechSynthesis.speak(msg);
                             tatungSpeach = true;
                             msg.onend = function (event) {
-                                console.log('說完 請問有什麼事嗎');
+                                console.log('說完 請說您要找的中英文人名');
                                 getvoice(true);
                             }
                             /*setTimeout(function () {
@@ -524,8 +524,6 @@
                         databoolean = databoolean.replace('年齡', '連玲');
                     } else if (databoolean.indexOf('字尾') != -1) {
                         databoolean = databoolean.replace('字尾', '智偉');
-                    } else if (databoolean.indexOf('字尾') != -1) {
-                        databoolean = databoolean.replace('字尾', '智偉');
                     } else if (databoolean.indexOf('紅') != -1) {
                         databoolean = databoolean.replace('紅', '洪');
                     } else if (databoolean.indexOf('大潤發') != -1) {
@@ -613,17 +611,17 @@
                                             getvoice(false);
                                         }
                                         break;
-                                    case '請問有什麼事嗎':
-                                        console.log('請問有什麼事嗎');
+                                    case '請說您要找的中英文人名':
+                                        console.log('請說您要找的中英文人名');
                                         $('#tableforuser').empty(); //清空appendforuser裡面所有node
                                         $('#divrow').width(635);
                                         $("#searchdata").val(myTranscript);
                                         var msg = new SpeechSynthesisUtterance();
-                                        msg.text = "請問有什麼事嗎";
+                                        msg.text = "請說您要找的中英文人名";
                                         speechSynthesis.speak(msg);
                                         tatungSpeach = true;
                                         msg.onend = function (event) {
-                                            console.log('說完 請問有什麼事嗎');
+                                            console.log('說完 請說您要找的中英文人名');
                                             getvoice(true);
                                         }
                                         break;

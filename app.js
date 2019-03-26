@@ -300,8 +300,8 @@ function tatung(data, tatungSpeach, callback) {
             if (result[i][1] == "eng") hasNR = true;
         }
         if (hasTatung == true && hasNR == false) {
-            console.log("請問有什麼事嗎");
-            callback("請問有什麼事嗎");
+            console.log("請說您要找的中英文人名");
+            callback("請說您要找的中英文人名");
         } else if (hasTatung == true && hasNR == true) {
             console.log("搜尋1");
             callback("搜尋");
@@ -503,8 +503,8 @@ function dataforboolean(databoolean, callback) {
                 if (result[i][1] == "nr" || result[i][1] == "ng" || result[i][1] == "nrt" || result[i][1] == "nt") hasNRR = true;
                 if (result[i][1] == "eng") hasNRR = true;
                 if (hasTatungg == true && hasNRR == false) {
-                    console.log("請問有什麼事嗎");
-                    callback("請問有什麼事嗎");
+                    console.log("請說您要找的中英文人名");
+                    callback("請說您要找的中英文人名");
                     return;
                 } 
                 if (result[i][1] == "nr" || result[i][1] == "ng" || result[i][1] == "nrfg" || result[i][1] == "nrt" || result[i][1] == "nt" || result[i][1] == "nz") {
@@ -642,14 +642,34 @@ function checkVal(str) {
 }
 
 var levenshtein = require('js-levenshtein');
-var newromaname = "石柏旭"
-var romaforname = "石博旭"
-newromaname = tranPinyin(newromaname);
-romaforname = tranPinyin(romaforname);
-console.log(newromaname)
-console.log(romaforname.split(' ')[0])
-console.log("分數: " + Number(1 - (levenshtein(newromaname, romaforname.split(' ')[0]) / romaforname.length)))
+var newromaname2 = "我想找石柏旭";
+var newromaname3 = "我想找石柏旭";
+var romaforname2 = "我想找石博旭";
+newromaname2 = tranPinyin(newromaname2);
+romaforname2 = tranPinyin(romaforname2);
+console.log(newromaname2);
+console.log(romaforname2.split(' ')[0])
+console.log("分數: " + Number(1 - (levenshtein(newromaname2, romaforname2.split(' ')[0]) / romaforname2.length)))
 
+jiebatest(newromaname2);
+function jiebatest(newroma) {
+    console.log(newromaname3);
+    analyzer.dict('dict.txt', function (err) { //==
+        if (err) console.log(err)
+        analyzer.pseg(newroma, {
+            mode: Jieba.mode.SEARCH,
+            HMM: true
+        }, function (err, result) {
+            if (err) console.log(err);
+            console.log(JSON.stringify(result));
+            console.log(newromaname3);
+            var checkresult = JSON.stringify(result);
+            if (checkresult.indexOf('["[[') != -1) {
+                jiebarun();
+            }
+        })
+    });
+}
 function tranPinyin(text) {
     return pinyin(text, {
         style: pinyin.STYLE_NORMAL
