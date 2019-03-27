@@ -181,9 +181,17 @@ app.get('/indexpage', function (request, response) {
                         } else {
                             jsongetusers = JSON.parse(getusers);
                             fs.writeFile('user.txt', '', function () {});
+                            /*fs.writeFile('phone.txt', '', function (err) {
+                                if (err)
+                                    console.log(err);
+                                else
+                                    console.log('Write operation complete.');
+                            });*/
                             for (var i = 0; i < jsongetusers.length; i++) {
                                 var givenName = jsongetusers[i].givenName;
                                 var surname = jsongetusers[i].surname;
+                                var displayName = jsongetusers[i].displayName;
+                                var businessPhones = jsongetusers[i].businessPhones;
                                 //var jobTitle = jsongetusers[i].jobTitle;
                                 var name = surname + givenName; //+jobTitle
                                 jsongetusers[i].romaname = tranPinyin(name);
@@ -289,6 +297,12 @@ function tatung(data, tatungSpeach, callback) {
         if (checkresult.indexOf('["[[') != -1) {
             return tatung(data, tatungSpeach, callback);
         }
+        fs.appendFile('history.txt', checkresult+'\t\n', function (err) {
+            if (err)
+                console.log(err);
+            else
+                console.log('寫入成功');
+        });
         var hasTatung = false;
         var hasNR = false;
         for (var i in result) {
@@ -360,6 +374,12 @@ function checksearch(searchdata, callback) {
             if (checkresult.indexOf('["[[') != -1) {
                 return checksearch(searchdata, callback);
             }
+            fs.appendFile('history.txt', checkresult+'\t\n', function (err) {
+                if (err)
+                    console.log(err);
+                else
+                    console.log('寫入成功');
+            });
             for (var i in result) {
                 if (result[i][1] == "nr" || result[i][1] == "ng" || result[i][1] == "nrfg" || result[i][1] == "nrt" || result[i][1] == "nt" || result[i][1] == "nz") {
                     var myAnswer = {
@@ -481,6 +501,12 @@ function dataforboolean(databoolean, callback) {
             if (checkresult.indexOf('["[[') != -1) {
                 return dataforboolean(databoolean, callback);
             }
+            fs.appendFile('history.txt', checkresult+'\t\n', function (err) {
+                if (err)
+                    console.log(err);
+                else
+                    console.log('寫入成功');
+            });
             var hasTatungg = false;
             var hasNRR = false;
             for (var i in result) {

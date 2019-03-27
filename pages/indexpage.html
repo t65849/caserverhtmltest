@@ -238,6 +238,12 @@
                         myTranscript = myTranscript.replace('和好', '何顥');
                     } else if (myTranscript.indexOf('柏旭') != -1) {
                         myTranscript = myTranscript.replace('柏旭', '博旭');
+                    } else if (myTranscript.indexOf('五爪') != -1) {
+                        myTranscript = myTranscript.replace('五爪', '我找');
+                    } else if (myTranscript.indexOf('裝') != -1) {
+                        myTranscript = myTranscript.replace('裝', '莊');
+                    } else if (myTranscript.indexOf('正') != -1) {
+                        myTranscript = myTranscript.replace('正', '鄭');
                     } else if (myTranscript.indexOf('剪') != -1) {
                         myTranscript = myTranscript.replace('剪', '簡');
                     }
@@ -355,6 +361,12 @@
                 searchdata = searchdata.replace('和好', '何顥');
             } else if (searchdata.indexOf('柏旭') != -1) {
                 searchdata = searchdata.replace('柏旭', '博旭');
+            } else if (searchdata.indexOf('五爪') != -1) {
+                searchdata = searchdata.replace('五爪', '我找');
+            } else if (searchdata.indexOf('裝') != -1) {
+                searchdata = searchdata.replace('裝', '莊');
+            } else if (searchdata.indexOf('正') != -1) {
+                searchdata = searchdata.replace('正', '鄭');
             } else if (searchdata.indexOf('剪') != -1) {
                 searchdata = searchdata.replace('剪', '簡');
             }
@@ -546,6 +558,12 @@
                         databoolean = databoolean.replace('和好', '何顥');
                     } else if (databoolean.indexOf('柏旭') != -1) {
                         databoolean = databoolean.replace('柏旭', '博旭');
+                    } else if (databoolean.indexOf('五爪') != -1) {
+                        databoolean = databoolean.replace('五爪', '我找');
+                    } else if (databoolean.indexOf('裝') != -1) {
+                        databoolean = databoolean.replace('裝', '莊');
+                    } else if (databoolean.indexOf('正') != -1) {
+                        databoolean = databoolean.replace('正', '鄭');
                     } else if (databoolean.indexOf('剪') != -1) {
                         databoolean = databoolean.replace('剪', '簡');
                     }
@@ -578,8 +596,7 @@
                                         console.log("makecall")
                                         tellyouMakeCall();
                                         var this_businessPhones = JSON.stringify(findata[0].businessPhones);
-                                        this_businessPhones = this_businessPhones.replace('[', '').replace(
-                                            ']', '').replace('"', '').replace('"', '');
+                                        this_businessPhones = this_businessPhones.replace('[', '').replace(']', '').replace('"', '').replace('"', '');
                                         camakecall(this_businessPhones);
                                         getvoice_HangUp();
                                         $("#speechStatue").html("開始識別語音...");
@@ -681,21 +698,14 @@
             recognition_HangUp.start();
             recognition_HangUp.onstart = function () {
                 console.log('開始辨識...getvoice_HangUp');
-                $("#speechStatue").html("開始識別語音...");
             };
             recognition_HangUp.onresult = function (event) {
-                console.log(event)
                 var i = event.resultIndex;
                 var j = event.results[i].length - 1;
-                //show.innerHTML = event.results[i][j].transcript;
                 myTranscript = event.results[i][j].transcript;
                 console.log("通話紀錄: " + myTranscript)
-                if ((myTranscript.indexOf("大同寶寶") != -1 || myTranscript.indexOf("大同") != -1 || myTranscript
-                        .indexOf(
-                            "寶寶") != -1) &&
-                    (myTranscript.indexOf("掛電話") != -1 || myTranscript.indexOf("掛斷") != -1 || myTranscript
-                        .indexOf(
-                            "掛掉") != -1)) {
+                if ((myTranscript.indexOf("大同寶寶") != -1 || myTranscript.indexOf("大同") != -1 || myTranscript.indexOf("寶寶") != -1) &&
+                    (myTranscript.indexOf("掛電話") != -1 || myTranscript.indexOf("掛斷") != -1 || myTranscript.indexOf("掛掉") != -1)) {
                     recognition_HangUp.stop();
                 }
             };
