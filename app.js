@@ -44,7 +44,7 @@ function jiebarun() {
             if (err) console.log(err);
             console.log(JSON.stringify(result))
             var checkresult = JSON.stringify(result);
-            if (checkresult.indexOf('["[[') != -1) {
+            if (checkresult.indexOf('["[[') != -1 || checkresult.indexOf(']]"]') != -1) {
                 jiebarun();
             }
         })
@@ -195,9 +195,9 @@ app.get('/indexpage', function (request, response) {
                                 //var jobTitle = jsongetusers[i].jobTitle;
                                 var name = surname + givenName; //+jobTitle
                                 jsongetusers[i].romaname = tranPinyin(name);
-                                /*
+                                
                                 var req = require('request');
-                                req({
+                                /*req({
                                     headers: {
                                         'Content-Type': 'text/html'
                                     },
@@ -294,7 +294,7 @@ function tatung(data, tatungSpeach, callback) {
         if (err) console.log(err);
         var checkresult = JSON.stringify(result);
         console.log(checkresult);
-        if (checkresult.indexOf('["[[') != -1) {
+        if (checkresult.indexOf('["[[') != -1 || checkresult.indexOf(']]"]') != -1) {
             return tatung(data, tatungSpeach, callback);
         }
         fs.appendFile('history.txt', checkresult+'\t\n', function (err) {
@@ -310,7 +310,7 @@ function tatung(data, tatungSpeach, callback) {
                 callback('掰掰');
             }
             if (result[i][0] == "大同寶寶" || result[i][0] == "大同" || result[i][0] == "寶寶") hasTatung = true;
-            if (result[i][1] == "nr" || result[i][1] == "ng" || result[i][1] == "nrt" || result[i][1] == "nt") hasNR = true;
+            if (result[i][1] == "nr" || result[i][1] == "ng" || result[i][1] == "nrfg" || result[i][1] == "nrt" || result[i][1] == "nt") hasNR = true;
             if (result[i][1] == "eng") hasNR = true;
         }
         if (hasTatung == true && hasNR == false) {
@@ -371,7 +371,7 @@ function checksearch(searchdata, callback) {
         else {
             var checkresult = JSON.stringify(result);
             console.log(checkresult);
-            if (checkresult.indexOf('["[[') != -1) {
+            if (checkresult.indexOf('["[[') != -1 || checkresult.indexOf(']]"]') != -1) {
                 return checksearch(searchdata, callback);
             }
             fs.appendFile('history.txt', checkresult+'\t\n', function (err) {
@@ -381,7 +381,7 @@ function checksearch(searchdata, callback) {
                     console.log('寫入成功');
             });
             for (var i in result) {
-                if (result[i][1] == "nr" || result[i][1] == "ng" || result[i][1] == "nrfg" || result[i][1] == "nrt" || result[i][1] == "nt" || result[i][1] == "nz") {
+                if (result[i][1] == "nr" || result[i][1] == "ng" || result[i][1] == "nrfg" || result[i][1] == "nrt" || result[i][1] == "nt") {
                     var myAnswer = {
                         index: "",
                         answer: ""
@@ -498,7 +498,7 @@ function dataforboolean(databoolean, callback) {
         else {
             var checkresult = JSON.stringify(result);
             console.log(checkresult);
-            if (checkresult.indexOf('["[[') != -1) {
+            if (checkresult.indexOf('["[[') != -1 || checkresult.indexOf(']]"]') != -1) {
                 return dataforboolean(databoolean, callback);
             }
             fs.appendFile('history.txt', checkresult+'\t\n', function (err) {
@@ -514,7 +514,7 @@ function dataforboolean(databoolean, callback) {
                     callback('掰掰');
                 }
                 if (result[i][0] == "大同寶寶" || result[i][0] == "大同" || result[i][0] == "寶寶") hasTatungg = true;
-                if (result[i][1] == "nr" || result[i][1] == "ng" || result[i][1] == "nrt" || result[i][1] == "nt") hasNRR = true;
+                if (result[i][1] == "nr" || result[i][1] == "ng" || result[i][1] == "nrfg" || result[i][1] == "nrt" || result[i][1] == "nt") hasNRR = true;
                 if (result[i][1] == "eng") hasNRR = true;
             }
             console.log('494 '+hasTatungg+' tatung');
@@ -526,14 +526,19 @@ function dataforboolean(databoolean, callback) {
                     return;
                 }
                 if (result[i][0] == "大同寶寶" || result[i][0] == "大同" || result[i][0] == "寶寶") hasTatungg = true;
-                if (result[i][1] == "nr" || result[i][1] == "ng" || result[i][1] == "nrt" || result[i][1] == "nt") hasNRR = true;
+                if (result[i][1] == "nr" || result[i][1] == "ng" || result[i][1] == "nrfg" || result[i][1] == "nrt" || result[i][1] == "nt") hasNRR = true;
                 if (result[i][1] == "eng") hasNRR = true;
                 if (hasTatungg == true && hasNRR == false) {
                     console.log("請說您要找的中英文人名");
                     callback("請說您要找的中英文人名");
                     return;
                 } 
-                if (result[i][1] == "nr" || result[i][1] == "ng" || result[i][1] == "nrfg" || result[i][1] == "nrt" || result[i][1] == "nt" || result[i][1] == "nz") {
+                if(result.length == 1){
+                    if(result[i][0] == "好" || result[i][0] == "好的" || result[i][0] == "謝謝"){
+                        callback('makecall');
+                        return;
+                    }
+                }else if (result[i][1] == "nr" || result[i][1] == "ng" || result[i][1] == "nrfg" || result[i][1] == "nrt" || result[i][1] == "nt") {
                     var myAnswer = {
                         index: "",
                         answer: ""
@@ -630,10 +635,15 @@ function dataforboolean(databoolean, callback) {
                 } else if (result[i][0] == "不" || result[i][0] == "不是" || result[i][0] == "不要" || result[i][0] == "取消" || result[i][0] == "不用" || result[i][0] == "不需要" || result[i][0] == "拜拜" || result[i][0] == "掰掰" || result[i][0] == "不好") {
                     callback('cancel');
                     return;
-                } else if (result[i][0] == "沒錯" || result[i][0] == "需要" || result[i][0] == "撥電話" || result[i][0] == "打電話" || result[i][0] == "好" || result[i][0] == "謝謝" || result[i][0] == "是" || result[i][0] == "是的") {
+                } else if (result[i][0] == "沒錯" || result[i][0] == "需要" || result[i][0] == "撥電話" || result[i][0] == "打電話" || result[i][0] == "謝謝" || result[i][0] == "是" || result[i][0] == "是的") {
                     callback('makecall');
                     return;
-                }
+                } /*else if(result.length == 1){
+                    if(result[i][0] == "好" || result[i][0] == "好的"){
+                        callback('makecall');
+                        return;
+                    }
+                }*/
             }
             console.log('end');
             console.log(datacount);
@@ -668,9 +678,9 @@ function checkVal(str) {
 }
 
 var levenshtein = require('js-levenshtein');
-var newromaname2 = "我想找石柏旭";
-var newromaname3 = "我想找石柏旭";
-var romaforname2 = "我想找石博旭";
+var newromaname2 = "我想找紀彥名";
+var newromaname3 = "我想找紀彥明";
+var romaforname2 = "我想找紀彥名";
 newromaname2 = tranPinyin(newromaname2);
 romaforname2 = tranPinyin(romaforname2);
 console.log(newromaname2);
@@ -690,7 +700,7 @@ function jiebatest(newroma) {
             console.log(JSON.stringify(result));
             console.log(newromaname3);
             var checkresult = JSON.stringify(result);
-            if (checkresult.indexOf('["[[') != -1) {
+            if (checkresult.indexOf('["[[') != -1 || checkresult.indexOf(']]"]') != -1) {
                 jiebarun();
             }
         })
