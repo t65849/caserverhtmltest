@@ -509,7 +509,7 @@ function dataforboolean(databoolean, callback) {
                 else
                     console.log('寫入成功');
             });
-            var hasTatungg = false;
+            /*var hasTatungg = false;
             var hasNRR = false;
             var datacount = 0;
             for (var i in result) {
@@ -518,14 +518,54 @@ function dataforboolean(databoolean, callback) {
                     return;
                 }
                 if (result[i][0] == "大同寶寶" || result[i][0] == "大同" || result[i][0] == "寶寶") hasTatungg = true;
-                if (result[i][1] == "nr" || result[i][1] == "ng" || result[i][1] == "nrfg" || result[i][1] == "nrt" || result[i][1] == "nt") hasNRR = true;
-                if (result[i][1] == "eng") hasNRR = true;
             }
-            if (hasTatungg == true && hasNRR == false) {
+            if (hasTatungg == true) {
                 callback("請說您要找的中英文人名");
                 return;
-            }
+            }*/
             for (var i in result) {
+                if (result[i][1] == "m"){
+                    var this_num = result[i][0];
+                    console.log(typeof (this_num));
+                    switch (isNaN(this_num) || parseInt(this_num)) {
+                        case true:
+                            if (this_num.indexOf("一") != -1) callback("1");
+                            else if (this_num.indexOf("二") != -1) callback("2");
+                            else if (this_num.indexOf("三") != -1) callback("3");
+                            else if (this_num.indexOf("四") != -1) callback("4");
+                            else if (this_num.indexOf("五") != -1) callback("5");
+                            else if (this_num.indexOf("六") != -1) callback("6");
+                            else if (this_num.indexOf("七") != -1) callback("7");
+                            else if (this_num.indexOf("八") != -1) callback("8");
+                            else if (this_num.indexOf("九") != -1) callback("9");
+                            else if (this_num.indexOf("十") != -1) callback("10");
+                            else if (this_num.indexOf("第") != -1) {continue;}
+                            else callback('notfound');
+                            break;
+                        default:
+                            console.log(typeof(this_num));
+                            console.log(this_num);
+                            callback(this_num);
+                    }
+                    return;
+                } else if (result[i][0] == "重新搜尋" || result[i][0] == "重新" || result[i][0] == "搜尋" || result[i][0] == "大同寶寶" || result[i][0] == "大同" || result[i][0] == "寶寶"){
+                    callback("請說您要找的中英文人名");
+                    return;
+                } else if (result[i][0] == "分機" || result[i][0] == "畚箕" || result[i][0] == "飛機" || result[i][0] == "登機" || result[i][0] == "桌機" || result[i][0] == "分析") {//else if (result[i][0] == "沒錯" || result[i][0] == "需要" || result[i][0] == "撥電話" || result[i][0] == "打電話" || result[i][0] == "謝謝" || result[i][0] == "是" || result[i][0] == "是的") {
+                    callback('makecall');
+                    return;
+                } else if (result[i][0] == "手機") {
+                    callback('mobilemakecall');
+                    return;
+                } else if (result[i][0] == "取消" || result[i][0] == "不" || result[i][0] == "不是" || result[i][0] == "不要" || result[i][0] == "不用" || result[i][0] == "不需要" || result[i][0] == "拜拜" || result[i][0] == "掰掰" || result[i][0] == "不好" || result[i][0] == "沒事" || result[i][0] == "bye" || result[i][0] == "bye bye") {
+                    callback('cancel');
+                    return;
+                } else {
+                    callback('wrong');
+                    return;
+                }
+            }
+            /*for (var i in result) {
                 if (result[i][1] == "nr" || result[i][1] == "ng" || result[i][1] == "nrfg" || result[i][1] == "nrt" || result[i][1] == "nt") {
                     var myAnswer = {
                         index: "",
@@ -598,17 +638,6 @@ function dataforboolean(databoolean, callback) {
                 } else if (result[i][1] == "m") {
                     var this_num = result[i][0];
                     console.log(typeof (this_num));
-                    var which_number = '';
-                    var which_phone = '';
-                    for(var k in result){
-                        if(result[k][0]== "分機"){
-                            which_phone = "businessPhones";
-                            console.log(which_phone);
-                        } else if(result[k][0]== "手機"){
-                            which_phone = "mobilePhone";
-                            console.log(which_phone);
-                        }
-                    }
                     switch (isNaN(this_num) || parseInt(this_num)) {
                         case true:
                             if (this_num.indexOf("一") != -1) callback("1");
@@ -633,7 +662,7 @@ function dataforboolean(databoolean, callback) {
                 } else if (result[i][0] == "不" || result[i][0] == "不是" || result[i][0] == "不要" || result[i][0] == "取消" || result[i][0] == "不用" || result[i][0] == "不需要" || result[i][0] == "拜拜" || result[i][0] == "掰掰" || result[i][0] == "不好") {
                     callback('cancel');
                     return;
-                } else if (result[i][0] == "分機" || result[i][0] == "畚箕" || result[i][0] == "飛機" || result[i][0] == "登機") {//else if (result[i][0] == "沒錯" || result[i][0] == "需要" || result[i][0] == "撥電話" || result[i][0] == "打電話" || result[i][0] == "謝謝" || result[i][0] == "是" || result[i][0] == "是的") {
+                } else if (result[i][0] == "分機" || result[i][0] == "畚箕" || result[i][0] == "飛機" || result[i][0] == "登機" || result[i][0] == "桌機") {//else if (result[i][0] == "沒錯" || result[i][0] == "需要" || result[i][0] == "撥電話" || result[i][0] == "打電話" || result[i][0] == "謝謝" || result[i][0] == "是" || result[i][0] == "是的") {
                     callback('makecall');
                     return;
                 } else if (result[i][0] == "手機") {
@@ -645,16 +674,11 @@ function dataforboolean(databoolean, callback) {
                         return;
                     }
                 }
-            }
-            console.log('end');
-            console.log(datacount);
-            if (datacount > 0) {
+            }*/
+            /*if (datacount > 0) {
                 resdata = '[' + resdata + ']'; //最外面的 [ ]
             }
             if (resdata != '') {
-                //console.log(datacount);
-                //console.log('!=null');
-                //console.log(resdata);
                 myAnswer.answer = resdata;
                 quickSearchData.push(myAnswer);
                 fs.writeFile('quickSearch.json', JSON.stringify(quickSearchData, null, 2), function () {
@@ -665,7 +689,7 @@ function dataforboolean(databoolean, callback) {
             } else {
                 callback('wrong');
                 return;
-            }
+            }*/
         }
     });
 }

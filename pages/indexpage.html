@@ -475,7 +475,7 @@
                         }
                         console.log('mobilePhone '+resdata[i].mobilePhone);
                         if (resdata[i].businessPhones == '' && resdata[i].mobilePhone == null) {
-                            $('#divrow').width(635);
+                            $('#divrow').width(500);
                             $('#tableforuser').append(
                                 '<tr id="tr' + i +'"><td><img src="/images/tatungba.jpg" class="rounded-circle employeespic" style="margin-right: 4px;"></td><td><h3 style="display: inline">' +(i + 1) + '.' + resdata[i].displayName + '</h3></td>' +'<td></td></tr>');
                         } else if(resdata[i].mobilePhone == null){
@@ -506,16 +506,17 @@
                     var surname = resdata[0].displayName
                     var givenName = resdata[0].givenName;
                     if (resdata.length < 2) {
+                        $("#speechStatue").html("請問幫您撥分機還是手機，或說\"重新搜尋\"重找人，說取消可不撥打");
                         //---------------語音---------------
                         var msg = new SpeechSynthesisUtterance();
                         var voices = [];
-                        msg.text = "以下是搜尋結果，請問幫您撥分機還是手機";
+                        msg.text = "以下是搜尋結果，請問撥分機還是手機，或說重新搜尋崇找人，說取消可不撥打";
                         speechSynthesis.speak(msg);
                         //---------------語音---------------
                         try {
                             msg.onend = function (event) {
                                 console.log(JSON.stringify(event));
-                                console.log('說完 以下是搜尋結果，請問幫您撥電話嗎');
+                                console.log('說完 以下是搜尋結果，請問撥分機還是手機，或說重新搜尋崇找人，說取消可不撥打');
                                 getvoiceSecond();
                             }
                         } catch (err) {
@@ -525,17 +526,18 @@
                             }
                         }
                     } else {
+                        $("#speechStatue").html("要撥給第幾筆資料，或說\"重新搜尋\"重找人，說取消可不撥打");
                         //---------------語音---------------
                         var msg = new SpeechSynthesisUtterance();
                         var voices = [];
-                        msg.text = "以下是搜尋結果，要撥給第幾筆資料";
+                        msg.text = "以下是搜尋結果，要撥給第幾筆資料，或說重新搜尋崇找人，說取消可不撥打";
                         speechSynthesis.speak(msg);
                         //---------------語音---------------
                         try {
                             msg.onend = function (event) {
                                 console.log(typeof (event));
                                 console.log(JSON.stringify(event));
-                                console.log('說完 以下是搜尋結果，要撥給第幾筆資料');
+                                console.log('說完 以下是搜尋結果，要撥給第幾筆資料，或說重新搜尋崇找人，說取消可不撥打');
                                 getvoiceSecond();
                             }
                         } catch (err) {
@@ -559,12 +561,12 @@
             //如果設定為 true，表示在我們講話的當下就會即時辨識，不然就會在一段話結束之後，才會開始辨識。
             recognition_forsecond.lang = "cmn-Hant-TW";
             recognition_forsecond.onstart = function () {
-                console.log('開始辨識...getvoiceSecond');
-                $("#speechStatue").html("開始識別語音...");
+                //console.log('開始辨識...getvoiceSecond');
+                //$("#speechStatue").html("開始識別語音...");
                 rgbrandomColor();
             };
             recognition_forsecond.onresult = function (event) {
-                $("#speechStatue").html("識別語音中...");
+                //$("#speechStatue").html("識別語音中...");
                 rgbrandomColor();
                 console.log(event)
                 var i = event.resultIndex;
@@ -576,12 +578,10 @@
             };
             recognition_forsecond.onend = function () {
                 console.log('getvoiceSecond停止辨識!');
-                //$("#speechStatue").html("停止識別語音...");
                 if (myTranscript == '') {
                     nosound++;
                     if (nosound > 10) {
                         document.getElementById("voiceSearch").disabled = false;
-                        $("#speechStatue").html("開始識別語音...");
                         rgbrandomColor();
                         nosound = 1;
                         //---------------語音---------------
@@ -593,11 +593,11 @@
                             console.log('說完 我暫離一下，再呼叫我立即回來');
                             $("#speechStatue").css('color','#022178');
                             $('#searchdata').val('');
+                            $("#speechStatue").html("開始識別語音...");
                             insearch = false;
                             getvoice(false);
                         }
                     } else {
-                        $("#speechStatue").html("沒有識別到語音...");
                         getvoiceSecond();
                     }
                 } else {
@@ -687,16 +687,13 @@
                                         $('#searchdata').val(databoolean);
                                         var msg = new SpeechSynthesisUtterance();
                                         var voices = [];
-                                        msg.text = "很抱歉沒有搜尋到資料，請再說一次";
+                                        msg.text = "很抱歉我不太懂您的意思，請再說一次";
                                         speechSynthesis.speak(msg);
                                         //---------------語音---------------
-                                        $('#tableforuser').empty(); //清空appendforuser裡面所有node
-                                        $('#divrow').width(635);
                                         $('#searchdata').val(databoolean);
                                         msg.onend = function (event) {
-                                            console.log('說完 很抱歉沒有搜尋到資料，請再說一次');
-                                            insearch = false;
-                                            getvoice(true);
+                                            console.log('說完 很抱歉我不太懂您的意思，請再說一次');
+                                            getvoiceSecond();
                                         }
                                         break;
                                     case 'makecall':
@@ -708,8 +705,6 @@
                                         if (this_businessPhones != '') {
                                             getvoice_HangUp();
                                         }
-                                        $("#speechStatue").html("開始識別語音...");
-                                        $("#speechStatue").css('color','#022178');
                                         break;
                                     case 'mobilemakecall':
                                         var this_mobilePhone = JSON.stringify(findata[0].mobilePhone);
@@ -719,28 +714,12 @@
                                         if (this_mobilePhone !=null || this_mobilePhone !="null") {
                                             getvoice_HangUp();
                                         }
-                                        $("#speechStatue").html("開始識別語音...");
-                                        $("#speechStatue").css('color','#022178');
                                         break;
                                     case 'cancel':
                                         $("#speechStatue").html("開始識別語音...");
                                         $("#speechStatue").css('color','#022178');
+                                        $('#searchdata').val(databoolean);
                                         document.getElementById("voiceSearch").disabled = false;
-                                        var msg = new SpeechSynthesisUtterance();
-                                        msg.text = "我要休息了，有事再叫我";
-                                        speechSynthesis.speak(msg);
-                                        tatungSpeach = true;
-                                        msg.onend = function (event) {
-                                            console.log('說完 我要休息了，有事再叫我');
-                                            insearch = false;
-                                            getvoice(false);
-                                        }
-                                        break;
-                                    case 'bye':
-                                        $("#speechStatue").html("開始識別語音...");
-                                        $("#speechStatue").css('color','#022178');
-                                        document.getElementById("voiceSearch").disabled = false;
-                                        $('#searchdata').val('');
                                         var msg = new SpeechSynthesisUtterance();
                                         msg.text = "我要休息了，有事再叫我";
                                         speechSynthesis.speak(msg);
@@ -753,7 +732,7 @@
                                         break;
                                     case '請說您要找的中英文人名':
                                         console.log('請說您要找的中英文人名');
-                                        $('#tableforuser').empty(); //清空appendforuser裡面所有node
+                                        $('#tableforuser').empty();
                                         $('#divrow').width(635);
                                         $("#searchdata").val(myTranscript);
                                         var msg = new SpeechSynthesisUtterance();
@@ -765,10 +744,10 @@
                                             getvoice(true);
                                         }
                                         break;
-                                    default:
+                                    /*default:
                                         console.log("default: " + resdata)
                                         $('#searchdata').val(databoolean);
-                                        document.getElementById("getcontacts").click();
+                                        document.getElementById("getcontacts").click();*/
                                 }
                                 break;
                             default:
@@ -836,7 +815,7 @@
                                         findata[0].mobilePhone = mobilePhone;
                                         getvoiceSecond();
                                     }
-                                    $("#speechStatue").html("開始識別語音...");
+                                    //$("#speechStatue").html("開始識別語音...");
                                     document.getElementById("voiceSearch").disabled = false;
                                 }
                         }
@@ -849,6 +828,7 @@
 
         function getvoice_HangUp() { //4
             console.log('getvoice_HangUp');
+            $("#speechStatue").html("說 大同寶寶掛電話 即可掛斷");
             var myTranscript = '';
             var recognition_HangUp = new webkitSpeechRecognition();
             recognition_HangUp.continuous = true;
@@ -873,6 +853,8 @@
             recognition_HangUp.onend = function () {
                 console.log('掛斷電號');
                 caendcall(nowCall);
+                $("#speechStatue").html("開始識別語音...");
+                $("#speechStatue").css('color','#022178');
             }
         };
 
