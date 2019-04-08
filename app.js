@@ -602,12 +602,12 @@ function dataforboolean(databoolean, callback) {
                 */
             }
             if(hasVal == true && hasMobile == false && hasPhone == false){
-                callback(Number(returnVal));
+                callback(returnVal);
             }
             else if(hasMobile == true)
-                callback(mobilemakecall);
+                callback('mobilemakecall');
             else if(hasPhone == true)
-                callback(makecall);
+                callback('makecall');
             else{
                 callback('wrong');
                 return;

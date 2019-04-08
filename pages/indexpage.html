@@ -288,11 +288,11 @@
                             if (tatungSpeach) {
                                 $("#searchdata").val(myTranscript);
                                 var msg = new SpeechSynthesisUtterance();
-                                msg.text = "很抱歉沒有搜尋到資料，請再說一次"; //聽不懂指令喔，
+                                msg.text = "沒有資料，請再說一次"; //聽不懂指令喔，
                                 speechSynthesis.speak(msg);
                                 tatungSpeach = true;
                                 msg.onend = function (event) {
-                                    console.log('說完 很抱歉沒有搜尋到資料，請再說一次');
+                                    console.log('說完 沒有資料，請再說一次');
                                     getvoice(true);
                                 }
                             } else {
@@ -438,11 +438,11 @@
                     //---------------語音---------------
                     var msg = new SpeechSynthesisUtterance();
                     var voices = [];
-                    msg.text = "很抱歉沒有搜尋到資料，請再說一次";
+                    msg.text = "沒有資料，請再說一次";
                     speechSynthesis.speak(msg);
                     //---------------語音---------------
                     msg.onend = function (event) {
-                        console.log('說完 很抱歉沒有搜尋到資料，請再說一次');
+                        console.log('說完 沒有資料，請再說一次');
                         insearch = false;
                         getvoice(true);
                     }
@@ -532,13 +532,13 @@
                         //---------------語音---------------
                         var msg = new SpeechSynthesisUtterance();
                         var voices = [];
-                        msg.text = "以下是搜尋結果，請問撥分機還是手機，或說重新搜尋重找人";
+                        msg.text = "請問撥分機還是手機，或說崇新搜尋崇找人";
                         speechSynthesis.speak(msg);
                         //---------------語音---------------
                         try {
                             msg.onend = function (event) {
                                 console.log(JSON.stringify(event));
-                                console.log('說完 以下是搜尋結果，請問撥分機還是手機，或說重新搜尋崇找人，說取消可不撥打');
+                                console.log('說完 請問撥分機還是手機，或說重新搜尋崇找人，說取消可不撥打');
                                 getvoiceSecond();
                             }
                         } catch (err) {
@@ -552,14 +552,14 @@
                         //---------------語音---------------
                         var msg = new SpeechSynthesisUtterance();
                         var voices = [];
-                        msg.text = "以下是搜尋結果，要撥給第幾筆資料，或說重新搜尋重找人";
+                        msg.text = "要撥給第幾筆資料，或說崇新搜尋崇找人";
                         speechSynthesis.speak(msg);
                         //---------------語音---------------
                         try {
                             msg.onend = function (event) {
                                 console.log(typeof (event));
                                 console.log(JSON.stringify(event));
-                                console.log('說完 以下是搜尋結果，要撥給第幾筆資料，或說重新搜尋崇找人，說取消可不撥打');
+                                console.log('說完 要撥給第幾筆資料，或說重新搜尋崇找人，說取消可不撥打');
                                 getvoiceSecond();
                             }
                         } catch (err) {
@@ -721,12 +721,12 @@
                                     case 'makecall':
                                         if (findata.length >= 2) {
                                             var msg = new SpeechSynthesisUtterance();
-                                            msg.text = "請問要撥給第幾筆資料";
+                                            msg.text = "要撥給第幾筆資料";
                                             speechSynthesis.speak(msg);
                                             //---------------語音---------------
                                             $('#searchdata').val(databoolean);
                                             msg.onend = function (event) {
-                                                console.log('說完 請問要撥給第幾筆資料');
+                                                console.log('說完 要撥給第幾筆資料');
                                                 getvoiceSecond();
                                             }
                                         } else {
@@ -745,12 +745,13 @@
                                         break;
                                     case 'mobilemakecall':
                                         if (findata.length >= 2) {
-                                            msg.text = "請問要撥給第幾筆資料";
+                                            var msg = new SpeechSynthesisUtterance();
+                                            msg.text = "要撥給第幾筆資料";
                                             speechSynthesis.speak(msg);
                                             //---------------語音---------------
                                             $('#searchdata').val(databoolean);
                                             msg.onend = function (event) {
-                                                console.log('說完 請問要撥給第幾筆資料');
+                                                console.log('說完 要撥給第幾筆資料');
                                                 getvoiceSecond();
                                             }
                                         } else {
@@ -928,8 +929,11 @@
                                         console.log(typeof (event));
                                         console.log(JSON.stringify(event));
                                         console.log('說完 請問幫您撥分機還是手機');
-                                        findata[0].businessPhones = businessPhones;
-                                        findata[0].mobilePhone = mobilePhone;
+                                        var bufArray = [];
+                                        bufArray.push(findata[Number(resdata) - 1])
+                                        findata = bufArray;                        
+                                        //findata[0].businessPhones = businessPhones;
+                                        //findata[0].mobilePhone = mobilePhone;
                                         getvoiceSecond();
                                     }
                                     //$("#speechStatue").html("開始識別語音...");
