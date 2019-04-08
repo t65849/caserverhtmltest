@@ -3282,7 +3282,7 @@
     "jobTitle": null,
     "mail": "fiona.hsu@etatung.com",
     "mobilePhone": "0912095259",
-    "officeLocation": "4695",
+    "officeLocation": "台北北設工3樓",
     "preferredLanguage": null,
     "surname": "許",
     "userPrincipalName": "fiona.hsu@etatung.com",
@@ -3628,6 +3628,20 @@
     "romaname": "hehao"
   },
   {
+    "businessPhones": [],
+    "displayName": "蔣浩恩 haoen chiang",
+    "givenName": "浩恩",
+    "jobTitle": null,
+    "mail": "haoen.chiang@etatung.com",
+    "mobilePhone": null,
+    "officeLocation": null,
+    "preferredLanguage": null,
+    "surname": "蔣",
+    "userPrincipalName": "haoen.chiang@etatung.com",
+    "id": "7888ca3e-d417-4c61-a285-ac04baad0848",
+    "romaname": "jianghaoen"
+  },
+  {
     "businessPhones": [
       "77122"
     ],
@@ -3772,7 +3786,7 @@
     "displayName": "楊希皓 Howard Yang",
     "givenName": "希皓",
     "jobTitle": null,
-    "mail": "Howard.Yang@etatung.com.tw",
+    "mail": "Howard.Yang@etatung.com",
     "mobilePhone": "0912401767",
     "officeLocation": "台北北設工4樓",
     "preferredLanguage": null,
@@ -4008,13 +4022,15 @@
     "romaname": "tuyizhang"
   },
   {
-    "businessPhones": [],
+    "businessPhones": [
+      "4860"
+    ],
     "displayName": "王冠皓 Jack Wang",
     "givenName": "冠皓",
     "jobTitle": null,
     "mail": "Jack.Wang@etatung.com",
     "mobilePhone": "0989670038",
-    "officeLocation": null,
+    "officeLocation": "台北北設工4樓",
     "preferredLanguage": null,
     "surname": "王",
     "userPrincipalName": "Jack.Wang@etatung.com",
@@ -4184,7 +4200,7 @@
     "jobTitle": null,
     "mail": "Jamie.Liao@etatung.com",
     "mobilePhone": "0989064429",
-    "officeLocation": "4619",
+    "officeLocation": "台北北設工3樓",
     "preferredLanguage": null,
     "surname": "廖",
     "userPrincipalName": "Jamie.Liao@etatung.com",
@@ -4516,20 +4532,6 @@
     "userPrincipalName": "Jelly.Chen@etatung.com",
     "id": "bd9f1264-f7b5-4a49-8902-a1c43b17552f",
     "romaname": "chenyuhong"
-  },
-  {
-    "businessPhones": [],
-    "displayName": "翁瓊修 Jennifer Weng",
-    "givenName": "瓊修",
-    "jobTitle": null,
-    "mail": "Jennifer.Weng@etatung.com",
-    "mobilePhone": "0975628826",
-    "officeLocation": null,
-    "preferredLanguage": null,
-    "surname": "翁",
-    "userPrincipalName": "Jennifer.Weng@etatung.com",
-    "id": "fc96a591-eb18-4672-b178-d77d582a64f0",
-    "romaname": "wengqiongxiu"
   },
   {
     "businessPhones": [
@@ -6035,6 +6037,22 @@
   },
   {
     "businessPhones": [
+      "78316"
+    ],
+    "displayName": "林岩 Linda Lin",
+    "givenName": "岩",
+    "jobTitle": null,
+    "mail": "Linda.Lin@tsticn.com",
+    "mobilePhone": "13162202798",
+    "officeLocation": "中國-上海",
+    "preferredLanguage": null,
+    "surname": "林",
+    "userPrincipalName": "Linda.Lin@tsticn.com",
+    "id": "ee3fc3de-a79d-4eca-afa5-b472cd3c6f1b",
+    "romaname": "linyan"
+  },
+  {
+    "businessPhones": [
       "4681"
     ],
     "displayName": "黃郁翎 Ling Huang",
@@ -6424,6 +6442,22 @@
     "userPrincipalName": "mark.hsiao@etatung.com",
     "id": "a1d40708-8357-44f6-b84d-e48801d72e99",
     "romaname": "xiaoanshun"
+  },
+  {
+    "businessPhones": [
+      "4781"
+    ],
+    "displayName": "郭信宏 Mark Kuo",
+    "givenName": "信宏",
+    "jobTitle": null,
+    "mail": "Mark.Kuo@etatung.com",
+    "mobilePhone": "0972633697",
+    "officeLocation": "台北北設工3樓",
+    "preferredLanguage": null,
+    "surname": "郭",
+    "userPrincipalName": "Mark.Kuo@etatung.com",
+    "id": "2852b189-1d93-49d3-ae8a-99942bbc8175",
+    "romaname": "guoxinhong"
   },
   {
     "businessPhones": [
@@ -8115,14 +8149,14 @@
   },
   {
     "businessPhones": [
-      "78303"
+      "4832"
     ],
     "displayName": "林雪華 Sarah Lin",
     "givenName": "雪華",
     "jobTitle": "專案經理",
     "mail": "Sarah.Lin@etatung.com.tw",
     "mobilePhone": "0932036785",
-    "officeLocation": "78303",
+    "officeLocation": "台北北設工四樓西側",
     "preferredLanguage": null,
     "surname": "林",
     "userPrincipalName": "Sarah.Lin@tsticn.com",
@@ -8934,19 +8968,17 @@
     "romaname": "chendeqin"
   },
   {
-    "businessPhones": [
-      "5722"
-    ],
-    "displayName": "楊天助 協理 TC Yang",
+    "businessPhones": [],
+    "displayName": "楊天助 協理 TC5722.Yang",
     "givenName": "天助",
     "jobTitle": "協理",
-    "mail": "TC.Yang@etatung.com",
-    "mobilePhone": "0932136366",
+    "mail": "TC5722.Yang@etatung.com",
+    "mobilePhone": null,
     "officeLocation": "5722",
     "preferredLanguage": null,
     "surname": "楊",
-    "userPrincipalName": "TC.Yang@etatung.com",
-    "id": "bc06a579-0afa-41b1-bbb6-48d0803bfdaa",
+    "userPrincipalName": "TC5722.Yang@etatung.com",
+    "id": "25632292-33d2-4f9d-b776-9b12e0ed10dc",
     "romaname": "yangtianzhu"
   },
   {
@@ -9034,7 +9066,7 @@
     "jobTitle": null,
     "mail": "Terry.Li@etatung.com",
     "mobilePhone": "0928509894",
-    "officeLocation": "4795",
+    "officeLocation": "台北北設工4樓",
     "preferredLanguage": null,
     "surname": "李",
     "userPrincipalName": "Terry.Li@etatung.com",
