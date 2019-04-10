@@ -977,6 +977,7 @@
 
         function getvoice_HangUp() { //4
             console.log('getvoice_HangUp');
+            var check_HangUp = false;
             $("#speechStatue").html("說 大同寶寶掛電話 即可掛斷");
             var myTranscript = '';
             var recognition_HangUp = new webkitSpeechRecognition();
@@ -996,19 +997,22 @@
                 myTranscript = event.results[i][j].transcript;
                 console.log("通話紀錄: " + myTranscript);
                 console.log('onresult')
-                if ((myTranscript.indexOf("大同寶寶") != -1 || myTranscript.indexOf("大同") != -1 || myTranscript.indexOf(
-                    "寶寶") != -1) &&
-                    (myTranscript.indexOf("掛電話") != -1 || myTranscript.indexOf("掛斷") != -1 || myTranscript.indexOf(
-                        "掛掉") != -1)) {
+                if ((myTranscript.indexOf("大同寶寶") != -1 || myTranscript.indexOf("大同") != -1 || myTranscript.indexOf("寶寶") != -1) &&
+                    (myTranscript.indexOf("掛電話") != -1 || myTranscript.indexOf("掛斷") != -1 || myTranscript.indexOf("掛掉") != -1)) {
+                    check_HangUp = true;
                     recognition_HangUp.stop();
                 }
             };
             recognition_HangUp.onend = function () {
-                console.log('掛斷電號');
-                console.log('onend');
-                caendcall(nowCall);
-                $("#speechStatue").html("開始識別語音...");
-                $("#speechStatue").css('color', '#022178');
+                if(check_HangUp == true){
+                    console.log('掛斷電號');
+                    console.log('onend');
+                    caendcall(nowCall);
+                    $("#speechStatue").html("開始識別語音...");
+                    $("#speechStatue").css('color', '#022178');
+                } else {
+                    //
+                }
             }
         };
 
@@ -1401,16 +1405,15 @@
                                 if (number_id.length >= 8) {
                                     $('#mobilemakecall' + number_id).show();
                                     $('#mobileendcall' + number_id).hide();
-                                    clearall(false);
                                 } else {
                                     $('#camakecall' + number_id).show();
                                     $('#caholdcall' + number_id).hide();
                                     $('#caretrievecall' + number_id).hide();
                                     $('#caendcall' + number_id).hide();
-                                    clearall(false);
                                 }
                                 insearch = false;
                                 getvoice(false);
+                                clearall(false);
                                 //$('#showtext' + showtext).text("");
                                 break;
                             case "oncallhold": //保留中
@@ -1485,7 +1488,7 @@
                     $('#searchdata').val('');
                     $('#tableforuser').empty(); //清空appendforuser裡面所有node
                     $('#divrow').width(635);
-                },60000);
+                },1200000);
             }
         }
         function rgbrandomColor() {
