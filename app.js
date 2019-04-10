@@ -281,6 +281,9 @@ app.post('/tatungSpeach', function (req, res) {
     console.log('POST /tatungSpech');
     var data = req.body.data;
     var tatungSpeach = req.body.tatungSpeach;
+    console.log(JSON.stringify(data));
+    console.log(tatungSpeach);
+    console.log(typeof(tatungSpeach));
     tatung(data, tatungSpeach, function (a) {
         res.send(a);
     })
@@ -306,7 +309,7 @@ function tatung(data, tatungSpeach, callback) {
         var hasTatung = false;
         var hasNR = false;
         for (var i in result) {
-            if (result[i][0] == "沒事" || result[i][0] == "拜拜" || result[i][0] == "掰掰") {
+            if (result[i][0] == "沒事" || result[i][0] == "拜拜" || result[i][0] == "掰掰" || result[i][0] == "取消" || result[i][0] == "結束") {
                 callback('掰掰');
                 return;
             }
@@ -453,7 +456,7 @@ function checksearch(searchdata, callback) {
                             }
                         }
                     }
-                } else if (result[i][0] == "不" || result[i][0] == "不是" || result[i][0] == "不要" || result[i][0] == "取消" || result[i][0] == "不用" || result[i][0] == "不需要" || result[i][0] == "拜拜" || result[i][0] == "掰掰" || result[i][0] == "沒事") {
+                } else if (result[i][0] == "不" || result[i][0] == "不是" || result[i][0] == "不要" || result[i][0] == "取消" || result[i][0] == "不用" || result[i][0] == "不需要" || result[i][0] == "拜拜" || result[i][0] == "掰掰" || result[i][0] == "沒事" || result[i][0] == "結束") {
                     callback('cancel');
                     return;
                 }
@@ -498,6 +501,8 @@ function dataforboolean(databoolean, callback) {
     }, function (err, result) {
         if (err) console.log(err)
         else {
+            var howmany = result.length;
+            console.log(howmany);
             var checkresult = JSON.stringify(result);
             console.log(checkresult);
             if (checkresult.indexOf('["[[') != -1 || checkresult.indexOf(']]"]') != -1) {
@@ -509,20 +514,6 @@ function dataforboolean(databoolean, callback) {
                 else
                     console.log('寫入成功');
             });
-            /*var hasTatungg = false;
-            var hasNRR = false;
-            var datacount = 0;
-            for (var i in result) {
-                if (result[i][0] == "沒事" || result[i][0] == "拜拜" || result[i][0] == "掰掰") {
-                    callback('cancel');
-                    return;
-                }
-                if (result[i][0] == "大同寶寶" || result[i][0] == "大同" || result[i][0] == "寶寶") hasTatungg = true;
-            }
-            if (hasTatungg == true) {
-                callback("請說您要找的中英文人名");
-                return;
-            }*/
             var returnVal = '';
             var hasVal = false;
             var hasPhone = false;
@@ -590,16 +581,10 @@ function dataforboolean(databoolean, callback) {
                         callback(returnVal);
                         return;
                     }
-                } else if (result[i][0] == "取消" || result[i][0] == "不" || result[i][0] == "不是" || result[i][0] == "不要" || result[i][0] == "不用" || result[i][0] == "不需要" || result[i][0] == "拜拜" || result[i][0] == "掰掰" || result[i][0] == "不好" || result[i][0] == "沒事" || result[i][0] == "bye" || result[i][0] == "bye bye") {
+                } else if (result[i][0] == "取消" || result[i][0] == "不" || result[i][0] == "不是" || result[i][0] == "不要" || result[i][0] == "不用" || result[i][0] == "不需要" || result[i][0] == "拜拜" || result[i][0] == "掰掰" || result[i][0] == "不好" || result[i][0] == "沒事" || result[i][0] == "bye" || result[i][0] == "bye bye" || result[i][0] == "結束") {
                     callback('cancel');
                     return;
                 }
-                /*
-                else {
-                    callback('wrong');
-                    return;
-                }
-                */
             }
             if(hasVal == true && hasMobile == false && hasPhone == false){
                 callback(returnVal);
@@ -612,132 +597,6 @@ function dataforboolean(databoolean, callback) {
                 callback('wrong');
                 return;
             }
-            
-            /*for (var i in result) {
-                if (result[i][1] == "nr" || result[i][1] == "ng" || result[i][1] == "nrfg" || result[i][1] == "nrt" || result[i][1] == "nt") {
-                    var myAnswer = {
-                        index: "",
-                        answer: ""
-                    }
-                    myAnswer.index = result[i][0];
-                    var levenshtein = require('js-levenshtein');
-                    newromaname = tranPinyin(result[i][0]);
-                    for (var j = 0; j < jsongetusers.length; j++) {
-                        romaforname = jsongetusers[j].romaname;
-                        if (romaforname.split(' ').length >= 2) {
-                            if (newromaname != null && romaforname != null)
-                                if (1 - (levenshtein(newromaname, romaforname.split(' ')[0]) / romaforname.split(' ')[0].length) >= 0.77 || romaforname.indexOf(newromaname) != -1) {
-                                    console.log("未切: " + newromaname + ", " + romaforname)
-                                    //console.log("數量: " + levenshtein(newromaname, romaforname))
-                                    console.log("分數: " + Number(1 - (levenshtein(newromaname, romaforname.split(' ')[0]) / romaforname.length)))
-                                    var finddata = JSON.stringify(jsongetusers[j]);
-                                    switch (datacount) {
-                                        case 0: //第一筆資料
-                                            resdata += finddata;
-                                            datacount++;
-                                            break;
-                                        default:
-                                            resdata += ',' + finddata;
-                                            datacount++;
-                                            break;
-                                    }
-                                }
-                        } else {
-                            if (newromaname != null && romaforname != null)
-                                if (1 - (levenshtein(newromaname, romaforname) / romaforname.split(' ')[0].length) >= 0.77 || romaforname.indexOf(newromaname) != -1) {
-                                    console.log("未切: " + newromaname + ", " + romaforname)
-                                    //console.log("數量: " + levenshtein(newromaname, romaforname))
-                                    console.log("分數: " + Number(1 - (levenshtein(newromaname, romaforname.split(' ')[0]) / romaforname.length)))
-                                    var finddata = JSON.stringify(jsongetusers[j]);
-                                    switch (datacount) {
-                                        case 0: //第一筆資料
-                                            resdata += finddata;
-                                            datacount++;
-                                            break;
-                                        default:
-                                            resdata += ',' + finddata;
-                                            datacount++;
-                                            break;
-                                    }
-                                }
-                        }
-                    }
-                } else if (result[i][1] == "eng") {
-                    var myAnswer = {
-                        index: "",
-                        answer: ""
-                    }
-                    myAnswer.index = result[i][0];
-                    for (var j in jsongetusers) {
-                        if (jsongetusers[j].userPrincipalName.split("@")[0].toLowerCase().indexOf((myAnswer.index).toLowerCase()) != -1) {
-                            var finddata = JSON.stringify(jsongetusers[j]);
-                            switch (datacount) {
-                                case 0: //第一筆資料
-                                    resdata += finddata;
-                                    datacount++;
-                                    break;
-                                default:
-                                    resdata += ',' + finddata;
-                                    datacount++;
-                                    break;
-                            }
-                        }
-                    }
-                } else if (result[i][1] == "m") {
-                    var this_num = result[i][0];
-                    console.log(typeof (this_num));
-                    switch (isNaN(this_num) || parseInt(this_num)) {
-                        case true:
-                            if (this_num.indexOf("一") != -1) callback("1");
-                            else if (this_num.indexOf("二") != -1) callback("2");
-                            else if (this_num.indexOf("三") != -1) callback("3");
-                            else if (this_num.indexOf("四") != -1) callback("4");
-                            else if (this_num.indexOf("五") != -1) callback("5");
-                            else if (this_num.indexOf("六") != -1) callback("6");
-                            else if (this_num.indexOf("七") != -1) callback("7");
-                            else if (this_num.indexOf("八") != -1) callback("8");
-                            else if (this_num.indexOf("九") != -1) callback("9");
-                            else if (this_num.indexOf("十") != -1) callback("10");
-                            else if (this_num.indexOf("第") != -1) {continue;}
-                            else callback('notfound');
-                            break;
-                        default:
-                            console.log(typeof(this_num));
-                            console.log(this_num);
-                            callback(this_num);
-                    }
-                    return;
-                } else if (result[i][0] == "不" || result[i][0] == "不是" || result[i][0] == "不要" || result[i][0] == "取消" || result[i][0] == "不用" || result[i][0] == "不需要" || result[i][0] == "拜拜" || result[i][0] == "掰掰" || result[i][0] == "不好") {
-                    callback('cancel');
-                    return;
-                } else if (result[i][0] == "分機" || result[i][0] == "畚箕" || result[i][0] == "飛機" || result[i][0] == "登機" || result[i][0] == "桌機") {//else if (result[i][0] == "沒錯" || result[i][0] == "需要" || result[i][0] == "撥電話" || result[i][0] == "打電話" || result[i][0] == "謝謝" || result[i][0] == "是" || result[i][0] == "是的") {
-                    callback('makecall');
-                    return;
-                } else if (result[i][0] == "手機") {
-                    callback('mobilemakecall');
-                    return;
-                } else if(result.length == 1){
-                    if(result[i][0] == "好" || result[i][0] == "好的"){
-                        callback('makecall');
-                        return;
-                    }
-                }
-            }*/
-            /*if (datacount > 0) {
-                resdata = '[' + resdata + ']'; //最外面的 [ ]
-            }
-            if (resdata != '') {
-                myAnswer.answer = resdata;
-                quickSearchData.push(myAnswer);
-                fs.writeFile('quickSearch.json', JSON.stringify(quickSearchData, null, 2), function () {
-                    console.log(resdata);
-                    callback(resdata);
-                    return;
-                })
-            } else {
-                callback('wrong');
-                return;
-            }*/
         }
     });
 }
