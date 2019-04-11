@@ -977,7 +977,6 @@
 
         function getvoice_HangUp() { //4
             console.log('getvoice_HangUp');
-            var check_HangUp = false;
             $("#speechStatue").html("說 大同寶寶掛電話 即可掛斷");
             var myTranscript = '';
             var recognition_HangUp = new webkitSpeechRecognition();
@@ -996,23 +995,18 @@
                 var j = event.results[i].length - 1;
                 myTranscript = event.results[i][j].transcript;
                 console.log("通話紀錄: " + myTranscript);
-                console.log('onresult')
+                console.log('onresult');
                 if ((myTranscript.indexOf("大同寶寶") != -1 || myTranscript.indexOf("大同") != -1 || myTranscript.indexOf("寶寶") != -1) &&
                     (myTranscript.indexOf("掛電話") != -1 || myTranscript.indexOf("掛斷") != -1 || myTranscript.indexOf("掛掉") != -1)) {
-                    check_HangUp = true;
                     recognition_HangUp.stop();
                 }
             };
             recognition_HangUp.onend = function () {
-                if(check_HangUp == true){
                     console.log('掛斷電號');
                     console.log('onend');
                     caendcall(nowCall);
                     $("#speechStatue").html("開始識別語音...");
                     $("#speechStatue").css('color', '#022178');
-                } else {
-                    //
-                }
             }
         };
 
