@@ -176,6 +176,7 @@
 
         function getvoice(flag) { //1
             console.log("getvoice");
+            var buttonclick = false;
             if (flag != null) tatungSpeach = flag;
             var myTranscript = '';
             var recognition = new webkitSpeechRecognition();
@@ -190,6 +191,10 @@
                 $("#speechStatue").html("開始識別語音...");
                 clearall(true);
             };
+            $('button').click(function(){ //當使用者按下按鈕，終止詢問收音
+                    recognition.stop();
+                    checkclick = true;
+            });
             recognition.onresult = function (event) {
                 var i = event.resultIndex;
                 var j = event.results[i].length - 1;
@@ -499,9 +504,11 @@
                     for (var i = 0; i < datalength; i++) {
                         if (resdata[i].businessPhones.toString().indexOf('#') != -1) {
                             resdata[i].businessPhones = resdata[i].businessPhones.toString().split('#')[1];
-                            resdata[i].businessPhones = resdata[i].businessPhones.toString().replace(/[^0-9]/ig,
-                                "");
+                            resdata[i].businessPhones = resdata[i].businessPhones.toString().replace(/[^0-9]/ig,"");
                         }
+                        var mobilePhone = JSON.stringify(resdata[i].mobilePhone);
+                        mobilePhone = mobilePhone.replace('[','').replace(']','').replace('"','').replace('"','');
+                        mobilePhone = "'"+mobilePhone+"'";
                         if (resdata[i].businessPhones == '' && resdata[i].mobilePhone == null) {
                             $('#divrow').width(500);
                             $('#tableforuser').append(
@@ -527,11 +534,10 @@
                                 '"><td><img src="/images/tatungba.jpg" class="rounded-circle employeespic" style="margin-right: 4px;"></td><td><h3 style="display: inline">' +
                                 (i + 1) + '.' + resdata[i].displayName + '</h3></td>' +
                                 '<td></td><td><button id="mobilemakecall' + resdata[i].mobilePhone +
-                                '" type="submit" class="btn newcaserverbtn" onclick="mobilemakecall(' +
-                                resdata[i].businessPhones + ')">手機</button><button id="mobileendcall' +
+                                '" type="submit" class="btn newcaserverbtn" onclick="mobilemakecall(' +mobilePhone + ')">手機</button><button id="mobileendcall' +
                                 resdata[i].mobilePhone +
                                 '" type="submit" class="btn newcancelbtn caendcall" onclick="caendcall(' +
-                                resdata[i].mobilePhone + ')" style="display:none">掛斷</button></td></tr>'
+                                mobilePhone + ')" style="display:none">掛斷</button></td></tr>'
                             );
                         } else {
                             $('#tableforuser').append(
@@ -545,11 +551,10 @@
                                 '" type="submit" class="btn newcancelbtn caendcall" onclick="caendcall(' +
                                 resdata[i].businessPhones + ')" style="display:none">掛斷</button></td>' +
                                 '<td><button id="mobilemakecall' + resdata[i].mobilePhone +
-                                '" type="submit" class="btn newcaserverbtn" onclick="mobilemakecall(' +
-                                resdata[i].businessPhones + ')">手機</button><button id="mobileendcall' +
+                                '" type="submit" class="btn newcaserverbtn" onclick="mobilemakecall('+mobilePhone+')">手機</button><button id="mobileendcall' +
                                 resdata[i].mobilePhone +
                                 '" type="submit" class="btn newcancelbtn caendcall" onclick="caendcall(' +
-                                resdata[i].mobilePhone + ')" style="display:none">掛斷</button></td></tr>'
+                                mobilePhone + ')" style="display:none">掛斷</button></td></tr>'
                             );
                         }
                     }
@@ -603,6 +608,7 @@
         function getvoiceSecond() { //3
             console.log('getvoiceSecond');
             var myTranscript = '';
+            var checkclick = false;
             var recognition_forsecond = new webkitSpeechRecognition();
             recognition_forsecond.continuous = false;
             //如果設定為 true，表示除非我們停止辨識，不然就會一直持續的辨識語音轉換為文字，如果設定為 false，在辨識一段話完成之後就會結束辨識
@@ -614,6 +620,10 @@
                 //$("#speechStatue").html("開始識別語音...");
                 rgbrandomColor();
             };
+            $('button').click(function(){ //當使用者按下按鈕，終止詢問收音
+                recognition_forsecond.stop();
+                checkclick = true;
+            });
             recognition_forsecond.onresult = function (event) {
                 //$("#speechStatue").html("識別語音中...");
                 rgbrandomColor();
@@ -627,7 +637,10 @@
             };
             recognition_forsecond.onend = function () {
                 console.log('getvoiceSecond停止辨識!');
-                if (myTranscript == '') {
+                if (myTranscript == '' && checkclick== true) { //跳到大同寶寶掛斷
+                    getvoice_HangUp();
+                    clearall(false);
+                }else if (myTranscript == '' && checkclick== false) {
                     nosound++;
                     if (nosound > 10) {
                         document.getElementById("voiceSearch").disabled = false;
@@ -784,16 +797,13 @@
                                             }
                                         } else {
                                             var this_mobilePhone = JSON.stringify(findata[0].mobilePhone);
-                                            this_mobilePhone = this_mobilePhone.replace('[', '').replace(
-                                                ']',
-                                                '').replace('"', '').replace('"', '');
+                                            this_mobilePhone = this_mobilePhone.replace('[', '').replace(']','').replace('"', '').replace('"', '');
                                             tellyouMakeCall(this_mobilePhone);
                                             mobilemakecall(this_mobilePhone);
                                             if (this_mobilePhone != null || this_mobilePhone != "null") {
                                                 getvoice_HangUp();
                                             }
                                         }
-
                                         break;
                                     case 'cancel':
                                         $("#speechStatue").html("開始識別語音...");
@@ -852,10 +862,7 @@
                                                 var this_mobilePhone = JSON.stringify(findata[Number(
                                                     splitData[0]) - 1]
                                                     .mobilePhone);
-                                                this_mobilePhone = this_mobilePhone.replace('[', '')
-                                                    .replace(
-                                                        ']',
-                                                        '').replace('"', '').replace('"', '');
+                                                this_mobilePhone = this_mobilePhone.replace('[', '').replace(']','').replace('"', '').replace('"', '');
                                                 tellyouMakeCall(this_mobilePhone);
                                                 mobilemakecall(this_mobilePhone);
                                                 if (this_mobilePhone != null || this_mobilePhone !=
@@ -868,7 +875,7 @@
                                 }
                                 break;
                             default:
-                                console.log(resdata)
+                                console.log(resdata);
                                 if (findata.length < Number(resdata)) {
                                     var msg = new SpeechSynthesisUtterance();
                                     var voices = [];
@@ -891,9 +898,10 @@
                                     }
                                     businessPhones = businessPhones.replace('[', '').replace(']', '')
                                         .replace('"', '').replace('"', '');
-                                    var mobilePhone = JSON.stringify(findata[Number(resdata) - 1]
-                                        .mobilePhone);
-                                    mobilePhone = mobilePhone.replace('"', '').replace('"', '');
+                                    var mobilePhone = JSON.stringify(findata[Number(resdata) - 1].mobilePhone);
+                                    mobilePhone = mobilePhone.replace('[', '').replace(']','').replace('"', '').replace('"', '');
+                                    var mobilePhonestring = "'"+mobilePhone+"'";
+                                    console.log(mobilePhone);
                                     if (businessPhones == '' && mobilePhone == "null") {
                                         $('#divrow').width(635);
                                         $('#tableforuser').append(
@@ -920,11 +928,9 @@
                                             '1.' + findata[Number(resdata) - 1].displayName +
                                             '</h3></td>' + '<td></td>' +
                                             '<td><button id="mobilemakecall' + mobilePhone +
-                                            '" type="submit" class="btn newcaserverbtn" onclick="mobilemakecall(' +
-                                            mobilePhone + ')">手機</button><button id="mobileendcall' +
+                                            '" type="submit" class="btn newcaserverbtn" onclick="mobilemakecall(' +mobilePhonestring + ')">手機</button><button id="mobileendcall' +
                                             mobilePhone +
-                                            '" type="submit" class="btn newcancelbtn caendcall" onclick="caendcall(' +
-                                            mobilePhone +
+                                            '" type="submit" class="btn newcancelbtn caendcall" onclick="caendcall(' +mobilePhonestring +
                                             ')" style="display:none">掛斷</button></td></tr>'
                                         );
                                     } else {
@@ -940,11 +946,8 @@
                                             businessPhones +
                                             ')" style="display:none">掛斷</button></td>' +
                                             '<td><button id="mobilemakecall' + mobilePhone +
-                                            '" type="submit" class="btn newcaserverbtn" onclick="mobilemakecall(' +
-                                            mobilePhone + ')">手機</button><button id="mobileendcall' +
-                                            mobilePhone +
-                                            '" type="submit" class="btn newcancelbtn caendcall" onclick="caendcall(' +
-                                            mobilePhone +
+                                            '" type="submit" class="btn newcaserverbtn" onclick="mobilemakecall(' +mobilePhone + ')">手機</button><button id="mobileendcall' +mobilePhonestring +
+                                            '" type="submit" class="btn newcancelbtn caendcall" onclick="caendcall(' +mobilePhonestring +
                                             ')" style="display:none">掛斷</button></td></tr>'
                                         );
                                     }
@@ -954,7 +957,6 @@
                                     speechSynthesis.speak(msg);
                                     //---------------語音---------------
                                     msg.onend = function (event) {
-                                        console.log(typeof (event));
                                         console.log(JSON.stringify(event));
                                         console.log('說完 請問幫您撥分機還是手機');
                                         var bufArray = [];
@@ -1125,6 +1127,7 @@
 
         function mobilemakecall(mobilePhone) { //撥出手機
             var destinationid = mobilePhone;
+            console.log(typeof(destinationid));
             console.log(destinationid);
             if (destinationid == '' || destinationid == 'null' || destinationid == null) {
                 //do
