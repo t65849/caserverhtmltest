@@ -189,11 +189,10 @@
             recognition.onstart = function () {
                 console.log('getvoice開始辨識...');
                 $("#speechStatue").html("開始識別語音...");
-                clearall(true);
             };
             $('button').click(function(){ //當使用者按下按鈕，終止詢問收音
                     recognition.stop();
-                    checkclick = true;
+                    buttonclick = true;
             });
             recognition.onresult = function (event) {
                 var i = event.resultIndex;
@@ -351,11 +350,13 @@
                                 console.log('說完 掰掰');
                                 tatungSpeach = false;
                                 getvoice(false);
-                                clearall(false);
+                                clearall(true);
                             }
                         }
                     })
-                } else {
+                } else if(myTranscript == "" && buttonclick == true){
+                    //
+                } else if(myTranscript == "" && buttonclick == false) {
                     if (tatungSpeach == true) {
                         nosound++;
                         if (nosound > 10) {
@@ -373,7 +374,7 @@
                                 $("#speechStatue").html("開始識別語音...");
                                 insearch = false;
                                 getvoice(false);
-                                clearall(false);
+                                clearall(true);
                             }
                         } else {
                             getvoice(true);
@@ -477,14 +478,13 @@
                         console.log('說完 沒有資料，請再說一次');
                         insearch = false;
                         getvoice(true);
-                        clearall(false);
                     }
                     $('#tableforuser').empty(); //清空appendforuser裡面所有node
                     $('#divrow').width(635);
                 } else if (resdata === 'cancel') {
                     document.getElementById("voiceSearch").disabled = false;
                     $("#speechStatue").html("開始識別語音...");
-                    clearall(false);
+                    clearall(true);
                 } else {
                     $('#tableforuser').empty(); //清空appendforuser裡面所有node
                     $('#scrollx').animate({
@@ -638,8 +638,7 @@
             recognition_forsecond.onend = function () {
                 console.log('getvoiceSecond停止辨識!');
                 if (myTranscript == '' && checkclick== true) { //跳到大同寶寶掛斷
-                    getvoice_HangUp();
-                    clearall(false);
+                    //
                 }else if (myTranscript == '' && checkclick== false) {
                     nosound++;
                     if (nosound > 10) {
@@ -658,7 +657,7 @@
                             $("#speechStatue").html("開始識別語音...");
                             insearch = false;
                             getvoice(false);
-                            clearall(false);
+                            clearall(true);
                         }
                     } else {
                         getvoiceSecond();
@@ -779,10 +778,9 @@
                                             tellyouMakeCall(this_businessPhones);
                                             camakecall(this_businessPhones);
                                             if (this_businessPhones != '') {
-                                                getvoice_HangUp();
+                                                //getvoice_HangUp();
                                             }
                                         }
-
                                         break;
                                     case 'mobilemakecall':
                                         if (findata.length >= 2) {
@@ -801,7 +799,7 @@
                                             tellyouMakeCall(this_mobilePhone);
                                             mobilemakecall(this_mobilePhone);
                                             if (this_mobilePhone != null || this_mobilePhone != "null") {
-                                                getvoice_HangUp();
+                                                //getvoice_HangUp();
                                             }
                                         }
                                         break;
@@ -818,6 +816,7 @@
                                             console.log('說完 我要休息了，有事再叫我');
                                             insearch = false;
                                             getvoice(false);
+                                            clearall(true);
                                         }
                                         break;
                                     case '請說您要找的中英文人名': //重新搜尋
@@ -854,7 +853,7 @@
                                                 tellyouMakeCall(this_businessPhones);
                                                 camakecall(this_businessPhones);
                                                 if (this_businessPhones != '') {
-                                                    getvoice_HangUp();
+                                                    //getvoice_HangUp();
                                                 }
 
                                             } else if (splitData[1] == 'mobilemakecall') {
@@ -867,7 +866,7 @@
                                                 mobilemakecall(this_mobilePhone);
                                                 if (this_mobilePhone != null || this_mobilePhone !=
                                                     "null") {
-                                                    getvoice_HangUp();
+                                                    //getvoice_HangUp();
                                                 }
                                             }
 
@@ -1410,7 +1409,7 @@
                                 }
                                 insearch = false;
                                 getvoice(false);
-                                clearall(false);
+                                clearall(true);
                                 //$('#showtext' + showtext).text("");
                                 break;
                             case "oncallhold": //保留中
@@ -1479,7 +1478,9 @@
         }
         function clearall(checkusing){
             if(checkusing == true){
-                //
+                $('#searchdata').val('');
+                $('#tableforuser').empty(); //清空appendforuser裡面所有node
+                $('#divrow').width(635);
             } else {
                 setTimeout(function(){
                     $('#searchdata').val('');
