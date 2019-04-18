@@ -560,6 +560,7 @@
                     }
                     var surname = resdata[0].displayName
                     var givenName = resdata[0].givenName;
+                    var user_click = false;
                     if (resdata.length < 2) {
                         $("#speechStatue").html("請問幫您撥分機還是手機，或說\"重新搜尋\"重找人，說取消可不撥打");
                         //---------------語音---------------
@@ -568,11 +569,18 @@
                         msg.text = "請問撥分機還是手機，或說崇新搜尋";
                         speechSynthesis.speak(msg);
                         //---------------語音---------------
+                        $('button').click(function(){ //當使用者按下按鈕
+                            user_click = true;
+                        });
                         try {
                             msg.onend = function (event) {
                                 console.log(JSON.stringify(event));
                                 console.log('說完 請問撥分機還是手機，或說重新搜尋崇找人，說取消可不撥打');
-                                getvoiceSecond();
+                                if(user_click == true){
+                                    //
+                                }else{
+                                    getvoiceSecond();
+                                }
                             }
                         } catch (err) {
                             console.log(err);
@@ -588,12 +596,19 @@
                         msg.text = "要撥給第幾筆資料，或說崇新搜尋";
                         speechSynthesis.speak(msg);
                         //---------------語音---------------
+                        $('button').click(function(){ //當使用者按下按鈕
+                            user_click = true;
+                        });
                         try {
                             msg.onend = function (event) {
                                 console.log(typeof (event));
                                 console.log(JSON.stringify(event));
                                 console.log('說完 要撥給第幾筆資料，或說重新搜尋崇找人，說取消可不撥打');
-                                getvoiceSecond();
+                                if(user_click == true){
+                                    //
+                                }else{
+                                    getvoiceSecond();
+                                }
                             }
                         } catch (err) {
                             console.log(err);
@@ -616,8 +631,11 @@
             //如果設定為 true，表示在我們講話的當下就會即時辨識，不然就會在一段話結束之後，才會開始辨識。
             recognition_forsecond.lang = "cmn-Hant-TW";
             recognition_forsecond.onstart = function () {
-                //console.log('開始辨識...getvoiceSecond');
+                console.log('開始辨識...getvoiceSecond');
                 //$("#speechStatue").html("開始識別語音...");
+                if(checkclick == true){
+                    recognition_forsecond.stop();
+                }
                 rgbrandomColor();
             };
             $('button').click(function(){ //當使用者按下按鈕，終止詢問收音
@@ -626,6 +644,9 @@
             });
             recognition_forsecond.onresult = function (event) {
                 //$("#speechStatue").html("識別語音中...");
+                if(checkclick == true){
+                    recognition_forsecond.stop();
+                }
                 rgbrandomColor();
                 console.log(event)
                 var i = event.resultIndex;
