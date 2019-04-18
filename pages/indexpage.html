@@ -756,6 +756,38 @@
                         databoolean = databoolean.replace('5號', '吴浩');
                     } else if (databoolean.indexOf('地理') != -1) {
                         databoolean = databoolean.replace('地理', '第一筆');
+                    } else if (databoolean.indexOf('z5p') != -1) {
+                        databoolean = databoolean.replace('z5p', '第五筆');
+                    } else if (databoolean.indexOf('無比') != -1) {
+                        databoolean = databoolean.replace('無比', '五筆');
+                    } else if (databoolean.indexOf('D5') != -1) {
+                        databoolean = databoolean.replace('D5', '第五');
+                    } else if (databoolean.indexOf('底漆') != -1) {
+                        databoolean = databoolean.replace('底漆', '第七');
+                    } else if (databoolean.indexOf('必須') != -1) {
+                        databoolean = databoolean.replace('必須', '第七筆');
+                    } else if (databoolean.indexOf('d7') != -1) {
+                        databoolean = databoolean.replace('d7', '第七');
+                    } else if (databoolean.indexOf('的芭比') != -1) {
+                        databoolean = databoolean.replace('的芭比', '第八筆');
+                    } else if (databoolean.indexOf('爸') != -1) {
+                        databoolean = databoolean.replace('爸', '八');
+                    } else if (databoolean.indexOf('就') != -1) {
+                        databoolean = databoolean.replace('就', '九');
+                    } else if (databoolean.indexOf('歷史') != -1) {
+                        databoolean = databoolean.replace('歷史', '第十');
+                    } else if (databoolean.indexOf('低15') != -1) {
+                        databoolean = databoolean.replace('低15', '第15');
+                    } else if (databoolean.indexOf('z') != -1) {
+                        databoolean = databoolean.replace('z', '第');
+                    } else if (databoolean.indexOf('D') != -1) {
+                        databoolean = databoolean.replace('D', '第');
+                    } else if (databoolean.indexOf('d') != -1) {
+                        databoolean = databoolean.replace('d', '第');
+                    } else if (databoolean.indexOf('低') != -1) {
+                        databoolean = databoolean.replace('低', '第');
+                    } else if (databoolean.indexOf('p') != -1) {
+                        databoolean = databoolean.replace('p', '筆');
                     }
                     var data = {
                         databoolean: databoolean
@@ -921,7 +953,6 @@
                                     var mobilePhone = JSON.stringify(findata[Number(resdata) - 1].mobilePhone);
                                     mobilePhone = mobilePhone.replace('[', '').replace(']','').replace('"', '').replace('"', '');
                                     var mobilePhonestring = "'"+mobilePhone+"'";
-                                    console.log(mobilePhone);
                                     if (businessPhones == '' && mobilePhone == "null") {
                                         $('#divrow').width(635);
                                         $('#tableforuser').append(
