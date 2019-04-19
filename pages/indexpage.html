@@ -997,7 +997,7 @@
                                             businessPhones +
                                             ')" style="display:none">掛斷</button></td>' +
                                             '<td><button id="mobilemakecall' + mobilePhone +
-                                            '" type="submit" class="btn newcaserverbtn" onclick="mobilemakecall(' +mobilePhone + ')">手機</button><button id="mobileendcall' +mobilePhonestring +
+                                            '" type="submit" class="btn newcaserverbtn" onclick="mobilemakecall(' +mobilePhone + ')">手機</button><button id="mobileendcall' +mobilePhone +
                                             '" type="submit" class="btn newcancelbtn caendcall" onclick="caendcall(' +mobilePhonestring +
                                             ')" style="display:none">掛斷</button></td></tr>'
                                         );
@@ -1423,7 +1423,7 @@
                         switch (callstatus) {
                             case "oncallconnect": //通話中
                                 if (number_id.length >= 8) {
-                                    $('#mobilemakecall' + number_id).hide();;
+                                    $('#mobilemakecall' + number_id).hide();
                                     $('#mobileendcall' + number_id).show();
                                 } else {
                                     $('#camakecall' + number_id).hide();

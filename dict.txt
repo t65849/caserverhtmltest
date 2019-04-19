@@ -71,6 +71,10 @@
 凃 5 nr
 顧 5 nr
 辜 5 nr
+婷 5 nr
+亭 5 nr
+麗 8 nr
+丽 8 nr
 簡訊 10 ng
 鹼性 10 ng
 簡造字 70 nr
@@ -828,6 +832,7 @@ joetest 20 nr
 凱評 10 nr
 張凱評 20 nr
 東信 10 nr
+東西 15 nr
 吳東信 20 nr
 明杰 10 nr
 陳明杰 20 nr
@@ -1315,6 +1320,7 @@ joetest 20 nr
 忠婷 10 nr
 于忠婷 20 nr
 淑蕙 10 nr
+淑惠 15 nr
 賴淑蕙 20 nr
 賴淑惠 200 nr
 于辰 10 nr
