@@ -589,11 +589,11 @@
                             }
                         }
                     } else { //++
-                        $("#speechStatue").html("要撥給第幾筆資料，或說\"重新搜尋\"重找人，說取消可不撥打");
+                        $("#speechStatue").html("請說編號，或說\"重新搜尋\"重找人，說取消可不撥打");
                         //---------------語音---------------
                         var msg = new SpeechSynthesisUtterance();
                         var voices = [];
-                        msg.text = "要撥給第幾筆資料，或說崇新搜尋";
+                        msg.text = "請說編號，或說崇新搜尋";
                         speechSynthesis.speak(msg);
                         //---------------語音---------------
                         $('button').click(function(){ //當使用者按下按鈕
@@ -603,7 +603,7 @@
                             msg.onend = function (event) {
                                 console.log(typeof (event));
                                 console.log(JSON.stringify(event));
-                                console.log('說完 要撥給第幾筆資料，或說重新搜尋崇找人，說取消可不撥打');
+                                console.log('說完 請說編號，或說重新搜尋崇找人，說取消可不撥打');
                                 if(user_click == true){
                                     //
                                 }else{
@@ -749,27 +749,33 @@
                     } else if (databoolean.indexOf('斷魂') != -1) {
                         databoolean = databoolean.replace('斷魂', '段屯');
                     } else if (databoolean.indexOf('B2B') != -1) {
-                        databoolean = databoolean.replace('B2B', '第二筆');
+                        databoolean = databoolean.replace('B2B', '二');
+                    } else if (databoolean.indexOf('第B') != -1) {
+                        databoolean = databoolean.replace('第B', '第一');
+                    } else if (databoolean.indexOf('第b') != -1) {
+                        databoolean = databoolean.replace('第b', '第一');
+                    } else if (databoolean.indexOf('b') != -1) {
+                        databoolean = databoolean.replace('b', '');
+                    } else if (databoolean.indexOf('B') != -1) {
+                        databoolean = databoolean.replace('B', '');
                     } else if (databoolean.indexOf('於') != -1) {
                         databoolean = databoolean.replace('於', '余');
-                    } else if (databoolean.indexOf('5號') != -1) {
-                        databoolean = databoolean.replace('5號', '吴浩');
                     } else if (databoolean.indexOf('地理') != -1) {
-                        databoolean = databoolean.replace('地理', '第一筆');
+                        databoolean = databoolean.replace('地理', '第一');
                     } else if (databoolean.indexOf('z5p') != -1) {
-                        databoolean = databoolean.replace('z5p', '第五筆');
+                        databoolean = databoolean.replace('z5p', '五');
                     } else if (databoolean.indexOf('無比') != -1) {
-                        databoolean = databoolean.replace('無比', '五筆');
+                        databoolean = databoolean.replace('無比', '五');
                     } else if (databoolean.indexOf('D5') != -1) {
-                        databoolean = databoolean.replace('D5', '第五');
+                        databoolean = databoolean.replace('D5', '五');
                     } else if (databoolean.indexOf('底漆') != -1) {
-                        databoolean = databoolean.replace('底漆', '第七');
+                        databoolean = databoolean.replace('底漆', '七');
                     } else if (databoolean.indexOf('必須') != -1) {
-                        databoolean = databoolean.replace('必須', '第七筆');
+                        databoolean = databoolean.replace('必須', '七');
                     } else if (databoolean.indexOf('d7') != -1) {
-                        databoolean = databoolean.replace('d7', '第七');
+                        databoolean = databoolean.replace('d7', '七');
                     } else if (databoolean.indexOf('的芭比') != -1) {
-                        databoolean = databoolean.replace('的芭比', '第八筆');
+                        databoolean = databoolean.replace('的芭比', '八');
                     } else if (databoolean.indexOf('爸') != -1) {
                         databoolean = databoolean.replace('爸', '八');
                     } else if (databoolean.indexOf('就') != -1) {
@@ -777,17 +783,23 @@
                     } else if (databoolean.indexOf('歷史') != -1) {
                         databoolean = databoolean.replace('歷史', '第十');
                     } else if (databoolean.indexOf('低15') != -1) {
-                        databoolean = databoolean.replace('低15', '第15');
+                        databoolean = databoolean.replace('低15', '15');
                     } else if (databoolean.indexOf('z') != -1) {
-                        databoolean = databoolean.replace('z', '第');
+                        databoolean = databoolean.replace('z', '');
                     } else if (databoolean.indexOf('D') != -1) {
-                        databoolean = databoolean.replace('D', '第');
+                        databoolean = databoolean.replace('D', '');
                     } else if (databoolean.indexOf('d') != -1) {
-                        databoolean = databoolean.replace('d', '第');
+                        databoolean = databoolean.replace('d', '');
                     } else if (databoolean.indexOf('低') != -1) {
-                        databoolean = databoolean.replace('低', '第');
+                        databoolean = databoolean.replace('低', '');
                     } else if (databoolean.indexOf('p') != -1) {
-                        databoolean = databoolean.replace('p', '筆');
+                        databoolean = databoolean.replace('p', '');
+                    } else if (databoolean.indexOf('P') != -1) {
+                        databoolean = databoolean.replace('P', '');
+                    } else if (databoolean.indexOf('比') != -1) {
+                        databoolean = databoolean.replace('比', '');
+                    } else if (databoolean.indexOf('是') != -1) {
+                        databoolean = databoolean.replace('是', '4');
                     }
                     var data = {
                         databoolean: databoolean
@@ -814,12 +826,12 @@
                                     case 'makecall':
                                         if (findata.length >= 2) {
                                             var msg = new SpeechSynthesisUtterance();
-                                            msg.text = "要撥給第幾筆資料";
+                                            msg.text = "請說編號";
                                             speechSynthesis.speak(msg);
                                             //---------------語音---------------
                                             $('#searchdata').val(databoolean);
                                             msg.onend = function (event) {
-                                                console.log('說完 要撥給第幾筆資料');
+                                                console.log('說完 請說編號');
                                                 getvoiceSecond();
                                             }
                                         } else {
@@ -838,12 +850,12 @@
                                     case 'mobilemakecall':
                                         if (findata.length >= 2) {
                                             var msg = new SpeechSynthesisUtterance();
-                                            msg.text = "要撥給第幾筆資料";
+                                            msg.text = "請說編號";
                                             speechSynthesis.speak(msg);
                                             //---------------語音---------------
                                             $('#searchdata').val(databoolean);
                                             msg.onend = function (event) {
-                                                console.log('說完 要撥給第幾筆資料');
+                                                console.log('說完 請說編號');
                                                 getvoiceSecond();
                                             }
                                         } else {
@@ -931,13 +943,13 @@
                                 if (findata.length < Number(resdata)) {
                                     var msg = new SpeechSynthesisUtterance();
                                     var voices = [];
-                                    msg.text = "沒有編號，請問要撥給第幾筆資料";
+                                    msg.text = "沒有編號，請再說一次編號";
                                     speechSynthesis.speak(msg);
                                     //---------------語音---------------
                                     msg.onend = function (event) {
                                         console.log(typeof (event));
                                         console.log(JSON.stringify(event));
-                                        console.log('說完 沒有編號，請問要撥給第幾筆資料');
+                                        console.log('說完 沒有編號，請再說一次編號');
                                         getvoiceSecond();
                                     }
                                 } else {

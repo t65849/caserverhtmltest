@@ -288,7 +288,7 @@ app.post('/tatungSpeach', function (req, res) {
         res.send(a);
     })
 })
-
+var gotcancel = false;
 function tatung(data, tatungSpeach, callback) {
     analyzer.pseg(String(data), {
         mode: Jieba.mode.SEARCH,
@@ -309,25 +309,31 @@ function tatung(data, tatungSpeach, callback) {
         var hasTatung = false;
         var hasNR = false;
         for (var i in result) {
-            if (result[i][0] == "沒事" || result[i][0] == "拜拜" || result[i][0] == "掰掰" || result[i][0] == "取消" || result[i][0] == "結束"|| result[i][0] == "再見") {
-                callback('掰掰');
-                return;
+            if(gotcancel == true){
+                if (result[i][0] == "沒事" || result[i][0] == "拜拜" || result[i][0] == "掰掰" || result[i][0] == "取消" || result[i][0] == "結束"|| result[i][0] == "再見") {
+                    callback('掰掰');
+                    return;
+                }
             }
-            if (result[i][0] == "大同寶寶" || result[i][0] == "大同" || result[i][0] == "寶寶" || result[i][0] == "童寶寶" || result[i][0] == "唐寶寶" || result[i][0] == "泡泡" || result[i][0] == "大樂透" || result[i][0] == "爸爸") hasTatung = true;
+            if (result[i][0] == "大同寶寶" || result[i][0] == "大同" || result[i][0] == "寶寶" || result[i][0] == "童寶寶" || result[i][0] == "唐寶寶" || result[i][0] == "泡泡" || result[i][0] == "大樂透" || result[i][0] == "爸爸" || result[i][0] == "包包" || result[i][0] == "大口") hasTatung = true;
             if (result[i][1] == "nr" || result[i][1] == "ng" || result[i][1] == "nrfg" || result[i][1] == "nrt" || result[i][1] == "nt") hasNR = true;
             if (result[i][1] == "eng") hasNR = true;
         }
         if (hasTatung == true && hasNR == false) {
             console.log("請說您要找的中英文人名");
+            gotcancel = true;
             callback("請說您要找的中英文人名");
         } else if (hasTatung == true && hasNR == true) {
             console.log("搜尋1");
+            gotcancel = false; //還原上面是否取消的狀態
             callback("搜尋");
         } else if (tatungSpeach == "true" && hasNR == true) {
             console.log("搜尋2");
+            gotcancel = false; //還原上面是否取消的狀態
             callback("搜尋");
         } else {
             console.log("沒叫我");
+            gotcancel = false; //還原上面是否取消的狀態
             callback("沒叫我");
         }
     })
@@ -560,10 +566,10 @@ function dataforboolean(databoolean, callback) {
                         hasVal = true;
                     }
                     //return;
-                } else if (result[i][0] == "重新搜尋" || result[i][0] == "重新" || result[i][0] == "搜尋" || result[i][0] == "大同寶寶" || result[i][0] == "大同" || result[i][0] == "寶寶" || result[i][0] == "童寶寶" || result[i][0] == "唐寶寶" || result[i][0] == "泡泡" || result[i][0] == "大樂透" || result[i][0] == "爸爸") {
+                } else if (result[i][0] == "重新搜尋" || result[i][0] == "重新" || result[i][0] == "搜尋" || result[i][0] == "大同寶寶" || result[i][0] == "大同" || result[i][0] == "寶寶" || result[i][0] == "童寶寶" || result[i][0] == "唐寶寶" || result[i][0] == "泡泡" || result[i][0] == "大樂透" || result[i][0] == "爸爸" || result[i][0] == "包包" || result[i][0] == "大口") {
                     callback("請說您要找的中英文人名");
                     return;
-                } else if (result[i][0] == "分機" || result[i][0] == "分級" || result[i][0] == "生機" || result[i][0] == "畚箕" || result[i][0] == "飛機" || result[i][0] == "登機" || result[i][0] == "桌機" || result[i][0] == "分析") { //else if (result[i][0] == "沒錯" || result[i][0] == "需要" || result[i][0] == "撥電話" || result[i][0] == "打電話" || result[i][0] == "謝謝" || result[i][0] == "是" || result[i][0] == "是的") {
+                } else if (result[i][0] == "分機" || result[i][0] == "分級" || result[i][0] == "生機" || result[i][0] == "畚箕" || result[i][0] == "飛機" || result[i][0] == "登機" || result[i][0] == "桌機" || result[i][0] == "分析" || result[i][0] == "噴劑" || result[i][0] == "班機") { //else if (result[i][0] == "沒錯" || result[i][0] == "需要" || result[i][0] == "撥電話" || result[i][0] == "打電話" || result[i][0] == "謝謝" || result[i][0] == "是" || result[i][0] == "是的") {
                     //callback('makecall');
                     //return;
                     hasPhone = true;
@@ -581,7 +587,7 @@ function dataforboolean(databoolean, callback) {
                         callback(returnVal);
                         return;
                     }
-                } else if (result[i][0] == "取消" || result[i][0] == "不" || result[i][0] == "不是" || result[i][0] == "不要" || result[i][0] == "不用" || result[i][0] == "不需要" || result[i][0] == "拜拜" || result[i][0] == "掰掰" || result[i][0] == "不好" || result[i][0] == "沒事" || result[i][0] == "bye" || result[i][0] == "bye bye" || result[i][0] == "結束" || result[i][0] == "再見") {
+                } else if (result[i][0] == "取消" || result[i][0] == "不" || result[i][0] == "不是" || result[i][0] == "不4" || result[i][0] == "不要" || result[i][0] == "不用" || result[i][0] == "不需要" || result[i][0] == "拜拜" || result[i][0] == "掰掰" || result[i][0] == "不好" || result[i][0] == "沒事" || result[i][0] == "bye" || result[i][0] == "bye bye" || result[i][0] == "結束" || result[i][0] == "再見") {
                     callback('cancel');
                     return;
                 }
