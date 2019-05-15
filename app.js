@@ -325,15 +325,12 @@ function tatung(data, tatungSpeach, callback) {
             callback("請說您要找的中英文人名");
         } else if (hasTatung == true && hasNR == true) {
             console.log("搜尋1");
-            gotcancel = false; //還原上面是否取消的狀態
             callback("搜尋");
         } else if (tatungSpeach == "true" && hasNR == true) {
             console.log("搜尋2");
-            gotcancel = false; //還原上面是否取消的狀態
             callback("搜尋");
         } else {
             console.log("沒叫我");
-            gotcancel = false; //還原上面是否取消的狀態
             callback("沒叫我");
         }
     })
@@ -463,6 +460,7 @@ function checksearch(searchdata, callback) {
                         }
                     }
                 } else if (result[i][0] == "不" || result[i][0] == "不是" || result[i][0] == "不要" || result[i][0] == "取消" || result[i][0] == "不用" || result[i][0] == "不需要" || result[i][0] == "拜拜" || result[i][0] == "掰掰" || result[i][0] == "沒事" || result[i][0] == "結束" || result[i][0] == "再見") {
+                    gotcancel = false; //還原上面是否取消的狀態
                     callback('cancel');
                     return;
                 }
@@ -541,12 +539,12 @@ function dataforboolean(databoolean, callback) {
                             else if (this_num.indexOf("八") != -1) returnVal += '8' //callback("8");
                             else if (this_num.indexOf("九") != -1) returnVal += '9' //callback("9");
                             else if (this_num.indexOf("十") != -1) returnVal += '10' //callback("10");
-                            else if (this_num.indexOf("第") != -1) {
+                            else if (this_num.indexOf("第") != -1 || this_num.indexOf("號") != -1 || this_num.indexOf("号") != -1) {
                                 continue;
-                            } else {
+                            } /*else {
                                 callback('notfound');
                                 return;
-                            }
+                            }*/
                             break;
                         default:
                             console.log(typeof (this_num));
@@ -588,6 +586,7 @@ function dataforboolean(databoolean, callback) {
                         return;
                     }
                 } else if (result[i][0] == "取消" || result[i][0] == "不" || result[i][0] == "不是" || result[i][0] == "不4" || result[i][0] == "不要" || result[i][0] == "不用" || result[i][0] == "不需要" || result[i][0] == "拜拜" || result[i][0] == "掰掰" || result[i][0] == "不好" || result[i][0] == "沒事" || result[i][0] == "bye" || result[i][0] == "bye bye" || result[i][0] == "結束" || result[i][0] == "再見") {
+                    gotcancel = false; //還原上面是否取消的狀態
                     callback('cancel');
                     return;
                 }
@@ -710,7 +709,7 @@ app.get('/images/flower.jpg', function (request, response) {
 function resetQuickSearchData() {
     console.log("清除快取");
     quickSearchData = [];
-    setTimeout(resetQuickSearchData, 86400 * 7)
+    setTimeout(resetQuickSearchData, 1800000)
 }
 /*
 app.get('/vendor/bootstrap/css/bootstrap.css', function (request, response) {

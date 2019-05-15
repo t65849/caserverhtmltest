@@ -754,6 +754,10 @@
                         databoolean = databoolean.replace('第B', '第一');
                     } else if (databoolean.indexOf('第b') != -1) {
                         databoolean = databoolean.replace('第b', '第一');
+                    } else if (databoolean.indexOf('商') != -1) {
+                        databoolean = databoolean.replace('商', '三');
+                    } else if (databoolean.indexOf('山') != -1) {
+                        databoolean = databoolean.replace('山', '三');
                     } else if (databoolean.indexOf('b') != -1) {
                         databoolean = databoolean.replace('b', '');
                     } else if (databoolean.indexOf('B') != -1) {
@@ -768,22 +772,58 @@
                         databoolean = databoolean.replace('無比', '五');
                     } else if (databoolean.indexOf('D5') != -1) {
                         databoolean = databoolean.replace('D5', '五');
+                    } else if (databoolean.indexOf('母') != -1) {
+                        databoolean = databoolean.replace('母', '五');
+                    } else if (databoolean.indexOf('無') != -1) {
+                        databoolean = databoolean.replace('無', '五');
+                    } else if (databoolean.indexOf('霧') != -1) {
+                        databoolean = databoolean.replace('霧', '五');
+                    } else if (databoolean.indexOf('木') != -1) {
+                        databoolean = databoolean.replace('木', '五');
                     } else if (databoolean.indexOf('底漆') != -1) {
                         databoolean = databoolean.replace('底漆', '七');
                     } else if (databoolean.indexOf('必須') != -1) {
                         databoolean = databoolean.replace('必須', '七');
                     } else if (databoolean.indexOf('d7') != -1) {
                         databoolean = databoolean.replace('d7', '七');
+                    } else if (databoolean.indexOf('d7') != -1) {
+                        databoolean = databoolean.replace('d7', '七');
+                    } else if (databoolean.indexOf('C') != -1) {
+                        databoolean = databoolean.replace('C', '七');
+                    } else if (databoolean.indexOf('c') != -1) {
+                        databoolean = databoolean.replace('c', '七');
+                    } else if (databoolean.indexOf('C') != -1) {
+                        databoolean = databoolean.replace('C', '七');
                     } else if (databoolean.indexOf('的芭比') != -1) {
                         databoolean = databoolean.replace('的芭比', '八');
                     } else if (databoolean.indexOf('爸') != -1) {
                         databoolean = databoolean.replace('爸', '八');
+                    } else if (databoolean.indexOf('芭') != -1) {
+                        databoolean = databoolean.replace('芭', '八');
                     } else if (databoolean.indexOf('就') != -1) {
                         databoolean = databoolean.replace('就', '九');
+                    } else if (databoolean.indexOf('酒') != -1) {
+                        databoolean = databoolean.replace('酒', '九');
+                    } else if (databoolean.indexOf('久') != -1) {
+                        databoolean = databoolean.replace('久', '九');
                     } else if (databoolean.indexOf('歷史') != -1) {
                         databoolean = databoolean.replace('歷史', '第十');
+                    } else if (databoolean.indexOf('詩') != -1) {
+                        databoolean = databoolean.replace('詩', '十');
+                    } else if (databoolean.indexOf('師') != -1) {
+                        databoolean = databoolean.replace('師', '十');
+                    } else if (databoolean.indexOf('施') != -1) {
+                        databoolean = databoolean.replace('施', '十');
+                    } else if (databoolean.indexOf('食') != -1) {
+                        databoolean = databoolean.replace('食', '十');
+                    } else if (databoolean.indexOf('石') != -1) {
+                        databoolean = databoolean.replace('石', '十');
+                    } else if (databoolean.indexOf('死') != -1) {
+                        databoolean = databoolean.replace('死', '十');
                     } else if (databoolean.indexOf('低15') != -1) {
                         databoolean = databoolean.replace('低15', '15');
+                    } else if (databoolean.indexOf('低') != -1) {
+                        databoolean = databoolean.replace('低', '');
                     } else if (databoolean.indexOf('z') != -1) {
                         databoolean = databoolean.replace('z', '');
                     } else if (databoolean.indexOf('D') != -1) {
@@ -886,6 +926,7 @@
                                         break;
                                     case '請說您要找的中英文人名': //重新搜尋
                                         console.log('請說您要找的中英文人名');
+                                        $("#speechStatue").html("請說您要找的中英文人名，或說取消結束");
                                         $('#tableforuser').empty();
                                         $('#divrow').width(635);
                                         $("#searchdata").val(myTranscript);
@@ -898,8 +939,8 @@
                                             getvoice(true);
                                         }
                                         break;
-                                    case 'notfound':
-                                        break;
+                                    /*case 'notfound':
+                                        break;*/
                                     default:
                                         /*console.log("default: " + resdata)
                                         $('#searchdata').val(databoolean);
