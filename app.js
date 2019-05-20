@@ -37,7 +37,7 @@ jiebarun()
 function jiebarun() {
     analyzer.dict('dict.txt', function (err) { //==
         if (err) console.log(err)
-        analyzer.pseg("第一筆資料大同寶寶", {
+        analyzer.pseg("第一筆資料小Q", {
             mode: Jieba.mode.SEARCH,
             HMM: true
         }, function (err, result) {
@@ -315,7 +315,8 @@ function tatung(data, tatungSpeach, callback) {
                     return;
                 }
             }
-            if (result[i][0] == "大同寶寶" || result[i][0] == "大同" || result[i][0] == "寶寶" || result[i][0] == "童寶寶" || result[i][0] == "唐寶寶" || result[i][0] == "泡泡" || result[i][0] == "大樂透" || result[i][0] == "爸爸" || result[i][0] == "包包" || result[i][0] == "大口") hasTatung = true;
+            //if (result[i][0] == "大同寶寶" || result[i][0] == "大同" || result[i][0] == "寶寶" || result[i][0] == "童寶寶" || result[i][0] == "唐寶寶" || result[i][0] == "泡泡" || result[i][0] == "大樂透" || result[i][0] == "爸爸" || result[i][0] == "包包" || result[i][0] == "大口") hasTatung = true;
+            if (result[i][0] == "小Q" || result[i][0] == "小q" || result[i][0] == "小龜") hasTatung = true;
             if (result[i][1] == "nr" || result[i][1] == "ng" || result[i][1] == "nrfg" || result[i][1] == "nrt" || result[i][1] == "nt") hasNR = true;
             if (result[i][1] == "eng") hasNR = true;
         }
@@ -564,7 +565,7 @@ function dataforboolean(databoolean, callback) {
                         hasVal = true;
                     }
                     //return;
-                } else if (result[i][0] == "重新搜尋" || result[i][0] == "重新" || result[i][0] == "搜尋" || result[i][0] == "大同寶寶" || result[i][0] == "大同" || result[i][0] == "寶寶" || result[i][0] == "童寶寶" || result[i][0] == "唐寶寶" || result[i][0] == "泡泡" || result[i][0] == "大樂透" || result[i][0] == "爸爸" || result[i][0] == "包包" || result[i][0] == "大口") {
+                } else if (result[i][0] == "重新搜尋" || result[i][0] == "重新" || result[i][0] == "搜尋" || result[i][0] == "小Q" || result[i][0] == "小q" || result[i][0] == "小龜") { //|| result[i][0] == "大同寶寶" || result[i][0] == "大同" || result[i][0] == "寶寶" || result[i][0] == "童寶寶" || result[i][0] == "唐寶寶" || result[i][0] == "泡泡" || result[i][0] == "大樂透" || result[i][0] == "爸爸" || result[i][0] == "包包" || result[i][0] == "大口"
                     callback("請說您要找的中英文人名");
                     return;
                 } else if (result[i][0] == "分機" || result[i][0] == "分級" || result[i][0] == "生機" || result[i][0] == "畚箕" || result[i][0] == "飛機" || result[i][0] == "登機" || result[i][0] == "桌機" || result[i][0] == "分析" || result[i][0] == "噴劑" || result[i][0] == "班機" || result[i][0] == "根基") { //else if (result[i][0] == "沒錯" || result[i][0] == "需要" || result[i][0] == "撥電話" || result[i][0] == "打電話" || result[i][0] == "謝謝" || result[i][0] == "是" || result[i][0] == "是的") {
